@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starrysky.sys.dao.ManDao">
+    <!--映射实体类-->
+    <resultMap id="classesResultMap" type="com.starrysky.sys.vo.Man">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <result property="age" column="age"/>
+        <result property="phone" column="phone"/>
+        <result property="address" column="address"/>
+        <result property="creationManId" column="creation_man_id"/>
+        <result property="creationTime" column="creation_time"/>
+        <association property="creationMan" column="creation_man_id" select="findCreationById"/>
+    </resultMap>
+    <!--映射 创建人 实体类-->
+    <resultMap id="creationManMap" type="com.starrysky.sys.vo.Man">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+    <!--查询创建人-->
+    <select id="findCreationById" parameterType="int" resultMap="creationManMap">
+        SELECT * FROM t_man WHERE id=#{creation_man_id}
+    </select>
+
+    <!--查询全部数据-->
+    <select id="findAll" parameterType="java.util.List" resultMap="classesResultMap">
+        SELECT * FROM t_man
+    </select>
+    <!--查询-->
+    <select id="findById" parameterType="int" resultMap="classesResultMap">
+        SELECT * FROM t_man WHERE id=#{id}
+    </select>
+    <!--按条件查询-->
+    <select id="findByCondition" parameterType="com.starrysky.sys.vo.Man" resultMap="classesResultMap">
+    SELECT * FROM t_man WHERE 1=1
+<!--        <if test="user != null">
+           AND user LIKE CONCAT(CONCAT('%', #{user, jdbcType=VARCHAR}),'%')
+        </if>
+        <if test="name != null">
+            AND name LIKE CONCAT(CONCAT('%', #{name, jdbcType=VARCHAR}),'%')
+        </if>-->
+
+</select>
+
+    <!--增加-->
+    <insert id="doCreate" parameterType="com.starrysky.sys.vo.Man">
+        INSERT INTO t_man(id,name)VALUES (#{id},#{name})
+    </insert>
+
+    <!--更新-->
+    <update id="doUpdate" parameterType="com.starrysky.sys.vo.Man">
+        UPDATE t_man SET name=#{name} WHERE id=#{id}
+    </update>
+
+    <!--批量删除-->
+    <delete id="doRemoveBatch" parameterType="java.util.List">
+        DELETE FROM t_man
+        <where>
+            id IN
+            <foreach collection="list" item="ele" open="(" close=")" separator=",">
+                '${ele}'
+            </foreach>
+        </where>
+    </delete>
+    <!--删除-->
+    <delete id="doRemove" parameterType="int">
+        DELETE FROM t_man  WHERE id = #{id}
+    </delete>
+
+
+</mapper>
