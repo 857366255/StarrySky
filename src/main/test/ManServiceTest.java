@@ -4,9 +4,7 @@
 
 import base.SpringTestCase;
 import com.starrysky.sys.service.ManService;
-import com.starrysky.sys.service.UserService;
 import com.starrysky.sys.vo.Man;
-import com.starrysky.sys.vo.User;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -33,7 +31,11 @@ public class ManServiceTest extends SpringTestCase {
     public void findByCondition() {
         System.out.println("按条件查询人");
         Man man = new Man();
-        man.setName("s");
+        //man.setName("z");
+        //man.setSex(true);
+        //man.setAge(10);
+        //man.setPhone("125");
+       // man.setAddress("阿");
         System.out.println(manService.findByCondition(man));
     }
     /**
@@ -59,7 +61,11 @@ public class ManServiceTest extends SpringTestCase {
     public void doCreate() {
         System.out.println("新增人");
         Man man =  new Man();
-        man.setName("asdasd");
+        man.setName("z");
+        man.setSex(true);
+        man.setAge(10);
+        man.setPhone("125");
+        man.setAddress("阿");
         System.out.println(manService.doCreate(man));
     }
     /**
@@ -69,7 +75,11 @@ public class ManServiceTest extends SpringTestCase {
     public void doUpdate() {
         System.out.println("更新人");
         Man man =  manService.findById(3);
-        man.setName("sadasd");
+        man.setName("zz");
+        man.setSex(true);
+        man.setAge(100);
+        man.setPhone("125asdasd");
+        man.setAddress("阿adsasd");
         System.out.println(manService.doUpdate(man));
     }
     /**

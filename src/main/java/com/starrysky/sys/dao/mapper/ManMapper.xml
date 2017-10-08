@@ -10,22 +10,20 @@
         <result property="age" column="age"/>
         <result property="phone" column="phone"/>
         <result property="address" column="address"/>
-        <result property="creationManId" column="creation_man_id"/>
-        <result property="creationTime" column="creation_time"/>
-        <association property="creationMan" column="creation_man_id" select="findCreationById"/>
+        <!--<association property="creationMan" column="creation_man_id" select="findCreationById"/>-->
     </resultMap>
-    <!--映射 创建人 实体类-->
+    <!--映射 创建人 实体类
     <resultMap id="creationManMap" type="com.starrysky.sys.vo.Man">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
-    </resultMap>
-    <!--查询创建人-->
+    </resultMap>-->
+    <!--查询创建人
     <select id="findCreationById" parameterType="int" resultMap="creationManMap">
         SELECT * FROM t_man WHERE id=#{creation_man_id}
-    </select>
+    </select>-->
 
     <!--查询全部数据-->
-    <select id="findAll" parameterType="java.util.List" resultMap="classesResultMap">
+    <select id="findAll"  resultMap="classesResultMap">
         SELECT * FROM t_man
     </select>
     <!--查询-->
@@ -34,26 +32,37 @@
     </select>
     <!--按条件查询-->
     <select id="findByCondition" parameterType="com.starrysky.sys.vo.Man" resultMap="classesResultMap">
-    SELECT * FROM t_man WHERE 1=1
-<!--        <if test="user != null">
-           AND user LIKE CONCAT(CONCAT('%', #{user, jdbcType=VARCHAR}),'%')
-        </if>
+        SELECT * FROM t_man WHERE 1=1
         <if test="name != null">
-            AND name LIKE CONCAT(CONCAT('%', #{name, jdbcType=VARCHAR}),'%')
-        </if>-->
-
-</select>
-
+            AND name LIKE CONCAT(CONCAT('%', #{name}),'%')
+        </if>
+        <if test="sex != null">
+            AND sex = #{sex}
+        </if>
+        <if test="age != null">
+            AND age = #{age}
+        </if>
+        <if test="phone != null">
+            AND phone LIKE CONCAT(CONCAT('%', #{phone}),'%')
+        </if>
+        <if test="address != null">
+            AND address LIKE CONCAT(CONCAT('%', #{address}),'%')
+        </if>
+    </select>
     <!--增加-->
     <insert id="doCreate" parameterType="com.starrysky.sys.vo.Man">
-        INSERT INTO t_man(id,name)VALUES (#{id},#{name})
+        INSERT INTO t_man(name,sex,age,phone,address)VALUES (#{name},#{sex},#{age},#{phone},#{address})
     </insert>
-
     <!--更新-->
     <update id="doUpdate" parameterType="com.starrysky.sys.vo.Man">
-        UPDATE t_man SET name=#{name} WHERE id=#{id}
+        UPDATE t_man SET
+          name=#{name}
+          ,sex=#{sex}
+          ,age=#{age}
+          ,phone=#{phone}
+          ,address=#{address}
+        WHERE id=#{id}
     </update>
-
     <!--批量删除-->
     <delete id="doRemoveBatch" parameterType="java.util.List">
         DELETE FROM t_man

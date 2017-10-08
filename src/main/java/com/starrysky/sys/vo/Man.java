@@ -73,6 +73,7 @@ public class Man extends Base implements Serializable {
         this.address = address;
     }
 
+
     @Override
     public String toString() {
         return "Man{" +
