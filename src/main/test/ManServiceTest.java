@@ -32,8 +32,8 @@ public class ManServiceTest extends SpringTestCase {
         System.out.println("按条件查询人");
         Man man = new Man();
         //man.setName("z");
-        //man.setSex(true);
-        //man.setAge(10);
+       // man.setSex(true);
+        man.setAge(10);
         //man.setPhone("125");
        // man.setAddress("阿");
         System.out.println(manService.findByCondition(man));
@@ -75,11 +75,11 @@ public class ManServiceTest extends SpringTestCase {
     public void doUpdate() {
         System.out.println("更新人");
         Man man =  manService.findById(3);
-        man.setName("zz");
+        man.setName("zz2");
         man.setSex(true);
-        man.setAge(100);
-        man.setPhone("125asdasd");
-        man.setAddress("阿adsasd");
+        man.setAge(1000);
+        man.setPhone("125asdasd1");
+        man.setAddress("阿adsasd1");
         System.out.println(manService.doUpdate(man));
     }
     /**

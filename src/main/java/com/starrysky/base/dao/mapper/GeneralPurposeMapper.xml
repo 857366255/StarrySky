@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starrysky.base.dao.GeneralPurposeDao">
+
+    <!--增加-->
+    <insert id="doCreate" parameterType="java.util.Map">
+        INSERT INTO t_employees
+        <trim prefix="(" suffix=")" >
+            <foreach collection="column" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')"> ${index}</if></foreach>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <foreach collection="column" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">#{item}</if></foreach>
+        </trim>
+    </insert>
+    <!--批量删除-->
+    <delete id="doRemoveBatch" parameterType="java.util.List">
+        DELETE FROM t_employees
+        <where>
+            id IN
+            <foreach collection="list" item="ele" open="(" separator="," close=")">
+                '${ele}'
+            </foreach>
+        </where>
+    </delete>
+    <!--删除-->
+    <delete id="doRemove" parameterType="int">
+        DELETE FROM t_employees  WHERE id = #{id}
+    </delete>
+    <!--更新-->
+    <update id="doUpdate" parameterType="java.util.Map">
+        UPDATE t_employees
+        <trim prefix="SET" suffixOverrides=",">
+            <foreach collection="column" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">${index}=#{item}</if></foreach>
+            <!--<if test="name != null">name=#{name},</if>
+            <if test="sex != null">sex=#{sex},</if>
+            <if test="age != null">age=#{age},</if>
+            <if test="phone != null">phone=#{phone},</if>
+            <if test="address != null">address=#{address},</if>-->
+        </trim>
+        WHERE
+        <choose>
+            <when test="column.id !=null ">
+                id=${column.id}
+            </when >
+            <otherwise>
+                1=2
+            </otherwise>
+        </choose>
+    </update>
+    <!--查询全部数据-->
+    <select id="findAll" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT
+        <foreach collection="column" index="index" item="item" separator="," >
+            ${index}
+        </foreach>
+        FROM t_employees
+    </select>
+    <!--按id查询数据-->
+    <select id="findById" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT
+        <foreach collection="column" index="index" item="item" separator="," >
+            ${index}
+        </foreach>
+        FROM t_employees WHERE
+        <choose>
+            <when test="column.id !=null ">
+                id=${column.id}
+            </when >
+            <otherwise>
+                1=2
+            </otherwise>
+        </choose>
+    </select>
+    <!--按条件查询-->
+    <select id="findByCondition" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT
+        <foreach collection="column" index="index" item="item" separator="," >
+          ${index}
+        </foreach>
+        FROM t_employees
+        <where>
+            <foreach collection="find" index="index" item="item" separator="AND " >
+                <if test="item != null">${index}=#{item}</if>
+            </foreach>
+        </where>
+    </select>
+
+</mapper>
