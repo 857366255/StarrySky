@@ -5,7 +5,7 @@
 
     <!--增加-->
     <insert id="doCreate" parameterType="java.util.Map">
-        INSERT INTO t_employees
+        INSERT INTO ${table}
         <trim prefix="(" suffix=")" >
             <foreach collection="column" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')"> ${index}</if></foreach>
         </trim>
@@ -15,29 +15,41 @@
         </trim>
     </insert>
     <!--批量删除-->
-    <delete id="doRemoveBatch" parameterType="java.util.List">
-        DELETE FROM t_employees
+    <delete id="doRemoveBatch" parameterType="java.util.Map">
+        DELETE FROM ${table}
         <where>
-            id IN
-            <foreach collection="list" item="ele" open="(" separator="," close=")">
-                '${ele}'
-            </foreach>
+            <choose>
+                <when test="removeBatch != null and removeBatch.size()!=0">
+                    id IN
+                    <foreach collection="removeBatch" item="item" open="(" separator="," close=")">
+                        '${item}'
+                    </foreach>
+                </when >
+                <otherwise>
+                    1=2
+                </otherwise>
+            </choose>
         </where>
     </delete>
     <!--删除-->
-    <delete id="doRemove" parameterType="int">
-        DELETE FROM t_employees  WHERE id = #{id}
+    <delete id="doRemove" parameterType="java.util.Map">
+        DELETE FROM ${table}
+        <where>
+            <choose>
+                <when test="remove != null">
+                    id = #{remove}
+                </when >
+                <otherwise>
+                    1=2
+                </otherwise>
+            </choose>
+        </where>
     </delete>
     <!--更新-->
     <update id="doUpdate" parameterType="java.util.Map">
-        UPDATE t_employees
+        UPDATE ${table}
         <trim prefix="SET" suffixOverrides=",">
             <foreach collection="column" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">${index}=#{item}</if></foreach>
-            <!--<if test="name != null">name=#{name},</if>
-            <if test="sex != null">sex=#{sex},</if>
-            <if test="age != null">age=#{age},</if>
-            <if test="phone != null">phone=#{phone},</if>
-            <if test="address != null">address=#{address},</if>-->
         </trim>
         WHERE
         <choose>
@@ -55,7 +67,7 @@
         <foreach collection="column" index="index" item="item" separator="," >
             ${index}
         </foreach>
-        FROM t_employees
+        FROM ${table}
     </select>
     <!--按id查询数据-->
     <select id="findById" parameterType="java.util.Map" resultType="java.util.Map">
@@ -63,7 +75,7 @@
         <foreach collection="column" index="index" item="item" separator="," >
             ${index}
         </foreach>
-        FROM t_employees WHERE
+        FROM ${table} WHERE
         <choose>
             <when test="column.id !=null ">
                 id=${column.id}
@@ -79,7 +91,7 @@
         <foreach collection="column" index="index" item="item" separator="," >
           ${index}
         </foreach>
-        FROM t_employees
+        FROM ${table}
         <where>
             <foreach collection="find" index="index" item="item" separator="AND " >
                 <if test="item != null">${index}=#{item}</if>

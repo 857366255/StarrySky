@@ -35,6 +35,10 @@
   <listener>
     <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
   </listener>
+  <!--项目启动时执行-->
+  <listener>
+    <listener-class> com.starrysky.WebContextListener</listener-class>
+  </listener>
 
   <!-- Spring MVC servlet -->
   <servlet>

@@ -11,8 +11,8 @@ import java.util.Map;
 public interface GeneralPurposeDao {
 
     public Boolean doCreate(Map<String,Object> map);
-    public boolean doRemoveBatch(List<Integer> ids);
-    public boolean doRemove(Integer id);
+    public boolean doRemoveBatch(Map<String,Object> map);
+    public boolean doRemove(Map<String,Object> map);
     public boolean doUpdate(Map<String,Object> map);
     public List<Map<String,Object>> findAll(Map<String,Object> map);
     public Map<String,Object> findById(Map<String,Object> map);

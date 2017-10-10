@@ -3,10 +3,11 @@
  */
 
 import base.SpringTestCase;
-import com.starrysky.module.sys.service.EmployeesService;
-import com.starrysky.sys.vo.Man;
+import com.starrysky.module.member.service.EmployeesService;
 import org.junit.Test;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -20,6 +21,23 @@ public class GeneralPurposeServiceTest extends SpringTestCase {
 
     @Autowired
     private EmployeesService employeesService;
+    @Autowired
+    private SqlSessionTemplate sqlSessionTemplate;
+
+    @Value("#{db.hwz}")
+    private String filePath;
+
+    /**
+     * select * from INFORMATION_SCHEMA.columns where table_schema='starrysky';查看该用户下的字段
+     * show create table t_man;查看表结构sql语句
+     * select * from INFORMATION_SCHEMA.KEY_COLUMN_USAGE where table_schema = 'starrysky' 查看外键
+     * fk 外键
+     * pk 主键
+     */
+    @Test
+    public void zxc(){
+        System.out.println(filePath);
+    }
 
     /**
      * 新增人
@@ -44,8 +62,8 @@ public class GeneralPurposeServiceTest extends SpringTestCase {
     public void doRemoveBatch() {
         System.out.println("批量删除人");
         List<Integer> list = new ArrayList<Integer> ();
-        list.add(5);
-        list.add(4);
+        list.add(6);
+        //list.add(8);
         System.out.println(employeesService.doRemoveBatch(list));
     }
 
@@ -55,7 +73,7 @@ public class GeneralPurposeServiceTest extends SpringTestCase {
     @Test
     public void doRemove() {
         System.out.println("删除人");
-        System.out.println(employeesService.doRemove(3));
+        System.out.println(employeesService.doRemove(7));
     }
 
     @Test
