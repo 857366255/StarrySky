@@ -4,7 +4,7 @@
 <mapper namespace="com.starrysky.sys.dao.ManDao">
     <!--映射实体类-->
     <sql id="select_from" >SELECT id, name, sex, age,phone,address FROM t_man</sql>
-    <resultMap id="classesResultMap" type="com.starrysky.sys.vo.Man">
+    <resultMap id="classesResultMap" type="com.starrysky.sys.po.Man">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="sex" column="sex"/>
@@ -32,7 +32,7 @@
         <include refid="select_from" />  WHERE id=#{id}
     </select>
     <!--按条件查询-->
-    <select id="findByCondition" parameterType="com.starrysky.sys.vo.Man" resultMap="classesResultMap">
+    <select id="findByCondition" parameterType="com.starrysky.sys.po.Man" resultMap="classesResultMap">
         <include refid="select_from" />
         <trim prefix="WHERE" prefixOverrides="AND | OR">
             <if test="name != null">
@@ -53,7 +53,7 @@
         </trim>
     </select>
     <!--增加-->
-    <insert id="doCreate" parameterType="com.starrysky.sys.vo.Man">
+    <insert id="doCreate" parameterType="com.starrysky.sys.po.Man">
         INSERT INTO t_man
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="name != null">name,</if>
@@ -72,7 +72,7 @@
         </trim>
     </insert>
     <!--更新-->
-    <update id="doUpdate" parameterType="com.starrysky.sys.vo.Man">
+    <update id="doUpdate" parameterType="com.starrysky.sys.po.Man">
         UPDATE t_man
         <trim prefix="SET" suffixOverrides=",">
             <if test="name != null">name=#{name},</if>

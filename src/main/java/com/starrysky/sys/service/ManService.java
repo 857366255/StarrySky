@@ -4,7 +4,7 @@ package com.starrysky.sys.service;
 
 
 
-import com.starrysky.sys.vo.Man;
+import com.starrysky.sys.po.Man;
 
 import java.util.List;
 

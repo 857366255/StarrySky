@@ -1,9 +1,5 @@
-package com.starrysky.sys.vo;
+package com.starrysky.sys.po;
 
-
-
-
-import com.starrysky.base.vo.Base;
 
 import java.io.Serializable;
 
@@ -11,7 +7,8 @@ import java.io.Serializable;
  * 人
  * Created by wz on 2017/10/07
  */
-public class Man extends Base implements Serializable {
+public class Man implements Serializable {
+    private Integer id;
     /**
      *名称
      */
@@ -32,6 +29,14 @@ public class Man extends Base implements Serializable {
      *地址
      */
     private String address;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -73,11 +78,10 @@ public class Man extends Base implements Serializable {
         this.address = address;
     }
 
-
     @Override
     public String toString() {
         return "Man{" +
-                super.toString() +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", sex=" + sex +
                 ", age=" + age +

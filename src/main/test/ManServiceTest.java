@@ -4,7 +4,7 @@
 
 import base.SpringTestCase;
 import com.starrysky.sys.service.ManService;
-import com.starrysky.sys.vo.Man;
+import com.starrysky.sys.po.Man;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

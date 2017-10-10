@@ -1,7 +1,5 @@
 package com.starrysky.base.dao;
 
-import com.starrysky.sys.vo.Man;
-
 import java.util.List;
 import java.util.Map;
 

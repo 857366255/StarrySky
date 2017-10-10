@@ -3,7 +3,7 @@ package com.starrysky.sys.service.impl;
 
 import com.starrysky.sys.dao.ManDao;
 import com.starrysky.sys.service.ManService;
-import com.starrysky.sys.vo.Man;
+import com.starrysky.sys.po.Man;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
