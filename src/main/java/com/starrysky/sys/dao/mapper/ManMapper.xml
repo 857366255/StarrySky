@@ -24,7 +24,7 @@
     </select>-->
 
     <!--查询全部数据-->
-    <select id="findAll"  resultMap="classesResultMap">
+    <select id="findAll" parameterType="java.util.List"  resultMap="classesResultMap">
         <include refid="select_from" />
     </select>
     <!--查询-->

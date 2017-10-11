@@ -12,8 +12,9 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-10-10 15:27:53
+Date: 2017-10-11 16:35:02
 */
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
@@ -27,16 +28,17 @@ CREATE TABLE `s_field` (
   `id_name` varchar(255) DEFAULT NULL COMMENT 'id名称',
   `type` varchar(255) DEFAULT NULL COMMENT '类型',
   `size` double DEFAULT NULL COMMENT '大小',
+  `type_size` varchar(255) DEFAULT NULL,
   `is_null` tinyint(1) DEFAULT NULL COMMENT '是否允许未空',
-  `type_size` double DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_field_table_id` (`table_id`),
   CONSTRAINT `fk_field_table_id` FOREIGN KEY (`table_id`) REFERENCES `s_table` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='字段';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='字段';
 
 -- ----------------------------
 -- Records of s_field
 -- ----------------------------
+INSERT INTO `s_field` VALUES ('4', '1', '自行车', 'zxc', 'varchar', '255', 'varchar(255)', null);
 
 -- ----------------------------
 -- Table structure for s_table
@@ -47,11 +49,12 @@ CREATE TABLE `s_table` (
   `name` varchar(255) DEFAULT NULL COMMENT '名称',
   `id_name` varchar(255) DEFAULT NULL COMMENT 'id名称',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='表';
 
 -- ----------------------------
 -- Records of s_table
 -- ----------------------------
+INSERT INTO `s_table` VALUES ('1', '自行车', 'zxc');
 
 -- ----------------------------
 -- Table structure for t_employees
