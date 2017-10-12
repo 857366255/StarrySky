@@ -3,10 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.starrysky.base.dao.FieldDao">
     <!--映射实体类-->
-    <sql id="select_from" > SELECT id, table_id, name, id_name,type,size,type_size,is_null FROM s_field </sql>
+    <sql id="select_from" > SELECT id, table_name, name, id_name,type,size,type_size,is_null FROM s_field </sql>
     <resultMap id="classesResultMap" type="com.starrysky.base.po.Field">
         <id property="id" column="id"/>
-        <result property="tableId" column="table_id"/>
+        <result property="tableName" column="table_name"/>
         <result property="name" column="name"/>
         <result property="idName" column="id_name"/>
         <result property="type" column="type"/>
@@ -19,7 +19,7 @@
         INSERT INTO s_field
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">id,</if>
-            <if test="tableId != null">table_id,</if>
+            <if test="tableName != null">table_name,</if>
             <if test="name != null">name,</if>
             <if test="idName != null">id_name,</if>
             <if test="type != null">type,</if>
@@ -30,7 +30,7 @@
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">#{id},</if>
-            <if test="tableId != null">#{tableId},</if>
+            <if test="tableName != null">#{tableName},</if>
             <if test="name != null">#{name},</if>
             <if test="idName != null">#{idName},</if>
             <if test="type != null">#{type},</if>
@@ -65,7 +65,7 @@
         UPDATE s_field
         <trim prefix="SET" suffixOverrides=",">
             <!--<if test="id != null">id=#{id},</if>-->
-            <if test="tableId != null">table_id=#{tableId},</if>
+            <if test="tableName != null">table_name=#{tableName},</if>
             <if test="name != null">name=#{name},</if>
             <if test="idName != null">id_name=#{idName},</if>
             <if test="type != null">type=#{type},</if>
@@ -100,5 +100,19 @@
             </foreach>
         </where>
     </select>-->
+
+    <resultMap id="databaseFieldMap" type="com.starrysky.base.po.Field">
+        <id property="id" column="id"/>
+        <result property="tableName" column="table_name"/>
+        <result property="name" column="column_comment"/>
+        <result property="idName" column="column_name"/>
+        <result property="type" column="data_type"/>
+        <!--<result property="size" column="size"/>-->
+        <result property="typeSize" column="column_type"/>
+        <result property="isNull" column="is_nullable"/>
+    </resultMap>
+    <select id="getDatabaseField" resultMap="databaseFieldMap">
+        CALL get_database_field()
+    </select>
 
 </mapper>

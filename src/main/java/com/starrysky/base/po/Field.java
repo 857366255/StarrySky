@@ -6,7 +6,7 @@ package com.starrysky.base.po;
  */
 public class Field {
     private Integer id;
-    private Integer tableId;
+    private String tableName;
     private String name;
     private String idName;
     private String type;
@@ -22,12 +22,20 @@ public class Field {
         this.id = id;
     }
 
-    public Integer getTableId() {
-        return tableId;
+    public String getTableName() {
+        return tableName;
     }
 
-    public void setTableId(Integer tableId) {
-        this.tableId = tableId;
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
+
+    public String getTypeSize() {
+        return typeSize;
+    }
+
+    public void setTypeSize(String typeSize) {
+        this.typeSize = typeSize;
     }
 
     public String getName() {
@@ -79,10 +87,40 @@ public class Field {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Field field = (Field) o;
+
+       // if (id != null ? !id.equals(field.id) : field.id != null) return false;
+        if (tableName != null ? !tableName.equals(field.tableName) : field.tableName != null) return false;
+        if (name != null ? !name.equals(field.name) : field.name != null) return false;
+        if (idName != null ? !idName.equals(field.idName) : field.idName != null) return false;
+        if (type != null ? !type.equals(field.type) : field.type != null) return false;
+        if (size != null ? !size.equals(field.size) : field.size != null) return false;
+        if (typeSize != null ? !typeSize.equals(field.typeSize) : field.typeSize != null) return false;
+        return isNull != null ? isNull.equals(field.isNull) : field.isNull == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (tableName != null ? tableName.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (idName != null ? idName.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (size != null ? size.hashCode() : 0);
+        result = 31 * result + (typeSize != null ? typeSize.hashCode() : 0);
+        result = 31 * result + (isNull != null ? isNull.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Field{" +
                 "id=" + id +
-                ", tableId=" + tableId +
+                ", tableName=" + tableName +
                 ", name='" + name + '\'' +
                 ", idName='" + idName + '\'' +
                 ", type='" + type + '\'' +

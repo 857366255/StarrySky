@@ -48,6 +48,33 @@ public class Table {
         this.fieldList = fieldList;
     }
 
+    /**
+     * 判断IdName是否相同
+     * @param table
+     * @return
+     */
+    public Boolean isIdNameSame(Table table) {
+        return idName.equals(table.getIdName());
+    }
+
+    /**
+     *判断name 是否相同
+     * @param table
+     * @return
+     */
+    public boolean isNameSame(Table table) {
+        return name.equals(table.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (idName != null ? idName.hashCode() : 0);
+        result = 31 * result + (fieldList != null ? fieldList.hashCode() : 0);
+        return result;
+    }
+
     @Override
     public String toString() {
         return "Table{" +

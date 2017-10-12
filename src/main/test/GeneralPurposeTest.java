@@ -17,7 +17,7 @@ import java.util.*;
  * 功能概要：单元测试
  */
 @Component("configInfo")
-public class GeneralPurposeServiceTest extends SpringTestCase {
+public class GeneralPurposeTest extends SpringTestCase {
 
     @Autowired
     private EmployeesService employeesService;
@@ -28,11 +28,12 @@ public class GeneralPurposeServiceTest extends SpringTestCase {
     private String filePath;
 
     /**
-     * select * from INFORMATION_SCHEMA.columns where table_schema='starrysky';查看该用户下的字段
-     * show create table t_man;查看表结构sql语句
+     * SELECT TABLE_NAME,TABLE_COMMENT FROM information_schema.TABLES WHERE table_schema='starrysky';查看该用户下表信息
+     * select * from INFORMATION_SCHEMA.columns where table_schema='starrysky';查看该用户下所以字
      * select * from INFORMATION_SCHEMA.KEY_COLUMN_USAGE where table_schema = 'starrysky' 查看外键
      * fk 外键
      * pk 主键
+     * show create table t_man;查看表结构sql语句
      */
     @Test
     public void zxc(){

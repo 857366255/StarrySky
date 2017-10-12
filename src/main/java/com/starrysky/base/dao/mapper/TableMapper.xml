@@ -8,12 +8,12 @@
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="idName" column="id_name"/>
-        <association property="fieldList" column="id" select="findByIdField"/>
+        <association property="fieldList" column="table_name" select="findByIdField"/>
     </resultMap>
     <!--字段-->
     <resultMap id="fieldListMap" type="com.starrysky.base.po.Field">
         <id property="id" column="id"/>
-        <result property="tableId" column="table_id"/>
+        <result property="tableName" column="table_name"/>
         <result property="name" column="name"/>
         <result property="idName" column="id_name"/>
         <result property="type" column="type"/>
@@ -23,7 +23,7 @@
     </resultMap>
     <!--查询字段-->
     <select id="findByIdField" parameterType="int" resultMap="fieldListMap">
-        SELECT id, table_id, name, id_name,type,size,type_size,is_null FROM s_field WHERE table_id=#{id}
+        SELECT id, table_name, name, id_name,type,size,type_size,is_null FROM s_field WHERE table_name=#{table_name}
     </select>
     <!--增加-->
     <insert id="doCreate" parameterType="com.starrysky.base.po.Table">
@@ -95,5 +95,12 @@
             </foreach>
         </where>
     </select>-->
-
+    <resultMap id="databaseTableMap" type="com.starrysky.base.po.Table">
+        <id property="id" column="id"/>
+        <result property="name" column="table_comment"/>
+        <result property="idName" column="table_name"/>
+    </resultMap>
+    <select id="getDatabaseTable" resultMap="databaseTableMap">
+        CALL get_database_table()
+    </select>
 </mapper>

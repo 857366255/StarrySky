@@ -3,24 +3,26 @@
  */
 
 import base.SpringTestCase;
-import com.starrysky.base.po.Field;
-import com.starrysky.base.service.FieldService;
+import com.starrysky.sys.service.ManService;
+import com.starrysky.sys.po.Man;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 /**
  * 功能概要：单元测试
  */
 @Component("configInfo")
-public class FieldServiceTest extends SpringTestCase {
+public class ManTest extends SpringTestCase {
 
     @Autowired
-    private FieldService fieldService;
+    private ManService manService;
 
     /**
      * 按条件查询人
@@ -28,13 +30,13 @@ public class FieldServiceTest extends SpringTestCase {
     @Test
     public void findByCondition() {
         System.out.println("按条件查询人");
-        Field man = new Field();
+        Man man = new Man();
         //man.setName("z");
        // man.setSex(true);
-      //  man.setAge(10);
+        man.setAge(10);
         //man.setPhone("125");
        // man.setAddress("阿");
-        System.out.println(fieldService.findByCondition(man));
+        System.out.println(manService.findByCondition(man));
     }
     /**
      * 查询人
@@ -42,7 +44,7 @@ public class FieldServiceTest extends SpringTestCase {
     @Test
     public void findById() {
         System.out.println("查询人");
-        System.out.println(fieldService.findById(2));
+        System.out.println(manService.findById(2));
     }
     /**
      * 查询所有人
@@ -50,7 +52,7 @@ public class FieldServiceTest extends SpringTestCase {
     @Test
     public void findAll() {
         System.out.println("查询所有人");
-        System.out.println(fieldService.findAll());
+        System.out.println(manService.findAll());
     }
     /**
      * 新增人
@@ -58,15 +60,13 @@ public class FieldServiceTest extends SpringTestCase {
     @Test
     public void doCreate() {
         System.out.println("新增人");
-        Field field =  new Field();
-        field.setName("自行车");
-        field.setIdName("zxc");
-        field.setTableId(1);
-        field.setType("varchar");
-        field.setSize(255);
-        field.setTyoeSize("varchar(255)");
-        field.setNull(false);
-        System.out.println(fieldService.doCreate(field));
+        Man man =  new Man();
+        man.setName("z");
+        man.setSex(true);
+        man.setAge(10);
+        man.setPhone("125");
+        man.setAddress("阿");
+        System.out.println(manService.doCreate(man));
     }
     /**
      * 更新人
@@ -74,15 +74,13 @@ public class FieldServiceTest extends SpringTestCase {
     @Test
     public void doUpdate() {
         System.out.println("更新人");
-        Field field =  fieldService.findById(1);
-        field.setName("自行车1");
-        field.setIdName("zxc1");
-        field.setTableId(1);
-        field.setType("varchar");
-        field.setSize(255);
-        field.setTyoeSize("varchar(255)");
-        field.setNull(false);
-        System.out.println(fieldService.doUpdate(field));
+        Man man =  manService.findById(3);
+        man.setName("zz2");
+        man.setSex(true);
+        man.setAge(1000);
+        man.setPhone("125asdasd1");
+        man.setAddress("阿adsasd1");
+        System.out.println(manService.doUpdate(man));
     }
     /**
      * 删除人
@@ -90,7 +88,10 @@ public class FieldServiceTest extends SpringTestCase {
     @Test
     public void doRemove() {
         System.out.println("删除人");
-        System.out.println(fieldService.doRemove(1));
+        Set ele = new HashSet();
+        ele.add(3);
+        ele.add(4);
+        System.out.println(manService.doRemove(3));
     }
     /**
      * 批量删除人
@@ -99,9 +100,9 @@ public class FieldServiceTest extends SpringTestCase {
     public void doRemoveBatch() {
         System.out.println("批量删除人");
         List list = new ArrayList();
+        list.add(5);
         list.add(4);
-        list.add(3);
-        System.out.println(fieldService.doRemoveBatch(list));
+        System.out.println(manService.doRemoveBatch(list));
     }
 
 
