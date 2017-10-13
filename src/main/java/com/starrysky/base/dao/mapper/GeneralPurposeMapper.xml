@@ -61,21 +61,22 @@
             </otherwise>
         </choose>
     </update>
+    <sql id="select_from" >
+        SELECT <foreach collection="field" index="index" item="item" separator="," >${item}</foreach> FROM ${table}
+    </sql>
     <!--查询全部数据-->
     <select id="findAll" parameterType="java.util.Map" resultType="java.util.Map">
-        SELECT
-        <foreach collection="column" index="index" item="item" separator="," >
-            ${index}
-        </foreach>
-        FROM ${table}
+        <include refid="select_from" />
     </select>
     <!--按id查询数据-->
     <select id="findById" parameterType="java.util.Map" resultType="java.util.Map">
-        SELECT
+        <!--SELECT
         <foreach collection="column" index="index" item="item" separator="," >
             ${index}
         </foreach>
-        FROM ${table} WHERE
+        FROM ${table}-->
+        <include refid="select_from" />
+        WHERE
         <choose>
             <when test="column.id !=null ">
                 id=${column.id}
@@ -87,16 +88,45 @@
     </select>
     <!--按条件查询-->
     <select id="findByCondition" parameterType="java.util.Map" resultType="java.util.Map">
-        SELECT
+        <include refid="select_from" />
+        <!--SELECT
         <foreach collection="column" index="index" item="item" separator="," >
           ${index}
         </foreach>
-        FROM ${table}
+        FROM ${table}-->
         <where>
             <foreach collection="find" index="index" item="item" separator="AND " >
                 <if test="item != null">${index}=#{item}</if>
             </foreach>
         </where>
     </select>
+    <!--根据表名称查找-->
+    <select id="findByTableName" parameterType="java.util.Map" resultType="java.util.Map">
+        <include refid="select_from" />
+        WHERE
+        <choose>
+            <when test="table_name !=null ">
+                table_name=#{table_name}
+            </when >
+            <otherwise>
+                1=2
+            </otherwise>
+        </choose>
+    </select>
+    <!--获得数据库字段信息 autoMapping：设置是否启动自动映射功能-->
+    <resultMap id="databaseFieldMap" type="java.util.Map" autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="table_name" column="table_name"/>
+        <result property="name" column="column_comment"/>
+        <result property="id_name" column="column_name"/>
+        <result property="type" column="data_type"/>
+        <!--<result property="size" column="size"/>-->
+        <result property="type_size" column="column_type"/>
+        <result property="is_null" column="is_nullable"/>
+    </resultMap>
+    <select id="getDatabaseField" resultMap="databaseFieldMap">
+        CALL get_database_field()
+    </select>
+
 
 </mapper>

@@ -6,6 +6,7 @@ import com.starrysky.module.member.service.EmployeesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 @Service
 public class EmployeesServiceImpl implements EmployeesService {
-
+    private final static List<String> LIST = Arrays.asList("id","man_id","role","user","password","is_enable");
     private static Map<String,Object> gpMap;
     private static List list;
 
@@ -26,6 +27,7 @@ public class EmployeesServiceImpl implements EmployeesService {
         columnMap.put("user",null);
         columnMap.put("password",null);
         columnMap.put("is_enable",null);
+        gpMap.put("field",LIST);
         gpMap.put("column",columnMap);
         gpMap.put("table","t_employees");
     }
