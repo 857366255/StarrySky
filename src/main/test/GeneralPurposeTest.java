@@ -3,10 +3,10 @@
  */
 
 import base.SpringTestCase;
+import com.starrysky.base.dao.GeneralPurposeDao;
+import com.starrysky.base.po.GeneralPurpose;
 import com.starrysky.base.service.GeneralPurposeService;
-import com.starrysky.module.member.service.EmployeesService;
 import org.junit.Test;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -21,9 +21,9 @@ import java.util.*;
 public class GeneralPurposeTest extends SpringTestCase {
 
     @Autowired
-    private EmployeesService employeesService;
-    @Autowired
     private GeneralPurposeService generalPurposeService;
+    @Autowired
+    private GeneralPurposeDao generalPurposeDao;
 
     @Value("#{db.hwz}")
     private String filePath;
@@ -39,6 +39,9 @@ public class GeneralPurposeTest extends SpringTestCase {
     @Test
     public void zxc(){
         System.out.println(filePath);
+        GeneralPurpose generalPurpose = new GeneralPurpose();
+        generalPurpose.setTableNameEN("t_employees");
+        System.out.println(generalPurposeDao.findByTableName(generalPurpose));
     }
 
     /**
@@ -56,7 +59,6 @@ public class GeneralPurposeTest extends SpringTestCase {
         map.put("is_enable",true);
         generalPurposeService.init("t_employees");
         System.out.println(generalPurposeService.doCreate(map));
-        System.out.println(employeesService.doCreate(map));
     }
 
     /**
@@ -66,11 +68,10 @@ public class GeneralPurposeTest extends SpringTestCase {
     public void doRemoveBatch() {
         System.out.println("批量删除人");
         List<Integer> list = new ArrayList<Integer> ();
-        list.add(13);
-        list.add(12);
+        list.add(16);
+        list.add(17);
         generalPurposeService.init("t_employees");
         System.out.println(generalPurposeService.doRemoveBatch(list));
-        System.out.println(employeesService.doRemoveBatch(list));
     }
 
     /**
@@ -80,24 +81,21 @@ public class GeneralPurposeTest extends SpringTestCase {
     public void doRemove() {
         System.out.println("删除人");
         generalPurposeService.init("t_employees");
-        System.out.println(generalPurposeService.doRemove(9));
-        System.out.println(employeesService.doRemove(10));
+        System.out.println(generalPurposeService.doRemove(15));
     }
-
+    /**
+     * 更新人
+     */
     @Test
     public void doUpdate() {
+        generalPurposeService.init("t_employees");
         System.out.println("更新人");
-        Map<String, Object> map =  employeesService.findById(2);
+        Map<String, Object> map =  generalPurposeService.findById(14);
         System.out.println(map);
         map.put("is_enable",false);
-        map.put("id",8);
-        System.out.println(employeesService.doUpdate(map));
-        generalPurposeService.init("t_employees");
-        map.put("is_enable",true);
         map.put("role","私教w");
-        System.out.println(employeesService.doUpdate(map));
-        Map<String, Object> map2 =  employeesService.findById(2);
-        System.out.println(map2);
+        System.out.println(generalPurposeService.doUpdate(map));
+        System.out.println(generalPurposeService.findById(14));
     }
 
 
@@ -107,7 +105,6 @@ public class GeneralPurposeTest extends SpringTestCase {
     @Test
     public void findAll() {
         System.out.println("查询所有人");
-        System.out.println(employeesService.findAll());
         generalPurposeService.init("t_employees");
         System.out.println(generalPurposeService.findAll());
     }
@@ -121,7 +118,6 @@ public class GeneralPurposeTest extends SpringTestCase {
         System.out.println(generalPurposeService.findById(2));
         generalPurposeService.init("t_man");
         System.out.println(generalPurposeService.findById(2));
-        System.out.println(employeesService.findById(2));
     }
     /**
      * 按条件查询人
@@ -130,11 +126,10 @@ public class GeneralPurposeTest extends SpringTestCase {
     public void findByCondition() {
         System.out.println("按条件查询人");
         Map<String, Object> map =  new HashMap<String, Object>();
-        map.put("is_enable",false);
-        map.put("id",30);
+        map.put("is_enable",true);
+       // map.put("id",30);
         generalPurposeService.init("t_employees");
         System.out.println(generalPurposeService.findByCondition(map));
-        System.out.println(employeesService.findByCondition(map));
     }
 
 }

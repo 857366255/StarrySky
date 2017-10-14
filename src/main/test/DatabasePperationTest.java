@@ -3,15 +3,11 @@
  */
 
 import base.SpringTestCase;
-import com.starrysky.base.po.Table;
 import com.starrysky.base.service.DatabasePperationService;
-import com.starrysky.base.service.TableService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**

@@ -2,26 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.starrysky.base.dao.GeneralPurposeDao">
-
+    <sql id="table_name_en" >${tableNameEN}</sql>
+    <sql id="select_from" >
+        SELECT <foreach collection="fieldList" index="index" item="item" separator="," >${item}</foreach> FROM <include refid="table_name_en" />
+    </sql>
     <!--增加-->
-    <insert id="doCreate" parameterType="java.util.Map">
-        INSERT INTO ${table}
+    <insert id="doCreate" parameterType="com.starrysky.base.po.GeneralPurpose">
+        INSERT INTO <include refid="table_name_en" />
         <trim prefix="(" suffix=")" >
-            <foreach collection="column" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')"> ${index}</if></foreach>
+            <foreach collection="createMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')"> ${index}</if></foreach>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <foreach collection="column" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">#{item}</if></foreach>
+            <foreach collection="createMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">#{item}</if></foreach>
         </trim>
     </insert>
     <!--批量删除-->
-    <delete id="doRemoveBatch" parameterType="java.util.Map">
-        DELETE FROM ${table}
+    <delete id="doRemoveBatch" parameterType="com.starrysky.base.po.GeneralPurpose">
+        DELETE FROM <include refid="table_name_en" />
         <where>
             <choose>
-                <when test="removeBatch != null and removeBatch.size()!=0">
+                <when test="removeList != null and removeList.size()!=0">
                     id IN
-                    <foreach collection="removeBatch" item="item" open="(" separator="," close=")">
+                    <foreach collection="removeList" item="item" open="(" separator="," close=")">
                         '${item}'
                     </foreach>
                 </when >
@@ -32,8 +35,8 @@
         </where>
     </delete>
     <!--删除-->
-    <delete id="doRemove" parameterType="java.util.Map">
-        DELETE FROM ${table}
+    <delete id="doRemove" parameterType="com.starrysky.base.po.GeneralPurpose">
+        DELETE FROM <include refid="table_name_en" />
         <where>
             <choose>
                 <when test="remove != null">
@@ -46,67 +49,56 @@
         </where>
     </delete>
     <!--更新-->
-    <update id="doUpdate" parameterType="java.util.Map">
-        UPDATE ${table}
+    <update id="doUpdate" parameterType="com.starrysky.base.po.GeneralPurpose">
+        UPDATE <include refid="table_name_en" />
         <trim prefix="SET" suffixOverrides=",">
-            <foreach collection="column" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">${index}=#{item}</if></foreach>
+            <foreach collection="updateMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">${index}=#{item}</if></foreach>
         </trim>
         WHERE
         <choose>
-            <when test="column.id !=null ">
-                id=${column.id}
+            <when test="updateMap.get('id') !=null ">
+                id = ${updateMap.get("id")}
             </when >
             <otherwise>
                 1=2
             </otherwise>
         </choose>
     </update>
-    <sql id="select_from" >
-        SELECT <foreach collection="field" index="index" item="item" separator="," >${item}</foreach> FROM ${table}
-    </sql>
     <!--查询全部数据-->
-    <select id="findAll" parameterType="java.util.Map" resultType="java.util.Map">
+    <select id="findAll" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
         <include refid="select_from" />
     </select>
     <!--按id查询数据-->
-    <select id="findById" parameterType="java.util.Map" resultType="java.util.Map">
-        <!--SELECT
-        <foreach collection="column" index="index" item="item" separator="," >
-            ${index}
-        </foreach>
-        FROM ${table}-->
+    <select id="findById" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
         <include refid="select_from" />
-        WHERE
-        <choose>
-            <when test="column.id !=null ">
-                id=${column.id}
-            </when >
-            <otherwise>
-                1=2
-            </otherwise>
-        </choose>
+        <where>
+            <choose>
+                <when test="findMap.get('id') !=null ">
+                    id = ${findMap.get("id")}
+                </when >
+                <otherwise>
+                    1=2
+                </otherwise>
+            </choose>
+        </where>
     </select>
     <!--按条件查询-->
     <select id="findByCondition" parameterType="java.util.Map" resultType="java.util.Map">
         <include refid="select_from" />
-        <!--SELECT
-        <foreach collection="column" index="index" item="item" separator="," >
-          ${index}
-        </foreach>
-        FROM ${table}-->
         <where>
-            <foreach collection="find" index="index" item="item" separator="AND " >
+            <foreach collection="findMap" index="index" item="item" separator="AND " >
                 <if test="item != null">${index}=#{item}</if>
             </foreach>
         </where>
     </select>
     <!--根据表名称查找-->
-    <select id="findByTableName" parameterType="java.util.Map" resultType="java.util.Map">
-        <include refid="select_from" />
+    <select id="findByTableName" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
+        <!--<include refid="select_from" />-->
+        SELECT <foreach collection="FIELD_NAME_LIST" index="index" item="item" separator="," >${item}</foreach> FROM ${TABLE_NAME_EN}
         WHERE
         <choose>
-            <when test="table_name !=null ">
-                table_name=#{table_name}
+            <when test="tableNameEN !=null ">
+                table_name=#{tableNameEN}
             </when >
             <otherwise>
                 1=2
@@ -126,6 +118,15 @@
     </resultMap>
     <select id="getDatabaseField" resultMap="databaseFieldMap">
         CALL get_database_field()
+    </select>
+    <!--获得数据库表信息 autoMapping：设置是否启动自动映射功能-->
+    <resultMap id="databaseTableMap" type="java.util.Map" autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="name" column="table_comment"/>
+        <result property="id_name" column="table_name"/>
+    </resultMap>
+    <select id="getDatabaseTable" resultMap="databaseTableMap">
+        CALL get_database_table()
     </select>
 
 

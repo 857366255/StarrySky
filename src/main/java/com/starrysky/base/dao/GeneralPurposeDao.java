@@ -1,5 +1,7 @@
 package com.starrysky.base.dao;
 
+import com.starrysky.base.po.GeneralPurpose;
+
 import java.util.List;
 import java.util.Map;
 
@@ -8,19 +10,24 @@ import java.util.Map;
  */
 public interface GeneralPurposeDao {
 
-    public Boolean doCreate(Map<String,Object> map);
-    public boolean doRemoveBatch(Map<String,Object> map);
-    public boolean doRemove(Map<String,Object> map);
-    public boolean doUpdate(Map<String,Object> map);
-    public List<Map<String,Object>> findAll(Map<String,Object> map);
-    public Map<String,Object> findById(Map<String,Object> map);
-    public List<Map<String,Object>> findByCondition(Map<String,Object> map);
-    public List<Map<String,Object>> findByTableName(Map<String,Object> map);
+    public Boolean doCreate(GeneralPurpose generalPurpose);
+    public boolean doRemoveBatch(GeneralPurpose generalPurpose);
+    public boolean doRemove(GeneralPurpose generalPurpose);
+    public boolean doUpdate(GeneralPurpose generalPurpose);
+    public List<Map<String,Object>> findAll(GeneralPurpose generalPurpose);
+    public Map<String,Object> findById(GeneralPurpose generalPurpose);
+    public List<Map<String,Object>> findByCondition(GeneralPurpose generalPurpose);
+    public List<Map<String,Object>> findByTableName(GeneralPurpose generalPurpose);
 
     /**
      * 获得数据库字段信息
      * @return
      */
     public List<Map<String,Object>> getDatabaseField();
+    /**
+     * 获得数据库表信息
+     * @return
+     */
+    public List<Map<String,Object>> getDatabaseTable();
 
 }
