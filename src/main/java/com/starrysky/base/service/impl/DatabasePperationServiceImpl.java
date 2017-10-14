@@ -25,24 +25,30 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
     private GeneralPurposeService generalPurposeService;
 
     public List<Map<String, Object>> synchronizing(){
-        synchronizingTable();
+        try {
+            synchronizingTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
-    private void synchronizingTable(){
+    private void synchronizingTable() throws Exception {
         List<Map<String, Object>> databaseList = generalPurposeDao.getDatabaseTable();
         System.out.println(generalPurposeDao.getDatabaseTable());
         for(Map<String, Object> map : databaseList){
             generalPurposeService.init("s_table");
             Map<String, Object> temp = new HashMap<String, Object>();
             temp.put("id_name",map.get("id_name"));
-            System.out.println(generalPurposeService.findByCondition(temp));
-            if(generalPurposeService.findByCondition(temp).size()==0){
-                System.out.println("不存在");
+            List<Map<String, Object>> mapList = generalPurposeService.findByCondition(temp);
+            if(mapList.size()>1){
+                throw new Exception("数据异常:"+mapList);
+            }
+            if(mapList.size()==0){
+                generalPurposeService.doCreate(map);
             }else if(generalPurposeService.findByCondition(map).size()==0){
-                System.out.println("存在,但不相同");
-            }else{
-                System.out.println("存在");
+                map.put("id",mapList.get(0).get("id"));
+                generalPurposeService.doUpdate(map);
             }
         }
     }

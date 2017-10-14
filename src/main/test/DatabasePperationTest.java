@@ -19,7 +19,6 @@ public class DatabasePperationTest extends SpringTestCase {
     @Autowired
     private DatabasePperationService databasePperationService;
 
-
     @Test
     public void synchronizing(){
         System.out.println("更新/添加");
