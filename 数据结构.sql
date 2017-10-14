@@ -1,5 +1,3 @@
-drop database starrysky;
-create database starrysky;
 /*
 Navicat MySQL Data Transfer
 
@@ -12,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-10-12 17:15:27
+Date: 2017-10-14 15:41:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,36 +31,22 @@ CREATE TABLE `s_field` (
   PRIMARY KEY (`id`),
   KEY `fk_field_table_name` (`table_name`),
   CONSTRAINT `fk_field_table_name` FOREIGN KEY (`table_name`) REFERENCES `s_table` (`id_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COMMENT='字段';
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 COMMENT='字段';
 
 -- ----------------------------
 -- Records of s_field
 -- ----------------------------
-INSERT INTO `s_field` VALUES ('7', 't_man', '名称', 'name', 'varchar', null, 'varchar(10)', '1');
-INSERT INTO `s_field` VALUES ('8', 's_table', 'id名称', 'id_name', 'varchar', null, 'varchar(255)', '0');
-INSERT INTO `s_field` VALUES ('9', 's_field', '类型', 'type', 'varchar', null, 'varchar(255)', '1');
-INSERT INTO `s_field` VALUES ('10', 's_field', '大小', 'size', 'double', null, 'double', '1');
-INSERT INTO `s_field` VALUES ('12', 's_field', '是否允许未空', 'is_null', 'tinyint', null, 'tinyint(1)', '1');
-INSERT INTO `s_field` VALUES ('14', 's_table', '名称', 'name', 'varchar', null, 'varchar(255)', '1');
-INSERT INTO `s_field` VALUES ('15', 's_table', 'id名称', 'id_name', 'varchar', null, 'varchar(255)', '0');
-INSERT INTO `s_field` VALUES ('17', 't_employees', '人id', 'man_id', 'int', null, 'int(11)', '1');
-INSERT INTO `s_field` VALUES ('18', 't_employees', '角色', 'role', 'varchar', null, 'varchar(255)', '1');
-INSERT INTO `s_field` VALUES ('19', 't_employees', '账号', 'user', 'varchar', null, 'varchar(255)', '1');
-INSERT INTO `s_field` VALUES ('21', 't_employees', '是否启用', 'is_enable', 'tinyint', null, 'tinyint(1)', '1');
-INSERT INTO `s_field` VALUES ('23', 't_man', '名称', 'name', 'varchar', null, 'varchar(10)', '1');
-INSERT INTO `s_field` VALUES ('24', 't_man', '性别', 'sex', 'tinyint', null, 'tinyint(1)', '1');
-INSERT INTO `s_field` VALUES ('25', 't_man', '年龄', 'age', 'int', null, 'int(3)', '1');
-INSERT INTO `s_field` VALUES ('26', 't_man', '电话', 'phone', 'varchar', null, 'varchar(50)', '1');
-INSERT INTO `s_field` VALUES ('27', 't_man', '地址', 'address', 'varchar', null, 'varchar(100)', '1');
-INSERT INTO `s_field` VALUES ('28', 't_man', '唯一标识符', 'id', 'int', null, 'int(11)', '0');
-INSERT INTO `s_field` VALUES ('29', 's_field', '表名称', 'table_name', 'varchar', null, 'varchar(255)', '1');
-INSERT INTO `s_field` VALUES ('30', 's_field', '类型大小', 'type_size', 'varchar', null, 'varchar(255)', '1');
-INSERT INTO `s_field` VALUES ('31', 's_table', '唯一标识符', 'id', 'int', null, 'int(11)', '0');
-INSERT INTO `s_field` VALUES ('33', 't_employees', '密码', 'password', 'varchar', null, 'varchar(255)', '1');
-INSERT INTO `s_field` VALUES ('35', 's_field', '唯一标识符', 'id', 'int', null, 'int(11)', '0');
-INSERT INTO `s_field` VALUES ('36', 's_field', '名称', 'name', 'varchar', null, 'varchar(255)', '1');
-INSERT INTO `s_field` VALUES ('37', 's_field', 'id名称', 'id_name', 'varchar', null, 'varchar(255)', '1');
-INSERT INTO `s_field` VALUES ('38', 't_employees', '唯一标识符', 'id', 'int', null, 'int(11)', '0');
+INSERT INTO `s_field` VALUES ('62', 's_field', '唯一标识符', 'id', 'int', null, 'int(11)', '0');
+INSERT INTO `s_field` VALUES ('63', 's_field', '表名称', 'table_name', 'varchar', null, 'varchar(255)', '1');
+INSERT INTO `s_field` VALUES ('64', 's_field', '名称', 'name', 'varchar', null, 'varchar(255)', '1');
+INSERT INTO `s_field` VALUES ('65', 's_field', 'id名称', 'id_name', 'varchar', null, 'varchar(255)', '1');
+INSERT INTO `s_field` VALUES ('66', 's_field', '类型', 'type', 'varchar', null, 'varchar(255)', '1');
+INSERT INTO `s_field` VALUES ('67', 's_field', '大小', 'size', 'double', null, 'double', '1');
+INSERT INTO `s_field` VALUES ('68', 's_field', '类型大小', 'type_size', 'varchar', null, 'varchar(255)', '1');
+INSERT INTO `s_field` VALUES ('69', 's_field', '是否允许未空', 'is_null', 'tinyint', null, 'tinyint(1)', '1');
+INSERT INTO `s_field` VALUES ('70', 's_table', '唯一标识符', 'id', 'int', null, 'int(11)', '0');
+INSERT INTO `s_field` VALUES ('71', 's_table', '名称', 'name', 'varchar', null, 'varchar(255)', '1');
+INSERT INTO `s_field` VALUES ('72', 's_table', 'id名称', 'id_name', 'varchar', null, 'varchar(255)', '0');
 
 -- ----------------------------
 -- Table structure for s_table
@@ -74,15 +58,13 @@ CREATE TABLE `s_table` (
   `id_name` varchar(255) NOT NULL COMMENT 'id名称',
   PRIMARY KEY (`id`,`id_name`),
   KEY `id_name` (`id_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='表';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='表';
 
 -- ----------------------------
 -- Records of s_table
 -- ----------------------------
-INSERT INTO `s_table` VALUES ('8', '字段', 's_field');
-INSERT INTO `s_table` VALUES ('9', '表', 's_table');
-INSERT INTO `s_table` VALUES ('11', '人', 't_man');
-INSERT INTO `s_table` VALUES ('12', '员工', 't_employees');
+INSERT INTO `s_table` VALUES ('13', '字段1', 's_field');
+INSERT INTO `s_table` VALUES ('14', '表', 's_table');
 
 -- ----------------------------
 -- Table structure for t_employees
@@ -98,24 +80,29 @@ CREATE TABLE `t_employees` (
   PRIMARY KEY (`id`),
   KEY `employees_man_id` (`man_id`),
   CONSTRAINT `employees_man_id` FOREIGN KEY (`man_id`) REFERENCES `t_man` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='员工';
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COMMENT='员工';
 
 -- ----------------------------
 -- Records of t_employees
 -- ----------------------------
 INSERT INTO `t_employees` VALUES ('1', '1', '打', 'zxc', 'asdsa', '1');
 INSERT INTO `t_employees` VALUES ('2', null, '私教', 'zqq', '123456', '0');
-INSERT INTO `t_employees` VALUES ('8', '2', '私教123', 'zqq', '123456', '0');
-INSERT INTO `t_employees` VALUES ('9', '2', '私教123', 'zqq', '123456', '0');
-INSERT INTO `t_employees` VALUES ('10', '2', '私教123', 'zqq', '123456', '0');
-INSERT INTO `t_employees` VALUES ('11', '2', '私教123', 'zqq', '123456', '1');
-INSERT INTO `t_employees` VALUES ('12', '2', '私教123', 'zqq', '123456', '1');
-INSERT INTO `t_employees` VALUES ('13', '2', '私教123', 'zqq', '123456', '1');
-INSERT INTO `t_employees` VALUES ('14', '2', '私教123', 'zqq', '123456', '1');
-INSERT INTO `t_employees` VALUES ('15', '2', '私教123', 'zqq', '123456', '1');
-INSERT INTO `t_employees` VALUES ('16', '2', '私教123', 'zqq', '123456', '1');
-INSERT INTO `t_employees` VALUES ('17', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('8', '2', '私教w', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('14', '2', '私教w', 'zqq', '123456', '0');
 INSERT INTO `t_employees` VALUES ('18', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('19', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('20', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('21', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('22', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('23', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('24', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('25', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('26', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('27', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('28', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('29', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('30', '2', '私教123', 'zqq', '123456', '1');
+INSERT INTO `t_employees` VALUES ('31', '2', '私教123', 'zqq', '123456', '1');
 
 -- ----------------------------
 -- Table structure for t_man
