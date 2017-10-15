@@ -21,6 +21,9 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService{
     @Autowired
     private GeneralPurposeDao generalPurposeDao;
 
+    public Map<String, Object> getFindPkMap(){
+        return generalPurpose.getFieldPkMap();
+    }
 
     public boolean doCreate(Map<String,Object> map) {
         generalPurpose.setCreateMap(map);
@@ -42,10 +45,10 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService{
         return generalPurposeDao.doUpdate(generalPurpose);
     }
 
-    public Map<String,Object> findById(Integer id) {
-        Map<String, Object> map= new HashMap<String, Object>();
-        map.put("id",id);
-        generalPurpose.setFindMap(map);
+    public Map<String,Object> findById() {
+       // Map<String, Object> tempMap= new HashMap<String, Object>();
+        //tempMap.put("id",id);
+        //generalPurpose.setFindMap(tempMap);
         return generalPurposeDao.findById(generalPurpose);
     }
 
@@ -66,31 +69,27 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService{
         generalPurpose.setTableNameEN(s);
         List<Map<String,Object>> maps = generalPurposeDao.findByTableName(generalPurpose);
 
+        System.out.println(generalPurpose.getTableNameEN()+":"+maps);
+        List<String> pkList = new ArrayList<String>();
+        Map<String, Object> pkMap = new HashMap<String, Object>();
         Map<String, Object> fieldMap = new HashMap<String, Object>();
         List<String> fieldList = new ArrayList<String>();
         for(Map map: maps){
-            String temp = map.get("id_name").toString();
+            String temp = map.get("name_en").toString();
             fieldMap.put(temp,null);
             fieldList.add(temp);
+            if(map.get("category").equals("PRI")){
+                pkList.add(temp);
+                pkMap.put(temp,null);
+            }
         }
+        generalPurpose.setPkList(pkList);
+        generalPurpose.setFieldPkMap(pkMap);
         generalPurpose.setFieldMap(fieldMap);
         generalPurpose.setFieldList(fieldList);
-        System.out.println(generalPurpose.getFieldList());
-        System.out.println(generalPurpose.getFieldMap());
-        //tempMap.put("table_name",s);
-        //List<Map<String,Object>> maps = generalPurposeDao.findByTableName(tempMap);
-       // Map<String, Object> columnMap = new HashMap<String, Object>();
-//        List<String> fieldList = new ArrayList<String>();
-        /*for(Map map: maps){
-            String temp = map.get("id_name").toString();
-            columnMap.put(temp,null);
-            fieldList.add(temp);
-        }*/
-       /* gpMap.put("column",columnMap);
-        gpMap.put("field",fieldList);
-        gpMap.put("table",s);
-        System.out.println(columnMap);*/
-      //  System.out.println(generalPurposeDao.findByTableName(tempMap));
+        System.out.println("字段:"+generalPurpose.getFieldList());
+        System.out.println("主键:"+generalPurpose.getPkList());
+
         System.out.println("-----------------结束初始化-----------------");
         System.out.println("_____________________________________________________");
     }

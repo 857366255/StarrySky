@@ -90,12 +90,12 @@ public class GeneralPurposeTest extends SpringTestCase {
     public void doUpdate() {
         generalPurposeService.init("t_employees");
         System.out.println("更新人");
-        Map<String, Object> map =  generalPurposeService.findById(14);
+        Map<String, Object> map =  generalPurposeService.findById();
         System.out.println(map);
         map.put("is_enable",false);
         map.put("role","私教w");
         System.out.println(generalPurposeService.doUpdate(map));
-        System.out.println(generalPurposeService.findById(14));
+        System.out.println(generalPurposeService.findById());
     }
 
 
@@ -115,9 +115,12 @@ public class GeneralPurposeTest extends SpringTestCase {
     public void findById() {
         System.out.println("查询人");
         generalPurposeService.init("t_employees");
-        System.out.println(generalPurposeService.findById(2));
-        generalPurposeService.init("t_man");
-        System.out.println(generalPurposeService.findById(2));
+        System.out.println(generalPurposeService.getFindPkMap());
+        generalPurposeService.getFindPkMap().put("id",2);
+        System.out.println(generalPurposeService.getFindPkMap());
+        System.out.println(generalPurposeService.findById());
+       /* generalPurposeService.getFindPkMap().put("id",2);
+        System.out.println(generalPurposeService.findById(2));*/
     }
     /**
      * 按条件查询人

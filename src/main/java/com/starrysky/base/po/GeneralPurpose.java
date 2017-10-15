@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class GeneralPurpose {
     public final static String TABLE_NAME_EN = "s_field";
-    public final static List<String> FIELD_NAME_LIST = Arrays.asList("id","table_name","name","id_name","type","size","type_size","is_null");
+    public final static List<String> FIELD_NAME_LIST = Arrays.asList("id","table_name","name_ch","name_en","type","size","type_size","is_null","category");
     public final static Map<String,Object> FIELD_MAP = new HashMap<String, Object>() {
         {
             Map<String, Object> columnMap = new HashMap<String, Object>();
@@ -27,6 +27,9 @@ public class GeneralPurpose {
 
     private String tableNameCH;
     private String tableNameEN;
+    private List<String> pkList;
+    private Map<String, Object> fieldPkMap;
+    private List<Map<String, Object>> fkList;
     private List<String> fieldList;
     private Map<String, Object> fieldMap;
     private Map<String,Object> findMap;
@@ -49,6 +52,30 @@ public class GeneralPurpose {
 
     public void setTableNameEN(String tableNameEN) {
         this.tableNameEN = tableNameEN;
+    }
+
+    public List<String> getPkList() {
+        return pkList;
+    }
+
+    public void setPkList(List<String> pkList) {
+        this.pkList = pkList;
+    }
+
+    public Map<String, Object> getFieldPkMap() {
+        return fieldPkMap;
+    }
+
+    public void setFieldPkMap(Map<String, Object> fieldPkMap) {
+        this.fieldPkMap = fieldPkMap;
+    }
+
+    public List<Map<String, Object>> getFkList() {
+        return fkList;
+    }
+
+    public void setFkList(List<Map<String, Object>> fkList) {
+        this.fkList = fkList;
     }
 
     public List<String> getFieldList() {

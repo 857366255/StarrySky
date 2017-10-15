@@ -27,6 +27,7 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
     public List<Map<String, Object>> synchronizing(){
         try {
             synchronizingTable();
+            synchronizingField();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,7 +40,7 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
         for(Map<String, Object> map : databaseList){
             generalPurposeService.init("s_table");
             Map<String, Object> temp = new HashMap<String, Object>();
-            temp.put("id_name",map.get("id_name"));
+            temp.put("name_en",map.get("name_en"));
             List<Map<String, Object>> mapList = generalPurposeService.findByCondition(temp);
             if(mapList.size()>1){
                 throw new Exception("数据异常:"+mapList);
@@ -49,6 +50,33 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
             }else if(generalPurposeService.findByCondition(map).size()==0){
                 map.put("id",mapList.get(0).get("id"));
                 generalPurposeService.doUpdate(map);
+            }
+        }
+    }
+    private void synchronizingField() throws Exception {
+        List<Map<String, Object>> databaseList = generalPurposeDao.getDatabaseField();
+        System.out.println(generalPurposeDao.getDatabaseTable());
+        for(Map<String, Object> map : databaseList){
+            System.out.println("----"+map);
+            generalPurposeService.init("s_field");
+            Map<String, Object> temp = new HashMap<String, Object>();
+            temp.put("name_en",map.get("name_en"));
+            temp.put("table_name",map.get("table_name"));
+            List<Map<String, Object>> mapList = generalPurposeService.findByCondition(temp);
+            if(mapList.size()>1){
+                throw new Exception("数据异常:"+mapList);
+            }
+            if(map.get("is_null").equals("YES")){
+                map.put("is_null",1);
+            }else{
+                map.put("is_null",0);
+            }
+            if(mapList.size()==0){
+                generalPurposeService.doCreate(map);
+            }else if(generalPurposeService.findByCondition(map).size()==0){
+                map.put("id",mapList.get(0).get("id"));
+                generalPurposeService.doUpdate(map);
+                System.out.println("更新");
             }
         }
     }
