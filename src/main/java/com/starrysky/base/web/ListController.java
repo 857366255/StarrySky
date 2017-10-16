@@ -5,6 +5,8 @@ import com.starrysky.base.service.GeneralPurposeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -42,5 +44,12 @@ public class ListController {
         map.put("list", list);
         System.out.println("asd4");
         return "index";
+    }
+    @RequestMapping(value = "form")
+    public String login(@RequestParam Map<String, Object> map){
+        System.out.println("login");
+        System.out.println(map);
+        map.put("message","错误的账号或密码!");
+        return "login";
     }
 }

@@ -41,7 +41,8 @@ ${hwz}
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <form method="get" class="form-horizontal">
+                    <form role="get" action="form" method="post" id="list" class="form-horizontal">
+                    <%--<form method="get" class="form-horizontal">--%>
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <c:forEach items="${list}" var="a">
