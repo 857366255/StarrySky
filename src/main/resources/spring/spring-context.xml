@@ -10,13 +10,13 @@
     <!-- 配置数据源 -->
     <context:property-placeholder location="classpath:properties/db.properties"/>
     <!-- 第二种方式是使用注解的方式注入，主要用在java代码中使用注解注入properties文件中相应的value值 -->
-    <bean id="db" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+    <!--<bean id="db" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="locations">
             <array>
                 <value>classpath:properties/db.properties</value>
             </array>
         </property>
-    </bean>
+    </bean>-->
     <context:annotation-config />
 
     <!-- 自动扫描了所有的XxxxMapper.xml对应的mapper接口文件，这样就不用一个一个手动配置Mpper的映射了，只要Mapper接口类和Mapper映射文件对应起来就可以了。 -->
@@ -35,8 +35,8 @@
         <property name="mapperLocations" value="classpath*:com/starrysky/**/dao/mapper/*Mapper.xml"/>
         <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
     </bean>
-    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+    <!--<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index= "0" ref= "sqlSessionFactory" />
     </bean>
-
+-->
 </beans>
