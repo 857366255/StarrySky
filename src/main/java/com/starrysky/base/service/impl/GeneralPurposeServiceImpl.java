@@ -25,8 +25,26 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService{
         return generalPurpose.getFieldPkMap();
     }
 
+    /**
+     * 排除垃圾数据
+     * @param map 创建\更新 数据
+     * @return 创建\更新 数据
+     */
+    private Map<String, Object> excludeGarbageData(Map<String,Object> map){
+        Map<String, Object> tempMap = new HashMap<String, Object>();
+        for(String s:generalPurpose.getFieldList()){
+            if(map.get(s) instanceof String && map.get(s).equals("")){
+                continue;
+            }
+           // if(map.get(s) instanceof String && !map.get(s).equals("")){
+                tempMap.put(s,map.get(s));
+           // }
+        }
+        return tempMap;
+    }
+
     public boolean doCreate(Map<String,Object> map) {
-        generalPurpose.setCreateMap(map);
+        generalPurpose.setCreateMap(excludeGarbageData(map));
         return generalPurposeDao.doCreate(generalPurpose);
     }
 
@@ -41,14 +59,12 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService{
     }
 
     public boolean doUpdate(Map<String,Object> map) {
-        generalPurpose.setUpdateMap(map);
+
+        generalPurpose.setUpdateMap(excludeGarbageData(map));
         return generalPurposeDao.doUpdate(generalPurpose);
     }
 
     public Map<String,Object> findById() {
-       // Map<String, Object> tempMap= new HashMap<String, Object>();
-        //tempMap.put("id",id);
-        //generalPurpose.setFindMap(tempMap);
         return generalPurposeDao.findById(generalPurpose);
     }
 
@@ -59,6 +75,10 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService{
     public List<Map<String,Object>> findByCondition(Map<String,Object> map) {
         generalPurpose.setFindMap(map);
         return generalPurposeDao.findByCondition(generalPurpose);
+    }
+
+    public List<Map<String,Object>> getFieldMap(){
+        return generalPurposeDao.findByTableName(generalPurpose);
     }
 
     public void init(String s){
@@ -78,7 +98,7 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService{
             String temp = map.get("name_en").toString();
             fieldMap.put(temp,null);
             fieldList.add(temp);
-            if(map.get("category").equals("PRI")){
+            if(map.get("category") instanceof String && map.get("category").equals("PRI")){
                 pkList.add(temp);
                 pkMap.put(temp,null);
             }

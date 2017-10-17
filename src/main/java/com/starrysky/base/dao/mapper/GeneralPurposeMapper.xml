@@ -90,7 +90,8 @@
     </select>
     <!--根据表名称查找-->
     <select id="findByTableName" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
-        SELECT <foreach collection="FIELD_NAME_LIST" index="index" item="item" separator="," >${item}</foreach> FROM ${TABLE_NAME_EN}
+        <!--SELECT <foreach collection="FIELD_NAME_LIST" index="index" item="item" separator="," >${item}</foreach> FROM ${TABLE_NAME_EN}-->
+        SELECT * FROM ${TABLE_NAME_EN}
         WHERE
         <choose>
             <when test="tableNameEN !=null ">

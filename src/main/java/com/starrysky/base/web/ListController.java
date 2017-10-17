@@ -20,29 +20,27 @@ public class ListController {
 
     @Autowired
     private GeneralPurposeService generalPurposeService;
-    //@Autowired
-    //private GeneralPurposeDao generalPurposeDao;
 
     private List<Map<String,Object>> zxc(){
-
         System.out.println("查询所有人");
-        generalPurposeService.init("s_input");
-       // System.out.println(generalPurposeService.findAll());
-        return generalPurposeService.findAll();
+        generalPurposeService.init("s_field");
+        return generalPurposeService.getFieldMap();
     }
     @RequestMapping(value = "list")
     public String goList(Map<String, Object> map){
         List<Map<String,Object>> list = zxc();
-        /*int[] intArray = { 4, 2, 2, 4,3,3,3,3, 4,4,4,4,8,12,13 };
-        for(int i=0;i<intArray.length;i++){
-            Map<String,Object> map1 = new HashMap<String, Object>();
-            map1.put("id",i);
-            map1.put("name",1);
-            map1.put("test",intArray[i]-1);
-            list.add(map1);
-        }*/
-        map.put("list", list);
-        System.out.println("asd4");
+        System.out.println(list);
+
+        for(Map m : list){
+            if(m.get("select_group") instanceof String && !m.get("select_group").equals("")){
+                generalPurposeService.init("s_select");
+                Map<String, Object> tempMap = new HashMap<String, Object>();
+                tempMap.put("select_group",m.get("select_group"));
+                m.put("select_group",generalPurposeService.findByCondition(tempMap));
+            }
+        }
+        System.out.println(list);
+        map.put("input", list);
         return "index";
     }
     @RequestMapping(value = "form")
@@ -50,6 +48,9 @@ public class ListController {
         System.out.println("login");
         System.out.println(map);
         map.put("message","错误的账号或密码!");
-        return "login";
+        generalPurposeService.init("s_field");
+        generalPurposeService.doCreate(map);
+
+        return "redirect:list";
     }
 }

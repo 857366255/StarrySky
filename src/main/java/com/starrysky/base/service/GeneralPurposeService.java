@@ -19,6 +19,16 @@ public interface GeneralPurposeService {
     public boolean doRemove(Integer id);
     public boolean doRemoveBatch(List list);
     public List<Map<String,Object>> findByCondition(Map<String,Object> map);
+
+    /**
+     * 获取表字段信息
+     * @return 表字段
+     */
+    public List<Map<String,Object>> getFieldMap();
+    /**
+     * 获取表主键信息
+     * @return 表主键
+     */
     public Map<String, Object> getFindPkMap();
 
 }

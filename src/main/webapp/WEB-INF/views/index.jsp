@@ -42,27 +42,33 @@ ${hwz}
                 </div>
                 <div class="ibox-content">
                     <form role="get" action="form" method="post" id="list" class="form-horizontal">
-                    <%--<form method="get" class="form-horizontal">--%>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <c:forEach items="${list}" var="a">
-                                    <div class="col-sm-${a.width}">
+                                <c:forEach items="${input}" var="it">
+                                    <div class="col-sm-${it.columns}">
                                         <div class="form-group">
-                                            <label class="col-sm-3 control-label">${a.name}</label>
+                                            <label class="col-sm-3 control-label">${it.name}</label>
                                             <div class="col-sm-9 input-group">
-                                                    <%--<span class="input-group-addon">${a.name}</span>--%>
                                                 <c:choose>
-                                                    <c:when test="${a.is_enable}">
-                                                        <input type="${a.type}" placeholder="" disabled="" class="form-control">
+                                                    <c:when test="${it.is_disable}">
+                                                        <input name="${it.name_en}" type="${it.input_type}" placeholder="" disabled="" class="form-control">
+                                                    </c:when>
+                                                    <c:when test="${it.select_group!=null && it.select_group!=''}">
+                                                        <c:forEach items="${it.select_group}" var="sg">
+                                                                <label class="checkbox-inline i-checks">
+                                                                    <input  name="${it.name_en}" type="radio" checked="" value="${sg.value}"> <i>${sg.name}</i>
+                                                                </label>
+                                                        </c:forEach>
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <input type="${a.type}" placeholder="${a.hint}" class="form-control" value="asd">
+                                                        <input name="${it.name_en}" type="${it.input_type}" placeholder="${it.hint}" class="form-control">
                                                     </c:otherwise>
                                                 </c:choose>
-                                                    <%-- <input type="text" placeholder="${a.hint}" class="form-control">--%>
-                                                <c:if test="${a.help_text!=null}">
-                                                    <span class="help-block m-b-none">${a.help_text}</span>
+                                                <c:if test="${it.remark!=null}">
+                                                    <span class="help-block m-b-none">${it.remark}</span>
                                                 </c:if>
+
+
                                             </div>
                                         </div>
                                     </div>

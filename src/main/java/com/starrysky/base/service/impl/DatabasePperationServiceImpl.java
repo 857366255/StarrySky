@@ -72,9 +72,18 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
                 map.put("is_null",0);
             }
             if(mapList.size()==0){
+                map.put("name",map.get("name_ch"));
+                map.put("columns",3);
                 generalPurposeService.doCreate(map);
             }else if(generalPurposeService.findByCondition(map).size()==0){
                 map.put("id",mapList.get(0).get("id"));
+                if(mapList.get(0).get("name")==null){
+                    map.put("name",map.get("name_ch"));
+                }
+                if(mapList.get(0).get("columns")==null){
+                    map.put("columns",map.get("columns"));
+                }
+
                 generalPurposeService.doUpdate(map);
                 System.out.println("更新");
             }
