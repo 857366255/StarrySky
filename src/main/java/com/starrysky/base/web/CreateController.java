@@ -17,7 +17,7 @@ import java.util.Map;
 @Controller
 public class CreateController {
 
-    private String TABLE = "t_man";
+    private String TABLE = "s_menu";
 
     @Autowired
     private GeneralPurposeService generalPurposeService;
