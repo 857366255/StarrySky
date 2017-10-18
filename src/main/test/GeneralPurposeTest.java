@@ -115,12 +115,11 @@ public class GeneralPurposeTest extends SpringTestCase {
     public void findById() {
         System.out.println("查询人");
         generalPurposeService.init("t_employees");
-        System.out.println(generalPurposeService.getFindPkMap());
-        generalPurposeService.getFindPkMap().put("id",2);
-        System.out.println(generalPurposeService.getFindPkMap());
+        GeneralPurpose generalPurpose = generalPurposeService.getGeneralPurpose();
+        System.out.println(generalPurpose.getFieldPkMap());
+        generalPurpose.getFieldPkMap().put("id",2);
+        System.out.println(generalPurpose.getFieldPkMap());
         System.out.println(generalPurposeService.findById());
-       /* generalPurposeService.getFindPkMap().put("id",2);
-        System.out.println(generalPurposeService.findById(2));*/
     }
     /**
      * 按条件查询人

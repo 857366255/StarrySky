@@ -26,124 +26,82 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
 
     public List<Map<String, Object>> synchronizing(){
         try {
-            synchronizingTable();
-            synchronizingField();
+            List<Map<String, Object>> databaseList = generalPurposeDao.getDatabaseTable();
+            for(Map<String, Object> map : databaseList){
+                synchronizingTable(map);
+            }
+            databaseList = generalPurposeDao.getDatabaseField();
+            for(Map<String, Object> map : databaseList){
+                synchronizingField(map);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    private void synchronizingTable() throws Exception {
-        List<Map<String, Object>> databaseList = generalPurposeDao.getDatabaseTable();
-        System.out.println(generalPurposeDao.getDatabaseTable());
-        for(Map<String, Object> map : databaseList){
-            generalPurposeService.init("s_table");
-            Map<String, Object> temp = new HashMap<String, Object>();
-            temp.put("name_en",map.get("name_en"));
-            List<Map<String, Object>> mapList = generalPurposeService.findByCondition(temp);
-            if(mapList.size()>1){
-                throw new Exception("数据异常:"+mapList);
-            }
-            if(mapList.size()==0){
-                generalPurposeService.doCreate(map);
-            }else if(generalPurposeService.findByCondition(map).size()==0){
-                map.put("id",mapList.get(0).get("id"));
-                generalPurposeService.doUpdate(map);
-            }
-        }
-    }
-    private void synchronizingField() throws Exception {
-        List<Map<String, Object>> databaseList = generalPurposeDao.getDatabaseField();
-        System.out.println(generalPurposeDao.getDatabaseTable());
-        for(Map<String, Object> map : databaseList){
-            System.out.println("----"+map);
-            generalPurposeService.init("s_field");
-            Map<String, Object> temp = new HashMap<String, Object>();
-            temp.put("name_en",map.get("name_en"));
-            temp.put("table_name",map.get("table_name"));
-            List<Map<String, Object>> mapList = generalPurposeService.findByCondition(temp);
-            if(mapList.size()>1){
-                throw new Exception("数据异常:"+mapList);
-            }
-            if(map.get("is_null").equals("YES")){
-                map.put("is_null",1);
-            }else{
-                map.put("is_null",0);
-            }
-            if(mapList.size()==0){
+    /**
+     * 创建或者更新
+     * @param tableName 表名称
+     * @param map 数据
+     * @param findMap 查询数据库是否存在
+     */
+    private void createOrUpdate(String tableName,Map<String, Object> map,Map<String, Object> findMap) throws Exception {
+        generalPurposeService.init(tableName);
+        GeneralPurpose generalPurpose = generalPurposeService.getGeneralPurpose();
+        modificationGeneralPurpose(generalPurpose);
+        List<Map<String, Object>> mapList = generalPurposeService.findByCondition(findMap);
+        if(tableName.equals("s_field")){
+            if(mapList.size() == 0 || mapList.get(0).get("name") == null)
                 map.put("name",map.get("name_ch"));
+            if(mapList.size() == 0 || mapList.get(0).get("columns") == null)
                 map.put("columns",3);
-                generalPurposeService.doCreate(map);
-            }else if(generalPurposeService.findByCondition(map).size()==0){
-                map.put("id",mapList.get(0).get("id"));
-                if(mapList.get(0).get("name")==null){
-                    map.put("name",map.get("name_ch"));
-                }
-                if(mapList.get(0).get("columns")==null){
-                    map.put("columns",map.get("columns"));
-                }
-
-                generalPurposeService.doUpdate(map);
-                System.out.println("更新");
-            }
+            if(mapList.size() == 0 || mapList.get(0).get("input_type") == null)
+                map.put("input_type","text");
+        }
+        if(mapList.size()>1)
+            throw new Exception("数据异常:"+mapList);
+        if(mapList.size()==0){
+            generalPurposeService.doCreate(map);
+        }else if(generalPurposeService.findByCondition(map).size()==0){
+            map.put("id",mapList.get(0).get("id"));
+            generalPurposeService.doUpdate(map);
         }
     }
 
-
-    /**
-     * 把数据库表信息同步到s_table表中
-     */
-    /*private void synchronizingTable(){
-        List<Table> databaseList = tableDao.getDatabaseTable();
-        List<Table> tableList = tableDao.findAll();
-        for(Table table: databaseList){
-            int i=0;
-            for(;i<tableList.size();i++){
-                Table t = tableList.get(i);
-                if(table.getIdName().equals(t.getIdName())){
-                    if(table.getName().equals(t.getName())){
-                        break;
-                    }else{
-                        table.setId(t.getId());
-                        tableDao.doUpdate(table);
-                        break;
-                    }
-                }
-            }
-            if(i==tableList.size()){
-                tableDao.doCreate(table);
-            }
+    private void modificationGeneralPurpose(GeneralPurpose generalPurpose){
+        String tableNameEn = generalPurpose.getTableNameEN();
+        List<String> fieldList = generalPurpose.getFieldList();
+        if(tableNameEn.equals("s_table")){
+            fieldList.add("id");
+            fieldList.add("name_ch");
+            fieldList.add("name_en");
+        }else if (tableNameEn.equals("s_field")){
+            fieldList.add("id");
+            fieldList.add("table_name");
+            fieldList.add("name_ch");
+            fieldList.add("name_en");
+            fieldList.add("type");
+            fieldList.add("size");
+            fieldList.add("type_size");
+            fieldList.add("is_null");
+            fieldList.add("columns");
+            fieldList.add("name");
         }
-    }*/
-    /**
-     * 把数据库字段信息同步到s_field表中
-     */
-     /*private List<Field> synchronizingField(){
-        List<Field> synList = new ArrayList<Field>();
-        List<Field> databaseList = fieldDao.getDatabaseField();
-        List<Field> fieldList = fieldDao.findAll();
-        for(Field field: databaseList){
-            int i=0;
-            for(;i<fieldList.size();i++){
-                Field f = fieldList.get(i);
-                if(field.getIdName().equals(f.getIdName()) && field.getTableName().equals(f.getTableName())){
-                    if(field.equals(f)){
-                        break;
-                    }else{
-                        field.setId(f.getId());
-                        synList.add(field);
-                        fieldDao.doUpdate(field);
-                        break;
-                    }
-                }
-            }
-            if(i==fieldList.size()){
-                synList.add(field);
-                fieldDao.doCreate(field);
-            }
-        }
-        return synList;
-    }*/
-
+    }
+    private void synchronizingTable(Map<String, Object> map) throws Exception {
+        Map<String, Object> temp = new HashMap<String, Object>();
+        temp.put("name_en",map.get("name_en"));
+        createOrUpdate("s_table",map,temp);
+    }
+    private  void synchronizingField(Map<String, Object> map) throws Exception {
+        Map<String, Object> temp = new HashMap<String, Object>();
+        temp.put("name_en",map.get("name_en"));
+        temp.put("table_name",map.get("table_name"));
+        if(map.get("is_null").equals("YES"))
+            map.put("is_null",1);
+        else
+            map.put("is_null",0);
+        createOrUpdate("s_field",map,temp);
+    }
 }

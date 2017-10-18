@@ -1,5 +1,7 @@
 package com.starrysky.base.service;
 
+import com.starrysky.base.po.GeneralPurpose;
+
 import java.util.List;
 import java.util.Map;
 
@@ -26,9 +28,9 @@ public interface GeneralPurposeService {
      */
     public List<Map<String,Object>> getFieldMap();
     /**
-     * 获取表主键信息
-     * @return 表主键
+     * 获取表信息
+     * @return 表信息
      */
-    public Map<String, Object> getFindPkMap();
+    public GeneralPurpose getGeneralPurpose();
 
 }

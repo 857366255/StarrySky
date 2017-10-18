@@ -18,11 +18,14 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService{
     private static Map<String,Object> gpMap = new HashMap<String, Object>();
     private GeneralPurpose generalPurpose;
 
+
+
     @Autowired
     private GeneralPurposeDao generalPurposeDao;
 
-    public Map<String, Object> getFindPkMap(){
-        return generalPurpose.getFieldPkMap();
+
+    public GeneralPurpose getGeneralPurpose() {
+        return generalPurpose;
     }
 
     /**
@@ -36,9 +39,7 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService{
             if(map.get(s) instanceof String && map.get(s).equals("")){
                 continue;
             }
-           // if(map.get(s) instanceof String && !map.get(s).equals("")){
-                tempMap.put(s,map.get(s));
-           // }
+            tempMap.put(s,map.get(s));
         }
         return tempMap;
     }
@@ -88,7 +89,6 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService{
         generalPurpose = new GeneralPurpose();
         generalPurpose.setTableNameEN(s);
         List<Map<String,Object>> maps = generalPurposeDao.findByTableName(generalPurpose);
-
         System.out.println(generalPurpose.getTableNameEN()+":"+maps);
         List<String> pkList = new ArrayList<String>();
         Map<String, Object> pkMap = new HashMap<String, Object>();

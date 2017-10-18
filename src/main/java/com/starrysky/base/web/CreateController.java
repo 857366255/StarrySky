@@ -1,13 +1,12 @@
 package com.starrysky.base.web;
 
-import com.starrysky.base.dao.GeneralPurposeDao;
 import com.starrysky.base.service.GeneralPurposeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,17 +15,19 @@ import java.util.Map;
  * Created by wz on 2017/10/16.
  */
 @Controller
-public class ListController {
+public class CreateController {
+
+    private String TABLE = "t_man";
 
     @Autowired
     private GeneralPurposeService generalPurposeService;
 
     private List<Map<String,Object>> zxc(){
         System.out.println("查询所有人");
-        generalPurposeService.init("s_field");
+        generalPurposeService.init(TABLE);
         return generalPurposeService.getFieldMap();
     }
-    @RequestMapping(value = "list")
+    @RequestMapping(value = "create",method= RequestMethod.GET)
     public String goList(Map<String, Object> map){
         List<Map<String,Object>> list = zxc();
         System.out.println(list);
@@ -41,16 +42,12 @@ public class ListController {
         }
         System.out.println(list);
         map.put("input", list);
-        return "index";
+        return "create";
     }
-    @RequestMapping(value = "form")
+    @RequestMapping(value = "create",method=RequestMethod.POST)
     public String login(@RequestParam Map<String, Object> map){
-        System.out.println("login");
-        System.out.println(map);
-        map.put("message","错误的账号或密码!");
-        generalPurposeService.init("s_field");
+        generalPurposeService.init(TABLE);
         generalPurposeService.doCreate(map);
-
-        return "redirect:list";
+        return "redirect:create";
     }
 }
