@@ -22,16 +22,13 @@ public class CreateController {
     @Autowired
     private GeneralPurposeService generalPurposeService;
 
-    private List<Map<String,Object>> zxc(){
-        System.out.println("查询所有人");
-        generalPurposeService.init(TABLE);
-        return generalPurposeService.getFieldMap();
-    }
     @RequestMapping(value = "create",method= RequestMethod.GET)
     public String goList(Map<String, Object> map){
-        List<Map<String,Object>> list = zxc();
+        generalPurposeService.init("s_field");
+        Map<String, Object> findMap = new HashMap<String, Object>();
+        findMap.put("table_name",TABLE);
+        List<Map<String,Object>> list = generalPurposeService.findByCondition(findMap);
         System.out.println(list);
-
         for(Map m : list){
             if(m.get("select_group") instanceof String && !m.get("select_group").equals("")){
                 generalPurposeService.init("s_select");

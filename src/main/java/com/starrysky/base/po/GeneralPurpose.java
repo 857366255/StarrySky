@@ -1,7 +1,5 @@
 package com.starrysky.base.po;
 
-import com.starrysky.sys.po.Man;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -12,31 +10,19 @@ import java.util.Map;
  */
 public class GeneralPurpose {
     public final static String TABLE_NAME_EN = "s_field";
-    public final static List<String> FIELD_NAME_LIST = Arrays.asList("id","table_name","name_ch","name_en","type","size","type_size","is_null","category");
-    public final static Map<String,Object> FIELD_MAP = new HashMap<String, Object>() {
-        {
-            Map<String, Object> columnMap = new HashMap<String, Object>();
-            for(String s:FIELD_NAME_LIST){
-                columnMap.put(s,null);
-            }
-            put("column",columnMap);
-            put("field",FIELD_NAME_LIST);
-            put("table",TABLE_NAME_EN);
-        }
-    };
+    public final static List<String> TABLE_FIELD_LIST = Arrays.asList("id","name_ch","name_en");
+    public final static List<String> FIELD_NAME_LIST = Arrays.asList("id","table_name","name_ch","name_en","type","size","type_size","is_null","category","name","columns","input_type");
 
     private String tableNameCH;
     private String tableNameEN;
     private List<String> pkList;
-    private Map<String, Object> fieldPkMap;
     private List<Map<String, Object>> fkList;
     private List<String> fieldList;
-    private Map<String, Object> fieldMap;
-    private Map<String,Object> findMap;
+    private Map<String, Object> findMap;
     private Map<String, Object> createMap;
     private Map<String, Object> updateMap;
-    private Integer remove;
-    private List<Integer> removeList;
+    private Map<String, Object> removeMap;
+    private List<Map<String, Object>>  removeList;
 
     public String getTableNameCH() {
         return tableNameCH;
@@ -62,14 +48,6 @@ public class GeneralPurpose {
         this.pkList = pkList;
     }
 
-    public Map<String, Object> getFieldPkMap() {
-        return fieldPkMap;
-    }
-
-    public void setFieldPkMap(Map<String, Object> fieldPkMap) {
-        this.fieldPkMap = fieldPkMap;
-    }
-
     public List<Map<String, Object>> getFkList() {
         return fkList;
     }
@@ -84,14 +62,6 @@ public class GeneralPurpose {
 
     public void setFieldList(List<String> fieldList) {
         this.fieldList = fieldList;
-    }
-
-    public Map<String, Object> getFieldMap() {
-        return fieldMap;
-    }
-
-    public void setFieldMap(Map<String, Object> fieldMap) {
-        this.fieldMap = fieldMap;
     }
 
     public Map<String, Object> getFindMap() {
@@ -118,19 +88,19 @@ public class GeneralPurpose {
         this.updateMap = updateMap;
     }
 
-    public Integer getRemove() {
-        return remove;
+    public Map<String, Object> getRemoveMap() {
+        return removeMap;
     }
 
-    public void setRemove(Integer remove) {
-        this.remove = remove;
+    public void setRemoveMap(Map<String, Object> removeMap) {
+        this.removeMap = removeMap;
     }
 
-    public List<Integer> getRemoveList() {
+    public List<Map<String, Object>> getRemoveList() {
         return removeList;
     }
 
-    public void setRemoveList(List<Integer> removeList) {
+    public void setRemoveList(List<Map<String, Object>> removeList) {
         this.removeList = removeList;
     }
 }

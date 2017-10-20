@@ -23,9 +23,10 @@
         <where>
             <choose>
                 <when test="removeList != null and removeList.size()!=0">
-                    id IN
-                    <foreach collection="removeList" item="item" open="(" separator="," close=")">
-                        '${item}'
+                    <foreach collection="removeList" item="remove" separator=" OR ">
+                        <foreach collection="remove" index="index" item="item"  open="("  separator=" AND "  close=")">
+                            <if test="item != null"> ${index}=#{item} </if>
+                        </foreach>
                     </foreach>
                 </when >
                 <otherwise>
@@ -39,8 +40,10 @@
         DELETE FROM <include refid="table_name_en" />
         <where>
             <choose>
-                <when test="remove != null">
-                    id = #{remove}
+                <when test="removeMap != null">
+                    <foreach collection="removeMap" index="index" item="item" separator=" AND " >
+                        <if test="item != null"> ${index}=#{item} </if>
+                    </foreach>
                 </when >
                 <otherwise>
                     1=2
@@ -55,14 +58,11 @@
             <foreach collection="updateMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">${index}=#{item}</if></foreach>
         </trim>
         WHERE
-        <choose>
-            <when test="updateMap.get('id') !=null ">
-                id = ${updateMap.get("id")}
-            </when >
-            <otherwise>
-                1=2
-            </otherwise>
-        </choose>
+        <foreach collection="findMap" index="index" item="item" separator=" AND " >
+            <choose>
+                <when test="item != null"> ${index}=#{item} </when><otherwise>1=2</otherwise>
+            </choose>
+        </foreach>
     </update>
     <!--查询全部数据-->
     <select id="findAll" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
@@ -72,9 +72,9 @@
     <select id="findById" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
         <include refid="select_from" />
         <where>
-            <foreach collection="fieldPkMap" index="index" item="item" separator=" AND " >
+            <foreach collection="findMap" index="index" item="item" separator=" AND " >
                 <choose>
-                  <when test="item != null"> ${index}=#{item} </when><otherwise>1=2</otherwise>
+                    <when test="item != null"> ${index}=#{item} </when><otherwise>1=2</otherwise>
                 </choose>
             </foreach>
         </where>
@@ -88,9 +88,8 @@
             </foreach>
         </where>
     </select>
-    <!--根据表名称查找-->
+    <!--根据表名称查找 该表字段信息-->
     <select id="findByTableName" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
-        <!--SELECT <foreach collection="FIELD_NAME_LIST" index="index" item="item" separator="," >${item}</foreach> FROM ${TABLE_NAME_EN}-->
         SELECT * FROM ${TABLE_NAME_EN}
         WHERE
         <choose>

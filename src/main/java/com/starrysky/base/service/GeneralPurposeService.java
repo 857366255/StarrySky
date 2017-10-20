@@ -1,36 +1,65 @@
 package com.starrysky.base.service;
 
-import com.starrysky.base.po.GeneralPurpose;
-
 import java.util.List;
 import java.util.Map;
 
 /**
- * Created by wz on 2017/10/9.
+ * Created by wz on 2017/10/20.
  */
 public interface GeneralPurposeService {
-    /**
-     * 初始化
-     * @param s 表名
-     */
-    public void init(String s);
-    public Map<String,Object> findById();
-    public List<Map<String,Object>> findAll();
-    public boolean doCreate(Map<String,Object> map);
-    public boolean doUpdate(Map<String,Object> map);
-    public boolean doRemove(Integer id);
-    public boolean doRemoveBatch(List list);
-    public List<Map<String,Object>> findByCondition(Map<String,Object> map);
 
     /**
-     * 获取表字段信息
-     * @return 表字段
+     * 初始化
+     * @param tableNameEn 表名称
      */
-    public List<Map<String,Object>> getFieldMap();
+    public void init(String tableNameEn);
+
     /**
-     * 获取表信息
-     * @return 表信息
+     * 创建/添加
+     * @param createMap 数据
+     * @return 是否添加成功
      */
-    public GeneralPurpose getGeneralPurpose();
+    public boolean doCreate(Map<String,Object> createMap);
+
+    /**
+     * 删除
+     * @param removeMap 主键
+     * @return 是否删除成功
+     */
+    public boolean doRemove(Map<String,Object> removeMap);
+
+    /**
+     * 批量删除
+     * @param removeMapList 主键数组
+     * @return 是否删除成功
+     */
+    public boolean doRemoveBatch(List<Map<String,Object>> removeMapList);
+
+    /**
+     * 修改数据
+     * @param updateMap 数据
+     * @return 是否修改成功
+     */
+    public boolean doUpdate(Map<String,Object> updateMap);
+
+    /**
+     * 查询唯一数据
+     * @param findMap 查询条件
+     * @return 数据
+     */
+    public Map<String,Object> findById(Map<String, Object> findMap);
+
+    /**
+     * 删除所有数据
+     * @return 数据
+     */
+    public List<Map<String,Object>> findAll();
+
+    /**
+     * 根据条件查询数据
+     * @param findMap 查询条件
+     * @return 数据
+     */
+    public List<Map<String,Object>> findByCondition(Map<String,Object> findMap);
 
 }

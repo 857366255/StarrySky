@@ -6,113 +6,112 @@ import com.starrysky.base.service.GeneralPurposeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 通用数据库增删改查操作实现类
- * Created by wz on 2017/10/9.
+ * Created by wz on 2017/10/20.
  */
 @Service
-public class GeneralPurposeServiceImpl implements GeneralPurposeService{
-
-    private static Map<String,Object> gpMap = new HashMap<String, Object>();
-    private GeneralPurpose generalPurpose;
-
-
+public class GeneralPurposeServiceImpl implements GeneralPurposeService {
 
     @Autowired
     private GeneralPurposeDao generalPurposeDao;
 
+    private GeneralPurpose generalPurpose;
 
-    public GeneralPurpose getGeneralPurpose() {
-        return generalPurpose;
-    }
-
-    /**
-     * 排除垃圾数据
-     * @param map 创建\更新 数据
-     * @return 创建\更新 数据
-     */
-    private Map<String, Object> excludeGarbageData(Map<String,Object> map){
-        Map<String, Object> tempMap = new HashMap<String, Object>();
-        for(String s:generalPurpose.getFieldList()){
-            if(map.get(s) instanceof String && map.get(s).equals("")){
-                continue;
-            }
-            tempMap.put(s,map.get(s));
-        }
-        return tempMap;
-    }
-
-    public boolean doCreate(Map<String,Object> map) {
-        generalPurpose.setCreateMap(excludeGarbageData(map));
-        return generalPurposeDao.doCreate(generalPurpose);
-    }
-
-    public boolean doRemove(Integer id) {
-        generalPurpose.setRemove(id);
-        return generalPurposeDao.doRemove(generalPurpose);
-    }
-
-    public boolean doRemoveBatch(List list) {
-        generalPurpose.setRemoveList(list);
-        return generalPurposeDao.doRemoveBatch(generalPurpose);
-    }
-
-    public boolean doUpdate(Map<String,Object> map) {
-
-        generalPurpose.setUpdateMap(excludeGarbageData(map));
-        return generalPurposeDao.doUpdate(generalPurpose);
-    }
-
-    public Map<String,Object> findById() {
-        return generalPurposeDao.findById(generalPurpose);
-    }
-
-    public List<Map<String,Object>> findAll() {
-        return generalPurposeDao.findAll(generalPurpose);
-    }
-
-    public List<Map<String,Object>> findByCondition(Map<String,Object> map) {
-        generalPurpose.setFindMap(map);
-        return generalPurposeDao.findByCondition(generalPurpose);
-    }
-
-    public List<Map<String,Object>> getFieldMap(){
-        return generalPurposeDao.findByTableName(generalPurpose);
-    }
-
-    public void init(String s){
-        System.out.println("_____________________________________________________");
-        System.out.println("-----------------开始初始化："+s+"表-----------------");
-        Map<String,Object> tempMap = new HashMap<String, Object>(GeneralPurpose.FIELD_MAP);
+    public void init(String tableNameEn) {
         generalPurpose = new GeneralPurpose();
-        generalPurpose.setTableNameEN(s);
-        List<Map<String,Object>> maps = generalPurposeDao.findByTableName(generalPurpose);
-        System.out.println(generalPurpose.getTableNameEN()+":"+maps);
+        generalPurpose.setTableNameEN(tableNameEn);
+        List<Map<String,Object>> tableMessageList = generalPurposeDao.findByTableName(generalPurpose);
         List<String> pkList = new ArrayList<String>();
-        Map<String, Object> pkMap = new HashMap<String, Object>();
-        Map<String, Object> fieldMap = new HashMap<String, Object>();
         List<String> fieldList = new ArrayList<String>();
-        for(Map map: maps){
+        for (Map<String, Object> map : tableMessageList){
             String temp = map.get("name_en").toString();
-            fieldMap.put(temp,null);
             fieldList.add(temp);
             if(map.get("category") instanceof String && map.get("category").equals("PRI")){
                 pkList.add(temp);
-                pkMap.put(temp,null);
             }
         }
+        if(tableMessageList.size()==0 && tableNameEn.equals("s_table")){
+            fieldList=GeneralPurpose.TABLE_FIELD_LIST;
+        }else if(tableNameEn.equals("s_field")){
+            fieldList=GeneralPurpose.FIELD_NAME_LIST;
+        }
         generalPurpose.setPkList(pkList);
-        generalPurpose.setFieldPkMap(pkMap);
-        generalPurpose.setFieldMap(fieldMap);
         generalPurpose.setFieldList(fieldList);
-        System.out.println("字段:"+generalPurpose.getFieldList());
-        System.out.println("主键:"+generalPurpose.getPkList());
-
-        System.out.println("-----------------结束初始化-----------------");
-        System.out.println("_____________________________________________________");
     }
 
+    public boolean doCreate(Map<String, Object> createMap) {
+        generalPurpose.setCreateMap(excludeAbnormalData(createMap));
+        return generalPurposeDao.doCreate(generalPurpose);
+    }
 
+    public boolean doRemove(Map<String, Object> removeMap) {
+        generalPurpose.setRemoveMap(excludeAbnormalAndNotPkData(removeMap));
+        return generalPurposeDao.doRemove(generalPurpose);
+    }
+
+    public boolean doRemoveBatch(List<Map<String, Object>> removeMapList) {
+        List<Map<String, Object>> mapList = new ArrayList<Map<String, Object>>();
+        for(Map<String, Object> map : removeMapList){
+            mapList.add(excludeAbnormalAndNotPkData(map));
+        }
+        generalPurpose.setRemoveList(mapList);
+        return generalPurposeDao.doRemoveBatch(generalPurpose);
+    }
+
+    public boolean doUpdate(Map<String, Object> updateMap) {
+        generalPurpose.setFindMap(excludeAbnormalAndNotPkData(updateMap));
+        generalPurpose.setUpdateMap(excludeAbnormalData(updateMap));
+        return generalPurposeDao.doUpdate(generalPurpose);
+    }
+
+    public Map<String, Object> findById(Map<String, Object> findMap) {
+        generalPurpose.setFindMap(excludeAbnormalAndNotPkData(findMap));
+        return generalPurposeDao.findById(generalPurpose);
+    }
+
+    public List<Map<String, Object>> findAll() {
+        return generalPurposeDao.findAll(generalPurpose);
+    }
+
+    public List<Map<String, Object>> findByCondition(Map<String, Object> findMap) {
+        generalPurpose.setFindMap(excludeAbnormalData(findMap));
+        return generalPurposeDao.findByCondition(generalPurpose);
+    }
+
+    /**
+     * 排除异常数据
+     * @param dataMap 数据
+     * @return 数据
+     */
+    private Map<String,Object> excludeAbnormalData(Map<String, Object> dataMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        for(String s:generalPurpose.getFieldList()){
+            if(dataMap.get(s) instanceof String && dataMap.get(s).equals("")){
+                continue;
+            }
+            map.put(s,dataMap.get(s));
+        }
+        return map;
+    }
+    /**
+     * 排除异常数据 且 不是主键字段数据
+     * @param dataMap 数据
+     * @return 数据
+     */
+    private Map<String,Object> excludeAbnormalAndNotPkData(Map<String, Object> dataMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        for(String s:generalPurpose.getPkList()){
+            if(dataMap.get(s) instanceof String && dataMap.get(s).equals("")){
+                continue;
+            }
+            map.put(s,dataMap.get(s));
+        }
+        return map;
+    }
 }

@@ -48,8 +48,7 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
      */
     private void createOrUpdate(String tableName,Map<String, Object> map,Map<String, Object> findMap) throws Exception {
         generalPurposeService.init(tableName);
-        GeneralPurpose generalPurpose = generalPurposeService.getGeneralPurpose();
-        modificationGeneralPurpose(generalPurpose);
+        //modificationGeneralPurpose();
         List<Map<String, Object>> mapList = generalPurposeService.findByCondition(findMap);
         if(tableName.equals("s_field")){
             if(mapList.size() == 0 || mapList.get(0).get("name") == null)
@@ -69,7 +68,8 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
         }
     }
 
-    private void modificationGeneralPurpose(GeneralPurpose generalPurpose){
+   /* private void modificationGeneralPurpose(){
+       GeneralPurpose generalPurpose = new GeneralPurpose();//generalPurposeService.getGeneralPurpose();
         String tableNameEn = generalPurpose.getTableNameEN();
         List<String> fieldList = generalPurpose.getFieldList();
         if(tableNameEn.equals("s_table")){
@@ -88,7 +88,7 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
             fieldList.add("columns");
             fieldList.add("name");
         }
-    }
+    }*/
     private void synchronizingTable(Map<String, Object> map) throws Exception {
         Map<String, Object> temp = new HashMap<String, Object>();
         temp.put("name_en",map.get("name_en"));
