@@ -4,6 +4,7 @@
 
 import base.SpringTestCase;
 import com.starrysky.base.dao.GeneralPurposeDao;
+import com.starrysky.base.po.GeneralPurpose;
 import com.starrysky.base.service.GeneralPurposeService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,14 @@ public class GeneralPurposeTest2 extends SpringTestCase {
 
     @Test
     public void fk(){
-        System.out.println(generalPurposeDao.getDatabaseFkField());
+        generalPurposeService.init("t_man");
+        GeneralPurpose generalPurpose = generalPurposeService.getGeneralPurpose();
+        generalPurposeService.init("t_employees");
+        Map<String, Object> findMap = new HashMap<String, Object>();
+        findMap.put("id",1);
+        findMap.put("t_man",generalPurpose);
+        System.out.println(generalPurposeService.findByCondition(findMap));
+        //System.out.println(generalPurposeDao.getDatabaseFkField());
     }
 
 

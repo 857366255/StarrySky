@@ -45,6 +45,10 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService {
         generalPurpose.setFieldList(fieldList);
     }
 
+    public GeneralPurpose getGeneralPurpose(){
+        return generalPurpose;
+    }
+
     public boolean doCreate(Map<String, Object> createMap) {
         generalPurpose.setCreateMap(excludeAbnormalData(createMap));
         return generalPurposeDao.doCreate(generalPurpose);
@@ -81,6 +85,19 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService {
 
     public List<Map<String, Object>> findByCondition(Map<String, Object> findMap) {
         generalPurpose.setFindMap(excludeAbnormalData(findMap));
+        /*System.out.println("________________开始findByCondition________________");
+        for(Map<String, Object>map:generalPurposeDao.getDatabaseFkField()){
+            if(map.get("table_name").equals(generalPurpose.getTableNameEN())){
+                GeneralPurpose gp = (GeneralPurpose) findMap.get("t_man");
+                Map<String, Object> m = new HashMap<String, Object>();
+                m.put((String) map.get("referenced_field_name"),1);
+                gp.setFindMap(m);
+                System.out.println(generalPurposeDao.findById(gp));
+                System.out.println(map);
+            }
+        }
+        System.out.println(generalPurposeDao.findByCondition(generalPurpose));
+        System.out.println("________________结束findByCondition________________");*/
         return generalPurposeDao.findByCondition(generalPurpose);
     }
 

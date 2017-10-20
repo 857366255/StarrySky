@@ -3,6 +3,7 @@ package com.starrysky.base.web;
 import com.starrysky.base.service.GeneralPurposeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,16 +18,19 @@ import java.util.Map;
 @Controller
 public class CreateController {
 
-    private String TABLE = "s_menu";
 
     @Autowired
     private GeneralPurposeService generalPurposeService;
 
-    @RequestMapping(value = "create",method= RequestMethod.GET)
-    public String goList(Map<String, Object> map){
+    /**
+     * 打开创建页面
+     * @param tableNameEN 表名称
+     */
+    @RequestMapping(value = "create/{tableNameEN}",method= RequestMethod.GET)
+    public String goList(Map<String, Object> map,@PathVariable String tableNameEN){
         generalPurposeService.init("s_field");
         Map<String, Object> findMap = new HashMap<String, Object>();
-        findMap.put("table_name",TABLE);
+        findMap.put("table_name",tableNameEN);
         List<Map<String,Object>> list = generalPurposeService.findByCondition(findMap);
         System.out.println(list);
         for(Map m : list){
@@ -37,14 +41,20 @@ public class CreateController {
                 m.put("select_group",generalPurposeService.findByCondition(tempMap));
             }
         }
-        System.out.println(list);
         map.put("input", list);
+        map.put("tableNameEN",tableNameEN);
         return "create";
     }
-    @RequestMapping(value = "create",method=RequestMethod.POST)
-    public String login(@RequestParam Map<String, Object> map){
-        generalPurposeService.init(TABLE);
+
+    /**
+     * 创建数据
+     * @param tableNameEN 表名称
+     * @return
+     */
+    @RequestMapping(value = "create/{tableNameEN}",method=RequestMethod.POST)
+    public String login(@RequestParam Map<String, Object> map,@PathVariable String tableNameEN){
+        generalPurposeService.init(tableNameEN);
         generalPurposeService.doCreate(map);
-        return "redirect:create";
+        return "redirect:"+tableNameEN;
     }
 }

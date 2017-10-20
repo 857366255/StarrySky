@@ -1,5 +1,7 @@
 package com.starrysky.base.service;
 
+import com.starrysky.base.po.GeneralPurpose;
+
 import java.util.List;
 import java.util.Map;
 
@@ -61,5 +63,7 @@ public interface GeneralPurposeService {
      * @return 数据
      */
     public List<Map<String,Object>> findByCondition(Map<String,Object> findMap);
+
+    public GeneralPurpose getGeneralPurpose();
 
 }
