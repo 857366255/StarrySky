@@ -30,4 +30,11 @@ public interface GeneralPurposeDao {
      */
     public List<Map<String,Object>> getDatabaseTable();
 
+    /**
+     * 获得数据库外键字段
+     * @return
+     */
+    public List<Map<String,Object>> getDatabaseFkField();
+
+
 }

@@ -25,7 +25,7 @@ public class GeneralPurposeTest extends SpringTestCase {
     @Autowired
     private GeneralPurposeDao generalPurposeDao;
 
-    @Value("#{db.hwz}")
+    //@Value("#{db.hwz}")
     private String filePath;
 
     /**
@@ -36,6 +36,11 @@ public class GeneralPurposeTest extends SpringTestCase {
      * pk 主键
      * show create table t_man;查看表结构sql语句
      */
+    @Test
+    public void fk(){
+        System.out.println(generalPurposeDao.getDatabaseFkField());
+    }
+
     @Test
     public void zxc(){
         System.out.println(filePath);
