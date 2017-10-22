@@ -24,7 +24,7 @@ public class FindController {
     private GeneralPurposeService generalPurposeService;
 
     /**
-     * 打开创建页面
+     * 打开列表页面
      * @param tableNameEN 表名称
      */
     @RequestMapping(value = "find/{tableNameEN}",method= RequestMethod.GET)
@@ -42,7 +42,7 @@ public class FindController {
     /**
      *获得数据1
      */
-    @RequestMapping(value="data1/{tableNameEN}", produces = "application/json; charset=utf-8" )
+    @RequestMapping(value="find/data1/{tableNameEN}", produces = "application/json; charset=utf-8" )
     @ResponseBody
     public List<Map<String, Object>> financeApplyLogs(@PathVariable String tableNameEN) throws MapperException {
         System.out.println("获得数据1");
@@ -50,17 +50,7 @@ public class FindController {
         List<Map<String,Object>> list = generalPurposeService.findAll();
         return list;
     }
-    /**
-     *获得数据2
-     */
-    @RequestMapping(value="data2/{tableNameEN}", produces = "application/json; charset=utf-8" )
-    @ResponseBody
-    public List<Map<String, Object>> financeApplyLogs2(@PathVariable String tableNameEN) throws MapperException {
-        System.out.println("获得数据2");
-        generalPurposeService.init(tableNameEN);
-        List<Map<String,Object>> list = generalPurposeService.findAll();
-        return list;
-    }
+
 
 
 }

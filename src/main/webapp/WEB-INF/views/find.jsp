@@ -63,7 +63,7 @@
                 <div class="col-sm-6">
                     <h4 class="example-title">从URL加载${tableNameEN}</h4>
                     <div class="example">
-                        <table data-toggle="table" data-url="/data1/${tableNameEN}" data-height="250" data-mobile-responsive="true">
+                        <table data-toggle="table" data-url="data1/${tableNameEN}" data-height="250" data-mobile-responsive="true">
                             <thead>
                             <tr>
                                 <c:forEach items="${field}" var="f">
@@ -108,7 +108,7 @@
                     <div class="example-wrap">
                         <h4 class="example-title">类名称</h4>
                         <div class="example">
-                            <table data-toggle="table" data-classes="table table-hover table-condensed" data-url="/data1/${tableNameEN}" data-striped="true" data-height="250" data-mobile-responsive="true">
+                            <table data-toggle="table" data-classes="table table-hover table-condensed" data-url="data1/${tableNameEN}" data-striped="true" data-height="250" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <c:forEach items="${field}" var="f">
@@ -127,7 +127,7 @@
                     <div class="example-wrap">
                         <h4 class="example-title">对齐</h4>
                         <div class="example">
-                            <table data-toggle="table" data-url="/data1/${tableNameEN}" data-mobile-responsive="true">
+                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <c:forEach items="${field}" var="f">
@@ -149,7 +149,7 @@
                     <div class="example-wrap margin-sm-0">
                         <h4 class="example-title">行样式</h4>
                         <div class="example">
-                            <table data-toggle="table" data-url="/data1/${tableNameEN}" data-mobile-responsive="true" data-row-style="rowStyle" data-height="250">
+                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-mobile-responsive="true" data-row-style="rowStyle" data-height="250">
                                 <thead>
                                 <tr>
                                     <c:forEach items="${field}" var="f">
@@ -169,7 +169,7 @@
                     <div class="example-wrap">
                         <h4 class="example-title">列样式</h4>
                         <div class="example">
-                            <table data-toggle="table" data-url="/data1/${tableNameEN}" data-mobile-responsive="true">
+                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <c:forEach items="${field}" var="f">
@@ -216,7 +216,7 @@
                     <div class="example-wrap">
                         <h4 class="example-title">基本排序</h4>
                         <div class="example">
-                            <table data-toggle="table" data-url="/data1/${tableNameEN}" data-height="250" data-sort-name="First" data-sort-order="desc" data-mobile-responsive="true">
+                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-height="250" data-sort-name="First" data-sort-order="desc" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <c:forEach items="${field}" var="f">
@@ -235,11 +235,11 @@
                     <div class="example-wrap margin-sm-0">
                         <h4 class="example-title">格式排序</h4>
                         <div class="example">
-                            <table data-toggle="table" data-url="/data1/${tableNameEN}" data-mobile-responsive="true">
+                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <c:forEach items="${field}" var="f">
-                                        <th data-field="${f.name_en}" ata-formatter="nameFormatter">${f.name}</th>
+                                        <th data-field="${f.name_en}" data-formatter="nameFormatter">${f.name}</th>
                                     </c:forEach>
                                 </tr>
                                 </thead>
@@ -256,7 +256,7 @@
                     <div class="example-wrap">
                         <h4 class="example-title">自定义排序</h4>
                         <div class="example">
-                            <table data-toggle="table" data-url="/data1/${tableNameEN}" data-height="250" data-sort-name="Score" data-sort-order="desc" data-mobile-responsive="true">
+                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-height="250" data-sort-name="Score" data-sort-order="desc" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <c:forEach items="${field}" var="f">
@@ -276,7 +276,7 @@
                     <div class="example-wrap">
                         <h4 class="example-title">隐藏头部</h4>
                         <div class="example">
-                            <table data-toggle="table" data-url="/data1/${tableNameEN}" data-height="250" data-show-header="false" data-mobile-responsive="true">
+                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-height="250" data-show-header="false" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <c:forEach items="${field}" var="f">
@@ -323,7 +323,7 @@
                     <div class="example-wrap margin-sm-0">
                         <h4 class="example-title">单选框</h4>
                         <div class="example">
-                            <table data-toggle="table" data-url="/data1/${tableNameEN}" data-height="299" data-click-to-select="true" data-select-item-name="myRadioName" data-mobile-responsive="true">
+                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-height="299" data-click-to-select="true" data-select-item-name="myRadioName" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <th data-field="state" data-radio="true"></th>
@@ -343,7 +343,7 @@
                     <div class="example-wrap">
                         <h4 class="example-title">复选框</h4>
                         <div class="example">
-                            <table data-toggle="table" data-url="/data1/${tableNameEN}" data-height="299" data-click-to-select="true" data-mobile-responsive="true">
+                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-height="299" data-click-to-select="true" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <th data-field="state" data-checkbox="true"></th>
@@ -391,7 +391,7 @@
                     <div class="example-wrap">
                         <h4 class="example-title">卡片视图</h4>
                         <div class="example">
-                            <table data-toggle="table" data-url="/data1/${tableNameEN}" data-card-view="true" data-mobile-responsive="true">
+                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-card-view="true" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <c:forEach items="${field}" var="f">
@@ -421,7 +421,7 @@
                                     <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
                                 </button>
                             </div>
-                            <table data-toggle="table" data-url="/data1/${tableNameEN}" data-card-view="true" data-mobile-responsive="true">
+                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-card-view="true" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <c:forEach items="${field}" var="f">
@@ -440,7 +440,7 @@
                     <div class="example-wrap">
                         <h4 class="example-title">分页：客户端</h4>
                         <div class="example">
-                            <table id="exampleTablePagination" data-toggle="table" data-url="/data1/${tableNameEN}" data-query-params="queryParams" data-mobile-responsive="true" data-height="400" data-pagination="true" data-icon-size="outline" data-search="true">
+                            <table id="exampleTablePagination" data-toggle="table" data-url="data1/${tableNameEN}" data-query-params="queryParams" data-mobile-responsive="true" data-height="400" data-pagination="true" data-icon-size="outline" data-search="true">
                                 <thead>
                                 <tr>
                                     <th data-field="state" data-checkbox="true"></th>
@@ -499,7 +499,7 @@
 <script src="<%=basePath%>/UI/hplus/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
 <script src="<%=basePath%>/UI/hplus/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
 <script src="<%=basePath%>/UI/hplus/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
-<script src="<%=basePath%>/UI/hplus/js/demo/bootstrap-table-demo.min.js"></script>
+<%--<script src="<%=basePath%>/UI/hplus/js/demo/bootstrap-table-demo.min.js"></script>--%>
 
 </body>
 

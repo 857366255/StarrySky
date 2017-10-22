@@ -44,7 +44,7 @@ ${hwz}
                     <form role="get" action="${tableNameEN}" method="post" id="list" class="form-horizontal">
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <c:forEach items="${input}" var="it">
+                                <c:forEach items="${fieldList}" var="it">
                                     <div class="col-sm-${it.columns}">
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">${it.name}</label>

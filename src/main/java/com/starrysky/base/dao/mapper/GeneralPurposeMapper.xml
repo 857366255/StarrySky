@@ -84,17 +84,38 @@
         <include refid="select_from" />
         <where>
             <foreach collection="findMap" index="index" item="item" separator="AND " >
-                <if test="item != null">${index}=#{item}</if>
+
+                <choose>
+                    <when test="item != null">
+                        <choose>
+                            <when test="item.equals('is null')">${index} ${item}</when>
+                            <otherwise>${index}=#{item}</otherwise>
+                        </choose>
+                    </when>
+                </choose>
             </foreach>
         </where>
     </select>
     <!--根据表名称查找 该表字段信息-->
-    <select id="findByTableName" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
+    <select id="findFieldByTableName" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
         SELECT * FROM ${TABLE_NAME_EN}
         WHERE
         <choose>
             <when test="tableNameEN !=null ">
                 table_name=#{tableNameEN}
+            </when >
+            <otherwise>
+                1=2
+            </otherwise>
+        </choose>
+    </select>
+    <!--根据表名称查找 该表字段信息-->
+    <select id="findFkFieldByTableName" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
+        SELECT * FROM ${FK_FIELD_NAME_EN}
+        WHERE
+        <choose>
+            <when test="tableNameEN !=null ">
+                table_name_en=#{tableNameEN} or referenced_table_name_en=#{tableNameEN}
             </when >
             <otherwise>
                 1=2
@@ -129,10 +150,11 @@
     <!--获得数据库表信息 autoMapping：设置是否启动自动映射功能-->
     <resultMap id="databaseFkFieldMap" type="java.util.Map" autoMapping="false">
         <id property="id" column="id"/>
-        <result property="table_name" column="table_name"/>
-        <result property="field_name" column="column_name"/>
-        <result property="referenced_table_name" column="referenced_table_name"/>
-        <result property="referenced_field_name" column="referenced_column_name"/>
+        <result property="fk_name_en" column="constraint_name"/>
+        <result property="table_name_en" column="table_name"/>
+        <result property="field_name_en" column="column_name"/>
+        <result property="referenced_table_name_en" column="referenced_table_name"/>
+        <result property="referenced_field_name_en" column="referenced_column_name"/>
     </resultMap>
     <select id="getDatabaseFkField" resultMap="databaseFkFieldMap">
         CALL get_database_fk_field()

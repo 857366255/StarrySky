@@ -34,6 +34,11 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
             for(Map<String, Object> map : databaseList){
                 synchronizingField(map);
             }
+            databaseList = generalPurposeDao.getDatabaseFkField();
+            for(Map<String, Object> map : databaseList){
+                synchronizingFkField(map);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,27 +73,6 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
         }
     }
 
-   /* private void modificationGeneralPurpose(){
-       GeneralPurpose generalPurpose = new GeneralPurpose();//generalPurposeService.getGeneralPurpose();
-        String tableNameEn = generalPurpose.getTableNameEN();
-        List<String> fieldList = generalPurpose.getFieldList();
-        if(tableNameEn.equals("s_table")){
-            fieldList.add("id");
-            fieldList.add("name_ch");
-            fieldList.add("name_en");
-        }else if (tableNameEn.equals("s_field")){
-            fieldList.add("id");
-            fieldList.add("table_name");
-            fieldList.add("name_ch");
-            fieldList.add("name_en");
-            fieldList.add("type");
-            fieldList.add("size");
-            fieldList.add("type_size");
-            fieldList.add("is_null");
-            fieldList.add("columns");
-            fieldList.add("name");
-        }
-    }*/
     private void synchronizingTable(Map<String, Object> map) throws Exception {
         Map<String, Object> temp = new HashMap<String, Object>();
         temp.put("name_en",map.get("name_en"));
@@ -104,4 +88,14 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
             map.put("is_null",0);
         createOrUpdate("s_field",map,temp);
     }
+    private  void synchronizingFkField(Map<String, Object> map) throws Exception {
+        Map<String, Object> temp = new HashMap<String, Object>();
+        temp.put("fk_name_en",map.get("fk_name_en"));
+        temp.put("table_name_en",map.get("table_name_en"));
+        temp.put("field_name_en",map.get("field_name_en"));
+        temp.put("referenced_table_name_en",map.get("referenced_table_name_en"));
+        temp.put("referenced_field_name_en",map.get("referenced_field_name_en"));
+        createOrUpdate("s_fk_field",map,temp);
+    }
+
 }

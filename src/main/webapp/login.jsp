@@ -44,12 +44,12 @@
         <h3>欢迎使用 H+</h3>
 
         <form class="m-t" role="form" action="login">
-            <div class="form-group">
+            <%--<div class="form-group">
                 <input type="text" class="form-control" placeholder="用户名" required="">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" placeholder="密码" required="">
-            </div>
+            </div>--%>
             <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
 
 
