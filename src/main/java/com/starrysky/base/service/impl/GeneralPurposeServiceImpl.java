@@ -52,9 +52,9 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService {
             String rtne = (String) map.get("referenced_table_name_en");
             if(tne.equals(rtne))
                 meFkFieldList.add(map);
-            if(tne.equals(tableNameEn))
+            else if(tne.equals(tableNameEn))
                 singleFkFieldList.add(map);
-            if(rtne.equals(tableNameEn))
+            else if(rtne.equals(tableNameEn))
                 multipleFkFieldList.add(map);
         }
         generalPurpose.setMeFkList(meFkFieldList);
