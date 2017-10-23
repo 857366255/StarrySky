@@ -21,7 +21,7 @@ public class GeneralPurpose {
     /**
      * 自关联外键
      */
-    private List<Map<String, Object>> meFkList;
+    private Map<String, Object> meFkMap;
     /**
      * 单关联外键
      */
@@ -61,12 +61,12 @@ public class GeneralPurpose {
         this.pkList = pkList;
     }
 
-    public List<Map<String, Object>> getMeFkList() {
-        return meFkList;
+    public Map<String, Object> getMeFkMap() {
+        return meFkMap;
     }
 
-    public void setMeFkList(List<Map<String, Object>> meFkList) {
-        this.meFkList = meFkList;
+    public void setMeFkMap(Map<String, Object> meFkMap) {
+        this.meFkMap = meFkMap;
     }
 
     public List<Map<String, Object>> getSingleFkList() {

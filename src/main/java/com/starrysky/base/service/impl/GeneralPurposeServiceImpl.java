@@ -44,20 +44,20 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService {
             fieldList=GeneralPurpose.FK_FIELD_NAME_LIST;
         }
         List<Map<String, Object>> tableFkFieldMessageList = generalPurposeDao.findFkFieldByTableName(generalPurpose);
-        List<Map<String, Object>> meFkFieldList = new ArrayList<Map<String, Object>>();
+        Map<String, Object> meFkFieldMap = null;
         List<Map<String, Object>> singleFkFieldList = new ArrayList<Map<String, Object>>();
         List<Map<String, Object>> multipleFkFieldList = new ArrayList<Map<String, Object>>();
         for(Map<String, Object> map : tableFkFieldMessageList){
             String tne = (String) map.get("table_name_en");
             String rtne = (String) map.get("referenced_table_name_en");
             if(tne.equals(rtne))
-                meFkFieldList.add(map);
+                meFkFieldMap=map;
             else if(tne.equals(tableNameEn))
                 singleFkFieldList.add(map);
             else if(rtne.equals(tableNameEn))
                 multipleFkFieldList.add(map);
         }
-        generalPurpose.setMeFkList(meFkFieldList);
+        generalPurpose.setMeFkMap(meFkFieldMap);
         generalPurpose.setSingleFkList(singleFkFieldList);
         generalPurpose.setMultipleFkList(multipleFkFieldList);
         generalPurpose.setPkList(pkList);

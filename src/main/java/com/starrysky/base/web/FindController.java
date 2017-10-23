@@ -3,6 +3,7 @@ package com.starrysky.base.web;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sdicons.json.mapper.MapperException;
+import com.starrysky.base.service.FindService;
 import com.starrysky.base.service.GeneralPurposeService;
 import com.starrysky.base.vo.Params;
 import com.starrysky.tool.Transformation;
@@ -22,7 +23,8 @@ public class FindController {
 
     @Autowired
     private GeneralPurposeService generalPurposeService;
-
+    @Autowired
+    private FindService findService;
     /**
      * 打开列表页面
      * @param tableNameEN 表名称
@@ -51,6 +53,17 @@ public class FindController {
         return list;
     }
 
+    /**
+     * 打开列表页面
+     */
+    @RequestMapping(value = "test",method= RequestMethod.GET)
+    public String safad(Map<String, Object> map){
+        System.out.println("查询数据");
+        List<Map<String, Object>> mapList = findService.getData("s_menu");
+        System.out.println(mapList);
+        map.put("list",mapList);
+        return "menu";
+    }
 
 
 }

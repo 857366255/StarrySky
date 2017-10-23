@@ -17,5 +17,11 @@ public interface FindService {
      * @return 数据
      */
     public List<Map<String, Object>> getData(String tableNameEn);
+    /**
+     * 获得递归数据
+     * @param tableNameEn 表名称
+     * @return 数据
+     */
+    public List<Map<String, Object>> getRecursionData(String tableNameEn);
 
 }

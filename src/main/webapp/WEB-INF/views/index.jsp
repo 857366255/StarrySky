@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
@@ -52,7 +51,7 @@
                                 </span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a class="J_menuItem" href="form_avatar.html">修改头像</a>
+                            <li><a class="J_menuItem" href="test">修改头像</a>
                             </li>
                             <li><a class="J_menuItem" href="profile.html">个人资料</a>
                             </li>
@@ -68,12 +67,13 @@
                     <div class="logo-element">H+
                     </div>
                 </li>
-                <c:forEach items="${menu}" var="m">
+                <c:import url="menu.jsp" />
+                <%--<c:forEach items="${menu}" var="m">
                 <li>
                     <a class="J_menuItem" href="create/${m.url}">
                         <i class="fa ${m.icon}"></i>
                         <span class="nav-label">创建${m.name}</span>
-                            <%--<span class="fa arrow"></span>--%>
+                            &lt;%&ndash;<span class="fa arrow"></span>&ndash;%&gt;
                     </a>
                 </li>
                 </c:forEach>
@@ -82,10 +82,10 @@
                         <a class="J_menuItem" href="find/${m.url}">
                             <i class="fa ${m.icon}"></i>
                             <span class="nav-label">查看${m.name}</span>
-                                <%--<span class="fa arrow"></span>--%>
+                                &lt;%&ndash;<span class="fa arrow"></span>&ndash;%&gt;
                         </a>
                     </li>
-                </c:forEach>
+                </c:forEach>--%>
             </ul>
         </div>
     </nav>

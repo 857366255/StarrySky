@@ -21,30 +21,44 @@ public class FindServiceImpl implements FindService{
         findMap.put("table_name",tableNameEn);
         return generalPurposeService.findByCondition(findMap);
     }
-
+    public List<Map<String, Object>> getRecursionData(String tableNameEn){
+        generalPurposeService.init(tableNameEn);
+        Map<String, Object> findMap = new HashMap<String, Object>();
+        Map<String, Object> meFkMap = generalPurposeService.getGeneralPurpose().getMeFkMap();
+        findMap.put((String) meFkMap.get("field_name_en"),"is null");
+        List<Map<String, Object>> mapList = generalPurposeService.findByCondition(findMap);
+        for(Map<String, Object> map : mapList ){
+            meData(map,meFkMap);
+        }
+        return mapList;
+    }
     public List<Map<String, Object>> getData(String tableNameEn){
         generalPurposeService.init(tableNameEn);
         Map<String, Object> findMap = new HashMap<String, Object>();
         findMap.put("superiors_id","is null");
         List<Map<String, Object>> mapList = generalPurposeService.findByCondition(findMap);
-        List<Map<String, Object>> meFkList = generalPurposeService.getGeneralPurpose().getMeFkList();
+        Map<String, Object> meFkMap = generalPurposeService.getGeneralPurpose().getMeFkMap();
         List<Map<String, Object>> singleFkList = generalPurposeService.getGeneralPurpose().getSingleFkList();
         List<Map<String, Object>> multipleFkList = generalPurposeService.getGeneralPurpose().getMultipleFkList();
-        for(Map<String, Object> meFkMap : meFkList){
+        /*if(mapList != null){
             for(Map<String, Object> map : mapList ){
                 meData(map,meFkMap);
             }
         }
-        for(Map<String, Object> singleFkMap : singleFkList){
-            for(Map<String, Object> map : mapList ){
-                singleData(map,singleFkMap);
+        if(singleFkList != null){
+            for(Map<String, Object> singleFkMap : singleFkList){
+                for(Map<String, Object> map : mapList ){
+                    singleData(map,singleFkMap);
+                }
             }
         }
-        for(Map<String, Object> multipleFkMap : multipleFkList){
-            for(Map<String, Object> map : mapList ){
-                multipleData(map,multipleFkMap);
+        if(multipleFkList != null){
+            for(Map<String, Object> multipleFkMap : multipleFkList){
+                for(Map<String, Object> map : mapList ){
+                    multipleData(map,multipleFkMap);
+                }
             }
-        }
+        }*/
         return mapList;
     }
 
