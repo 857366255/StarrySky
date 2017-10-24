@@ -38,35 +38,27 @@
 <body class="gray-bg">
 <div class="wrapper wrapper-content  animated fadeInRight">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-2">
             <div class="ibox ">
                 <div class="ibox-content">
                     <div class="tab-content">
-                        <div id="contact-1" class="tab-pane active">
-                            <div class="form-group">
-                                <div class="row m-b-lg">
-                                    <c:forEach items="${fieldList}" var="it">
-                                        <div class="col-sm-12">
-                                            <dl class="dl-horizontal">
-                                                <dt>${it.name}：</dt>
-                                                <dd>${data[it.name_en]}</dd>
-                                            </dl>
-                                        </div>
-                                    </c:forEach>
-                                </div>
-                            </div>
-                        </div>
+                        <c:forEach items="${combination.fieldList}" var="it">
+                                <dl class="dl-horizontal">
+                                    <dt>${it.name}：</dt>
+                                    <dd>${combination.data[it.name_en]}</dd>
+                                </dl>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-10">
             <div class="ibox">
                 <div class="ibox-content">
                     <%--<div class="clients-list">--%>
                     <div>
                         <ul class="nav nav-tabs">
-                            <c:forEach items="${multipleFkList}" var="mfkl" varStatus="vs">
+                            <c:forEach items="${combination.multipleFkList}" var="mfkl" varStatus="vs">
                                 <c:choose>
                                     <c:when test="${vs.index==0}">
                                         <li class="active">
@@ -75,53 +67,36 @@
                                         <li class="">
                                     </c:otherwise>
                                 </c:choose>
-                                <%--<c:when test="${mfkl.index==0}">--%>
-
-                                <%--</c:when>--%>
-                                <%--<c:otherwise>--%>
-                                    <%--<li class="">--%>
-                                <%--</c:otherwise>--%>
                                 <a data-toggle="tab" href="#tab-${mfkl.table_name_en}"><i class="fa fa-user"></i> ${mfkl.name}</a></li>
                             </c:forEach>
-                            
-                            <%--<li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-user"></i> 联系人</a></li>--%>
-                            <%--<li class=""><a data-toggle="tab" href="#tab-2"><i class="fa fa-briefcase"></i> 公司</a></li>--%>
                         </ul>
                         <div class="tab-content">
-                            <c:forEach items="${multipleFkList}" var="mfkl" varStatus="vs">
-                            <div id="tab-${mfkl.table_name_en}" class="tab-pane active">${mfkl.table_name_en}
-                                <div class="full-height-scroll">
-                                    <div class="table-responsive">${mfkl.fieldList}
-                                        <table data-toggle="table" data-url="data1/${mfkl.table_name_en}" data-height="500" data-mobile-responsive="true">
+                            <c:forEach items="${combination.multipleFkList}" var="mfkl" varStatus="vs">
+                                <c:choose>
+                                    <c:when test="${vs.index==0}">
+                                    <div id="tab-${mfkl.table_name_en}" class="tab-pane active">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div id="tab-${mfkl.table_name_en}" class="tab-pane">
+                                    </c:otherwise>
+                                    </c:choose>
+
+                                <%--<div class="full-height-scroll">
+                                    <div class="table-responsive">--%>
+                                        <table data-toggle="table" data-url="data1/${mfkl.table_name_en}" data-height="600" data-mobile-responsive="true">
                                             <thead>
                                             <tr>
-                                                <c:forEach items="${fieldList}" var="f">
+                                                <c:forEach items="${mfkl.fieldList}" var="f">
                                                     <th data-field="${f.name_en}">${f.name}</th>
                                                 </c:forEach>
                                             </tr>
                                             </thead>
                                         </table>
-                                    </div>
-                                </div>
+                                    <%--</div>
+                                </div>--%>
                             </div>
                             </c:forEach>
-                            <%--<div id="tab-2" class="tab-pane active">
-                                <div class="full-height-scroll">
-                                    <div class="table-responsive">
-                                        <table data-toggle="table" data-url="data1/${tableNameEN}" data-height="250" data-mobile-responsive="true">
-                                            <thead>
-                                            <tr>
-                                                <c:forEach items="${fieldList}" var="f">
-                                                    <th data-field="${f.name_en}">${f.name}</th>
-                                                </c:forEach>
-                                            </tr>
-                                            </thead>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>--%>
                         </div>
-
                     </div>
                 </div>
             </div>
