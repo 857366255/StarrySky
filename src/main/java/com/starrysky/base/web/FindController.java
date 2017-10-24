@@ -44,7 +44,7 @@ public class FindController {
     /**
      *获得数据1
      */
-    @RequestMapping(value="find/data1/{tableNameEN}", produces = "application/json; charset=utf-8" )
+    @RequestMapping(value={"combination/data1/{tableNameEN}","find/data1/{tableNameEN}"}, produces = "application/json; charset=utf-8" )
     @ResponseBody
     public List<Map<String, Object>> financeApplyLogs(@PathVariable String tableNameEN) throws MapperException {
         System.out.println("获得数据1");

@@ -24,6 +24,9 @@ public class LoginController {
     @Autowired
     private CreateService createService;
 
+    @Autowired
+    private GeneralPurposeService generalPurposeService;
+
     @RequestMapping(value = "login",method= RequestMethod.GET)
     public String goLogin(Map<String, Object> map){
         List<Map<String, Object>> mapList = findService.getRecursionData("s_menu");
@@ -34,8 +37,21 @@ public class LoginController {
     public String combination(Map<String, Object> map,@PathVariable String tableNameEn){
         map.put("fieldList", createService.getFieldList(tableNameEn));
         List<Map<String, Object>> mapList = findService.getData(tableNameEn);
-      //  System.out.println(mapList);
         map.put("data",mapList.get(0));
+        map.put("tableNameEN",tableNameEn);
+
+        generalPurposeService.init(tableNameEn);
+        List<Map<String, Object>> multipleFkList = generalPurposeService.getGeneralPurpose().getMultipleFkList();
+        generalPurposeService.init("s_table");
+        for(Map<String, Object> m : multipleFkList){
+           Map<String, Object> findMap = new HashMap<String, Object>();
+           findMap.put("name_en",m.get("table_name_en"));
+           m.put("name",generalPurposeService.findByCondition(findMap).get(0).get("name_ch"));
+           //m.put("fieldList",createService.getFieldList((String) m.get("table_name_en")));
+            System.out.println("__"+m.get("table_name_en"));System.out.println("__-----"+createService.getFieldList((String) m.get("table_name_en")));
+        }
+        System.out.println(multipleFkList);
+        map.put("multipleFkList",multipleFkList);
         return "combination-window";
     }
 }
