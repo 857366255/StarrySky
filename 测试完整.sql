@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-10-24 17:25:47
+Date: 2017-10-25 17:11:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -97,27 +97,27 @@ CREATE TABLE `s_field` (
   PRIMARY KEY (`id`),
   KEY `fk_field_table_name` (`table_name`),
   CONSTRAINT `fk_field_table_name` FOREIGN KEY (`table_name`) REFERENCES `s_table` (`name_en`)
-) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8 COMMENT='字段';
+) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8 COMMENT='字段';
 
 -- ----------------------------
 -- Records of s_field
 -- ----------------------------
-INSERT INTO `s_field` VALUES ('1', 's_field', '唯一标识符', 'id', 'int', null, 'int(11)', '0', 'PRI', '3', '唯一标识符', null, null, null, null, 'text', null);
+INSERT INTO `s_field` VALUES ('1', 's_field', '唯一标识符', 'id', 'int', null, 'int(11)', '0', 'PRI', '3', '唯一标识符', null, null, '0', null, 'text', null);
 INSERT INTO `s_field` VALUES ('2', 's_field', '表名称', 'table_name', 'varchar', null, 'varchar(255)', '1', 'MUL', '3', '表名称', null, null, null, null, 'text', null);
 INSERT INTO `s_field` VALUES ('3', 's_field', '数据库名称字段ch', 'name_ch', 'varchar', null, 'varchar(255)', '1', null, '3', '数据库名称字段ch', null, null, null, null, 'text', null);
 INSERT INTO `s_field` VALUES ('4', 's_field', '数据库字段名称en', 'name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '数据库字段名称en', null, null, null, null, 'text', null);
 INSERT INTO `s_field` VALUES ('5', 's_field', '类型', 'type', 'varchar', null, 'varchar(255)', '1', null, '3', '类型', null, null, null, null, 'text', null);
-INSERT INTO `s_field` VALUES ('6', 's_field', '大小', 'size', 'double', null, 'double', '1', null, '3', '大小', null, null, null, null, 'text', null);
+INSERT INTO `s_field` VALUES ('6', 's_field', '大小', 'size', 'double', null, 'double', '1', null, '3', '大小', null, null, '0', null, 'text', null);
 INSERT INTO `s_field` VALUES ('7', 's_field', '类型大小', 'type_size', 'varchar', null, 'varchar(255)', '1', null, '3', '类型大小', null, null, null, null, 'text', null);
 INSERT INTO `s_field` VALUES ('8', 's_field', '是否允许未空', 'is_null', 'tinyint', null, 'tinyint(1)', '1', null, '3', '是否允许未空', null, null, null, null, 'text', null);
-INSERT INTO `s_field` VALUES ('9', 's_field', '类别(主键,外键)', 'category', 'varchar', null, 'varchar(255)', '1', null, '3', '类别(主键,外键)', null, null, null, null, 'text', null);
-INSERT INTO `s_field` VALUES ('10', 's_field', '站几列', 'columns', 'int', null, 'int(2)', '1', null, '3', '站几列', null, null, null, null, 'text', null);
+INSERT INTO `s_field` VALUES ('9', 's_field', '类别(主键,外键)', 'category', 'varchar', null, 'varchar(255)', '1', null, '3', '类别(主键,外键)', null, null, '0', null, 'text', null);
+INSERT INTO `s_field` VALUES ('10', 's_field', '站几列', 'columns', 'int', null, 'int(2)', '1', null, '3', '站几列', null, null, '0', null, 'text', null);
 INSERT INTO `s_field` VALUES ('11', 's_field', '字段名称', 'name', 'varchar', null, 'varchar(255)', '1', null, '3', '字段名称', null, null, null, null, 'text', null);
-INSERT INTO `s_field` VALUES ('12', 's_field', '备注', 'remark', 'varchar', null, 'varchar(255)', '1', null, '3', '备注', null, null, null, null, 'text', null);
-INSERT INTO `s_field` VALUES ('13', 's_field', '提醒信息', 'hint', 'varchar', null, 'varchar(255)', '1', null, '3', '提醒信息', null, null, null, null, 'text', null);
+INSERT INTO `s_field` VALUES ('12', 's_field', '备注', 'remark', 'varchar', null, 'varchar(255)', '1', null, '3', '备注', null, null, '0', null, 'text', null);
+INSERT INTO `s_field` VALUES ('13', 's_field', '提醒信息', 'hint', 'varchar', null, 'varchar(255)', '1', null, '3', '提醒信息', null, null, '0', null, 'text', null);
 INSERT INTO `s_field` VALUES ('14', 's_field', '是否禁用', 'is_disable', 'tinyint', null, 'tinyint(1)', '1', null, '3', '是否禁用', null, null, null, null, 'text', null);
 INSERT INTO `s_field` VALUES ('15', 's_field', '是否必要', 'is_necessary', 'tinyint', null, 'tinyint(1)', '1', null, '3', '是否必要', null, null, null, null, 'text', null);
-INSERT INTO `s_field` VALUES ('16', 's_field', '输入框类型', 'input_type', 'varchar', null, 'varchar(255)', '1', null, '3', '输入框类型', null, null, null, null, 'text', null);
+INSERT INTO `s_field` VALUES ('16', 's_field', '输入框类型', 'input_type', 'varchar', null, 'varchar(255)', '1', null, '3', '输入框类型', null, null, '0', null, 'text', null);
 INSERT INTO `s_field` VALUES ('17', 's_field', '选择组', 'select_group', 'varchar', null, 'varchar(255)', '1', null, '3', '选择组', null, null, null, null, 'text', null);
 INSERT INTO `s_field` VALUES ('18', 's_fk_field', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null);
 INSERT INTO `s_field` VALUES ('19', 's_fk_field', '外键名称', 'fk_name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '外键名称', null, null, null, null, 'text', null);
@@ -189,6 +189,8 @@ INSERT INTO `s_field` VALUES ('84', 't_training_records', '创建时间', 'creat
 INSERT INTO `s_field` VALUES ('85', 't_users', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null);
 INSERT INTO `s_field` VALUES ('86', 't_users', '用户', 'user', 'varchar', null, 'varchar(255)', '1', null, '3', '用户', null, null, null, null, 'text', null);
 INSERT INTO `s_field` VALUES ('87', 't_users', '密码', 'password', 'varchar', null, 'varchar(255)', '1', null, '3', '密码', null, null, null, null, 'text', null);
+INSERT INTO `s_field` VALUES ('88', 's_menu', 'url操作类型', 'url_type', 'varchar', null, 'varchar(255)', '1', null, '3', 'url操作类型', null, null, null, null, 'text', null);
+INSERT INTO `s_field` VALUES ('89', 's_menu', 'utl操作表', 'url_table', 'varchar', null, 'varchar(255)', '1', 'MUL', '3', 'utl操作表', null, null, null, null, 'text', null);
 
 -- ----------------------------
 -- Table structure for s_fk_field
@@ -202,7 +204,7 @@ CREATE TABLE `s_fk_field` (
   `referenced_table_name_en` varchar(255) DEFAULT NULL COMMENT '引用表名称',
   `referenced_field_name_en` varchar(255) DEFAULT NULL COMMENT '引用字段名称',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of s_fk_field
@@ -224,6 +226,7 @@ INSERT INTO `s_fk_field` VALUES ('14', 'rb_mtm_man_id', 't_training_plan_', 'man
 INSERT INTO `s_fk_field` VALUES ('15', 'rb_mtm_training_method_id', 't_training_plan_', 'training_method_id', 't_training_method', 'id');
 INSERT INTO `s_fk_field` VALUES ('16', 'training_records_training_moton_details_id', 't_training_records', 'training_moton_details_id', 't_training_motion_details', 'id');
 INSERT INTO `s_fk_field` VALUES ('17', 'training_records_training_plan_id', 't_training_records', 'training_plan_id', 't_training_plan_', 'id');
+INSERT INTO `s_fk_field` VALUES ('18', 'fk_menu_url_table', 's_menu', 'url_table', 's_table', 'name_en');
 
 -- ----------------------------
 -- Table structure for s_menu
@@ -235,22 +238,26 @@ CREATE TABLE `s_menu` (
   `icon` varchar(255) DEFAULT NULL COMMENT '图标',
   `superiors_id` int(11) DEFAULT NULL COMMENT '上级id',
   `url` varchar(255) DEFAULT NULL COMMENT 'URL',
+  `url_type` varchar(255) DEFAULT NULL COMMENT 'url操作类型',
+  `url_table` varchar(255) DEFAULT NULL COMMENT 'utl操作表',
   PRIMARY KEY (`id`),
   KEY `fk_menu_superiors_id` (`superiors_id`),
-  CONSTRAINT `fk_menu_superiors_id` FOREIGN KEY (`superiors_id`) REFERENCES `s_menu` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='菜单';
+  KEY `fk_menu_url_table` (`url_table`),
+  CONSTRAINT `fk_menu_superiors_id` FOREIGN KEY (`superiors_id`) REFERENCES `s_menu` (`id`),
+  CONSTRAINT `fk_menu_url_table` FOREIGN KEY (`url_table`) REFERENCES `s_table` (`name_en`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='菜单';
 
 -- ----------------------------
 -- Records of s_menu
 -- ----------------------------
-INSERT INTO `s_menu` VALUES ('0', '系统管理', 'fa-desktop', null, null);
-INSERT INTO `s_menu` VALUES ('1', '新增菜单', 'fa-home', '0', 'create/s_menu');
-INSERT INTO `s_menu` VALUES ('2', '新增选择框', null, '0', 'create/s_select');
-INSERT INTO `s_menu` VALUES ('4', '新增人', null, '0', 'create/t_man');
-INSERT INTO `s_menu` VALUES ('8', '查看菜单', null, '0', 'find/s_menu');
-INSERT INTO `s_menu` VALUES ('9', '查看选择框', null, '0', 'find/s_select');
-INSERT INTO `s_menu` VALUES ('10', '查看人', null, '0', 'find/t_man');
-INSERT INTO `s_menu` VALUES ('11', '组合窗口', null, null, 'combination/t_man');
+INSERT INTO `s_menu` VALUES ('0', '系统管理', 'fa-desktop', null, null, null, null);
+INSERT INTO `s_menu` VALUES ('1', '新增菜单', 'fa-home', '0', 'create/s_menu', 'create', 's_menu');
+INSERT INTO `s_menu` VALUES ('2', '新增选择框', null, '0', 'create/s_select', 'create', 's_select');
+INSERT INTO `s_menu` VALUES ('4', '新增人', null, '0', 'create/t_man', 'create', 't_man');
+INSERT INTO `s_menu` VALUES ('8', '查看菜单', null, '0', 'find/s_menu', 'find', 's_menu');
+INSERT INTO `s_menu` VALUES ('9', '查看选择框', null, '0', 'find/s_select', 'find', 's_select');
+INSERT INTO `s_menu` VALUES ('10', '查看人', null, '0', 'find/t_man', 'find', 't_man');
+INSERT INTO `s_menu` VALUES ('11', '组合窗口', null, null, 'combination/s_table', 'combination', 's_table');
 
 -- ----------------------------
 -- Table structure for s_select
