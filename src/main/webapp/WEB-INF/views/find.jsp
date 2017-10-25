@@ -32,379 +32,14 @@
     <link href="<%=basePath%>/UI/hplus/css/animate.min.css" rel="stylesheet">
     <link href="<%=basePath%>/UI/hplus/css/style.min862f.css?v=4.1.0" rel="stylesheet">
 
-
 </head>
 
 <body class="gray-bg">
 <div class="wrapper wrapper-content animated fadeInRight">
-    <div class="ibox float-e-margins">
-        <div class="ibox-title">
-            <h5>基本</h5>
-            <div class="ibox-tools">
-                <a class="collapse-link">
-                    <i class="fa fa-chevron-up"></i>
-                </a>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-wrench"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#">选项1</a>
-                    </li>
-                    <li><a href="#">选项2</a>
-                    </li>
-                </ul>
-                <a class="close-link">
-                    <i class="fa fa-times"></i>
-                </a>
-            </div>
-        </div>
-        <div class="ibox-content">
-            <div class="row row-lg">
-                <div class="col-sm-6">
-                    <h4 class="example-title">从URL加载${tableNameEN}</h4>
-                    <div class="example">
-                        <table data-toggle="table" data-url="data1/${tableNameEN}" data-height="250" data-mobile-responsive="true">
-                            <thead>
-                            <tr>
-                                <c:forEach items="${field}" var="f">
-                                    <th data-field="${f.name_en}">${f.name}</th>
-                                </c:forEach>
-                            </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Panel Basic -->
-
-    <!-- Panel Style -->
-    <div class="ibox float-e-margins">
-        <div class="ibox-title">
-            <h5>样式</h5>
-            <div class="ibox-tools">
-                <a class="collapse-link">
-                    <i class="fa fa-chevron-up"></i>
-                </a>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-wrench"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#">选项1</a>
-                    </li>
-                    <li><a href="#">选项2</a>
-                    </li>
-                </ul>
-                <a class="close-link">
-                    <i class="fa fa-times"></i>
-                </a>
-            </div>
-        </div>
-        <div class="ibox-content">
-            <div class="row row-lg">
-                <div class="col-sm-6">
-                    <!-- Example Classes -->
-                    <div class="example-wrap">
-                        <h4 class="example-title">类名称</h4>
-                        <div class="example">
-                            <table data-toggle="table" data-classes="table table-hover table-condensed" data-url="data1/${tableNameEN}" data-striped="true" data-height="250" data-mobile-responsive="true">
-                                <thead>
-                                <tr>
-                                    <c:forEach items="${field}" var="f">
-                                        <th data-field="${f.name_en}">${f.name}</th>
-                                    </c:forEach>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Example Classes -->
-                </div>
-
-                <div class="col-sm-6">
-                    <!-- Example Align -->
-                    <div class="example-wrap">
-                        <h4 class="example-title">对齐</h4>
-                        <div class="example">
-                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-mobile-responsive="true">
-                                <thead>
-                                <tr>
-                                    <c:forEach items="${field}" var="f">
-                                        <%-- data-halign="center" data-halign="left" --%>
-                                        <th data-field="${f.name_en}" data-halign="right">${f.name}</th>
-                                    </c:forEach>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Example Align -->
-                </div>
-
-                <div class="clearfix hidden-xs"></div>
-
-                <div class="col-sm-6">
-                    <!-- Example Rowstyle -->
-                    <div class="example-wrap margin-sm-0">
-                        <h4 class="example-title">行样式</h4>
-                        <div class="example">
-                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-mobile-responsive="true" data-row-style="rowStyle" data-height="250">
-                                <thead>
-                                <tr>
-                                    <c:forEach items="${field}" var="f">
-                                        <%-- data-halign="center" data-halign="left" --%>
-                                        <th data-field="${f.name_en}" data-halign="right">${f.name}</th>
-                                    </c:forEach>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Example Rowstyle -->
-                </div>
-
-                <div class="col-sm-6">
-                    <!-- Example Cellstyle -->
-                    <div class="example-wrap">
-                        <h4 class="example-title">列样式</h4>
-                        <div class="example">
-                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-mobile-responsive="true">
-                                <thead>
-                                <tr>
-                                    <c:forEach items="${field}" var="f">
-                                        <th data-field="${f.name_en}" data-cell-style="cellStyle">${f.name}</th>
-                                    </c:forEach>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Example Cellstyle -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Panel Style -->
-
-    <!-- Panel Sort & Hideheader -->
-    <div class="ibox float-e-margins">
-        <div class="ibox-title">
-            <h5>排序&amp;隐藏头部</h5>
-            <div class="ibox-tools">
-                <a class="collapse-link">
-                    <i class="fa fa-chevron-up"></i>
-                </a>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-wrench"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#">选项1</a>
-                    </li>
-                    <li><a href="#">选项2</a>
-                    </li>
-                </ul>
-                <a class="close-link">
-                    <i class="fa fa-times"></i>
-                </a>
-            </div>
-        </div>
-        <div class="ibox-content">
-            <div class="row row-lg">
-                <div class="col-sm-6">
-                    <!-- Example Basic Sort -->
-                    <div class="example-wrap">
-                        <h4 class="example-title">基本排序</h4>
-                        <div class="example">
-                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-height="250" data-sort-name="First" data-sort-order="desc" data-mobile-responsive="true">
-                                <thead>
-                                <tr>
-                                    <c:forEach items="${field}" var="f">
-                                        <th data-field="${f.name_en}" data-sortable="true">${f.name}</th>
-                                    </c:forEach>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Example Basic Sort -->
-                </div>
-
-                <div class="col-sm-6">
-                    <!-- Example Format Sort -->
-                    <div class="example-wrap margin-sm-0">
-                        <h4 class="example-title">格式排序</h4>
-                        <div class="example">
-                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-mobile-responsive="true">
-                                <thead>
-                                <tr>
-                                    <c:forEach items="${field}" var="f">
-                                        <th data-field="${f.name_en}" data-formatter="nameFormatter">${f.name}</th>
-                                    </c:forEach>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Example Format Sort -->
-                </div>
-
-                <div class="clearfix hidden-xs"></div>
-
-                <div class="col-sm-6">
-                    <!-- Example Custom Sort -->
-                    <div class="example-wrap">
-                        <h4 class="example-title">自定义排序</h4>
-                        <div class="example">
-                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-height="250" data-sort-name="Score" data-sort-order="desc" data-mobile-responsive="true">
-                                <thead>
-                                <tr>
-                                    <c:forEach items="${field}" var="f">
-                                        <%--data-sortable="true" data-sorter="scoreSorter"--%>
-                                        <th data-field="${f.name_en}" data-sortable="true">${f.name}</th>
-                                    </c:forEach>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Example Custom Sort -->
-                </div>
-
-                <div class="col-sm-6">
-                    <!-- Example Hide Header -->
-                    <div class="example-wrap">
-                        <h4 class="example-title">隐藏头部</h4>
-                        <div class="example">
-                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-height="250" data-show-header="false" data-mobile-responsive="true">
-                                <thead>
-                                <tr>
-                                    <c:forEach items="${field}" var="f">
-                                        <th data-field="${f.name_en}">${f.name}</th>
-                                    </c:forEach>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Example Hide Header -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Panel Sort & Hideheader -->
-
-    <!-- Panel Columns & Select -->
-    <div class="ibox float-e-margins">
-        <div class="ibox-title">
-            <h5>列&amp;选择</h5>
-            <div class="ibox-tools">
-                <a class="collapse-link">
-                    <i class="fa fa-chevron-up"></i>
-                </a>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-wrench"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#">选项1</a>
-                    </li>
-                    <li><a href="#">选项2</a>
-                    </li>
-                </ul>
-                <a class="close-link">
-                    <i class="fa fa-times"></i>
-                </a>
-            </div>
-        </div>
-        <div class="ibox-content">
-            <div class="row row-lg">
-                <div class="col-sm-6">
-                    <!-- Example Radio Select -->
-                    <div class="example-wrap margin-sm-0">
-                        <h4 class="example-title">单选框</h4>
-                        <div class="example">
-                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-height="299" data-click-to-select="true" data-select-item-name="myRadioName" data-mobile-responsive="true">
-                                <thead>
-                                <tr>
-                                    <th data-field="state" data-radio="true"></th>
-                                    <c:forEach items="${field}" var="f">
-                                        <th data-field="${f.name_en}">${f.name}</th>
-                                    </c:forEach>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Example Radio Select -->
-                </div>
-
-                <div class="col-sm-6">
-                    <!-- Example Checkbox Select -->
-                    <div class="example-wrap">
-                        <h4 class="example-title">复选框</h4>
-                        <div class="example">
-                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-height="299" data-click-to-select="true" data-mobile-responsive="true">
-                                <thead>
-                                <tr>
-                                    <th data-field="state" data-checkbox="true"></th>
-                                    <c:forEach items="${field}" var="f">
-                                        <th data-field="${f.name_en}">${f.name}</th>
-                                    </c:forEach>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Example Checkbox Select -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Panel Columns & Select -->
-
     <!-- Panel Other -->
     <div class="ibox float-e-margins">
-        <div class="ibox-title">
-            <h5>其他</h5>
-            <div class="ibox-tools">
-                <a class="collapse-link">
-                    <i class="fa fa-chevron-up"></i>
-                </a>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-wrench"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#">选项1</a>
-                    </li>
-                    <li><a href="#">选项2</a>
-                    </li>
-                </ul>
-                <a class="close-link">
-                    <i class="fa fa-times"></i>
-                </a>
-            </div>
-        </div>
         <div class="ibox-content">
             <div class="row row-lg">
-                <div class="col-sm-12">
-                    <!-- Example Card View -->
-                    <div class="example-wrap">
-                        <h4 class="example-title">卡片视图</h4>
-                        <div class="example">
-                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-card-view="true" data-mobile-responsive="true">
-                                <thead>
-                                <tr>
-                                    <c:forEach items="${field}" var="f">
-                                        <th data-field="${f.name_en}">${f.name}</th>
-                                    </c:forEach>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Example Card View -->
-                </div>
-
                 <div class="col-sm-12">
                     <!-- Example Toolbar -->
                     <div class="example-wrap">
@@ -421,11 +56,13 @@
                                     <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
                                 </button>
                             </div>
-                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-card-view="true" data-mobile-responsive="true">
+                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-card-view="true" data-height="640" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <c:forEach items="${field}" var="f">
-                                        <th data-field="${f.name_en}">${f.name}</th>
+                                        <c:if test="${f.is_disable || f.is_disable==null}">
+                                            <th data-field="${f.name_en}">${f.name}</th>
+                                        </c:if>
                                     </c:forEach>
                                 </tr>
                                 </thead>
@@ -435,59 +72,6 @@
                     <!-- End Example Toolbar -->
                 </div>
 
-                <div class="col-sm-12">
-                    <!-- Example Pagination -->
-                    <div class="example-wrap">
-                        <h4 class="example-title">分页：客户端</h4>
-                        <div class="example">
-                            <table id="exampleTablePagination" data-toggle="table" data-url="data1/${tableNameEN}" data-query-params="queryParams" data-mobile-responsive="true" data-height="400" data-pagination="true" data-icon-size="outline" data-search="true">
-                                <thead>
-                                <tr>
-                                    <th data-field="state" data-checkbox="true"></th>
-                                    <c:forEach items="${field}" var="f">
-                                        <th data-field="${f.name_en}">${f.name}</th>
-                                    </c:forEach>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Example Pagination -->
-                </div>
-
-                <div class="col-sm-12">
-                    <!-- Example Events -->
-                    <div class="example-wrap">
-                        <h4 class="example-title">事件</h4>
-                        <div class="example">
-                            <div class="alert alert-success" id="examplebtTableEventsResult" role="alert">
-                                事件结果
-                            </div>
-                            <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                <button type="button" class="btn btn-outline btn-default">
-                                    <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline btn-default">
-                                    <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline btn-default">
-                                    <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                            <table id="exampleTableEvents" data-height="400" data-mobile-responsive="true">
-                                <thead>
-                                <tr>
-                                    <th data-field="state" data-checkbox="true"></th>
-                                    <c:forEach items="${field}" var="f">
-                                        <th data-field="${f.name_en}">${f.name}</th>
-                                    </c:forEach>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Example Events -->
-                </div>
             </div>
         </div>
     </div>
@@ -499,8 +83,35 @@
 <script src="<%=basePath%>/UI/hplus/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
 <script src="<%=basePath%>/UI/hplus/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
 <script src="<%=basePath%>/UI/hplus/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
-<%--<script src="<%=basePath%>/UI/hplus/js/demo/bootstrap-table-demo.min.js"></script>--%>
 
+<script>
+    //iframe窗
+    $("#exampleToolbar").click(function(){
+        parent.layer.open({
+            type: 2,
+            title: false,
+            closeBtn: false,
+            maxmin: true, //开启最大化最小化按钮
+            shade: [0],
+            area: ['1150px', '650px'],
+            //offset: 'rb', //右下角弹出
+           // time: 2000, //2秒后自动关闭
+            shift: 2,
+            content: ['create/s_field', 'no'], //iframe的url，no代表不显示滚动条
+            /*end: function(){ //此处用于演示
+                parent.layer.open({
+                    type: 2,
+                    title: '很多时候，我们想最大化看，比如像这个页面。',
+                    shadeClose: true,
+                    shade: false,
+                    maxmin: true, //开启最大化最小化按钮
+                    area: ['1150px', '650px'],
+                    content: 'find/s_table'
+                });
+            }*/
+        });
+    });
+</script>
 </body>
 
 

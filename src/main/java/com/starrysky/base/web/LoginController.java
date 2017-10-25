@@ -31,6 +31,7 @@ public class LoginController {
     public String goLogin(Map<String, Object> map){
         List<Map<String, Object>> mapList = findService.getRecursionData("s_menu");
         map.put("menu",mapList);
+        System.out.println(mapList);
         return "index";
     }
    /* @RequestMapping(value = "combination/{tableNameEn}",method= RequestMethod.GET)

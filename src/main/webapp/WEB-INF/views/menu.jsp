@@ -21,7 +21,7 @@
                 <ul class="nav nav-second-level">
                     <c:if test="${m.url != null}">
                         <li>
-                            <a class="J_menuItem" href="${m.url}">
+                            <a class="J_menuItem" href="${m.url_type}/${m.url_table}">
                                 <i class="fa ${m.icon}"></i>
                                 <span class="nav-label">${m.name}</span>
                             </a>
@@ -32,7 +32,7 @@
             </c:when>
             <c:otherwise>
                 <li>
-                    <a class="J_menuItem" href="${m.url}">
+                    <a class="J_menuItem" href="${m.url_type}/${m.url_table}">
                         <i class="fa ${m.icon}"></i>
                         <span class="nav-label">${m.name}</span>
                     </a>
