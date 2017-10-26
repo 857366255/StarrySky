@@ -13,6 +13,7 @@
 %>
 <html>
 <head>
+
     <title>Title</title>
     <link rel="shortcut icon" href="<%=basePath%>/UI/hplus/html/favicon.ico">
     <link href="<%=basePath%>/UI/hplus/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
@@ -21,29 +22,27 @@
     <link href="<%=basePath%>/UI/hplus/css/animate.min.css" rel="stylesheet">
     <link href="<%=basePath%>/UI/hplus/css/style.min862f.css?v=4.1.0" rel="stylesheet">
 </head>
-${hwz}
 <body class="gray-bg">
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
-               <%-- <div class="ibox-title">
-                    <h5>所有表单元素
-                        <small>包括自定义样式的复选和单选按钮</small>
-                    </h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                </div>--%>
                 <div class="ibox-content">
                     <form role="get" action="${pageContext.request.contextPath}/create/${tableNameEN}/create" method="post" id="list" class="form-horizontal">
                         <div class="form-group">
                             <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Select</label>
+
+                                    <div class="col-sm-10">
+                                        <select class="form-control m-b" name="account">
+                                            <option value="1">选项 1</option>
+                                            <option value="2">选项 2</option>
+                                            <option value="3">选项 3</option>
+                                            <option value="4">选项 4</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <c:forEach items="${fieldList}" var="it">
                                     <div class="col-sm-${it.columns}">
                                         <div class="form-group">
@@ -90,7 +89,8 @@ ${hwz}
 <script src="<%=basePath%>/UI/hplus/js/bootstrap.min.js?v=3.3.6"></script>
 <script src="<%=basePath%>/UI/hplus/js/content.min.js?v=1.0.0"></script>
 <script src="<%=basePath%>/UI/hplus/js/plugins/iCheck/icheck.min.js"></script>
-<script>
+<script src="<%=basePath%>/UI/hplus/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<script type="text/javascript">
     $(document).ready(function () {
         $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",})
     });

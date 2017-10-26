@@ -176,10 +176,10 @@ ${hwz}
 
                             <div class="col-sm-10">
                                 <select class="form-control m-b" name="account">
-                                    <option>选项 1</option>
-                                    <option>选项 2</option>
-                                    <option>选项 3</option>
-                                    <option>选项 4</option>
+                                    <option value="1">选项 1</option>
+                                    <option value="2">选项 2</option>
+                                    <option value="3">选项 3</option>
+                                    <option value="4">选项 4</option>
                                 </select>
                             </div>
                         </div>
