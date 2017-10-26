@@ -56,7 +56,7 @@
                                     <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
                                 </button>
                             </div>
-                            <table data-toggle="table" data-url="data1/${tableNameEN}" data-card-view="true" data-height="640" data-mobile-responsive="true">
+                            <table data-toggle="table" data-url="${pageContext.request.contextPath}/find/${tableNameEN}/data1" data-card-view="true" data-height="640" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <c:forEach items="${field}" var="f">
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="ibox-content">
-                                        <form role="get" action="${tableNameEN}" method="post" id="list" class="form-horizontal">
+                                        <form role="post" action="${pageContext.request.contextPath}/find/${tableNameEN}/create" method="post" id="list" class="form-horizontal">
                                             <div class="form-group">
                                                 <div class="col-sm-12">
                                                     <c:forEach items="${field}" var="it">
@@ -120,10 +120,10 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
+                                <%--<div class="modal-footer">
                                     <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
                                     <button type="button" class="btn btn-primary">保存</button>
-                                </div>
+                                </div>--%>
                             </div>
                         </div>
                     </div>
@@ -142,8 +142,13 @@
 <script src="<%=basePath%>/UI/hplus/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
 <script src="<%=basePath%>/UI/hplus/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 
+<script src="<%=basePath%>/UI/hplus/js/plugins/iCheck/icheck.min.js"></script>
 <script>
+    $(document).ready(function () {
+        $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",})
+    });
 </script>
+
 </body>
 
 

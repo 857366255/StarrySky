@@ -1,18 +1,13 @@
 package com.starrysky.base.web;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import com.sdicons.json.mapper.MapperException;
+
 import com.starrysky.base.service.FindService;
 import com.starrysky.base.service.GeneralPurposeService;
-import com.starrysky.base.vo.Params;
-import com.starrysky.tool.Transformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,8 +18,7 @@ public class FindController {
 
     @Autowired
     private GeneralPurposeService generalPurposeService;
-    @Autowired
-    private FindService findService;
+
     /**
      * 打开列表页面
      * @param tableNameEN 表名称
@@ -40,31 +34,4 @@ public class FindController {
         map.put("tableNameEN",tableNameEN);
         return "find";
     }
-
-    /**
-     *获得数据1
-     */
-    @RequestMapping(value={"combination/data1/{tableNameEN}","find/data1/{tableNameEN}"}, produces = "application/json; charset=utf-8" )
-    @ResponseBody
-    public List<Map<String, Object>> financeApplyLogs(@PathVariable String tableNameEN) throws MapperException {
-        System.out.println("获得数据:"+tableNameEN);
-        generalPurposeService.init(tableNameEN);
-        List<Map<String,Object>> list = generalPurposeService.findAll();
-        System.out.println(list);
-        return list;
-    }
-
-    /**
-     * 打开列表页面
-     */
-    @RequestMapping(value = "test",method= RequestMethod.GET)
-    public String safad(Map<String, Object> map){
-        System.out.println("查询数据");
-        List<Map<String, Object>> mapList = findService.getData("s_menu");
-        System.out.println(mapList);
-        map.put("list",mapList);
-        return "menu";
-    }
-
-
 }

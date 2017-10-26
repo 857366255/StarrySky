@@ -42,13 +42,13 @@ public class CreateController {
      * 创建数据
      * @param tableNameEn 表名称
      */
-    @RequestMapping(value = "create/{tableNameEn}",method=RequestMethod.POST)
+    @RequestMapping(value={"create/{tableNameEn}/create","find/{tableNameEn}/create"},method=RequestMethod.POST)
     public String login(@RequestParam Map<String, Object> map,@PathVariable String tableNameEn){
         if(createService.doCreate(tableNameEn,map)){
             System.out.println("保存成功");
         }else{
             System.out.println("保存失败");
         }
-        return "redirect:"+tableNameEn;
+        return "redirect:../"+tableNameEn;
     }
 }

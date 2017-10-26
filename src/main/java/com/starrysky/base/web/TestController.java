@@ -17,10 +17,25 @@ import java.util.Map;
 @Controller
 public class TestController {
 
+    @Autowired
+    private FindService findService;
 
     @RequestMapping(value = "data/tables",method= RequestMethod.GET)
     public String goLogin(Map<String, Object> map){
         return "data-tables";
     }
+
+    /**
+     * 打开列表页面
+     */
+    @RequestMapping(value = "test",method= RequestMethod.GET)
+    public String safad(Map<String, Object> map){
+        System.out.println("查询数据");
+        List<Map<String, Object>> mapList = findService.getData("s_menu");
+        System.out.println(mapList);
+        map.put("list",mapList);
+        return "menu";
+    }
+
 
 }

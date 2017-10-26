@@ -83,7 +83,7 @@
 
                                 <%--<div class="full-height-scroll">
                                     <div class="table-responsive">--%>
-                                        <table data-toggle="table" data-url="data1/${mfkl.table_name_en}" data-height="600" data-mobile-responsive="true">
+                                        <table data-toggle="table" data-url="${pageContext.request.contextPath}/combination/${mfkl.table_name_en}/data1" data-height="600" data-mobile-responsive="true">
                                             <thead>
                                             <tr>
                                                 <c:forEach items="${mfkl.fieldList}" var="f">
