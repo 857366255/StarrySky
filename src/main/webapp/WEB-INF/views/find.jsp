@@ -46,7 +46,7 @@
                         <h4 class="example-title">工具条</h4>
                         <div class="example">
                             <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
-                                <button type="button" class="btn btn-outline btn-default">
+                                <button type="button" class="btn btn-outline btn-default" data-toggle="modal" data-target="#myModal6">
                                     <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
                                 </button>
                                 <button type="button" class="btn btn-outline btn-default">
@@ -69,6 +69,64 @@
                             </table>
                         </div>
                     </div>
+                    <div class="modal inmodal fade" id="myModal6" tabindex="-1" role="dialog"  aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h1 class="modal-title">窗口标题</h1>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="ibox-content">
+                                        <form role="get" action="${tableNameEN}" method="post" id="list" class="form-horizontal">
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <c:forEach items="${field}" var="it">
+                                                        <div class="col-sm-${it.columns}">
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 control-label">${it.name}</label>
+                                                                <div class="col-sm-9 input-group">
+                                                                    <c:choose>
+                                                                        <c:when test="${it.is_disable}">
+                                                                            <input name="${it.name_en}" type="${it.input_type}" placeholder="" disabled="" class="form-control">
+                                                                        </c:when>
+                                                                        <c:when test="${it.select_group!=null && it.select_group!=''}">
+                                                                            <c:forEach items="${it.select_group}" var="sg">
+                                                                                <label class="checkbox-inline i-checks">
+                                                                                    <input  name="${it.name_en}" type="radio" checked="" value="${sg.value}"> <i>${sg.name}</i>
+                                                                                </label>
+                                                                            </c:forEach>
+                                                                        </c:when>
+                                                                        <c:otherwise>
+                                                                            <input name="${it.name_en}" type="${it.input_type}" placeholder="${it.hint}" class="form-control">
+                                                                        </c:otherwise>
+                                                                    </c:choose>
+                                                                    <c:if test="${it.remark!=null}">
+                                                                        <span class="help-block m-b-none">${it.remark}</span>
+                                                                    </c:if>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
+                                            <div class="hr-line-dashed"></div>
+                                            <div class="form-group">
+                                                <div class="col-sm-4 col-sm-offset-2">
+                                                    <button class="btn btn-primary" type="submit">保存内容</button>
+                                                    <button class="btn btn-white" type="submit">取消</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                                    <button type="button" class="btn btn-primary">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- End Example Toolbar -->
                 </div>
 
@@ -85,32 +143,6 @@
 <script src="<%=basePath%>/UI/hplus/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 
 <script>
-    //iframe窗
-    $("#exampleToolbar").click(function(){
-        parent.layer.open({
-            type: 2,
-            title: false,
-            closeBtn: false,
-            maxmin: true, //开启最大化最小化按钮
-            shade: [0],
-            area: ['1150px', '650px'],
-            //offset: 'rb', //右下角弹出
-           // time: 2000, //2秒后自动关闭
-            shift: 2,
-            content: ['create/s_field', 'no'], //iframe的url，no代表不显示滚动条
-            /*end: function(){ //此处用于演示
-                parent.layer.open({
-                    type: 2,
-                    title: '很多时候，我们想最大化看，比如像这个页面。',
-                    shadeClose: true,
-                    shade: false,
-                    maxmin: true, //开启最大化最小化按钮
-                    area: ['1150px', '650px'],
-                    content: 'find/s_table'
-                });
-            }*/
-        });
-    });
 </script>
 </body>
 
