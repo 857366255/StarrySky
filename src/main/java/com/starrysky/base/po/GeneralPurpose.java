@@ -1,9 +1,6 @@
 package com.starrysky.base.po;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by wz on 2017/10/14.
@@ -17,20 +14,23 @@ public class GeneralPurpose {
 
     private String tableNameCH;
     private String tableNameEN;
-    private List<String> pkList;
+    //private List<String> pkList;
     /**
      * 自关联外键
      */
-    private Map<String, Object> meFkMap;
+    //private Map<String, Object> meFkMap;
     /**
      * 单关联外键
      */
-    private List<Map<String, Object>> singleFkList;
+    //private List<Map<String, Object>> singleFkList;
     /**
      *多关联外键
      */
-    private List<Map<String, Object>> multipleFkList;
-    private List<String> fieldList;
+    //private List<Map<String, Object>> multipleFkList;
+
+    private List<Map<String, Object>> fkListMap;
+    //private List<String> fieldList;
+    private List<Map<String, Object>> fieldListMap;
     private Map<String, Object> findMap;
     private Map<String, Object> createMap;
     private Map<String, Object> updateMap;
@@ -54,43 +54,97 @@ public class GeneralPurpose {
     }
 
     public List<String> getPkList() {
+        List<String> pkList = new ArrayList<String>();
+        for (Map<String, Object> map : fieldListMap){
+            String temp = map.get("name_en").toString();
+            if(map.get("category") instanceof String && map.get("category").equals("PRI")){
+                pkList.add(temp);
+            }
+        }
         return pkList;
     }
 
-    public void setPkList(List<String> pkList) {
+   /* public void setPkList(List<String> pkList) {
         this.pkList = pkList;
-    }
+    }*/
 
     public Map<String, Object> getMeFkMap() {
+        Map<String, Object> meFkMap = new HashMap<String, Object>();
+        for(Map<String, Object> map : fkListMap){
+            String tne = (String) map.get("table_name_en");
+            String rtne = (String) map.get("referenced_table_name_en");
+            if(tne.equals(rtne))
+                meFkMap=map;
+        }
         return meFkMap;
     }
 
-    public void setMeFkMap(Map<String, Object> meFkMap) {
+    /*public void setMeFkMap(Map<String, Object> meFkMap) {
         this.meFkMap = meFkMap;
-    }
+    }*/
 
     public List<Map<String, Object>> getSingleFkList() {
+        List<Map<String, Object>> singleFkList = new ArrayList<Map<String, Object>>();
+        for(Map<String, Object> map : fkListMap){
+            String tne = (String) map.get("table_name_en");
+            if(tne.equals(tableNameEN))
+                singleFkList.add(map);
+        }
         return singleFkList;
     }
 
-    public void setSingleFkList(List<Map<String, Object>> singleFkList) {
+    /*public void setSingleFkList(List<Map<String, Object>> singleFkList) {
         this.singleFkList = singleFkList;
-    }
+    }*/
 
     public List<Map<String, Object>> getMultipleFkList() {
+        List<Map<String, Object>> multipleFkList = new ArrayList<Map<String, Object>>();
+        for(Map<String, Object> map : fkListMap){
+            String rtne = (String) map.get("referenced_table_name_en");
+            if(rtne.equals(tableNameEN))
+                multipleFkList.add(map);
+        }
         return multipleFkList;
     }
 
-    public void setMultipleFkList(List<Map<String, Object>> multipleFkList) {
+    /*public void setMultipleFkList(List<Map<String, Object>> multipleFkList) {
         this.multipleFkList = multipleFkList;
+    }*/
+
+    public List<Map<String, Object>> getFkListMap() {
+        return fkListMap;
+    }
+
+    public void setFkListMap(List<Map<String, Object>> fkListMap) {
+        this.fkListMap = fkListMap;
     }
 
     public List<String> getFieldList() {
+        List<String> fieldList = new ArrayList<String>();
+        for (Map<String, Object> map : fieldListMap){
+            String temp = map.get("name_en").toString();
+            fieldList.add(temp);
+        }
+        if(fieldListMap.size()==0 && tableNameEN.equals("s_table")){
+            fieldList=GeneralPurpose.TABLE_FIELD_LIST;
+        }else if(tableNameEN.equals("s_field")){
+            fieldList=GeneralPurpose.FIELD_NAME_LIST;
+        }else if(tableNameEN.equals("s_fk_field")){
+            fieldList=GeneralPurpose.FK_FIELD_NAME_LIST;
+        }
         return fieldList;
     }
 
-    public void setFieldList(List<String> fieldList) {
+    /*public void setFieldList(List<String> fieldList) {
         this.fieldList = fieldList;
+    }*/
+
+    public List<Map<String, Object>> getFieldListMap() {
+        return fieldListMap;
+    }
+
+    public void setFieldListMap(List<Map<String, Object>> fieldListMap) {
+        this.fieldListMap = fieldListMap;
     }
 
     public Map<String, Object> getFindMap() {

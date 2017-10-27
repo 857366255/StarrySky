@@ -64,6 +64,13 @@ public interface GeneralPurposeService {
      */
     public List<Map<String,Object>> findByCondition(Map<String,Object> findMap);
 
+    /**
+     * 改字段 是否存在 外键
+     * @param fieldNameEn 字段名称
+     * @return true:存在 false:不存在
+     */
+    public Boolean isExistFk(String fieldNameEn);
+
     public GeneralPurpose getGeneralPurpose();
 
 }

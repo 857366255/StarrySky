@@ -52,12 +52,13 @@
                                                     <c:when test="${it.is_disable}">
                                                         <input name="${it.name_en}" type="${it.input_type}" placeholder="" disabled="" class="form-control">
                                                     </c:when>
-                                                    <c:when test="${it.select_group!=null && it.select_group!=''}">
-                                                        <c:forEach items="${it.select_group}" var="sg">
-                                                                <label class="checkbox-inline i-checks">
-                                                                    <input  name="${it.name_en}" type="radio" checked="" value="${sg.value}"> <i>${sg.name}</i>
-                                                                </label>
+                                                    <c:when test="${it.select_map!=null && it.select_map!=''}">
+                                                        <select class="form-control m-b" name="${it.name_en}">
+                                                            <option value=""></option>
+                                                        <c:forEach items="${it.select_map}" var="sg">
+                                                            <option value="${sg.name_en}">${sg.name_ch}</option>
                                                         </c:forEach>
+                                                        </select>
                                                     </c:when>
                                                     <c:otherwise>
                                                         <input name="${it.name_en}" type="${it.input_type}" placeholder="${it.hint}" class="form-control">

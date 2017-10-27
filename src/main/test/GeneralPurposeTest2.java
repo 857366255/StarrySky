@@ -5,6 +5,7 @@
 import base.SpringTestCase;
 import com.starrysky.base.dao.GeneralPurposeDao;
 import com.starrysky.base.po.GeneralPurpose;
+import com.starrysky.base.service.CreateService;
 import com.starrysky.base.service.GeneralPurposeService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,12 @@ public class GeneralPurposeTest2 extends SpringTestCase {
     private GeneralPurposeDao generalPurposeDao;
 
     private final String TABLE_NAME_EN="t_man";
+
+
+    @Test
+    public void init(){
+        generalPurposeService.init("s_field");
+    }
 
     @Test
     public void fk(){
