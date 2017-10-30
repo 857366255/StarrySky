@@ -56,7 +56,9 @@
                                                         <select class="form-control m-b" name="${it.name_en}">
                                                             <option value=""></option>
                                                         <c:forEach items="${it.select_map}" var="sg">
-                                                            <option value="${sg.name_en}">${sg.name_ch}</option>
+                                                            <option value="${sg.name_en}">
+                                                                    <c:forEach items="${sg.val}"  var="val">${val}&nbsp</c:forEach>
+                                                            </option>
                                                         </c:forEach>
                                                         </select>
                                                     </c:when>

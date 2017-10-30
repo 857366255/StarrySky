@@ -9,7 +9,7 @@ public class GeneralPurpose {
     public final static String TABLE_NAME_EN = "s_field";
     public final static String FK_FIELD_NAME_EN = "s_fk_field";
     public final static List<String> TABLE_FIELD_LIST = Arrays.asList("id","name_ch","name_en");
-    public final static List<String> FIELD_NAME_LIST = Arrays.asList("id","table_name","name_ch","name_en","type","size","type_size","is_null","category","columns","name","remark","hint","is_disable","is_necessary","input_type","select_group");
+    public final static List<String> FIELD_NAME_LIST = Arrays.asList("id","table_name","name_ch","name_en","type","size","type_size","is_null","category","columns","name","remark","hint","is_disable","is_necessary","input_type","select_group","is_fk_display");
     public final static List<String> FK_FIELD_NAME_LIST = Arrays.asList("id","fk_name_en","table_name_en","field_name_en","referenced_table_name_en","referenced_field_name_en");
 
     private String tableNameCH;
@@ -107,9 +107,22 @@ public class GeneralPurpose {
         return multipleFkList;
     }
 
+
     /*public void setMultipleFkList(List<Map<String, Object>> multipleFkList) {
         this.multipleFkList = multipleFkList;
     }*/
+
+    public List<String> getFkDisplayList() {
+        List<String> fieldList = new ArrayList<String>();
+        for (Map<String, Object> map : fieldListMap){
+            String temp = map.get("name_en").toString();
+            System.out.println( "is_fk_display:"+map.get("is_fk_display"));
+            if(map.get("is_fk_display")==null ? false  : (Boolean) map.get("is_fk_display")){
+                fieldList.add(temp);
+            }
+        }
+        return fieldList;
+    }
 
     public List<Map<String, Object>> getFkListMap() {
         return fkListMap;

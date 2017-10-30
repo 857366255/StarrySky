@@ -5,6 +5,7 @@ import com.starrysky.base.service.GeneralPurposeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,8 +36,19 @@ public class CreateServiceImpl implements CreateService{
                     if(singleFkMap.get("field_name_en").equals(m.get("name_en"))){
                         generalPurposeService.init((String) singleFkMap.get("referenced_table_name_en"));
                         System.out.println(singleFkMap);
-                        Map<String, Object> selectMap = new HashMap<String, Object>();
-                        m.put("select_map",generalPurposeService.findAll());
+                        List<String> fkDisplayList = generalPurposeService.getGeneralPurpose().getFkDisplayList();
+                        System.out.println("显示外键:"+fkDisplayList);
+                        List<Map<String, Object>> selectMap = generalPurposeService.findAll();
+                        if(fkDisplayList.size()!=0){
+                            for(Map<String, Object> sMap:selectMap){
+                                List<String> stemp=new ArrayList<String>();
+                                for(String s: fkDisplayList){
+                                    stemp.add((String) sMap.get(s));
+                                }
+                                sMap.put("val",stemp);
+                            }
+                            m.put("select_map",selectMap);
+                        }
                         generalPurposeService.init(tableNameEn);
                     }
                 }

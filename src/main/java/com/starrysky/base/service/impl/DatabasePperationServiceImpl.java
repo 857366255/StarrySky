@@ -60,8 +60,17 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
                 map.put("name",map.get("name_ch"));
             if(mapList.size() == 0 || mapList.get(0).get("columns") == null)
                 map.put("columns",3);
-            if(mapList.size() == 0 || mapList.get(0).get("input_type") == null)
-                map.put("input_type","text");
+            if(mapList.size() == 0 || mapList.get(0).get("is_fk_display") == null)
+                map.put("is_fk_display",1);
+            if(mapList.size() == 0 || mapList.get(0).get("input_type") == null){
+                if(map.get("category").equals("MUL")){
+                    map.put("input_type","select");
+                }else{
+                    map.put("input_type","text");
+                }
+
+            }
+
         }
         if(mapList.size()>1)
             throw new Exception("数据异常:"+mapList);
