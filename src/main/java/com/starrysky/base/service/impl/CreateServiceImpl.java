@@ -41,9 +41,9 @@ public class CreateServiceImpl implements CreateService{
                         List<Map<String, Object>> selectMap = generalPurposeService.findAll();
                         if(fkDisplayList.size()!=0){
                             for(Map<String, Object> sMap:selectMap){
-                                List<String> stemp=new ArrayList<String>();
+                                List<Object> stemp = new ArrayList<Object>();
                                 for(String s: fkDisplayList){
-                                    stemp.add((String) sMap.get(s));
+                                    stemp.add(sMap.get(s));
                                 }
                                 sMap.put("val",stemp);
                             }
