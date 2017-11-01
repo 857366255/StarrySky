@@ -53,7 +53,6 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
      */
     private void createOrUpdate(String tableName,Map<String, Object> map,Map<String, Object> findMap) throws Exception {
         generalPurposeService.init(tableName);
-        //modificationGeneralPurpose();
         List<Map<String, Object>> mapList = generalPurposeService.findByCondition(findMap);
         if(tableName.equals("s_field")){
             if(mapList.size() == 0 || mapList.get(0).get("name") == null)
@@ -68,9 +67,7 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
                 }else{
                     map.put("input_type","text");
                 }
-
             }
-
         }
         if(mapList.size()>1)
             throw new Exception("数据异常:"+mapList);

@@ -1,16 +1,16 @@
 package com.starrysky.base.service.impl;
 
-import com.starrysky.base.service.CreateService;
 import com.starrysky.base.service.GeneralPurposeService;
+import com.starrysky.base.service.UpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 @Service
-public class CreateServiceImpl implements CreateService{
+public class UpdateServiceImpl implements UpdateService {
 
     @Autowired
     private GeneralPurposeService generalPurposeService;
@@ -33,6 +33,7 @@ public class CreateServiceImpl implements CreateService{
                                     stemp.add(sMap.get(s));
                                 }
                                 sMap.put("val",stemp);
+                                sMap.put("key",sMap.get((String) singleFkMap.get("referenced_field_name_en")));
                             }
                             m.put("select_map",selectMap);
                         }
@@ -44,8 +45,8 @@ public class CreateServiceImpl implements CreateService{
         return list;
     }
 
-    public Boolean doCreate(String tableNameEn,Map<String, Object> map) {
+    public Boolean doUpdate(String tableNameEn,Map<String, Object> map) {
         generalPurposeService.init(tableNameEn);
-        return generalPurposeService.doCreate(map);
+        return generalPurposeService.doUpdate(map);
     }
 }

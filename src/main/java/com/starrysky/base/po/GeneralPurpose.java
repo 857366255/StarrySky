@@ -116,7 +116,6 @@ public class GeneralPurpose {
         List<String> fieldList = new ArrayList<String>();
         for (Map<String, Object> map : fieldListMap){
             String temp = map.get("name_en").toString();
-            System.out.println( "is_fk_display:"+map.get("is_fk_display"));
             if(map.get("is_fk_display")==null ? false  : (Boolean) map.get("is_fk_display")){
                 fieldList.add(temp);
             }

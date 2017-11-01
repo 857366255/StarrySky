@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-10-30 13:02:59
+Date: 2017-11-01 17:05:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -98,101 +98,102 @@ CREATE TABLE `s_field` (
   PRIMARY KEY (`id`),
   KEY `fk_field_table_name` (`table_name`),
   CONSTRAINT `fk_field_table_name` FOREIGN KEY (`table_name`) REFERENCES `s_table` (`name_en`)
-) ENGINE=InnoDB AUTO_INCREMENT=181 DEFAULT CHARSET=utf8 COMMENT='字段';
+) ENGINE=InnoDB AUTO_INCREMENT=182 DEFAULT CHARSET=utf8 COMMENT='字段';
 
 -- ----------------------------
 -- Records of s_field
 -- ----------------------------
-INSERT INTO `s_field` VALUES ('91', 'rb_coach_member', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('92', 'rb_coach_member', '教练', 'coach_id', 'int', null, 'int(11)', '1', 'MUL', '3', '教练', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('93', 'rb_coach_member', '会员', 'member_id', 'int', null, 'int(11)', '1', 'MUL', '3', '会员', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('94', 'rb_man_images', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('95', 'rb_man_images', '人', 'man_id', 'int', null, 'int(11)', '1', 'MUL', '3', '人', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('96', 'rb_man_images', '照片', 'images_id', 'int', null, 'int(11)', '1', 'MUL', '3', '照片', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('97', 'rb_method_moton_details', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('98', 'rb_method_moton_details', '训练方法', 'training_method_id', 'int', null, 'int(11)', '1', 'MUL', '3', '训练方法', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('99', 'rb_method_moton_details', '动作细节', 'training_moton_details_id', 'int', null, 'int(11)', '1', 'MUL', '3', '动作细节', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('100', 's_field', '唯一标识符', 'id', 'int', null, 'int(11)', '0', 'PRI', '3', '唯一标识符', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('101', 's_field', '表名称', 'table_name', 'varchar', null, 'varchar(255)', '1', 'MUL', '3', '表名称', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('102', 's_field', '数据库名称字段ch', 'name_ch', 'varchar', null, 'varchar(255)', '1', null, '3', '数据库名称字段ch', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('103', 's_field', '数据库字段名称en', 'name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '数据库字段名称en', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('104', 's_field', '类型', 'type', 'varchar', null, 'varchar(255)', '1', null, '3', '类型', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('105', 's_field', '大小', 'size', 'double', null, 'double', '1', null, '3', '大小', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('106', 's_field', '类型大小', 'type_size', 'varchar', null, 'varchar(255)', '1', null, '3', '类型大小', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('107', 's_field', '是否允许未空', 'is_null', 'tinyint', null, 'tinyint(1)', '1', null, '3', '是否允许未空', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('108', 's_field', '类别(主键,外键)', 'category', 'varchar', null, 'varchar(255)', '1', null, '3', '类别(主键,外键)', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('109', 's_field', '站几列', 'columns', 'int', null, 'int(2)', '1', null, '3', '站几列', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('110', 's_field', '字段名称', 'name', 'varchar', null, 'varchar(255)', '1', null, '3', '字段名称', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('111', 's_field', '备注', 'remark', 'varchar', null, 'varchar(255)', '1', null, '3', '备注', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('112', 's_field', '提醒信息', 'hint', 'varchar', null, 'varchar(255)', '1', null, '3', '提醒信息', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('113', 's_field', '是否禁用', 'is_disable', 'tinyint', null, 'tinyint(1)', '1', null, '3', '是否禁用', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('114', 's_field', '是否必要', 'is_necessary', 'tinyint', null, 'tinyint(1)', '1', null, '3', '是否必要', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('115', 's_field', '输入框类型', 'input_type', 'varchar', null, 'varchar(255)', '1', null, '3', '输入框类型', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('116', 's_field', '选择组', 'select_group', 'varchar', null, 'varchar(255)', '1', null, '3', '选择组', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('117', 's_field', '是否引用外键显示', 'is_fk_display', 'tinyint', null, 'tinyint(1)', '1', null, '3', '是否引用外键显示', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('118', 's_fk_field', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('119', 's_fk_field', '外键名称', 'fk_name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '外键名称', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('120', 's_fk_field', '表名称', 'table_name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '表名称', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('121', 's_fk_field', '字段名称', 'field_name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '字段名称', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('122', 's_fk_field', '引用表名称', 'referenced_table_name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '引用表名称', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('123', 's_fk_field', '引用字段名称', 'referenced_field_name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '引用字段名称', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('124', 's_menu', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('125', 's_menu', '名称                                        ', 'name', 'varchar', null, 'varchar(255)', '1', null, '3', '名称                                        ', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('126', 's_menu', '图标', 'icon', 'varchar', null, 'varchar(255)', '1', null, '3', '图标', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('127', 's_menu', '上级id', 'superiors_id', 'int', null, 'int(11)', '1', 'MUL', '3', '上级id', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('128', 's_menu', 'URL', 'url', 'varchar', null, 'varchar(255)', '1', null, '3', 'URL', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('129', 's_menu', 'url操作类型', 'url_type', 'varchar', null, 'varchar(255)', '1', null, '3', 'url操作类型', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('130', 's_menu', 'utl操作表', 'url_table', 'varchar', null, 'varchar(255)', '1', 'MUL', '3', 'utl操作表', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('131', 's_select', '唯一标识符', 'id', 'int', null, 'int(11)', '0', 'PRI', '3', '唯一标识符', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('132', 's_select', '组', 'select_group', 'varchar', null, 'varchar(255)', '1', null, '3', '组', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('133', 's_select', '名称', 'name', 'varchar', null, 'varchar(255)', '1', null, '3', '名称', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('134', 's_select', '实际存值', 'value', 'varchar', null, 'varchar(255)', '1', null, '3', '实际存值', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('135', 's_table', '唯一标识符', 'id', 'int', null, 'int(11)', '0', 'PRI', '3', '唯一标识符', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('136', 's_table', '名称ch', 'name_ch', 'varchar', null, 'varchar(255)', '1', null, '3', '名称ch', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('137', 's_table', '名称en', 'name_en', 'varchar', null, 'varchar(255)', '0', 'PRI', '3', '名称en', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('138', 't_coach', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('139', 't_coach', '账号', 'users_id', 'int', null, 'int(11)', '1', 'MUL', '3', '账号', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('140', 't_coach', '人', 'man_id', 'int', null, 'int(11)', '1', 'MUL', '3', '人', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('141', 't_images', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('142', 't_images', '路径', 'url', 'varchar', null, 'varchar(255)', '1', null, '3', '路径', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('143', 't_images', '名称', 'nama', 'varchar', null, 'varchar(255)', '1', null, '3', '名称', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('144', 't_images', '类型', 'type', 'varchar', null, 'varchar(255)', '1', null, '3', '类型', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('145', 't_images', '创建时间', 'creation_time', 'datetime', null, 'datetime', '1', null, '3', '创建时间', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('146', 't_images', '图片日期', 'picture_date', 'datetime', null, 'datetime', '1', null, '3', '图片日期', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('147', 't_man', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('148', 't_man', '名称', 'nanme', 'varchar', null, 'varchar(255)', '1', null, '3', '名称', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('149', 't_man', '性别', 'gender', 'bit', null, 'bit(1)', '1', null, '3', '性别', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('150', 't_man', '年龄', 'age', 'int', null, 'int(3)', '1', null, '3', '年龄', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('151', 't_man', '手机号码', 'mobile_phone', 'varchar', null, 'varchar(255)', '1', null, '3', '手机号码', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('152', 't_man', '地址', 'address', 'varchar', null, 'varchar(255)', '1', null, '3', '地址', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('153', 't_man', '头像', 'images_id', 'int', null, 'int(11)', '1', 'MUL', '3', '头像', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('154', 't_member', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('155', 't_member', '人', 'man_id', 'int', null, 'int(11)', '1', 'MUL', '3', '人', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('156', 't_training_method', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('157', 't_training_method', '名称', 'name', 'varchar', null, 'varchar(255)', '1', null, '3', '名称', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('158', 't_training_method', '描述', 'describe', 'varchar', null, 'varchar(255)', '1', null, '3', '描述', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('159', 't_training_motion', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('160', 't_training_motion', '名称', 'name', 'varchar', null, 'varchar(255)', '1', null, '3', '名称', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('161', 't_training_motion', '位置', 'position', 'int', null, 'int(11)', '1', null, '3', '位置', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('162', 't_training_motion', '描述', 'describe', 'varchar', null, 'varchar(255)', '1', null, '3', '描述', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('163', 't_training_motion_details', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('164', 't_training_motion_details', '动作', 'training_motion_id', 'int', null, 'int(11)', '1', 'MUL', '3', '动作', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('165', 't_training_motion_details', '组数', 'group_number', 'int', null, 'int(2)', '1', null, '3', '组数', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('166', 't_training_motion_details', '数量', 'quantity', 'int', null, 'int(4)', '1', null, '3', '数量', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('167', 't_training_plan_', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('168', 't_training_plan_', '人', 'man_id', 'int', null, 'int(11)', '1', 'MUL', '3', '人', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('169', 't_training_plan_', '训练方法', 'training_method_id', 'int', null, 'int(11)', '1', 'MUL', '3', '训练方法', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('170', 't_training_plan_', '训练时间', 'training_time', 'datetime', null, 'datetime', '1', null, '3', '训练时间', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('171', 't_training_plan_', '状态', 'state', 'varchar', null, 'varchar(255)', '1', null, '3', '状态', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('172', 't_training_records', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('173', 't_training_records', '训练计划', 'training_plan_id', 'int', null, 'int(11)', '1', 'MUL', '3', '训练计划', null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('174', 't_training_records', null, 'training_moton_details_id', 'int', null, 'int(11)', '1', 'MUL', '3', null, null, null, null, null, 'select', null, null);
-INSERT INTO `s_field` VALUES ('175', 't_training_records', '第几组', 'which_group', 'int', null, 'int(2)', '1', null, '3', '第几组', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('176', 't_training_records', '完成数量', 'complete_number', 'int', null, 'int(4)', '1', null, '3', '完成数量', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('177', 't_training_records', '创建时间', 'creation_time', 'datetime', null, 'datetime', '1', null, '3', '创建时间', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('178', 't_users', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('179', 't_users', '用户', 'user', 'varchar', null, 'varchar(255)', '1', null, '3', '用户', null, null, null, null, 'text', null, null);
-INSERT INTO `s_field` VALUES ('180', 't_users', '密码', 'password', 'varchar', null, 'varchar(255)', '1', null, '3', '密码', null, null, null, null, 'text', null, null);
+INSERT INTO `s_field` VALUES ('91', 'rb_coach_member', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('92', 'rb_coach_member', '教练', 'coach_id', 'int', null, 'int(11)', '1', 'MUL', '3', '教练', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('93', 'rb_coach_member', '会员', 'member_id', 'int', null, 'int(11)', '1', 'MUL', '3', '会员', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('94', 'rb_man_images', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('95', 'rb_man_images', '人', 'man_id', 'int', null, 'int(11)', '1', 'MUL', '3', '人', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('96', 'rb_man_images', '照片', 'images_id', 'int', null, 'int(11)', '1', 'MUL', '3', '照片', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('97', 'rb_method_moton_details', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('98', 'rb_method_moton_details', '训练方法', 'training_method_id', 'int', null, 'int(11)', '1', 'MUL', '3', '训练方法', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('99', 'rb_method_moton_details', '动作细节', 'training_moton_details_id', 'int', null, 'int(11)', '1', 'MUL', '3', '动作细节', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('100', 's_field', '唯一标识符', 'id', 'int', null, 'int(11)', '0', 'PRI', '3', '唯一标识符', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('101', 's_field', '表名称', 'table_name', 'varchar', null, 'varchar(255)', '1', 'MUL', '3', '表名称', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('102', 's_field', '数据库名称字段ch', 'name_ch', 'varchar', null, 'varchar(255)', '1', null, '3', '数据库名称字段ch', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('103', 's_field', '数据库字段名称en', 'name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '数据库字段名称en', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('104', 's_field', '类型', 'type', 'varchar', null, 'varchar(255)', '1', null, '3', '类型', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('105', 's_field', '大小', 'size', 'double', null, 'double', '1', null, '3', '大小', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('106', 's_field', '类型大小', 'type_size', 'varchar', null, 'varchar(255)', '1', null, '3', '类型大小', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('107', 's_field', '是否允许未空', 'is_null', 'tinyint', null, 'tinyint(1)', '1', null, '3', '是否允许未空', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('108', 's_field', '类别(主键,外键)', 'category', 'varchar', null, 'varchar(255)', '1', null, '3', '类别(主键,外键)', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('109', 's_field', '站几列', 'columns', 'int', null, 'int(2)', '1', null, '3', '站几列', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('110', 's_field', '字段名称', 'name', 'varchar', null, 'varchar(255)', '1', null, '3', '字段名称', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('111', 's_field', '备注', 'remark', 'varchar', null, 'varchar(255)', '1', null, '3', '备注', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('112', 's_field', '提醒信息', 'hint', 'varchar', null, 'varchar(255)', '1', null, '3', '提醒信息', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('113', 's_field', '是否禁用', 'is_disable', 'tinyint', null, 'tinyint(1)', '1', null, '3', '是否禁用', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('114', 's_field', '是否必要', 'is_necessary', 'tinyint', null, 'tinyint(1)', '1', null, '3', '是否必要', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('115', 's_field', '输入框类型', 'input_type', 'varchar', null, 'varchar(255)', '1', null, '3', '输入框类型', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('116', 's_field', '选择组', 'select_group', 'varchar', null, 'varchar(255)', '1', null, '3', '选择组', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('117', 's_field', '是否引用外键显示', 'is_fk_display', 'tinyint', null, 'tinyint(1)', '1', null, '3', '是否引用外键显示', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('118', 's_fk_field', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('119', 's_fk_field', '外键名称', 'fk_name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '外键名称', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('120', 's_fk_field', '表名称', 'table_name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '表名称', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('121', 's_fk_field', '字段名称', 'field_name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '字段名称', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('122', 's_fk_field', '引用表名称', 'referenced_table_name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '引用表名称', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('123', 's_fk_field', '引用字段名称', 'referenced_field_name_en', 'varchar', null, 'varchar(255)', '1', null, '3', '引用字段名称', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('124', 's_menu', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('125', 's_menu', '名称                                        ', 'name', 'varchar', null, 'varchar(255)', '1', null, '3', '名称                                        ', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('126', 's_menu', '图标', 'icon', 'varchar', null, 'varchar(255)', '1', null, '3', '图标', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('127', 's_menu', '上级id', 'superiors_id', 'int', null, 'int(11)', '1', 'MUL', '3', '上级id', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('128', 's_menu', 'URL', 'url', 'varchar', null, 'varchar(255)', '1', null, '3', 'URL', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('129', 's_menu', 'url操作类型', 'url_type', 'varchar', null, 'varchar(255)', '1', null, '3', 'url操作类型', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('130', 's_menu', 'utl操作表', 'url_table', 'varchar', null, 'varchar(255)', '1', 'MUL', '3', 'utl操作表', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('131', 's_select', '唯一标识符', 'id', 'int', null, 'int(11)', '0', 'PRI', '3', '唯一标识符', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('132', 's_select', '组', 'select_group', 'varchar', null, 'varchar(255)', '1', null, '3', '组', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('133', 's_select', '名称', 'name', 'varchar', null, 'varchar(255)', '1', null, '3', '名称', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('134', 's_select', '实际存值', 'value', 'varchar', null, 'varchar(255)', '1', null, '3', '实际存值', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('135', 's_table', '唯一标识符', 'id', 'int', null, 'int(11)', '0', 'PRI', '3', '唯一标识符', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('136', 's_table', '名称ch', 'name_ch', 'varchar', null, 'varchar(255)', '1', null, '3', '名称ch', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('137', 's_table', '名称en', 'name_en', 'varchar', null, 'varchar(255)', '0', 'PRI', '3', '名称en', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('138', 't_coach', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('139', 't_coach', '账号', 'users_id', 'int', null, 'int(11)', '1', 'MUL', '3', '账号', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('140', 't_coach', '人', 'man_id', 'int', null, 'int(11)', '1', 'MUL', '3', '人', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('141', 't_images', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('142', 't_images', '路径', 'url', 'varchar', null, 'varchar(255)', '1', null, '3', '路径', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('143', 't_images', '名称', 'nama', 'varchar', null, 'varchar(255)', '1', null, '3', '名称', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('144', 't_images', '类型', 'type', 'varchar', null, 'varchar(255)', '1', null, '3', '类型', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('145', 't_images', '创建时间', 'creation_time', 'datetime', null, 'datetime', '1', null, '3', '创建时间', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('146', 't_images', '图片日期', 'picture_date', 'datetime', null, 'datetime', '1', null, '3', '图片日期', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('147', 't_man', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('148', 't_man', '名称', 'nanme', 'varchar', null, 'varchar(255)', '1', null, '3', '名称', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('149', 't_man', '性别', 'gender', 'bit', null, 'bit(1)', '1', null, '3', '性别', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('150', 't_man', '年龄', 'age', 'int', null, 'int(3)', '1', null, '3', '年龄', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('151', 't_man', '手机号码', 'mobile_phone', 'varchar', null, 'varchar(255)', '1', null, '3', '手机号码', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('152', 't_man', '地址', 'address', 'varchar', null, 'varchar(255)', '1', null, '3', '地址', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('153', 't_man', '头像', 'images_id', 'int', null, 'int(11)', '1', 'MUL', '3', '头像', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('154', 't_member', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('155', 't_member', '人', 'man_id', 'int', null, 'int(11)', '1', 'MUL', '3', '人', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('156', 't_training_method', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('157', 't_training_method', '名称', 'name', 'varchar', null, 'varchar(255)', '1', null, '3', '名称', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('158', 't_training_method', '描述', 'describe', 'varchar', null, 'varchar(255)', '1', null, '3', '描述', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('159', 't_training_motion', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('160', 't_training_motion', '名称', 'name', 'varchar', null, 'varchar(255)', '1', null, '3', '名称', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('161', 't_training_motion', '位置', 'position', 'int', null, 'int(11)', '1', null, '3', '位置', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('162', 't_training_motion', '描述', 'describe', 'varchar', null, 'varchar(255)', '1', null, '3', '描述', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('163', 't_training_motion_details', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('164', 't_training_motion_details', '动作', 'training_motion_id', 'int', null, 'int(11)', '1', 'MUL', '3', '动作', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('165', 't_training_motion_details', '组数', 'group_number', 'int', null, 'int(2)', '1', null, '3', '组数', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('166', 't_training_motion_details', '数量', 'quantity', 'int', null, 'int(4)', '1', null, '3', '数量', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('167', 't_training_plan_', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('168', 't_training_plan_', '人', 'man_id', 'int', null, 'int(11)', '1', 'MUL', '3', '人', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('169', 't_training_plan_', '训练方法', 'training_method_id', 'int', null, 'int(11)', '1', 'MUL', '3', '训练方法', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('170', 't_training_plan_', '训练时间', 'training_time', 'datetime', null, 'datetime', '1', null, '3', '训练时间', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('171', 't_training_plan_', '状态', 'state', 'varchar', null, 'varchar(255)', '1', null, '3', '状态', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('172', 't_training_records', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('173', 't_training_records', '训练计划', 'training_plan_id', 'int', null, 'int(11)', '1', 'MUL', '3', '训练计划', null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('174', 't_training_records', null, 'training_moton_details_id', 'int', null, 'int(11)', '1', 'MUL', '3', null, null, null, null, null, 'select', null, '1');
+INSERT INTO `s_field` VALUES ('175', 't_training_records', '第几组', 'which_group', 'int', null, 'int(2)', '1', null, '3', '第几组', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('176', 't_training_records', '完成数量', 'complete_number', 'int', null, 'int(4)', '1', null, '3', '完成数量', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('177', 't_training_records', '创建时间', 'creation_time', 'datetime', null, 'datetime', '1', null, '3', '创建时间', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('178', 't_users', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('179', 't_users', '用户', 'user', 'varchar', null, 'varchar(255)', '1', null, '3', '用户', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('180', 't_users', '密码', 'password', 'varchar', null, 'varchar(255)', '1', null, '3', '密码', null, null, null, null, 'text', null, '1');
+INSERT INTO `s_field` VALUES ('181', 's_forms', null, 'id', 'int', null, 'int(11)', '0', 'PRI', '3', null, null, null, null, null, 'text', null, '1');
 
 -- ----------------------------
 -- Table structure for s_fk_field
@@ -231,6 +232,19 @@ INSERT INTO `s_fk_field` VALUES ('17', 'training_records_training_plan_id', 't_t
 INSERT INTO `s_fk_field` VALUES ('18', 'fk_menu_url_table', 's_menu', 'url_table', 's_table', 'name_en');
 
 -- ----------------------------
+-- Table structure for s_forms
+-- ----------------------------
+DROP TABLE IF EXISTS `s_forms`;
+CREATE TABLE `s_forms` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='表单';
+
+-- ----------------------------
+-- Records of s_forms
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for s_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `s_menu`;
@@ -247,21 +261,23 @@ CREATE TABLE `s_menu` (
   KEY `fk_menu_url_table` (`url_table`),
   CONSTRAINT `fk_menu_superiors_id` FOREIGN KEY (`superiors_id`) REFERENCES `s_menu` (`id`),
   CONSTRAINT `fk_menu_url_table` FOREIGN KEY (`url_table`) REFERENCES `s_table` (`name_en`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='菜单';
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='菜单';
 
 -- ----------------------------
 -- Records of s_menu
 -- ----------------------------
 INSERT INTO `s_menu` VALUES ('0', '系统管理', 'fa-desktop', null, null, null, null);
-INSERT INTO `s_menu` VALUES ('1', '新增菜单', 'fa-home', '0', 'create/s_menu', 'create', 's_menu');
+INSERT INTO `s_menu` VALUES ('1', '新增菜单', 'fa-home', '1', 'create/s_menu', 'create', 's_menu');
 INSERT INTO `s_menu` VALUES ('2', '新增选择框', null, '0', 'create/s_select', 'create', 's_select');
 INSERT INTO `s_menu` VALUES ('4', '新增人', null, '0', 'create/t_man', 'create', 't_man');
 INSERT INTO `s_menu` VALUES ('8', '查看菜单', null, '0', 'find/s_menu', 'find', 's_menu');
 INSERT INTO `s_menu` VALUES ('9', '查看选择框', null, '0', 'find/s_select', 'find', 's_select');
 INSERT INTO `s_menu` VALUES ('10', '查看人', null, '0', 'find/t_man', 'find', 't_man');
-INSERT INTO `s_menu` VALUES ('11', '组合窗口', null, null, 'combination/s_table', 'combination', 's_table');
-INSERT INTO `s_menu` VALUES ('12', '字段', null, null, null, 'create', 's_field');
-INSERT INTO `s_menu` VALUES ('13', '创建', null, null, null, 'create', 't_coach');
+INSERT INTO `s_menu` VALUES ('11', '组合窗口', '123', '0', 'combination/s_table', 'combination', 's_field');
+INSERT INTO `s_menu` VALUES ('12', '字段', null, '0', null, 'create', 's_field');
+INSERT INTO `s_menu` VALUES ('13', '创建', null, '0', null, 'create', 't_coach');
+INSERT INTO `s_menu` VALUES ('14', '更新', null, '0', null, 'update', 's_menu');
+INSERT INTO `s_menu` VALUES ('17', '阿斯顿', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for s_select
@@ -291,7 +307,7 @@ CREATE TABLE `s_table` (
   `name_en` varchar(255) NOT NULL COMMENT '名称en',
   PRIMARY KEY (`id`,`name_en`),
   KEY `id_name` (`name_en`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='表';
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='表';
 
 -- ----------------------------
 -- Records of s_table
@@ -314,6 +330,7 @@ INSERT INTO `s_table` VALUES ('15', '训练动作细节', 't_training_motion_det
 INSERT INTO `s_table` VALUES ('16', '训练计划', 't_training_plan_');
 INSERT INTO `s_table` VALUES ('17', '训练记录', 't_training_records');
 INSERT INTO `s_table` VALUES ('18', '用户', 't_users');
+INSERT INTO `s_table` VALUES ('19', '表单', 's_forms');
 
 -- ----------------------------
 -- Table structure for t_coach

@@ -27,42 +27,7 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService {
         generalPurpose = new GeneralPurpose();
         generalPurpose.setTableNameEN(tableNameEn);
         List<Map<String, Object>> tableFieldMessageList = generalPurposeDao.findFieldByTableName(generalPurpose);
-        //List<String> pkList = new ArrayList<String>();
-        //List<String> fieldList = new ArrayList<String>();
-        System.out.println("字段信息:"+tableFieldMessageList);
-        /*for (Map<String, Object> map : tableFieldMessageList){
-            String temp = map.get("name_en").toString();
-            fieldList.add(temp);
-            if(map.get("category") instanceof String && map.get("category").equals("PRI")){
-                pkList.add(temp);
-            }
-        }*/
-        /*if(tableFieldMessageList.size()==0 && tableNameEn.equals("s_table")){
-            fieldList=GeneralPurpose.TABLE_FIELD_LIST;
-        }else if(tableNameEn.equals("s_field")){
-            fieldList=GeneralPurpose.FIELD_NAME_LIST;
-        }else if(tableNameEn.equals("s_fk_field")){
-            fieldList=GeneralPurpose.FK_FIELD_NAME_LIST;
-        }*/
         List<Map<String, Object>> tableFkFieldMessageList = generalPurposeDao.findFkFieldByTableName(generalPurpose);
-        //Map<String, Object> meFkFieldMap = null;
-        //List<Map<String, Object>> singleFkFieldList = new ArrayList<Map<String, Object>>();
-        /*List<Map<String, Object>> multipleFkFieldList = new ArrayList<Map<String, Object>>();
-        for(Map<String, Object> map : tableFkFieldMessageList){
-            String tne = (String) map.get("table_name_en");
-            String rtne = (String) map.get("referenced_table_name_en");
-            if(tne.equals(rtne))
-                meFkFieldMap=map;
-            else if(tne.equals(tableNameEn))
-                singleFkFieldList.add(map);
-            else if(rtne.equals(tableNameEn))
-                multipleFkFieldList.add(map);
-        }*/
-        //generalPurpose.setMeFkMap(meFkFieldMap);
-        //generalPurpose.setSingleFkList(singleFkFieldList);
-        //generalPurpose.setMultipleFkList(multipleFkFieldList);
-        //generalPurpose.setPkList(pkList);
-        //generalPurpose.setFieldList(fieldList);
         generalPurpose.setFieldListMap(tableFieldMessageList);
         generalPurpose.setFkListMap(tableFkFieldMessageList);
     }
@@ -92,6 +57,8 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService {
 
     public boolean doUpdate(Map<String, Object> updateMap) {
         generalPurpose.setFindMap(excludeAbnormalAndNotPkData(updateMap));
+        System.out.println("excludeAbnormalData:"+excludeAbnormalData(updateMap));
+        System.out.println("updateMap:"+updateMap);
         generalPurpose.setUpdateMap(excludeAbnormalData(updateMap));
         return generalPurposeDao.doUpdate(generalPurpose);
     }

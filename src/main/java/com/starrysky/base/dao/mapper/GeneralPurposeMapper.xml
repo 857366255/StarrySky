@@ -55,7 +55,14 @@
     <update id="doUpdate" parameterType="com.starrysky.base.po.GeneralPurpose">
         UPDATE <include refid="table_name_en" />
         <trim prefix="SET" suffixOverrides=",">
-            <foreach collection="updateMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">${index}=#{item}</if></foreach>
+            <foreach collection="updateMap" index="index" item="item" separator="," >
+                <choose>
+                    <when test="item != null and !index.equals('id') and item!=''"> ${index}=#{item} asd</when >
+                    <when test="item == null and !index.equals('id')"> ${index}=null</when >
+                    <otherwise></otherwise>
+                </choose>
+                <!--<if test="item != null and !index.equals('id')">${index}=#{item}</if>-->
+            </foreach>
         </trim>
         WHERE
         <foreach collection="findMap" index="index" item="item" separator=" AND " >
