@@ -68,19 +68,24 @@ public class FindServiceImpl implements FindService{
      * @param meFkMap 外键信息
      */
     private void meData(Map<String, Object> data, Map<String, Object> meFkMap){
+
         String tne = (String) meFkMap.get("table_name_en");
         String fne = (String) meFkMap.get("field_name_en");
         String rfne = (String) meFkMap.get("referenced_field_name_en");
         generalPurposeService.init(tne);
         Map<String, Object> findMap = new HashMap<String, Object>();
         findMap.put(fne,data.get(rfne));
+        System.out.println("查询条件:"+findMap);
         List<Map<String, Object>> mapList = generalPurposeService.findByCondition(findMap);
         if(mapList.size()==0){
             return;
         }
+        int i=0;
         for(Map<String, Object> map : mapList){
             meData(map,meFkMap);
+            System.out.println("递归循环"+i++);
         }
+        System.out.println(mapList);
         data.put(tne,mapList);
     }
     /**

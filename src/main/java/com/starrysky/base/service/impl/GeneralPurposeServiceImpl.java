@@ -109,9 +109,9 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService {
     private Map<String,Object> excludeAbnormalData(Map<String, Object> dataMap){
         Map<String, Object> map = new HashMap<String, Object>();
         for(String s:generalPurpose.getFieldList()){
-            if(dataMap.get(s) instanceof String && dataMap.get(s).equals("")){
+            /*if(dataMap.get(s) instanceof String && dataMap.get(s).equals("")){
                 continue;
-            }
+            }*/
             map.put(s,dataMap.get(s));
         }
         return map;

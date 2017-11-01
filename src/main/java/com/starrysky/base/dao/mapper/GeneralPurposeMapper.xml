@@ -57,8 +57,8 @@
         <trim prefix="SET" suffixOverrides=",">
             <foreach collection="updateMap" index="index" item="item" separator="," >
                 <choose>
-                    <when test="item != null and !index.equals('id') and item!=''"> ${index}=#{item} asd</when >
-                    <when test="item == null and !index.equals('id')"> ${index}=null</when >
+                    <when test="item != null and !index.equals('id') and !item.equals('')" > ${index}=#{item}</when >
+                    <when test="item.equals('') and !index.equals('id')"> ${index}=null</when >
                     <otherwise></otherwise>
                 </choose>
                 <!--<if test="item != null and !index.equals('id')">${index}=#{item}</if>-->

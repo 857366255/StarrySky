@@ -33,6 +33,7 @@ public class CreateServiceImpl implements CreateService{
                                     stemp.add(sMap.get(s));
                                 }
                                 sMap.put("val",stemp);
+                                sMap.put("key",sMap.get((String) singleFkMap.get("referenced_field_name_en")));
                             }
                             m.put("select_map",selectMap);
                         }

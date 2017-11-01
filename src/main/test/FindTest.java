@@ -27,4 +27,12 @@ public class FindTest extends SpringTestCase {
         List<Map<String, Object>> mapList = findService.getData("s_menu");
         System.out.println(mapList);
     }
+    @Test
+    public void s_menu(){
+        List<Map<String, Object>> mapList = findService.getRecursionData("s_menu");
+        System.out.println(mapList);
+
+    }
+
+
 }

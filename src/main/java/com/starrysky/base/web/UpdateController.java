@@ -38,7 +38,7 @@ public class UpdateController {
         System.out.println(mapList);
         map.put("data",mapList.get(1));
         map.put("fieldList", updateService.getFieldList(tableNameEn));
-        map.put("tableNameEN","s_menu");
+        map.put("tableNameEN",tableNameEn);
         return "update";
     }
 
