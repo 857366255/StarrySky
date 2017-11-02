@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,12 +32,14 @@ public class UpdateController {
      * 打开创建页面
      * @param tableNameEn 表名称
      */
-    @RequestMapping(value = "{tableNameEn}",method= RequestMethod.GET)
-    public String goList(@PathVariable String tableNameEn, Map<String, Object> map){
+    @RequestMapping(value = "{tableNameEn}/{id}",method= RequestMethod.GET)
+    public String goList(@PathVariable String tableNameEn,@PathVariable String id, Map<String, Object> map){
         generalPurposeService.init(tableNameEn);
-        List<Map<String, Object>> mapList = generalPurposeService.findAll();
+        Map<String, Object> findMap = new HashMap<String, Object>();
+        findMap.put("id",id);
+        Map<String, Object> mapList = generalPurposeService.findById(findMap);
         System.out.println(mapList);
-        map.put("data",mapList.get(1));
+        map.put("data",mapList);
         map.put("fieldList", updateService.getFieldList(tableNameEn));
         map.put("tableNameEN",tableNameEn);
         return "update";
@@ -53,6 +56,6 @@ public class UpdateController {
         }else{
             System.out.println("修改失败");
         }
-        return "redirect:../"+tableNameEn;
+        return "redirect:../"+tableNameEn+"/"+map.get("id");
     }
 }

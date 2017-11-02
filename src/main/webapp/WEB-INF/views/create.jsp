@@ -31,18 +31,6 @@
                     <form role="get" action="${pageContext.request.contextPath}/create/${tableNameEN}/create" method="post" id="list" class="form-horizontal">
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Select</label>
-
-                                    <div class="col-sm-10">
-                                        <select class="form-control m-b" name="account">
-                                            <option value="1">选项 1</option>
-                                            <option value="2">选项 2</option>
-                                            <option value="3">选项 3</option>
-                                            <option value="4">选项 4</option>
-                                        </select>
-                                    </div>
-                                </div>
                                 <c:forEach items="${fieldList}" var="it">
                                     <div class="col-sm-${it.columns}">
                                         <div class="form-group">

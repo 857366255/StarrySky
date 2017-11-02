@@ -31,10 +31,15 @@
     <link href="<%=basePath%>/UI/hplus/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
     <link href="<%=basePath%>/UI/hplus/css/animate.min.css" rel="stylesheet">
     <link href="<%=basePath%>/UI/hplus/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <!-- Sweet Alert -->
+    <link href="<%=basePath%>/UI/hplus/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 
 </head>
 
 <body class="gray-bg">
+<form action="" method="POST">
+    <input type="hidden" name="_method" value="DELETE"/>
+</form>
 <div class="wrapper wrapper-content animated fadeInRight">
     <!-- Panel Other -->
     <div class="ibox float-e-margins">
@@ -46,7 +51,7 @@
                         <h4 class="example-title">工具条</h4>
                         <div class="example">
                             <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
-                                <button type="button" class="btn btn-outline btn-default" data-toggle="modal" data-target="#myModal6">
+                                <button type="button" class="btn btn-outline btn-default" data-toggle="modal" data-target="#create">
                                     <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
                                 </button>
                                 <button type="button" class="btn btn-outline btn-default">
@@ -56,9 +61,10 @@
                                     <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
                                 </button>
                             </div>
-                            <table data-toggle="table" data-url="${pageContext.request.contextPath}/find/${tableNameEN}/data1" data-card-view="true" data-height="640" data-mobile-responsive="true">
+                            <table id="findTable" data-toggle="table" data-url="${pageContext.request.contextPath}/find/${tableNameEN}/data1" data-card-view="true" data-height="640" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
+                                    <th data-formatter="operateFormatter" data-events="operateEvents">操作</th>
                                     <c:forEach items="${field}" var="f">
                                         <c:if test="${f.is_disable || f.is_disable==null}">
                                             <th data-field="${f.name_en}">${f.name}</th>
@@ -69,57 +75,77 @@
                             </table>
                         </div>
                     </div>
-                    <div class="modal inmodal fade" id="myModal6" tabindex="-1" role="dialog"  aria-hidden="true">
+                    <div class="modal inmodal fade" id="update" tabindex="-1" role="dialog"  aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                    <h1 class="modal-title">窗口标题</h1>
+                                    <button id="closeUpdate" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h1 class="modal-title">修改</h1>
                                 </div>
                                 <div class="modal-body">
                                     <div class="ibox-content">
-                                        <form role="post" action="${pageContext.request.contextPath}/find/${tableNameEN}/create" method="post" id="list" class="form-horizontal">
-                                            <div class="form-group">
-                                                <div class="col-sm-12">
-                                                    <c:forEach items="${field}" var="it">
-                                                        <div class="col-sm-${it.columns}">
-                                                            <div class="form-group">
-                                                                <label class="col-sm-3 control-label">${it.name}</label>
-                                                                <div class="col-sm-9 input-group">
-                                                                    <c:choose>
-                                                                        <c:when test="${it.is_disable}">
-                                                                            <input name="${it.name_en}" type="${it.input_type}" placeholder="" disabled="" class="form-control">
-                                                                        </c:when>
-                                                                        <c:when test="${it.select_group!=null && it.select_group!=''}">
-                                                                            <c:forEach items="${it.select_group}" var="sg">
-                                                                                <label class="checkbox-inline i-checks">
-                                                                                    <input  name="${it.name_en}" type="radio" checked="" value="${sg.value}"> <i>${sg.name}</i>
-                                                                                </label>
-                                                                            </c:forEach>
-                                                                        </c:when>
-                                                                        <c:otherwise>
-                                                                            <input name="${it.name_en}" type="${it.input_type}" placeholder="${it.hint}" class="form-control">
-                                                                        </c:otherwise>
-                                                                    </c:choose>
-                                                                    <c:if test="${it.remark!=null}">
-                                                                        <span class="help-block m-b-none">${it.remark}</span>
-                                                                    </c:if>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </c:forEach>
-                                                </div>
-                                            </div>
-                                            <div class="hr-line-dashed"></div>
-                                            <div class="form-group">
-                                                <div class="col-sm-4 col-sm-offset-2">
-                                                    <button class="btn btn-primary" type="submit">保存内容</button>
-                                                    <button class="btn btn-white" type="submit">取消</button>
-                                                </div>
-                                            </div>
-                                        </form>
+                                        <iframe id="updateIframe" class="J_iframe" name="iframe0" width="100%" height="100%" src="" frameborder="0" data-id="index_v1.html" seamless></iframe>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal inmodal fade" id="create" tabindex="-1" role="dialog"  aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button id="closeCreate" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h1 class="modal-title">添加</h1>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="ibox-content">
+                                        <iframe id="createIframe" class="J_iframe" name="iframe0" width="100%" height="100%" src="${pageContext.request.contextPath}/create/${tableNameEN}" frameborder="0" data-id="index_v1.html" seamless></iframe>
+                                    </div>
+                                </div>
+                                <%-- <div class="modal-body">
+                                     <div class="ibox-content">
+                                         <form role="post" action="${pageContext.request.contextPath}/find/${tableNameEN}/create" method="post" id="list" class="form-horizontal">
+                                             <div class="form-group">
+                                                 <div class="col-sm-12">
+                                                     <c:forEach items="${field}" var="it">
+                                                         <div class="col-sm-${it.columns}">
+                                                             <div class="form-group">
+                                                                 <label class="col-sm-3 control-label">${it.name}</label>
+                                                                 <div class="col-sm-9 input-group">
+                                                                     <c:choose>
+                                                                         <c:when test="${it.is_disable}">
+                                                                             <input name="${it.name_en}" type="${it.input_type}" placeholder="" disabled="" class="form-control">
+                                                                         </c:when>
+                                                                         <c:when test="${it.select_group!=null && it.select_group!=''}">
+                                                                             <c:forEach items="${it.select_group}" var="sg">
+                                                                                 <label class="checkbox-inline i-checks">
+                                                                                     <input  name="${it.name_en}" type="radio" checked="" value="${sg.value}"> <i>${sg.name}</i>
+                                                                                 </label>
+                                                                             </c:forEach>
+                                                                         </c:when>
+                                                                         <c:otherwise>
+                                                                             <input name="${it.name_en}" type="${it.input_type}" placeholder="${it.hint}" class="form-control">
+                                                                         </c:otherwise>
+                                                                     </c:choose>
+                                                                     <c:if test="${it.remark!=null}">
+                                                                         <span class="help-block m-b-none">${it.remark}</span>
+                                                                     </c:if>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </c:forEach>
+                                                 </div>
+                                             </div>
+                                             <div class="hr-line-dashed"></div>
+                                             <div class="form-group">
+                                                 <div class="col-sm-4 col-sm-offset-2">
+                                                     <button class="btn btn-primary" type="submit">保存内容</button>
+                                                     <button class="btn btn-white" type="submit">取消</button>
+                                                 </div>
+                                             </div>
+                                         </form>
+                                     </div>
+                                 </div>--%>
                                 <%--<div class="modal-footer">
                                     <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
                                     <button type="button" class="btn btn-primary">保存</button>
@@ -143,10 +169,52 @@
 <script src="<%=basePath%>/UI/hplus/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 
 <script src="<%=basePath%>/UI/hplus/js/plugins/iCheck/icheck.min.js"></script>
+
+<script src="<%=basePath%>/UI/hplus/js/plugins/sweetalert/sweetalert.min.js"></script>
 <script>
+    function operateFormatter(value, row, index) {
+        return [
+            '<button type="button" class="update btn btn-outline btn-default" data-toggle="modal" data-target="#update"><i class="fa fa-wrench" aria-hidden="true"></i>修改</button>',
+            '<button type="button" class="remove btn btn-outline btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</button>'
+        ].join('');
+    }
+    window.operateEvents = {
+        'click .update': function (e, value, row, index) {
+            $("#updateIframe").attr("src", "${pageContext.request.contextPath}/update/${tableNameEN}/"+row.id);
+        },'click .remove': function (e, value, row, index) {
+            swal({
+                title: "您确定要删除这条信息吗",
+                text: "删除后将无法恢复，请谨慎操作！",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "删除",
+                closeOnConfirm: false
+            }, function () {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/remove/${tableNameEN}/"+row.id,
+                    type: 'DELETE',
+                    success: function(data) {
+                        swal("删除成功！", "您已经永久删除了这条信息。", "success");
+                        $('#findTable').bootstrapTable('refresh');//刷新数据
+                    },error : function(data) {
+                        swal("删除失败！", "您没有删除这条信息。", "error");
+                    }
+                });
+            });
+            //$("#updateIframe").attr("src", "${pageContext.request.contextPath}/remove/${tableNameEN}/"+row.id);
+        }
+    };
     $(document).ready(function () {
         $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",})
+        $("#closeUpdate").click(function(){
+            $('#findTable').bootstrapTable('refresh');//刷新数据
+        });
+        $("#closeCreate").click(function(){
+            $('#findTable').bootstrapTable('refresh');//刷新数据
+        });
     });
+
 </script>
 
 </body>

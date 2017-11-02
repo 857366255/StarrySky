@@ -72,29 +72,19 @@
                         </ul>
                         <div class="tab-content">
                             <c:forEach items="${combination.multipleFkList}" var="mfkl" varStatus="vs">
-                                <c:choose>
-                                    <c:when test="${vs.index==0}">
-                                    <div id="tab-${mfkl.table_name_en}" class="tab-pane active">
-                                    </c:when>
-                                    <c:otherwise>
-                                        <div id="tab-${mfkl.table_name_en}" class="tab-pane">
-                                    </c:otherwise>
-                                    </c:choose>
+                                <div id="tab-${mfkl.table_name_en}" class="tab-pane ${vs.index==0 ? 'active' : ''}">
+                                    <iframe i class="J_iframe" name="iframe0" width="100%" height="100%" src="${pageContext.request.contextPath}/find/${mfkl.table_name_en}" frameborder="0" data-id="index_v1.html" seamless></iframe>
 
-                                <%--<div class="full-height-scroll">
-                                    <div class="table-responsive">--%>
-                                        <table data-toggle="table" data-url="${pageContext.request.contextPath}/combination/${mfkl.table_name_en}/data1" data-height="600" data-mobile-responsive="true">
-                                            <thead>
+                                <%--<table data-toggle="table" data-url="${pageContext.request.contextPath}/combination/${mfkl.table_name_en}/data1" data-height="600" data-mobile-responsive="true">
+                                        <thead>
                                             <tr>
                                                 <c:forEach items="${mfkl.fieldList}" var="f">
                                                     <th data-field="${f.name_en}">${f.name}</th>
                                                 </c:forEach>
                                             </tr>
-                                            </thead>
-                                        </table>
-                                    <%--</div>
-                                </div>--%>
-                            </div>
+                                        </thead>
+                                    </table>--%>
+                                </div>
                             </c:forEach>
                         </div>
                     </div>

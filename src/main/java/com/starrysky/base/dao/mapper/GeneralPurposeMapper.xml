@@ -10,11 +10,11 @@
     <insert id="doCreate" parameterType="com.starrysky.base.po.GeneralPurpose">
         INSERT INTO <include refid="table_name_en" />
         <trim prefix="(" suffix=")" >
-            <foreach collection="createMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')"> ${index}</if></foreach>
+            <foreach collection="createMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id') and !item.equals('')"> ${index}</if></foreach>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <foreach collection="createMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">#{item}</if></foreach>
+            <foreach collection="createMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id') and !item.equals('')">#{item}</if></foreach>
         </trim>
     </insert>
     <!--批量删除-->
