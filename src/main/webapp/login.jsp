@@ -42,7 +42,7 @@
 
         </div>
         <h3>欢迎使用 H+</h3>
-
+        <a href="test.jsp">Link text</a>
         <form class="m-t" role="form" action="login">
             <%--<div class="form-group">
                 <input type="text" class="form-control" placeholder="用户名" required="">
