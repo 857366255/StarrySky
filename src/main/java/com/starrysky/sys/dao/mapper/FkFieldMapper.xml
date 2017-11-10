@@ -54,7 +54,7 @@
     <update id="doUpdate" parameterType="com.starrysky.sys.po.FkField">
         UPDATE s_fk_field
         <trim prefix="SET" suffixOverrides=",">
-            <if test="fk_name_en != null">fk_name_en=#{fk_name_en}</if>
+            <if test="fk_name_en != null">fk_name_en=#{fk_name_en},</if>
             <if test="table_name_en != null">table_name_en=#{table_name_en},</if>
             <if test="field_name_en != null">field_name_en=#{field_name_en},</if>
             <if test="referenced_table_name_en != null">referenced_table_name_en=#{referenced_table_name_en},</if>

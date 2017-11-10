@@ -83,8 +83,6 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
 
                 if(f.getName_en().equals(field.getName_en()) && f.getTable_name().equals(field.getTable_name())){
                     field.setId(f.getId());
-                    System.out.println("asd:"+field);
-                    System.out.println(field.getName_ch()==null);
                     fieldDao.doUpdate(field);
                     break;
                 }
@@ -100,7 +98,6 @@ public class DatabasePperationServiceImpl implements DatabasePperationService {
      */
     private void fkFieldSynchronizing(){
         List<FkField> fkFieldList =  fkFieldDao.getDatabaseFkField();
-        //List<FkField> fkFields =  fkFieldDao.findAll();
         for(FkField fkField : fkFieldList){
             List<FkField> fList = fkFieldDao.findByCondition(fkField);
             int i = fList.size();
