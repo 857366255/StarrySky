@@ -33,13 +33,26 @@ public class TestController {
      * 打开列表页面
      */
     @RequestMapping(value = "test",method= RequestMethod.GET)
+    public String test(Map<String, Object> map){
+        /*System.out.println("查询数据2");
+        List<Map<String, Object>> mapList = findService.getData("s_menu");
+        System.out.println(mapList);*/
+        map.put("tableNameEN","s_menu");
+        return "test";
+    }
+
+
+    /**
+     * 打开列表页面
+
+    @RequestMapping(value = "test",method= RequestMethod.GET)
     public String safad(Map<String, Object> map){
         System.out.println("查询数据2");
         List<Map<String, Object>> mapList = findService.getData("s_menu");
         System.out.println(mapList);
         map.put("list",mapList);
         return "menu";
-    }
+    }*/
     /**
      * 打开更新页面
      *//*

@@ -1,5 +1,6 @@
 package com.starrysky.base.po;
 
+import java.rmi.MarshalledObject;
 import java.util.*;
 
 /**
@@ -55,6 +56,7 @@ public class GeneralPurpose {
 
     public List<String> getPkList() {
         List<String> pkList = new ArrayList<String>();
+        System.out.println(fieldListMap);
         for (Map<String, Object> map : fieldListMap){
             String temp = map.get("name_en").toString();
             if(map.get("category") instanceof String && map.get("category").equals("PRI")){
@@ -180,6 +182,12 @@ public class GeneralPurpose {
     }
 
     public void setUpdateMap(Map<String, Object> updateMap) {
+        Map<String, Object> fMap = new HashMap<String, Object>();
+        for(String s:this.getPkList()){
+            fMap.put(s,updateMap.get(s));
+        }
+        System.out.println(fMap);
+        this.setFindMap(fMap);
         this.updateMap = updateMap;
     }
 

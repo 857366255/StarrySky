@@ -9,12 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
-
 /**
  * 功能概要：单元测试
  */
 @Component("configInfo")
-public class DatabasePperationTest extends SpringTestCase {
+public class DatabasePperationTest2 extends SpringTestCase {
 
     @Autowired
     private DatabasePperationService databasePperationService;

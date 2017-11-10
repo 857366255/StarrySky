@@ -1,4 +1,4 @@
-package com.starrysky.base.service;
+package com.starrysky.sys.service;
 
 
 import java.util.List;
