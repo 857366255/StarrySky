@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-11-01 17:05:25
+Date: 2017-11-06 15:16:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -232,16 +232,43 @@ INSERT INTO `s_fk_field` VALUES ('17', 'training_records_training_plan_id', 't_t
 INSERT INTO `s_fk_field` VALUES ('18', 'fk_menu_url_table', 's_menu', 'url_table', 's_table', 'name_en');
 
 -- ----------------------------
--- Table structure for s_forms
+-- Table structure for s_form
 -- ----------------------------
-DROP TABLE IF EXISTS `s_forms`;
-CREATE TABLE `s_forms` (
+DROP TABLE IF EXISTS `s_form`;
+CREATE TABLE `s_form` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL COMMENT '名称',
+  `icon` varchar(255) DEFAULT NULL COMMENT '图标',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='表单';
 
 -- ----------------------------
--- Records of s_forms
+-- Records of s_form
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for s_form_field
+-- ----------------------------
+DROP TABLE IF EXISTS `s_form_field`;
+CREATE TABLE `s_form_field` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `form_id` int(11) DEFAULT NULL COMMENT '表单id',
+  `field_id` int(11) DEFAULT NULL COMMENT '字段id',
+  `name` varchar(255) DEFAULT NULL COMMENT '名称',
+  `is_find` tinyint(1) DEFAULT NULL COMMENT '是否查询',
+  `is_list _display` tinyint(1) DEFAULT NULL COMMENT '列表是否显示',
+  `is_edit _display` tinyint(1) DEFAULT NULL COMMENT '编辑列表是否显示',
+  `is_edit` tinyint(1) DEFAULT NULL COMMENT '是否编辑',
+  `is_master_and_slave` tinyint(1) DEFAULT NULL COMMENT '主表还是从表',
+  PRIMARY KEY (`id`),
+  KEY `fk_fmf_form_id` (`form_id`) USING BTREE,
+  KEY `fk_fmf_form_field_id` (`field_id`) USING BTREE,
+  CONSTRAINT `fk_fmf_form_field_id` FOREIGN KEY (`field_id`) REFERENCES `s_field` (`id`),
+  CONSTRAINT `fk_fmf_form_id` FOREIGN KEY (`form_id`) REFERENCES `s_form` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='表单主表字段设置';
+
+-- ----------------------------
+-- Records of s_form_field
 -- ----------------------------
 
 -- ----------------------------
@@ -261,23 +288,22 @@ CREATE TABLE `s_menu` (
   KEY `fk_menu_url_table` (`url_table`),
   CONSTRAINT `fk_menu_superiors_id` FOREIGN KEY (`superiors_id`) REFERENCES `s_menu` (`id`),
   CONSTRAINT `fk_menu_url_table` FOREIGN KEY (`url_table`) REFERENCES `s_table` (`name_en`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='菜单';
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='菜单';
 
 -- ----------------------------
 -- Records of s_menu
 -- ----------------------------
-INSERT INTO `s_menu` VALUES ('0', '系统管理', 'fa-desktop', null, null, null, null);
-INSERT INTO `s_menu` VALUES ('1', '新增菜单', 'fa-home', '1', 'create/s_menu', 'create', 's_menu');
+INSERT INTO `s_menu` VALUES ('0', '系统管理', 'fa-desktop', null, 'a', null, null);
+INSERT INTO `s_menu` VALUES ('1', '新增菜单', 'fa-home', '0', null, 'create', 's_menu');
 INSERT INTO `s_menu` VALUES ('2', '新增选择框', null, '0', 'create/s_select', 'create', 's_select');
 INSERT INTO `s_menu` VALUES ('4', '新增人', null, '0', 'create/t_man', 'create', 't_man');
 INSERT INTO `s_menu` VALUES ('8', '查看菜单', null, '0', 'find/s_menu', 'find', 's_menu');
 INSERT INTO `s_menu` VALUES ('9', '查看选择框', null, '0', 'find/s_select', 'find', 's_select');
 INSERT INTO `s_menu` VALUES ('10', '查看人', null, '0', 'find/t_man', 'find', 't_man');
-INSERT INTO `s_menu` VALUES ('11', '组合窗口', '123', '0', 'combination/s_table', 'combination', 's_field');
+INSERT INTO `s_menu` VALUES ('11', '组合窗口', '123', '0', 'combination/s_table', 'combination', 's_table');
 INSERT INTO `s_menu` VALUES ('12', '字段', null, '0', null, 'create', 's_field');
 INSERT INTO `s_menu` VALUES ('13', '创建', null, '0', null, 'create', 't_coach');
-INSERT INTO `s_menu` VALUES ('14', '更新', null, '0', null, 'update', 's_menu');
-INSERT INTO `s_menu` VALUES ('17', '阿斯顿', null, null, null, null, null);
+INSERT INTO `s_menu` VALUES ('20', '更新', null, null, null, 'update', 's_menu');
 
 -- ----------------------------
 -- Table structure for s_select
