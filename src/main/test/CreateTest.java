@@ -24,6 +24,6 @@ public class CreateTest extends SpringTestCase {
 
     @Test
     public void getFieldList(){
-        System.out.println("查询字段信息："+createService.getFieldList("s_field"));
+        //System.out.println("查询字段信息："+createService.getFieldList("s_field"));
     }
 }

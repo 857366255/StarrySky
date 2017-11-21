@@ -27,18 +27,6 @@ public class CreateController {
     private GeneralPurposeService generalPurposeService;
 
     /**
-     * 打开创建页面
-     * @param tableNameEn 表名称
-     */
-    @RequestMapping(value = "create/{tableNameEn}",method= RequestMethod.GET)
-    public String goList(@PathVariable String tableNameEn, Map<String, Object> map){
-
-        map.put("fieldList", createService.getFieldList(tableNameEn));
-        map.put("tableNameEN",tableNameEn);
-        return "create";
-    }
-
-    /**
      * 创建数据
      * @param tableNameEn 表名称
      */

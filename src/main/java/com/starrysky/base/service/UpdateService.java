@@ -10,8 +10,8 @@ public interface UpdateService {
      * @param tableNameEn 表名称
      * @return 字段信息
      */
-    public List<Map<String, Object>> getFieldList(String tableNameEn);
-
+  /*  public List<Map<String, Object>> getFieldList(String tableNameEn);
+*/
     /**
      * 更新数据
      * @param tableNameEn 表名称

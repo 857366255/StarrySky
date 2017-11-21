@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * Created by wz on 2017/10/18.
  */
-//@Controller
+@Controller
 public class LoginController {
     @Autowired
     private FindService findService;
@@ -25,12 +25,12 @@ public class LoginController {
     @Autowired
     private GeneralPurposeService generalPurposeService;
 
-    /*@RequestMapping(value = "login",method= RequestMethod.GET)
+    @RequestMapping(value = "login",method= RequestMethod.GET)
     public String goLogin(Map<String, Object> map){
         List<Map<String, Object>> mapList = findService.getRecursionData("s_menu");
         map.put("menu",mapList);
         map.put("number",0);
         System.out.println(mapList);
-        return "index";
-    }*/
+        return "sys/index";
+    }
 }

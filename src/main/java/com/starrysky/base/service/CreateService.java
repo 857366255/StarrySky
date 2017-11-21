@@ -10,7 +10,7 @@ public interface CreateService {
      * @param tableNameEn 表名称
      * @return 字段信息
      */
-    public List<Map<String, Object>> getFieldList(String tableNameEn);
+   /* public List<Map<String, Object>> getFieldList(String tableNameEn);*/
 
     /**
      * 保存数据

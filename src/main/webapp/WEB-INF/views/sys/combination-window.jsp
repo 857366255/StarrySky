@@ -42,10 +42,10 @@
             <div class="ibox ">
                 <div class="ibox-content">
                     <div class="tab-content">
-                        <c:forEach items="${combination.fieldList}" var="it">
+                        <c:forEach items="${fieldList}" var="it">
                                 <dl class="dl-horizontal">
                                     <dt>${it.name}：</dt>
-                                    <dd>${combination.data[it.name_en]}</dd>
+                                    <dd>${data[it.name_en]}</dd>
                                 </dl>
                         </c:forEach>
                     </div>
@@ -58,7 +58,7 @@
                     <%--<div class="clients-list">--%>
                     <div>
                         <ul class="nav nav-tabs">
-                            <c:forEach items="${combination.multipleFkList}" var="mfkl" varStatus="vs">
+                            <c:forEach items="${multipleFkList}" var="mfkl" varStatus="vs">
                                 <c:choose>
                                     <c:when test="${vs.index==0}">
                                         <li class="active">
@@ -71,11 +71,11 @@
                             </c:forEach>
                         </ul>
                         <div class="tab-content">
-                            <c:forEach items="${combination.multipleFkList}" var="mfkl" varStatus="vs">
+                            <c:forEach items="${multipleFkList}" var="mfkl" varStatus="vs">
                                 <div id="tab-${mfkl.table_name_en}" class="tab-pane ${vs.index==0 ? 'active' : ''}">
                                     <iframe i class="J_iframe" name="iframe0" width="100%" height="100%" src="${pageContext.request.contextPath}/find/${mfkl.table_name_en}" frameborder="0" data-id="index_v1.html" seamless></iframe>
 
-                                <%--<table data-toggle="table" data-url="${pageContext.request.contextPath}/combination/${mfkl.table_name_en}/data1" data-height="600" data-mobile-responsive="true">
+                                <%--<table data-toggle="table" data-url="${pageContext.request.contextPath}/${mfkl.table_name_en}/data1" data-height="600" data-mobile-responsive="true">
                                         <thead>
                                             <tr>
                                                 <c:forEach items="${mfkl.fieldList}" var="f">

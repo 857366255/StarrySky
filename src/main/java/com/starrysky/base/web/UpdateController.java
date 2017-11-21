@@ -28,22 +28,7 @@ public class UpdateController {
     @Autowired
     private GeneralPurposeService generalPurposeService;
 
-    /**
-     * 打开创建页面
-     * @param tableNameEn 表名称
-     */
-    @RequestMapping(value = "{tableNameEn}/{id}",method= RequestMethod.GET)
-    public String goList(@PathVariable String tableNameEn,@PathVariable String id, Map<String, Object> map){
-        generalPurposeService.init(tableNameEn);
-        Map<String, Object> findMap = new HashMap<String, Object>();
-        findMap.put("id",id);
-        Map<String, Object> mapList = generalPurposeService.findById(findMap);
-        System.out.println(mapList);
-        map.put("data",mapList);
-        map.put("fieldList", updateService.getFieldList(tableNameEn));
-        map.put("tableNameEN",tableNameEn);
-        return "update";
-    }
+
 
     /**
      * 创建数据
