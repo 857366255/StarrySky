@@ -68,6 +68,24 @@
                     </div>
                 </li>
                 <c:import url="menu.jsp" />
+                <%--<c:forEach items="${menu}" var="m">
+                <li>
+                    <a class="J_menuItem" href="create/${m.url}">
+                        <i class="fa ${m.icon}"></i>
+                        <span class="nav-label">创建${m.name}</span>
+                            &lt;%&ndash;<span class="fa arrow"></span>&ndash;%&gt;
+                    </a>
+                </li>
+                </c:forEach>
+                <c:forEach items="${menu}" var="m">
+                    <li>
+                        <a class="J_menuItem" href="find/${m.url}">
+                            <i class="fa ${m.icon}"></i>
+                            <span class="nav-label">查看${m.name}</span>
+                                &lt;%&ndash;<span class="fa arrow"></span>&ndash;%&gt;
+                        </a>
+                    </li>
+                </c:forEach>--%>
             </ul>
         </div>
     </nav>

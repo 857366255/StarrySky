@@ -1,7 +1,6 @@
-package com.starrysky.base.web;
+package com.starrysky.sys.web;
 
 
-import com.starrysky.base.service.FindService;
 import com.starrysky.base.service.GeneralPurposeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//@Controller
+@Controller
 public class FindController {
 
     @Autowired
@@ -23,7 +22,7 @@ public class FindController {
      * 打开列表页面
      * @param tableNameEN 表名称
      */
-   /* @RequestMapping(value = "find/{tableNameEN}",method= RequestMethod.GET)
+    @RequestMapping(value = "find/{tableNameEN}",method= RequestMethod.GET)
     public String goFind(Map<String, Object> map, @PathVariable String tableNameEN){
         generalPurposeService.init("s_field");
         Map<String, Object> findMap = new HashMap<String, Object>();
@@ -32,6 +31,6 @@ public class FindController {
         System.out.println(list);
         map.put("field",list);
         map.put("tableNameEN",tableNameEN);
-        return "find";
-    }*/
+        return "sys/find";
+    }
 }
