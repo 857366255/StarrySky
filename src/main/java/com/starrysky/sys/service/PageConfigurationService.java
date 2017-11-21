@@ -2,7 +2,7 @@ package com.starrysky.sys.service;
 
 import java.util.Map;
 
-public interface MenuService {
+public interface PageConfigurationService {
     /**
      * 获得列表页面字段
      * @param map 传回前台数据

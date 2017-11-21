@@ -1,16 +1,8 @@
 package com.starrysky.sys.service.impl;
 
 
-import com.starrysky.base.service.FindService;
 import com.starrysky.base.service.GeneralPurposeService;
-import com.starrysky.sys.dao.FieldDao;
-import com.starrysky.sys.dao.FkFieldDao;
-import com.starrysky.sys.dao.TableDao;
-import com.starrysky.sys.po.Field;
-import com.starrysky.sys.po.FkField;
-import com.starrysky.sys.po.Table;
-import com.starrysky.sys.service.DatabasePperationService;
-import com.starrysky.sys.service.MenuService;
+import com.starrysky.sys.service.PageConfigurationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +17,7 @@ import java.util.Map;
  * Created by wz on 2017/11/10.
  */
 @Service
-public class MenuServiceImpl implements MenuService {
+public class PageConfigurationServiceImpl implements PageConfigurationService {
     @Autowired
     private GeneralPurposeService generalPurposeService;
 
