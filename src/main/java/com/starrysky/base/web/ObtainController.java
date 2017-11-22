@@ -18,7 +18,7 @@ public class ObtainController {
     /**
      *获得数据1
      */
-    @RequestMapping(value={"combination/{tableNameEN}/data1","find/{tableNameEN}/data1"}, produces = "application/json; charset=utf-8" )
+ /*   @RequestMapping(value={"combination/{tableNameEN}/data1","find/{tableNameEN}/data1"}, produces = "application/json; charset=utf-8" )
     @ResponseBody
     public List<Map<String, Object>> financeApplyLogs(@PathVariable String tableNameEN) throws MapperException {
         System.out.println("获得数据:"+tableNameEN);
@@ -26,5 +26,5 @@ public class ObtainController {
         List<Map<String,Object>> list = generalPurposeService.findAll();
         System.out.println(list);
         return list;
-    }
+    }*/
 }

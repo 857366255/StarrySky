@@ -61,7 +61,7 @@
                                     <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
                                 </button>
                             </div>
-                            <table id="findTable" data-toggle="table" data-url="${pageContext.request.contextPath}/find/${tableNameEN}/data1" data-card-view="true" data-height="640" data-mobile-responsive="true">
+                            <table id="findTable" data-toggle="table" data-url="${pageContext.request.contextPath}/data/${tableNameEN}/${type}" data-card-view="true" data-height="640" data-mobile-responsive="true">
                                 <thead>
                                 <tr>
                                     <th data-formatter="operateFormatter" data-events="operateEvents">操作</th>

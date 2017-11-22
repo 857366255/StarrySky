@@ -73,7 +73,7 @@
                         <div class="tab-content">
                             <c:forEach items="${multipleFkList}" var="mfkl" varStatus="vs">
                                 <div id="tab-${mfkl.table_name_en}" class="tab-pane ${vs.index==0 ? 'active' : ''}">
-                                    <iframe i class="J_iframe" name="iframe0" width="100%" height="100%" src="${pageContext.request.contextPath}/find/${mfkl.table_name_en}" frameborder="0" data-id="index_v1.html" seamless></iframe>
+                                    <iframe i class="J_iframe" name="iframe0" width="100%" height="100%" src="${pageContext.request.contextPath}/find/${mfkl.table_name_en}/1" frameborder="0" data-id="index_v1.html" seamless></iframe>
 
                                 <%--<table data-toggle="table" data-url="${pageContext.request.contextPath}/${mfkl.table_name_en}/data1" data-height="600" data-mobile-responsive="true">
                                         <thead>
