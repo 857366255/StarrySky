@@ -1,6 +1,6 @@
-package com.starrysky.base.dao;
+package com.starrysky.sys.dao;
 
-import com.starrysky.base.po.GeneralPurpose;
+import com.starrysky.sys.po.GeneralPurpose;
 
 import java.util.List;
 import java.util.Map;

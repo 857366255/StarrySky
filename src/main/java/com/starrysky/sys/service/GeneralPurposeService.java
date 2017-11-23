@@ -1,6 +1,6 @@
-package com.starrysky.base.service;
+package com.starrysky.sys.service;
 
-import com.starrysky.base.po.GeneralPurpose;
+import com.starrysky.sys.po.GeneralPurpose;
 
 import java.util.List;
 import java.util.Map;

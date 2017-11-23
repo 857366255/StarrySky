@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.starrysky.base.dao.GeneralPurposeDao">
+<mapper namespace="com.starrysky.sys.dao.GeneralPurposeDao">
     <sql id="table_name_en" >${tableNameEN}</sql>
     <sql id="select_from" >
         SELECT <foreach collection="fieldList" index="index" item="item" separator="," >${item}</foreach> FROM <include refid="table_name_en" />
     </sql>
     <!--增加-->
-    <insert id="doCreate" parameterType="com.starrysky.base.po.GeneralPurpose">
+    <insert id="doCreate" parameterType="com.starrysky.sys.po.GeneralPurpose">
         INSERT INTO <include refid="table_name_en" />
         <trim prefix="(" suffix=")" >
             <foreach collection="createMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id') and !item.equals('')"> ${index}</if></foreach>
@@ -18,7 +18,7 @@
         </trim>
     </insert>
     <!--批量删除-->
-    <delete id="doRemoveBatch" parameterType="com.starrysky.base.po.GeneralPurpose">
+    <delete id="doRemoveBatch" parameterType="com.starrysky.sys.po.GeneralPurpose">
         DELETE FROM <include refid="table_name_en" />
         <where>
             <choose>
@@ -36,7 +36,7 @@
         </where>
     </delete>
     <!--删除-->
-    <delete id="doRemove" parameterType="com.starrysky.base.po.GeneralPurpose">
+    <delete id="doRemove" parameterType="com.starrysky.sys.po.GeneralPurpose">
         DELETE FROM <include refid="table_name_en" />
         <where>
             <choose>
@@ -52,7 +52,7 @@
         </where>
     </delete>
     <!--更新-->
-    <update id="doUpdate" parameterType="com.starrysky.base.po.GeneralPurpose">
+    <update id="doUpdate" parameterType="com.starrysky.sys.po.GeneralPurpose">
         UPDATE <include refid="table_name_en" />
         <trim prefix="SET" suffixOverrides=",">
             <foreach collection="updateMap" index="index" item="item" separator="," >
@@ -72,11 +72,11 @@
         </foreach>
     </update>
     <!--查询全部数据-->
-    <select id="findAll" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
+    <select id="findAll" parameterType="com.starrysky.sys.po.GeneralPurpose" resultType="java.util.Map">
         <include refid="select_from" />
     </select>
     <!--按id查询数据-->
-    <select id="findById" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
+    <select id="findById" parameterType="com.starrysky.sys.po.GeneralPurpose" resultType="java.util.Map">
         <include refid="select_from" />
         <where>
             <foreach collection="findMap" index="index" item="item" separator=" AND " >
@@ -104,7 +104,7 @@
         </where>
     </select>
     <!--根据表名称查找 该表字段信息-->
-    <select id="findFieldByTableName" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
+    <select id="findFieldByTableName" parameterType="com.starrysky.sys.po.GeneralPurpose" resultType="java.util.Map">
         SELECT * FROM ${TABLE_NAME_EN}
         WHERE
         <choose>
@@ -117,7 +117,7 @@
         </choose>
     </select>
     <!--根据表名称查找 该表字段信息-->
-    <select id="findFkFieldByTableName" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
+    <select id="findFkFieldByTableName" parameterType="com.starrysky.sys.po.GeneralPurpose" resultType="java.util.Map">
         SELECT * FROM ${FK_FIELD_NAME_EN}
         WHERE
         <choose>

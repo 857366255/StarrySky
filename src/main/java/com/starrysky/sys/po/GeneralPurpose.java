@@ -1,6 +1,5 @@
-package com.starrysky.base.po;
+package com.starrysky.sys.po;
 
-import java.rmi.MarshalledObject;
 import java.util.*;
 
 /**

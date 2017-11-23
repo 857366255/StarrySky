@@ -1,8 +1,8 @@
-package com.starrysky.base.service.impl;
+package com.starrysky.sys.service.impl;
 
-import com.starrysky.base.dao.GeneralPurposeDao;
-import com.starrysky.base.po.GeneralPurpose;
-import com.starrysky.base.service.GeneralPurposeService;
+import com.starrysky.sys.dao.GeneralPurposeDao;
+import com.starrysky.sys.po.GeneralPurpose;
+import com.starrysky.sys.service.GeneralPurposeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

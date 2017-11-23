@@ -1,4 +1,4 @@
-package com.starrysky.base.dao;
+package com.starrysky.sys.dao;
 
 import java.sql.SQLException;
 import java.util.List;

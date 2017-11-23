@@ -28,7 +28,7 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    <form role="get" action="${pageContext.request.contextPath}/create/${tableNameEN}/create" method="post" id="list" class="form-horizontal">
+                    <form role="get" action="${pageContext.request.contextPath}/create/${tableNameEN}" method="post" id="list" class="form-horizontal">
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <c:forEach items="${fieldList}" var="it">

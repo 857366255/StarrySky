@@ -102,54 +102,6 @@
                                         <iframe id="createIframe" class="J_iframe" name="iframe0" width="100%" height="100%" src="${pageContext.request.contextPath}/create/${tableNameEN}" frameborder="0" data-id="index_v1.html" seamless></iframe>
                                     </div>
                                 </div>
-                                <%-- <div class="modal-body">
-                                     <div class="ibox-content">
-                                         <form role="post" action="${pageContext.request.contextPath}/find/${tableNameEN}/create" method="post" id="list" class="form-horizontal">
-                                             <div class="form-group">
-                                                 <div class="col-sm-12">
-                                                     <c:forEach items="${field}" var="it">
-                                                         <div class="col-sm-${it.columns}">
-                                                             <div class="form-group">
-                                                                 <label class="col-sm-3 control-label">${it.name}</label>
-                                                                 <div class="col-sm-9 input-group">
-                                                                     <c:choose>
-                                                                         <c:when test="${it.is_disable}">
-                                                                             <input name="${it.name_en}" type="${it.input_type}" placeholder="" disabled="" class="form-control">
-                                                                         </c:when>
-                                                                         <c:when test="${it.select_group!=null && it.select_group!=''}">
-                                                                             <c:forEach items="${it.select_group}" var="sg">
-                                                                                 <label class="checkbox-inline i-checks">
-                                                                                     <input  name="${it.name_en}" type="radio" checked="" value="${sg.value}"> <i>${sg.name}</i>
-                                                                                 </label>
-                                                                             </c:forEach>
-                                                                         </c:when>
-                                                                         <c:otherwise>
-                                                                             <input name="${it.name_en}" type="${it.input_type}" placeholder="${it.hint}" class="form-control">
-                                                                         </c:otherwise>
-                                                                     </c:choose>
-                                                                     <c:if test="${it.remark!=null}">
-                                                                         <span class="help-block m-b-none">${it.remark}</span>
-                                                                     </c:if>
-                                                                 </div>
-                                                             </div>
-                                                         </div>
-                                                     </c:forEach>
-                                                 </div>
-                                             </div>
-                                             <div class="hr-line-dashed"></div>
-                                             <div class="form-group">
-                                                 <div class="col-sm-4 col-sm-offset-2">
-                                                     <button class="btn btn-primary" type="submit">保存内容</button>
-                                                     <button class="btn btn-white" type="submit">取消</button>
-                                                 </div>
-                                             </div>
-                                         </form>
-                                     </div>
-                                 </div>--%>
-                                <%--<div class="modal-footer">
-                                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-                                    <button type="button" class="btn btn-primary">保存</button>
-                                </div>--%>
                             </div>
                         </div>
                     </div>
@@ -174,11 +126,15 @@
 <script>
     function operateFormatter(value, row, index) {
         return [
+            '<button type="button" class="check btn btn-outline btn-default"><i class="fa fa-wrench" aria-hidden="true"></i>查看明细</button>',
             '<button type="button" class="update btn btn-outline btn-default" data-toggle="modal" data-target="#update"><i class="fa fa-wrench" aria-hidden="true"></i>修改</button>',
             '<button type="button" class="remove btn btn-outline btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</button>'
         ].join('');
     }
     window.operateEvents = {
+        'click .check': function (e, value, row, index) {
+            alert("查看明细");
+        },
         'click .update': function (e, value, row, index) {
             $("#updateIframe").attr("src", "${pageContext.request.contextPath}/update/${tableNameEN}/"+row.id);
         },'click .remove': function (e, value, row, index) {

@@ -1,14 +1,10 @@
 package com.starrysky.sys.web;
 
 import com.sdicons.json.mapper.MapperException;
-import com.starrysky.base.service.GeneralPurposeService;
 import com.starrysky.sys.service.OperationDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -27,26 +23,56 @@ public class OperationDataController {
     /**
      *获得数据1
      */
-
     @RequestMapping(value="data/{tableNameEn}/{find}", produces = "application/json; charset=utf-8" )
     @ResponseBody
-    public List<Map<String, Object>> financeApplyLogs(@PathVariable String tableNameEn,@PathVariable String find) throws MapperException {
+    public List<Map<String, Object>> data(@PathVariable String tableNameEn,@PathVariable String find) throws MapperException {
         Map<String, Object> findMap = new HashMap<String, Object>();
-        System.out.println(find);
         if(find.equals("all")){
             return operationDataService.getListData(tableNameEn,findMap);
         }else{
             findMap.put("id",find);
-            System.out.println("adsadasdas");
             return operationDataService.getListData(tableNameEn,findMap);
         }
-
-
     }
-    @RequestMapping(value="data/{tableNameEn}", produces = "application/json; charset=utf-8" )
+    /**
+     * 创建数据
+     * @param tableNameEn 表名称
+     */
+    @RequestMapping(value="create/{tableNameEn}",method=RequestMethod.POST)
+    public String create(@RequestParam Map<String, Object> map, @PathVariable String tableNameEn){
+        if(operationDataService.doCreate(tableNameEn,map)){
+            System.out.println("保存成功");
+        }else{
+            System.out.println("保存失败");
+        }
+        return "redirect:"+tableNameEn;
+    }
+    /**
+     * 删除数据
+     * @param tableNameEn 表名称
+     */
+    @RequestMapping(value={"remove/{tableNameEn}/{id}"},method=RequestMethod.DELETE)
     @ResponseBody
-    public List<Map<String, Object>> findALL(@PathVariable String tableNameEn,@PathVariable Integer id) throws MapperException {
-        System.out.println("asd");
-        return operationDataService.getListData(tableNameEn,new HashMap<String, Object>());
+    public void remove(@RequestParam Map<String, Object> map, @PathVariable String tableNameEn, @PathVariable String id){
+        Map<String, Object> findMap = new HashMap<String, Object>();
+        findMap.put("id",id);
+        if(operationDataService.doRemove(tableNameEn,findMap)){
+            System.out.println("删除成功");
+        }else{
+            System.out.println("删除失败");
+        }
+    }
+    /**
+     * 数据
+     * @param tableNameEn 表名称
+     */
+    @RequestMapping(value={"update/{tableNameEn}"},method=RequestMethod.PUT)
+    public String update(@RequestParam Map<String, Object> map,@PathVariable String tableNameEn){
+        if(operationDataService.doUpdate(tableNameEn,map)){
+            System.out.println("修改成功");
+        }else{
+            System.out.println("修改失败");
+        }
+        return "redirect:"+tableNameEn+"/"+map.get("id");
     }
 }

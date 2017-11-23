@@ -1,7 +1,7 @@
 package com.starrysky.sys.service.impl;
 
 
-import com.starrysky.base.service.GeneralPurposeService;
+import com.starrysky.sys.service.GeneralPurposeService;
 import com.starrysky.sys.service.PageConfigurationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,6 +52,17 @@ public class PageConfigurationServiceImpl implements PageConfigurationService {
             m.put("fieldList",getFieldList((String) m.get("table_name_en")));
         }
         map.put("multipleFkList",multipleFkList);
+    }
+
+    public List<Map<String, Object>> getData(String tableNameEn){
+        generalPurposeService.init(tableNameEn);
+        Map<String, Object> findMap = new HashMap<String, Object>();
+        findMap.put("superiors_id","is null");
+        List<Map<String, Object>> mapList = generalPurposeService.findByCondition(findMap);
+        Map<String, Object> meFkMap = generalPurposeService.getGeneralPurpose().getMeFkMap();
+        List<Map<String, Object>> singleFkList = generalPurposeService.getGeneralPurpose().getSingleFkList();
+        List<Map<String, Object>> multipleFkList = generalPurposeService.getGeneralPurpose().getMultipleFkList();
+        return mapList;
     }
 
 

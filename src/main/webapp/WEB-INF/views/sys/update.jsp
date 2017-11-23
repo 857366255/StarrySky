@@ -29,7 +29,7 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    <form role="get" action="${pageContext.request.contextPath}/update/${tableNameEN}/update" method="post" id="list" class="form-horizontal">
+                    <form role="get" action="${pageContext.request.contextPath}/update/${tableNameEN}" method="post" id="list" class="form-horizontal">
                         <input type="hidden" name="_method" value="PUT" />
                         <div class="form-group">
                             <div class="col-sm-12">

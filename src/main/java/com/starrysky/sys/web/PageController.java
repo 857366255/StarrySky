@@ -1,6 +1,5 @@
 package com.starrysky.sys.web;
 
-import com.starrysky.base.service.FindService;
 import com.starrysky.sys.service.PageConfigurationService;
 import com.starrysky.sys.service.OperationDataService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +23,17 @@ public class PageController {
     @Autowired
     private OperationDataService operationDataService;
 
-    @Autowired
-    private FindService findService;
+    /**
+     * 登入
+     */
+    @RequestMapping(value = "login",method= RequestMethod.GET)
+    public String goLogin(Map<String, Object> map){
+        List<Map<String, Object>> mapList = operationDataService.getRecursionData("s_menu");
+        map.put("menu",mapList);
+        map.put("number",0);
+        System.out.println(mapList);
+        return "sys/index";
+    }
 
     /**
      * 打开列表页面
@@ -66,7 +74,7 @@ public class PageController {
     @RequestMapping(value = "combination/{tableNameEn}",method= RequestMethod.GET)
     public String goCombination(Map<String, Object> map, @PathVariable String tableNameEn){
         pageConfigurationService.getCombinationField(map, tableNameEn);
-        List<Map<String, Object>> mapList = findService.getData(tableNameEn);
+        List<Map<String, Object>> mapList = pageConfigurationService.getData(tableNameEn);
         map.put("data",mapList.get(0));
         map.put("id",mapList.get(0).get("id"));
         return "sys/combination-window";

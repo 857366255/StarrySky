@@ -1,4 +1,4 @@
-package com.starrysky.base.vo;
+package com.starrysky.sys.vo;
 
 import java.util.Map;
 
