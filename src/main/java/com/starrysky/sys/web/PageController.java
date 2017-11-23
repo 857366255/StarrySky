@@ -71,12 +71,12 @@ public class PageController {
      * 打开组合页面
      * @param tableNameEn 表名称
      */
-    @RequestMapping(value = "combination/{tableNameEn}",method= RequestMethod.GET)
-    public String goCombination(Map<String, Object> map, @PathVariable String tableNameEn){
+    @RequestMapping(value = "combination/{tableNameEn}/{id}",method= RequestMethod.GET)
+    public String goCombination(Map<String, Object> map, @PathVariable String tableNameEn,@PathVariable String id){
         pageConfigurationService.getCombinationField(map, tableNameEn);
         List<Map<String, Object>> mapList = pageConfigurationService.getData(tableNameEn);
         map.put("data",mapList.get(0));
-        map.put("id",mapList.get(0).get("id"));
+        map.put("id",id);
         return "sys/combination-window";
     }
 

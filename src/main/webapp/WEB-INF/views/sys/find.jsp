@@ -126,14 +126,18 @@
 <script>
     function operateFormatter(value, row, index) {
         return [
-            '<button type="button" class="check btn btn-outline btn-default"><i class="fa fa-wrench" aria-hidden="true"></i>查看明细</button>',
+            '<button type="button" class="ck btn btn-outline btn-default"><i class="fa fa-wrench" aria-hidden="true"></i>查看明细</button>',
             '<button type="button" class="update btn btn-outline btn-default" data-toggle="modal" data-target="#update"><i class="fa fa-wrench" aria-hidden="true"></i>修改</button>',
             '<button type="button" class="remove btn btn-outline btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</button>'
         ].join('');
     }
     window.operateEvents = {
-        'click .check': function (e, value, row, index) {
-            alert("查看明细");
+        'click .ck': function (e, value, row, index) {
+            parent.$("#ancillary").attr("href","${pageContext.request.contextPath}/combination/${tableNameEN}/"+row.id);//
+            parent.$("#ancillary").text("组合窗口"+row.name);
+            parent.hwz();
+            parent.$("#ancillary").trigger("click");
+           // parent.$("#ancillary").remove();
         },
         'click .update': function (e, value, row, index) {
             $("#updateIframe").attr("src", "${pageContext.request.contextPath}/update/${tableNameEN}/"+row.id);
