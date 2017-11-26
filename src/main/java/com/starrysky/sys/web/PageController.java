@@ -39,11 +39,10 @@ public class PageController {
      * 打开列表页面
      * @param tableNameEn 表名称
      */
-    @RequestMapping(value = "find/{tableNameEn}/{type}",method= RequestMethod.GET)
-    public String goFind(Map<String, Object> map, @PathVariable String tableNameEn, @PathVariable String type){
+    @RequestMapping(value = "list/{tableNameEn}",method= RequestMethod.GET)
+    public String goFind(Map<String, Object> map, @PathVariable String tableNameEn){
         pageConfigurationService.getListField(map,tableNameEn);
-        map.put("type",type);
-        return "sys/find";
+        return "sys/list";
     }
 
     /**
@@ -73,9 +72,10 @@ public class PageController {
      */
     @RequestMapping(value = "combination/{tableNameEn}/{id}",method= RequestMethod.GET)
     public String goCombination(Map<String, Object> map, @PathVariable String tableNameEn,@PathVariable String id){
-        pageConfigurationService.getCombinationField(map, tableNameEn);
-        List<Map<String, Object>> mapList = pageConfigurationService.getData(tableNameEn);
-        map.put("data",mapList.get(0));
+        pageConfigurationService.getCombinationField(map, tableNameEn, id);
+        Map<String, Object> findMap = new HashMap<String, Object>();
+        findMap.put("id",id);
+        operationDataService.getMapData(map,tableNameEn,findMap);
         map.put("id",id);
         return "sys/combination-window";
     }

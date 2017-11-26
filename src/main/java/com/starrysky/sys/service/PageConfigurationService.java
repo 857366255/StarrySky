@@ -28,7 +28,7 @@ public interface PageConfigurationService {
      * @param map 传回前台数据
      * @param tableNameEn 表名
      */
-    public void  getCombinationField(Map<String, Object> map,String tableNameEn);
+    public void  getCombinationField(Map<String, Object> map,String tableNameEn,String id);
 
     public List<Map<String, Object>> getData(String tableNameEn);
 }

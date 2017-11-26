@@ -16,7 +16,7 @@
                 <c:set var="menu" value="${m.s_menu}" scope="request" /><!-- 注意此处，子列表覆盖treeList，在request作用域 -->
                 <ul class="nav nav-${number==0 ? 'second' : 'third'}-level">
                     <c:if test="${m.url != null}">
-                        <li><a class="J_menuItem" href="${m.url_type}/${m.url_table}${m.url_type=='find' ? '/all' : ''}"><i class="fa ${m.icon}"></i><span class="nav-label">${m.name}</span></a></li>
+                        <li><a class="J_menuItem" href="${m.url_type}/${m.url_table}"><i class="fa ${m.icon}"></i><span class="nav-label">${m.name}</span></a></li>
                     </c:if>
                     <c:set var="number" value="${number+1}" scope="request" />
                     <c:import url="menu.jsp" /><!-- 这就是递归了 -->
@@ -24,7 +24,7 @@
             </c:when>
             <c:otherwise>
 
-                <li><a class="J_menuItem" href="${m.url_type}/${m.url_table}${m.url_type=='find' ? '/all' : ''}"><i class="fa ${m.icon}"></i><span class="nav-label">${m.name}</span></a></li>
+                <li><a class="J_menuItem" href="${m.url_type}/${m.url_table}"><i class="fa ${m.icon}"></i><span class="nav-label">${m.name}</span></a></li>
             </c:otherwise>
         </c:choose>
     </li>

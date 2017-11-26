@@ -21,18 +21,14 @@ public class OperationDataController {
     @Autowired
     private OperationDataService operationDataService;
     /**
-     *获得数据1
+     *获得数据
      */
-    @RequestMapping(value="data/{tableNameEn}/{find}", produces = "application/json; charset=utf-8" )
+    @RequestMapping(value="data/{tableNameEn}", produces = "application/json; charset=utf-8" )
     @ResponseBody
-    public List<Map<String, Object>> data(@PathVariable String tableNameEn,@PathVariable String find) throws MapperException {
+    public List<Map<String, Object>> data(@PathVariable String tableNameEn) throws MapperException {
+        System.out.println("获得数据");
         Map<String, Object> findMap = new HashMap<String, Object>();
-        if(find.equals("all")){
-            return operationDataService.getListData(tableNameEn,findMap);
-        }else{
-            findMap.put("id",find);
-            return operationDataService.getListData(tableNameEn,findMap);
-        }
+        return operationDataService.getListData(tableNameEn,findMap);
     }
     /**
      * 创建数据

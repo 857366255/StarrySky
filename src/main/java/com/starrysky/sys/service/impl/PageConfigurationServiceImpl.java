@@ -39,7 +39,7 @@ public class PageConfigurationServiceImpl implements PageConfigurationService {
         map.put("tableNameEN",tableNameEn);
     }
 
-    public void  getCombinationField(Map<String, Object> map,String tableNameEn){
+    public void  getCombinationField(Map<String, Object> map,String tableNameEn, String id){
         map.put("fieldList", getFieldList(tableNameEn));
         map.put("tableNameEN",tableNameEn);
         generalPurposeService.init(tableNameEn);
