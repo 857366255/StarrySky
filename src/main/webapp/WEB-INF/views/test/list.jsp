@@ -126,9 +126,8 @@
         'click .ck': function (e, value, row, index) {
             parent.$("#ancillary").attr("href","${pageContext.request.contextPath}/combination/${tableNameEN}/"+row.id);//
             parent.$("#ancillary").text("组合窗口"+row.name);
-            parent.hwz();
+            parent.ancillary();
             parent.$("#ancillary").trigger("click");
-            // parent.$("#ancillary").remove();
         },
         'click .update': function (e, value, row, index) {
             $("#updateIframe").attr("src", "${pageContext.request.contextPath}/update/${tableNameEN}/"+row.id);
@@ -147,15 +146,24 @@
                     type: 'DELETE',
                     success: function(data) {
                         swal("删除成功！", "您已经永久删除了这条信息。", "success");
-                        $('#findTable').bootstrapTable('refresh');//刷新数据
+                        $('#listTable').bootstrapTable('refresh');//刷新数据
                     },error : function(data) {
                         swal("删除失败！", "您没有删除这条信息。", "error");
                     }
                 });
             });
-            //$("#updateIframe").attr("src", "${pageContext.request.contextPath}/remove/${tableNameEN}/"+row.id);
         }
     };
+
+    $(document).ready(function () {
+        $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",})
+        $("#closeUpdate").click(function(){
+            $('#listTable').bootstrapTable('refresh');//刷新数据
+        });
+        $("#closeCreate").click(function(){
+            $('#listTable').bootstrapTable('refresh');//刷新数据
+        });
+    });
 </script>
 
 </body>

@@ -75,24 +75,11 @@ var TableInit = function () {
 
 function operateFormatter(value, row, index) {//赋予的参数
     return [
-       /* '<a class="btn active disabled" href="#">编辑</a>',
-        '<a class="btn active" href="#">档案</a>',
-        '<a class="btn btn-default" href="#">记录</a>',
-        '<a class="btn active" href="#">准入</a>'*/
-        '<button type="button" class="ck btn btn-outline btn-default"><i class="fa fa-wrench" aria-hidden="true"></i>查看明细</button>',
-        '<button type="button" class="update btn btn-outline btn-default" data-toggle="modal" data-target="#update"><i class="fa fa-wrench" aria-hidden="true"></i>修改</button>',
-        '<button type="button" class="remove btn btn-outline btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</button>'
+        '<button type="button" class="ck btn btn-outline btn-default btn-sm"><i class="fa fa-wrench" aria-hidden="true"></i>查看明细</button>',
+        '<button type="button" class="update btn btn-outline btn-default btn-sm" data-toggle="modal" data-target="#update"><i class="fa fa-wrench" aria-hidden="true"></i>修改</button>',
+        '<button type="button" class="remove btn btn-outline btn-default btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</button>'
     ].join('');
 }
 
 
 
-$(document).ready(function () {
-    $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",})
-    $("#closeUpdate").click(function(){
-        $('#findTable').bootstrapTable('refresh');//刷新数据
-    });
-    $("#closeCreate").click(function(){
-        $('#findTable').bootstrapTable('refresh');//刷新数据
-    });
-});

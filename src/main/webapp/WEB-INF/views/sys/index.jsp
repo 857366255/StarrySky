@@ -621,7 +621,7 @@
 <script src="<%=basePath%>/UI/hplus/js/plugins/pace/pace.min.js"></script>
 <script type="text/javascript">
 
-    function hwz() {
+    function ancillary() {
         function f(l) {
             var k = 0;
             $(l).each(function() {
