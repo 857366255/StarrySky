@@ -2,6 +2,7 @@ package com.starrysky.sys.web;
 
 import com.sdicons.json.mapper.MapperException;
 import com.starrysky.sys.service.OperationDataService;
+import com.starrysky.sys.vo.Params;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -25,10 +26,9 @@ public class OperationDataController {
      */
     @RequestMapping(value="data/{tableNameEn}", produces = "application/json; charset=utf-8" )
     @ResponseBody
-    public List<Map<String, Object>> data(@PathVariable String tableNameEn) throws MapperException {
-        System.out.println("获得数据");
-        Map<String, Object> findMap = new HashMap<String, Object>();
-        return operationDataService.getListData(tableNameEn,findMap);
+    public List<Map<String, Object>> data(@PathVariable String tableNameEn,Params params) throws MapperException {
+        System.out.println("获得数据:");
+        return operationDataService.getListData(tableNameEn,  params.getQuery()==null ? new HashMap<String, Object>() : params.getQuery());
     }
     /**
      * 创建数据

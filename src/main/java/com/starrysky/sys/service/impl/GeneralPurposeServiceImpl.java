@@ -73,20 +73,8 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService {
     }
 
     public List<Map<String, Object>> findByCondition(Map<String, Object> findMap) {
-        generalPurpose.setFindMap(excludeAbnormalData(findMap));
-        /*System.out.println("________________开始findByCondition________________");
-        for(Map<String, Object>map:generalPurposeDao.getDatabaseFkField()){
-            if(map.get("table_name").equals(generalPurpose.getTableNameEN())){
-                GeneralPurpose gp = (GeneralPurpose) findMap.get("t_man");
-                Map<String, Object> m = new HashMap<String, Object>();
-                m.put((String) map.get("referenced_field_name"),1);
-                gp.setFindMap(m);
-                System.out.println(generalPurposeDao.findById(gp));
-                System.out.println(map);
-            }
-        }
-        System.out.println(generalPurposeDao.findByCondition(generalPurpose));
-        System.out.println("________________结束findByCondition________________");*/
+        generalPurpose.setFindMap(excludeAbnormalData2(findMap));
+        System.out.println("查询条件:"+excludeAbnormalData2(findMap));
         return generalPurposeDao.findByCondition(generalPurpose);
     }
 
@@ -102,6 +90,20 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService {
     }
 
     /**
+     * 排除异常数据 字符串为 '' 时 赋值为 null
+     * @param dataMap 数据
+     * @return 数据
+     */
+    private Map<String,Object> excludeAbnormalData2(Map<String, Object> dataMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        for(String s:generalPurpose.getFieldList()){
+            if(dataMap.get(s) instanceof String && dataMap.get(s).equals(""))
+                map.put(s,null);
+            else map.put(s,dataMap.get(s));
+        }
+        return map;
+    }
+    /**
      * 排除异常数据
      * @param dataMap 数据
      * @return 数据
@@ -109,10 +111,9 @@ public class GeneralPurposeServiceImpl implements GeneralPurposeService {
     private Map<String,Object> excludeAbnormalData(Map<String, Object> dataMap){
         Map<String, Object> map = new HashMap<String, Object>();
         for(String s:generalPurpose.getFieldList()){
-            /*if(dataMap.get(s) instanceof String && dataMap.get(s).equals("")){
-                continue;
-            }*/
-            map.put(s,dataMap.get(s));
+           /* if(dataMap.get(s) instanceof String && dataMap.get(s).equals(""))
+                map.put(s,null);
+            else*/ map.put(s,dataMap.get(s));
         }
         return map;
     }

@@ -9,6 +9,8 @@ public class Params {
     private int limit;   //页面大小
     private int offset;
     private Map<String, Object> vo;
+    private Map<String, Object> query;
+
 
     public int getLimit() {
         return limit;
@@ -34,12 +36,22 @@ public class Params {
         this.vo = vo;
     }
 
+    public Map<String, Object> getQuery() {
+        return query;
+    }
+
+    public void setQuery(Map<String, Object> query) {
+        this.query = query;
+    }
+
+
     @Override
     public String toString() {
         return "Params{" +
                 "limit=" + limit +
                 ", offset=" + offset +
                 ", vo=" + vo +
+                ", query=" + query +
                 '}';
     }
 }
