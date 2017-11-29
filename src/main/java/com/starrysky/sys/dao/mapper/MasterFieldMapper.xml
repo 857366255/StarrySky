@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starrysky.sys.dao.MasterFieldDao">
+    <sql id="select_from" >SELECT coding, menu_coding, table_name, field_name, name, referenced_table_name, referenced_field_name, input_type, is_edit, is_show FROM s_master_field</sql>
+    <!--映射实体类-->
+    <resultMap id="classesResultMap" type="com.starrysky.sys.po.MasterField">
+        <id property="coding" column="coding"/>
+        <result property="menuCoding" column="menu_coding"/>
+        <result property="tableName" column="table_name"/>
+        <result property="fieldName" column="field_name"/>
+        <result property="name" column="name"/>
+        <result property="referencedTableName" column="referenced_table_name"/>
+        <result property="referencedFieldName" column="referenced_field_name"/>
+        <result property="inputType" column="input_type"/>
+        <result property="isEdit" column="is_edit"/>
+        <result property="isShow" column="is_show"/>
+    </resultMap>
+    <!--查询全部数据-->
+    <select id="findAll" parameterType="java.util.List"  resultMap="classesResultMap">
+        <include refid="select_from" />
+    </select>
+    <!--查询单个数据-->
+    <select id="findById" parameterType="java.lang.String" resultMap="classesResultMap">
+        <include refid="select_from" />  WHERE coding=#{coding}
+    </select>
+    <!--按条件查询-->
+    <select id="findByCondition" parameterType="com.starrysky.sys.po.MasterField" resultMap="classesResultMap">
+        <include refid="select_from" />
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="coding != null">AND coding = #{coding}</if>
+            <if test="menuCoding != null">AND menu_coding = #{menuCoding}</if>
+            <if test="tableName != null">AND table_name = #{tableName}</if>
+            <if test="fieldName != null">AND field_name = #{fieldName}</if>
+            <if test="name != null">AND name = #{name}</if>
+            <if test="referencedTableName != null">AND referenced_table_name = #{referencedTableName}</if>
+            <if test="referencedFieldName != null">AND referenced_field_name = #{referencedFieldName}</if>
+            <if test="inputType != null">AND input_type = #{inputType}</if>
+            <if test="isEdit != null">AND is_edit = #{isEdit}</if>
+            <if test="isShow != null">AND is_show = #{isShow}</if>
+        </trim>
+    </select>
+    <!--增加-->
+    <insert id="doCreate" parameterType="com.starrysky.sys.po.MasterField">
+        INSERT INTO s_master_field
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="coding != null">coding,</if>
+            <if test="menuCoding != null">menu_coding,</if>
+            <if test="tableName != null">table_name,</if>
+            <if test="fieldName != null">field_name,</if>
+            <if test="name != null">name,</if>
+            <if test="referencedTableName != null">referenced_table_name,</if>
+            <if test="referencedFieldName != null">referenced_field_name,</if>
+            <if test="inputType != null">input_type,</if>
+            <if test="isEdit != null">is_edit,</if>
+            <if test="isShow != null">is_show,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="coding != null">#{coding},</if>
+            <if test="menuCoding != null">#{menuCoding},</if>
+            <if test="tableName != null">#{tableName},</if>
+            <if test="fieldName != null">#{fieldName},</if>
+            <if test="name != null">#{name},</if>
+            <if test="referencedTableName != null">#{referencedTableName},</if>
+            <if test="referencedFieldName != null">#{referencedFieldName},</if>
+            <if test="inputType != null">#{inputType},</if>
+            <if test="isEdit != null">#{isEdit},</if>
+            <if test="isShow != null">#{isShow},</if>
+        </trim>
+    </insert>
+    <!--更新-->
+    <update id="doUpdate" parameterType="com.starrysky.sys.po.MasterField">
+        UPDATE s_master_field
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="menuCoding != null">menu_coding=#{menuCoding},</if>
+            <if test="tableName != null">table_name=#{tableName},</if>
+            <if test="fieldName != null">field_name=#{fieldName},</if>
+            <if test="name != null">name=#{name},</if>
+            <if test="referencedTableName != null">referenced_table_name=#{referencedTableName},</if>
+            <if test="referencedFieldName != null">referenced_field_name=#{referencedFieldName},</if>
+            <if test="inputType != null">input_type=#{inputType},</if>
+            <if test="isEdit != null">is_edit=#{isEdit},</if>
+            <if test="isShow != null">is_show=#{isShow},</if>
+        </trim>
+        WHERE coding=#{coding}
+    </update>
+    <!--批量删除-->
+    <delete id="doRemoveBatch" parameterType="java.util.List">
+        DELETE FROM s_master_field
+        <where>
+            coding IN
+            <foreach collection="list" item="ele" open="(" separator="," close=")">
+                '${ele}'
+            </foreach>
+        </where>
+    </delete>
+    <!--删除-->
+    <delete id="doRemove" parameterType="java.lang.String">
+        DELETE FROM s_master_field  WHERE coding = #{coding}
+    </delete>
+</mapper>
