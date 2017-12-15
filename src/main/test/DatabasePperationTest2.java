@@ -21,6 +21,6 @@ public class DatabasePperationTest2 extends SpringTestCase {
     @Test
     public void synchronizing(){
         System.out.println("更新数据库存");
-        System.out.println(databasePperationService.synchronizing());
+        //System.out.println(databasePperationService.synchronizing());
     }
 }
