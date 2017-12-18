@@ -20,7 +20,7 @@ public class Table {
     /**
      *表
      */
-    private String table;
+    private String tableEn;
     /**
      *注释
      */
@@ -70,12 +70,12 @@ public class Table {
         this.configurationPageCoding = configurationPageCoding;
     }
 
-    public String getTable() {
-        return table;
+    public String getTableEn() {
+        return tableEn;
     }
 
-    public void setTable(String table) {
-        this.table = table;
+    public void setTableEn(String tableEn) {
+        this.tableEn = tableEn;
     }
 
     public String getAnnotation() {
@@ -132,7 +132,7 @@ public class Table {
                 "coding='" + coding + '\'' +
                 ", name='" + name + '\'' +
                 ", configurationPageCoding='" + configurationPageCoding + '\'' +
-                ", table='" + table + '\'' +
+                ", tableEn='" + tableEn + '\'' +
                 ", annotation='" + annotation + '\'' +
                 ", type='" + type + '\'' +
                 ", slaveSorting=" + slaveSorting +

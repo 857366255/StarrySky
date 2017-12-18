@@ -1,0 +1,3672 @@
+Index: target/classes/properties/db.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+--- target/classes/properties/db.properties	(revision )
++++ target/classes/properties/db.properties	(revision )
+@@ -0,0 +1,5 @@
++jdbc.user=root
++jdbc.password=root
++jdbc.driverClass=com.mysql.jdbc.Driver
++jdbc.jdbcUrl=jdbc:mysql://localhost:3306/starrysky
++hwz=zxc
+\ No newline at end of file
+Index: src/main/test/sys/po/Field.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/test/sys/po/Field.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
++++ src/main/test/sys/po/Field.java	(revision )
+@@ -5,4 +5,284 @@
+  * 字段
+  */
+ public class Field {
+-}
++    /**
++     *编码
++     */
++    private String coding;
++    /**
++     *名称
++     */
++    private String name;
++    /**
++     *配置页面编码
++     */
++    private String configurationPageCoding;
++    /**
++     *字段
++     */
++    private String field;
++    /**
++    *注释
++    */
++    private String annotation;
++    /**
++     *类型
++     */
++    private String type;
++    /**
++     *大小
++     */
++    private Integer size;
++    /**
++     *输入类型
++     */
++    private String inputType;;
++    /**
++     *是否编辑
++     */
++    private Boolean isEdit;
++    /**
++     *是否必填
++     */
++    private Boolean isMust;
++    /**
++     *编辑注释
++     */
++    private String editAnnotation;
++    /**
++     *编辑排序号
++     */
++    private Integer editSorting;
++    /**
++     *是否显示列表
++     */
++    private Boolean isShowList;
++    /**
++     *列表宽度
++     */
++    private Integer listWidth;
++    /**
++     *列表排序号
++     */
++    private Integer listSorting;
++    /**
++     *查询排序号
++     */
++    private Integer querySorting;
++    /**
++     *是否查询
++     */
++    private Boolean isQuery;
++    /**
++     *查询站几列
++     */
++    private Integer queryOccupy;
++    /**
++     *是否显示从表
++     */
++    private Boolean isShowSlave;
++    /**
++     *从表宽度
++     */
++    private Integer slaveWidth;
++    /**
++     *从表排序
++     */
++    private Integer slaveSorting;
++
++    public String getCoding() {
++        return coding;
++    }
++
++    public void setCoding(String coding) {
++        this.coding = coding;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public String getConfigurationPageCoding() {
++        return configurationPageCoding;
++    }
++
++    public void setConfigurationPageCoding(String configurationPageCoding) {
++        this.configurationPageCoding = configurationPageCoding;
++    }
++
++    public String getField() {
++        return field;
++    }
++
++    public void setField(String field) {
++        this.field = field;
++    }
++
++    public String getAnnotation() {
++        return annotation;
++    }
++
++    public void setAnnotation(String annotation) {
++        this.annotation = annotation;
++    }
++
++    public String getType() {
++        return type;
++    }
++
++    public void setType(String type) {
++        this.type = type;
++    }
++
++    public Integer getSize() {
++        return size;
++    }
++
++    public void setSize(Integer size) {
++        this.size = size;
++    }
++
++    public String getInputType() {
++        return inputType;
++    }
++
++    public void setInputType(String inputType) {
++        this.inputType = inputType;
++    }
++
++    public Boolean getEdit() {
++        return isEdit;
++    }
++
++    public void setEdit(Boolean edit) {
++        isEdit = edit;
++    }
++
++    public Boolean getMust() {
++        return isMust;
++    }
++
++    public void setMust(Boolean must) {
++        isMust = must;
++    }
++
++    public String getEditAnnotation() {
++        return editAnnotation;
++    }
++
++    public void setEditAnnotation(String editAnnotation) {
++        this.editAnnotation = editAnnotation;
++    }
++
++    public Integer getEditSorting() {
++        return editSorting;
++    }
++
++    public void setEditSorting(Integer editSorting) {
++        this.editSorting = editSorting;
++    }
++
++    public Boolean getShowList() {
++        return isShowList;
++    }
++
++    public void setShowList(Boolean showList) {
++        isShowList = showList;
++    }
++
++    public Integer getListWidth() {
++        return listWidth;
++    }
++
++    public void setListWidth(Integer listWidth) {
++        this.listWidth = listWidth;
++    }
++
++    public Integer getListSorting() {
++        return listSorting;
++    }
++
++    public void setListSorting(Integer listSorting) {
++        this.listSorting = listSorting;
++    }
++
++    public Integer getQuerySorting() {
++        return querySorting;
++    }
++
++    public void setQuerySorting(Integer querySorting) {
++        this.querySorting = querySorting;
++    }
++
++    public Boolean getQuery() {
++        return isQuery;
++    }
++
++    public void setQuery(Boolean query) {
++        isQuery = query;
++    }
++
++    public Integer getQueryOccupy() {
++        return queryOccupy;
++    }
++
++    public void setQueryOccupy(Integer queryOccupy) {
++        this.queryOccupy = queryOccupy;
++    }
++
++    public Boolean getShowSlave() {
++        return isShowSlave;
++    }
++
++    public void setShowSlave(Boolean showSlave) {
++        isShowSlave = showSlave;
++    }
++
++    public Integer getSlaveWidth() {
++        return slaveWidth;
++    }
++
++    public void setSlaveWidth(Integer slaveWidth) {
++        this.slaveWidth = slaveWidth;
++    }
++
++    public Integer getSlaveSorting() {
++        return slaveSorting;
++    }
++
++    public void setSlaveSorting(Integer slaveSorting) {
++        this.slaveSorting = slaveSorting;
++    }
++
++    @Override
++    public String toString() {
++        return "Field{" +
++                "coding='" + coding + '\'' +
++                ", name='" + name + '\'' +
++                ", configurationPageCoding='" + configurationPageCoding + '\'' +
++                ", field='" + field + '\'' +
++                ", annotation='" + annotation + '\'' +
++                ", type='" + type + '\'' +
++                ", size=" + size +
++                ", inputType='" + inputType + '\'' +
++                ", isEdit=" + isEdit +
++                ", isMust=" + isMust +
++                ", editAnnotation='" + editAnnotation + '\'' +
++                ", editSorting=" + editSorting +
++                ", isShowList=" + isShowList +
++                ", listWidth=" + listWidth +
++                ", listSorting=" + listSorting +
++                ", querySorting=" + querySorting +
++                ", isQuery=" + isQuery +
++                ", queryOccupy=" + queryOccupy +
++                ", isShowSlave=" + isShowSlave +
++                ", slaveWidth=" + slaveWidth +
++                ", slaveSorting=" + slaveSorting +
++                '}';
++    }
++}
++
+Index: target/classes/log4j-1.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+--- target/classes/log4j-1.properties	(revision )
++++ target/classes/log4j-1.properties	(revision )
+@@ -0,0 +1,44 @@
++# priority  :debug<info<warn<error
++#you cannot specify every priority with different file for log4j
++log4j.rootLogger=debug,stdout,info,debug,warn,error 
++
++#console
++log4j.appender.stdout=org.apache.log4j.ConsoleAppender 
++log4j.appender.stdout.layout=org.apache.log4j.PatternLayout 
++log4j.appender.stdout.layout.ConversionPattern= [%d{yyyy-MM-dd HH:mm:ss a}]:%p %l%m%n
++#info log
++log4j.logger.info=info
++log4j.appender.info=org.apache.log4j.DailyRollingFileAppender 
++log4j.appender.info.DatePattern='_'yyyy-MM-dd'.log'
++log4j.appender.info.File=./src/com/hp/log/info.log
++log4j.appender.info.Append=true
++log4j.appender.info.Threshold=INFO
++log4j.appender.info.layout=org.apache.log4j.PatternLayout 
++log4j.appender.info.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss a} [Thread: %t][ Class:%c >> Method: %l ]%n%p:%m%n
++#debug log
++log4j.logger.debug=debug
++log4j.appender.debug=org.apache.log4j.DailyRollingFileAppender 
++log4j.appender.debug.DatePattern='_'yyyy-MM-dd'.log'
++log4j.appender.debug.File=./src/com/hp/log/debug.log
++log4j.appender.debug.Append=true
++log4j.appender.debug.Threshold=DEBUG
++log4j.appender.debug.layout=org.apache.log4j.PatternLayout 
++log4j.appender.debug.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss a} [Thread: %t][ Class:%c >> Method: %l ]%n%p:%m%n
++#warn log
++log4j.logger.warn=warn
++log4j.appender.warn=org.apache.log4j.DailyRollingFileAppender 
++log4j.appender.warn.DatePattern='_'yyyy-MM-dd'.log'
++log4j.appender.warn.File=./src/com/hp/log/warn.log
++log4j.appender.warn.Append=true
++log4j.appender.warn.Threshold=WARN
++log4j.appender.warn.layout=org.apache.log4j.PatternLayout 
++log4j.appender.warn.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss a} [Thread: %t][ Class:%c >> Method: %l ]%n%p:%m%n
++#error
++log4j.logger.error=error
++log4j.appender.error = org.apache.log4j.DailyRollingFileAppender
++log4j.appender.error.DatePattern='_'yyyy-MM-dd'.log'
++log4j.appender.error.File = ./src/com/hp/log/error.log 
++log4j.appender.error.Append = true
++log4j.appender.error.Threshold = ERROR 
++log4j.appender.error.layout = org.apache.log4j.PatternLayout
++log4j.appender.error.layout.ConversionPattern = %d{yyyy-MM-dd HH:mm:ss a} [Thread: %t][ Class:%c >> Method: %l ]%n%p:%m%n
+\ No newline at end of file
+Index: src/main/test/sys/dao/ConfigurationPageDao.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/test/sys/dao/ConfigurationPageDao.java	(revision )
++++ src/main/test/sys/dao/ConfigurationPageDao.java	(revision )
+@@ -0,0 +1,10 @@
++package sys.dao;
++
++import com.starrysky.sys.dao.BaseDao;
++import sys.po.ConfigurationPage;
++
++/**
++ * Created by Administrator on 2017/12/17.
++ */
++public interface ConfigurationPageDao extends BaseDao<String, ConfigurationPage> {
++}
+Index: target/classes/mybatis/mybatis-config.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- target/classes/mybatis/mybatis-config.xml	(revision )
++++ target/classes/mybatis/mybatis-config.xml	(revision )
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE configuration PUBLIC
++        "-//mybatis.org//DTD Config 3.0//EN"
++        "http://mybatis.org/dtd/mybatis-3-config.dtd">
++<configuration>
++    <!-- 配置分页插件 -->
++    <plugins>
++        <plugin interceptor="com.github.pagehelper.PageHelper">
++            <!-- 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库-->
++            <property name="dialect" value="mysql"/>
++        </plugin>
++    </plugins>
++</configuration>
+\ No newline at end of file
+Index: target/classes/com/starrysky/sys/dao/mapper/ManMapper.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- target/classes/com/starrysky/sys/dao/mapper/ManMapper.xml	(revision )
++++ target/classes/com/starrysky/sys/dao/mapper/ManMapper.xml	(revision )
+@@ -0,0 +1,102 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
++        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
++<mapper namespace="com.starrysky.sys.dao.ManDao">
++    <!--映射实体类-->
++    <sql id="select_from" >SELECT id, name, sex, age,phone,address FROM t_man</sql>
++    <resultMap id="classesResultMap" type="com.starrysky.sys.po.Man">
++        <id property="id" column="id"/>
++        <result property="name" column="name"/>
++        <result property="sex" column="sex"/>
++        <result property="age" column="age"/>
++        <result property="phone" column="phone"/>
++        <result property="address" column="address"/>
++        <!--<association property="creationMan" column="creation_man_id" select="findCreationById"/>-->
++    </resultMap>
++    <!--映射 创建人 实体类
++    <resultMap id="creationManMap" type="com.starrysky.sys.vo.Man">
++        <id property="id" column="id"/>
++        <result property="name" column="name"/>
++    </resultMap>-->
++    <!--查询创建人
++    <select id="findCreationById" parameterType="int" resultMap="creationManMap">
++        SELECT * FROM t_man WHERE id=#{creation_man_id}
++    </select>-->
++
++    <!--查询全部数据-->
++    <select id="findAll" parameterType="java.util.List"  resultMap="classesResultMap">
++        <include refid="select_from" />
++    </select>
++    <!--查询-->
++    <select id="findById" parameterType="int" resultMap="classesResultMap">
++        <include refid="select_from" />  WHERE id=#{id}
++    </select>
++    <!--按条件查询-->
++    <select id="findByCondition" parameterType="com.starrysky.sys.po.Man" resultMap="classesResultMap">
++        <include refid="select_from" />
++        <trim prefix="WHERE" prefixOverrides="AND | OR">
++            <if test="name != null">
++                AND name LIKE CONCAT(CONCAT('%', #{name}),'%')
++            </if>
++            <if test="sex != null">
++                AND sex = #{sex}
++            </if>
++            <if test="age != null">
++                AND age = #{age}
++            </if>
++            <if test="phone != null">
++                AND phone LIKE CONCAT(CONCAT('%', #{phone}),'%')
++            </if>
++            <if test="address != null">
++                AND address LIKE CONCAT(CONCAT('%', #{address}),'%')
++            </if>
++        </trim>
++    </select>
++    <!--增加-->
++    <insert id="doCreate" parameterType="com.starrysky.sys.po.Man">
++        INSERT INTO t_man
++        <trim prefix="(" suffix=")" suffixOverrides=",">
++            <if test="name != null">name,</if>
++            <if test="sex != null">sex,</if>
++            <if test="age != null">age,</if>
++            <if test="phone != null">phone,</if>
++            <if test="address != null">address,</if>
++        </trim>
++        VALUES
++        <trim prefix="(" suffix=")" suffixOverrides=",">
++            <if test="name != null">#{name},</if>
++            <if test="sex != null">#{sex},</if>
++            <if test="age != null">#{age},</if>
++            <if test="phone != null">#{phone},</if>
++            <if test="address != null">#{address},</if>
++        </trim>
++    </insert>
++    <!--更新-->
++    <update id="doUpdate" parameterType="com.starrysky.sys.po.Man">
++        UPDATE t_man
++        <trim prefix="SET" suffixOverrides=",">
++            <if test="name != null">name=#{name},</if>
++            <if test="sex != null">sex=#{sex},</if>
++            <if test="age != null">age=#{age},</if>
++            <if test="phone != null">phone=#{phone},</if>
++            <if test="address != null">address=#{address},</if>
++        </trim>
++        WHERE id=#{id}
++    </update>
++    <!--批量删除-->
++    <delete id="doRemoveBatch" parameterType="java.util.List">
++        DELETE FROM t_man
++        <where>
++            id IN
++            <foreach collection="list" item="ele" open="(" separator="," close=")">
++                '${ele}'
++            </foreach>
++        </where>
++    </delete>
++    <!--删除-->
++    <delete id="doRemove" parameterType="int">
++        DELETE FROM t_man  WHERE id = #{id}
++    </delete>
++
++
++</mapper>
+\ No newline at end of file
+Index: src/main/test/sys/po/ConfigurationPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/test/sys/po/ConfigurationPage.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
++++ src/main/test/sys/po/ConfigurationPage.java	(revision )
+@@ -5,4 +5,127 @@
+  * 配置页面设置
+  */
+ public class ConfigurationPage {
++    /**
++     * 编码
++     */
++    private String coding;
++    /**
++     * 名称
++     */
++    private String name;
++    /**
++     * 表
++     */
++    private String table;
++    /**
++     * 从表高度
++     */
++    private Integer slaveHeight;
++    /**
++     * 列表高度
++     */
++    private Integer listHeight;
++    /**
++     *从表行数
++     */
++     private Integer slaveRows;
++    /**
++     *列表行数
++     */
++     private Integer listRows;
++    /**
++     *是否显示查询
++     */
++     private Boolean isShownQuerys;
++    /**
++     *查询窗口样式
++     */
++     private String querysStyle;
++
++    public String getCoding() {
++        return coding;
++    }
++
++    public void setCoding(String coding) {
++        this.coding = coding;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public String getTable() {
++        return table;
++    }
++
++    public void setTable(String table) {
++        this.table = table;
++    }
++
++    public Integer getSlaveHeight() {
++        return slaveHeight;
++    }
++
++    public void setSlaveHeight(Integer slaveHeight) {
++        this.slaveHeight = slaveHeight;
++    }
++
++    public Integer getListHeight() {
++        return listHeight;
++    }
++
++    public void setListHeight(Integer listHeight) {
++        this.listHeight = listHeight;
++    }
++
++    public Integer getSlaveRows() {
++        return slaveRows;
++    }
++
++    public void setSlaveRows(Integer slaveRows) {
++        this.slaveRows = slaveRows;
++    }
++
++    public Integer getListRows() {
++        return listRows;
++    }
++
++    public void setListRows(Integer listRows) {
++        this.listRows = listRows;
++    }
++
++    public Boolean getShownQuerys() {
++        return isShownQuerys;
++    }
++
++    public void setShownQuerys(Boolean shownQuerys) {
++        isShownQuerys = shownQuerys;
++    }
++
++    public String getQuerysStyle() {
++        return querysStyle;
++    }
++
++    public void setQuerysStyle(String querysStyle) {
++        this.querysStyle = querysStyle;
++    }
++
++    @Override
++    public String toString() {
++        return "ConfigurationPage{" +
++                "coding='" + coding + '\'' +
++                ", name='" + name + '\'' +
++                ", table='" + table + '\'' +
++                ", slaveHeight=" + slaveHeight +
++                ", listHeight=" + listHeight +
++                ", slaveRows=" + slaveRows +
++                ", listRows=" + listRows +
++                ", isShownQuerys=" + isShownQuerys +
++                ", querysStyle='" + querysStyle + '\'' +
++                '}';
++    }
+ }
+Index: src/main/test/sys/po/ListTable.java
+===================================================================
+--- src/main/test/sys/po/ListTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
++++ src/main/test/sys/po/ListTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
+@@ -1,8 +0,0 @@
+-package sys.po;
+-
+-/**
+- * Created by wz on 2017/12/15.
+- * 列表设置
+- */
+-public class ListTable {
+-}
+Index: src/main/test/sys/po/Menu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/test/sys/po/Menu.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
++++ src/main/test/sys/po/Menu.java	(revision )
+@@ -5,4 +5,127 @@
+  * 菜单栏
+  */
+ public class Menu {
+-}
++    /**
++     *编码
++     */
++    private String coding;
++    /**
++     *名称
++     */
++    private String name;
++    /**
++     *图标
++     */
++    private String icon;
++    /**
++     *排序号
++     */
++    private Integer sorting;
++    /**
++     *是否启用
++     */
++    private Boolean isEnablement;
++    /**
++     *上级编码
++     */
++    private String superiorCoding;
++    /**
++     *配置页面编码
++     */
++    private String configurationPageCoding;
++    /**
++     *显示样式
++     */
++    private String displayStyle;
++    /**
++     *链接
++     */
++    private String url;
++
++    public String getCoding() {
++        return coding;
++    }
++
++    public void setCoding(String coding) {
++        this.coding = coding;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public String getIcon() {
++        return icon;
++    }
++
++    public void setIcon(String icon) {
++        this.icon = icon;
++    }
++
++    public Integer getSorting() {
++        return sorting;
++    }
++
++    public void setSorting(Integer sorting) {
++        this.sorting = sorting;
++    }
++
++    public Boolean getEnablement() {
++        return isEnablement;
++    }
++
++    public void setEnablement(Boolean enablement) {
++        isEnablement = enablement;
++    }
++
++    public String getSuperiorCoding() {
++        return superiorCoding;
++    }
++
++    public void setSuperiorCoding(String superiorCoding) {
++        this.superiorCoding = superiorCoding;
++    }
++
++    public String getConfigurationPageCoding() {
++        return configurationPageCoding;
++    }
++
++    public void setConfigurationPageCoding(String configurationPageCoding) {
++        this.configurationPageCoding = configurationPageCoding;
++    }
++
++    public String getDisplayStyle() {
++        return displayStyle;
++    }
++
++    public void setDisplayStyle(String displayStyle) {
++        this.displayStyle = displayStyle;
++    }
++
++    public String getUrl() {
++        return url;
++    }
++
++    public void setUrl(String url) {
++        this.url = url;
++    }
++
++    @Override
++    public String toString() {
++        return "Menu{" +
++                "coding='" + coding + '\'' +
++                ", name='" + name + '\'' +
++                ", icon='" + icon + '\'' +
++                ", sorting=" + sorting +
++                ", isEnablement=" + isEnablement +
++                ", superiorCoding='" + superiorCoding + '\'' +
++                ", configurationPageCoding='" + configurationPageCoding + '\'' +
++                ", displayStyle='" + displayStyle + '\'' +
++                ", url='" + url + '\'' +
++                '}';
++    }
++}
+\ No newline at end of file
+Index: src/main/test/sys/po/MasterTable.java
+===================================================================
+--- src/main/test/sys/po/MasterTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
++++ src/main/test/sys/po/MasterTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
+@@ -1,8 +0,0 @@
+-package sys.po;
+-
+-/**
+- * Created by wz on 2017/12/15.
+- * 主表设置
+- */
+-public class MasterTable {
+-}
+Index: src/main/test/sys/po/Table.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/test/sys/po/Table.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
++++ src/main/test/sys/po/Table.java	(revision )
+@@ -5,4 +5,140 @@
+  * 表
+  */
+ public class Table {
++    /**
++     *编码
++     */
++    private String coding;
++    /**
++     *名称
++     */
++    private String name;
++    /**
++     *配置页面编码
++     */
++    private String configurationPageCoding;
++    /**
++     *表
++     */
++    private String table;
++    /**
++     *注释
++     */
++    private String annotation;
++    /**
++     *类型
++     */
++    private String type;
++    /**
++     *从表排序
++     */
++    private Integer slaveSorting;
++    /**
++     *上级编码
++     */
++    private String superiorCoding;
++    /**
++     *上级表关联字段
++     */
++    private String superiorCorrelateField;
++    /**
++     *关联字段
++     */
++    private String correlateField;
++
++    public String getCoding() {
++        return coding;
++    }
++
++    public void setCoding(String coding) {
++        this.coding = coding;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public String getConfigurationPageCoding() {
++        return configurationPageCoding;
++    }
++
++    public void setConfigurationPageCoding(String configurationPageCoding) {
++        this.configurationPageCoding = configurationPageCoding;
++    }
++
++    public String getTable() {
++        return table;
++    }
++
++    public void setTable(String table) {
++        this.table = table;
++    }
++
++    public String getAnnotation() {
++        return annotation;
++    }
++
++    public void setAnnotation(String annotation) {
++        this.annotation = annotation;
++    }
++
++    public String getType() {
++        return type;
++    }
++
++    public void setType(String type) {
++        this.type = type;
++    }
++
++    public Integer getSlaveSorting() {
++        return slaveSorting;
++    }
++
++    public void setSlaveSorting(Integer slaveSorting) {
++        this.slaveSorting = slaveSorting;
++    }
++
++    public String getSuperiorCoding() {
++        return superiorCoding;
++    }
++
++    public void setSuperiorCoding(String superiorCoding) {
++        this.superiorCoding = superiorCoding;
++    }
++
++    public String getSuperiorCorrelateField() {
++        return superiorCorrelateField;
++    }
++
++    public void setSuperiorCorrelateField(String superiorCorrelateField) {
++        this.superiorCorrelateField = superiorCorrelateField;
++    }
++
++    public String getCorrelateField() {
++        return correlateField;
++    }
++
++    public void setCorrelateField(String correlateField) {
++        this.correlateField = correlateField;
++    }
++
++    @Override
++    public String toString() {
++        return "Table{" +
++                "coding='" + coding + '\'' +
++                ", name='" + name + '\'' +
++                ", configurationPageCoding='" + configurationPageCoding + '\'' +
++                ", table='" + table + '\'' +
++                ", annotation='" + annotation + '\'' +
++                ", type='" + type + '\'' +
++                ", slaveSorting=" + slaveSorting +
++                ", superiorCoding='" + superiorCoding + '\'' +
++                ", superiorCorrelateField='" + superiorCorrelateField + '\'' +
++                ", correlateField='" + correlateField + '\'' +
++                '}';
++    }
+ }
+Index: target/classes/com/starrysky/base/dao/mapper/GeneralPurposeMapper.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- target/classes/com/starrysky/base/dao/mapper/GeneralPurposeMapper.xml	(revision )
++++ target/classes/com/starrysky/base/dao/mapper/GeneralPurposeMapper.xml	(revision )
+@@ -0,0 +1,142 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
++        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
++<mapper namespace="com.starrysky.base.dao.GeneralPurposeDao">
++    <sql id="table_name_en" >${tableNameEN}</sql>
++    <sql id="select_from" >
++        SELECT <foreach collection="fieldList" index="index" item="item" separator="," >${item}</foreach> FROM <include refid="table_name_en" />
++    </sql>
++    <!--增加-->
++    <insert id="doCreate" parameterType="com.starrysky.base.po.GeneralPurpose">
++        INSERT INTO <include refid="table_name_en" />
++        <trim prefix="(" suffix=")" >
++            <foreach collection="createMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')"> ${index}</if></foreach>
++        </trim>
++        VALUES
++        <trim prefix="(" suffix=")" suffixOverrides=",">
++            <foreach collection="createMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">#{item}</if></foreach>
++        </trim>
++    </insert>
++    <!--批量删除-->
++    <delete id="doRemoveBatch" parameterType="com.starrysky.base.po.GeneralPurpose">
++        DELETE FROM <include refid="table_name_en" />
++        <where>
++            <choose>
++                <when test="removeList != null and removeList.size()!=0">
++                    <foreach collection="removeList" item="remove" separator=" OR ">
++                        <foreach collection="remove" index="index" item="item"  open="("  separator=" AND "  close=")">
++                            <if test="item != null"> ${index}=#{item} </if>
++                        </foreach>
++                    </foreach>
++                </when >
++                <otherwise>
++                    1=2
++                </otherwise>
++            </choose>
++        </where>
++    </delete>
++    <!--删除-->
++    <delete id="doRemove" parameterType="com.starrysky.base.po.GeneralPurpose">
++        DELETE FROM <include refid="table_name_en" />
++        <where>
++            <choose>
++                <when test="removeMap != null">
++                    <foreach collection="removeMap" index="index" item="item" separator=" AND " >
++                        <if test="item != null"> ${index}=#{item} </if>
++                    </foreach>
++                </when >
++                <otherwise>
++                    1=2
++                </otherwise>
++            </choose>
++        </where>
++    </delete>
++    <!--更新-->
++    <update id="doUpdate" parameterType="com.starrysky.base.po.GeneralPurpose">
++        UPDATE <include refid="table_name_en" />
++        <trim prefix="SET" suffixOverrides=",">
++            <foreach collection="updateMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">${index}=#{item}</if></foreach>
++        </trim>
++        WHERE
++        <foreach collection="findMap" index="index" item="item" separator=" AND " >
++            <choose>
++                <when test="item != null"> ${index}=#{item} </when><otherwise>1=2</otherwise>
++            </choose>
++        </foreach>
++    </update>
++    <!--查询全部数据-->
++    <select id="findAll" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
++        <include refid="select_from" />
++    </select>
++    <!--按id查询数据-->
++    <select id="findById" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
++        <include refid="select_from" />
++        <where>
++            <foreach collection="findMap" index="index" item="item" separator=" AND " >
++                <choose>
++                    <when test="item != null"> ${index}=#{item} </when><otherwise>1=2</otherwise>
++                </choose>
++            </foreach>
++        </where>
++    </select>
++    <!--按条件查询-->
++    <select id="findByCondition" parameterType="java.util.Map" resultType="java.util.Map">
++        <include refid="select_from" />
++        <where>
++            <foreach collection="findMap" index="index" item="item" separator="AND " >
++                <if test="item != null">${index}=#{item}</if>
++            </foreach>
++        </where>
++    </select>
++    <!--根据表名称查找 该表字段信息-->
++    <select id="findByTableName" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
++        SELECT * FROM ${TABLE_NAME_EN}
++        WHERE
++        <choose>
++            <when test="tableNameEN !=null ">
++                table_name=#{tableNameEN}
++            </when >
++            <otherwise>
++                1=2
++            </otherwise>
++        </choose>
++    </select>
++    <!--获得数据库字段信息 autoMapping：设置是否启动自动映射功能-->
++    <resultMap id="databaseFieldMap" type="java.util.Map" autoMapping="false">
++        <id property="id" column="id"/>
++        <result property="table_name" column="table_name"/>
++        <result property="name_ch" column="column_comment"/>
++        <result property="name_en" column="column_name"/>
++        <result property="type" column="data_type"/>
++        <!--<result property="size" column="size"/>-->
++        <result property="type_size" column="column_type"/>
++        <result property="is_null" column="is_nullable"/>
++        <result property="category" column="column_key"/>
++    </resultMap>
++    <select id="getDatabaseField" resultMap="databaseFieldMap">
++        CALL get_database_field()
++    </select>
++    <!--获得数据库表信息 autoMapping：设置是否启动自动映射功能-->
++    <resultMap id="databaseTableMap" type="java.util.Map" autoMapping="false">
++        <id property="id" column="id"/>
++        <result property="name_ch" column="table_comment"/>
++        <result property="name_en" column="table_name"/>
++    </resultMap>
++    <select id="getDatabaseTable" resultMap="databaseTableMap">
++        CALL get_database_table()
++    </select>
++
++    <!--获得数据库表信息 autoMapping：设置是否启动自动映射功能-->
++    <resultMap id="databaseFkFieldMap" type="java.util.Map" autoMapping="false">
++        <id property="id" column="id"/>
++        <result property="table_name" column="table_name"/>
++        <result property="field_name" column="column_name"/>
++        <result property="referenced_table_name" column="referenced_table_name"/>
++        <result property="referenced_field_name" column="referenced_column_name"/>
++    </resultMap>
++    <select id="getDatabaseFkField" resultMap="databaseFkFieldMap">
++        CALL get_database_fk_field()
++    </select>
++
++
++</mapper>
+\ No newline at end of file
+Index: src/main/test/sys/po/SlaveTable.java
+===================================================================
+--- src/main/test/sys/po/SlaveTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
++++ src/main/test/sys/po/SlaveTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
+@@ -1,8 +0,0 @@
+-package sys.po;
+-
+-/**
+- * Created by wz on 2017/12/15.
+- * 从表设置
+- */
+-public class SlaveTable {
+-}
+Index: target/classes/spring/spring-context.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- target/classes/spring/spring-context.xml	(revision )
++++ target/classes/spring/spring-context.xml	(revision )
+@@ -0,0 +1,42 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<beans xmlns="http://www.springframework.org/schema/beans"
++       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
++       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
++       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
++       default-lazy-init="true">
++
++    <!-- 配置自动扫描的包 -->
++    <context:component-scan base-package="com.starrysky.*" />
++    <!-- 配置数据源 -->
++    <context:property-placeholder location="classpath:properties/db.properties"/>
++    <!-- 第二种方式是使用注解的方式注入，主要用在java代码中使用注解注入properties文件中相应的value值 -->
++    <!--<bean id="db" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
++        <property name="locations">
++            <array>
++                <value>classpath:properties/db.properties</value>
++            </array>
++        </property>
++    </bean>-->
++    <context:annotation-config />
++
++    <!-- 自动扫描了所有的XxxxMapper.xml对应的mapper接口文件，这样就不用一个一个手动配置Mpper的映射了，只要Mapper接口类和Mapper映射文件对应起来就可以了。 -->
++    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
++        <property name="basePackage" value="com.starrysky.**.dao" />
++    </bean>
++    <!-- 配置DataSource -->
++    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
++        <property name="user" value="${jdbc.user}"></property>
++        <property name="password" value="${jdbc.password}"></property>
++        <property name="driverClass" value="${jdbc.driverClass}"></property>
++        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
++    </bean>
++    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
++        <property name="dataSource" ref="dataSource" />
++        <property name="mapperLocations" value="classpath*:com/starrysky/**/dao/mapper/*Mapper.xml"/>
++        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
++    </bean>
++    <!--<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
++        <constructor-arg index= "0" ref= "sqlSessionFactory" />
++    </bean>
++-->
++</beans>
+\ No newline at end of file
+Index: target/classes/log4j.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+--- target/classes/log4j.properties	(revision )
++++ target/classes/log4j.properties	(revision )
+@@ -0,0 +1,5 @@
++log4j.rootLogger=INFO, Console  //表示INFO级别 输出到控制台
++#Console
++log4j.appender.Console=org.apache.log4j.ConsoleAppender
++log4j.appender.Console.layout=org.apache.log4j.PatternLayout
++log4j.appender.Console.layout.ConversionPattern=%-5p - %m%n
+\ No newline at end of file
+Index: src/main/test/sys/po/FindTable.java
+===================================================================
+--- src/main/test/sys/po/FindTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
++++ src/main/test/sys/po/FindTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
+@@ -1,8 +0,0 @@
+-package sys.po;
+-
+-/**
+- * Created by wz on 2017/12/15.
+- * 查询设置
+- */
+-public class FindTable {
+-}
+Index: 1_0v.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 1_0v.patch	(revision )
++++ 1_0v.patch	(revision )
+@@ -0,0 +1,1832 @@
++Index: target/classes/properties/db.properties
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>GBK
++===================================================================
++--- target/classes/properties/db.properties	(revision )
+++++ target/classes/properties/db.properties	(revision )
++@@ -0,0 +1,5 @@
+++jdbc.user=root
+++jdbc.password=root
+++jdbc.driverClass=com.mysql.jdbc.Driver
+++jdbc.jdbcUrl=jdbc:mysql://localhost:3306/starrysky
+++hwz=zxc
++\ No newline at end of file
++Index: src/main/test/sys/po/Field.java
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++--- src/main/test/sys/po/Field.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
+++++ src/main/test/sys/po/Field.java	(revision )
++@@ -5,4 +5,284 @@
++  * 字段
++  */
++ public class Field {
++-}
+++    /**
+++     *编码
+++     */
+++    private String coding;
+++    /**
+++     *名称
+++     */
+++    private String name;
+++    /**
+++     *配置页面编码
+++     */
+++    private String configurationPageCoding;
+++    /**
+++     *字段
+++     */
+++    private String field;
+++    /**
+++    *注释
+++    */
+++    private String annotation;
+++    /**
+++     *类型
+++     */
+++    private String type;
+++    /**
+++     *大小
+++     */
+++    private Integer size;
+++    /**
+++     *输入类型
+++     */
+++    private String inputType;;
+++    /**
+++     *是否编辑
+++     */
+++    private Boolean isEdit;
+++    /**
+++     *是否必填
+++     */
+++    private Boolean isMust;
+++    /**
+++     *编辑注释
+++     */
+++    private String editAnnotation;
+++    /**
+++     *编辑排序号
+++     */
+++    private Integer editSorting;
+++    /**
+++     *是否显示列表
+++     */
+++    private Boolean isShowList;
+++    /**
+++     *列表宽度
+++     */
+++    private Integer listWidth;
+++    /**
+++     *列表排序号
+++     */
+++    private Integer listSorting;
+++    /**
+++     *查询排序号
+++     */
+++    private Integer querySorting;
+++    /**
+++     *是否查询
+++     */
+++    private Boolean isQuery;
+++    /**
+++     *查询站几列
+++     */
+++    private Integer queryOccupy;
+++    /**
+++     *是否显示从表
+++     */
+++    private Boolean isShowSlave;
+++    /**
+++     *从表宽度
+++     */
+++    private Integer slaveWidth;
+++    /**
+++     *从表排序
+++     */
+++    private Integer slaveSorting;
+++
+++    public String getCoding() {
+++        return coding;
+++    }
+++
+++    public void setCoding(String coding) {
+++        this.coding = coding;
+++    }
+++
+++    public String getName() {
+++        return name;
+++    }
+++
+++    public void setName(String name) {
+++        this.name = name;
+++    }
+++
+++    public String getConfigurationPageCoding() {
+++        return configurationPageCoding;
+++    }
+++
+++    public void setConfigurationPageCoding(String configurationPageCoding) {
+++        this.configurationPageCoding = configurationPageCoding;
+++    }
+++
+++    public String getField() {
+++        return field;
+++    }
+++
+++    public void setField(String field) {
+++        this.field = field;
+++    }
+++
+++    public String getAnnotation() {
+++        return annotation;
+++    }
+++
+++    public void setAnnotation(String annotation) {
+++        this.annotation = annotation;
+++    }
+++
+++    public String getType() {
+++        return type;
+++    }
+++
+++    public void setType(String type) {
+++        this.type = type;
+++    }
+++
+++    public Integer getSize() {
+++        return size;
+++    }
+++
+++    public void setSize(Integer size) {
+++        this.size = size;
+++    }
+++
+++    public String getInputType() {
+++        return inputType;
+++    }
+++
+++    public void setInputType(String inputType) {
+++        this.inputType = inputType;
+++    }
+++
+++    public Boolean getEdit() {
+++        return isEdit;
+++    }
+++
+++    public void setEdit(Boolean edit) {
+++        isEdit = edit;
+++    }
+++
+++    public Boolean getMust() {
+++        return isMust;
+++    }
+++
+++    public void setMust(Boolean must) {
+++        isMust = must;
+++    }
+++
+++    public String getEditAnnotation() {
+++        return editAnnotation;
+++    }
+++
+++    public void setEditAnnotation(String editAnnotation) {
+++        this.editAnnotation = editAnnotation;
+++    }
+++
+++    public Integer getEditSorting() {
+++        return editSorting;
+++    }
+++
+++    public void setEditSorting(Integer editSorting) {
+++        this.editSorting = editSorting;
+++    }
+++
+++    public Boolean getShowList() {
+++        return isShowList;
+++    }
+++
+++    public void setShowList(Boolean showList) {
+++        isShowList = showList;
+++    }
+++
+++    public Integer getListWidth() {
+++        return listWidth;
+++    }
+++
+++    public void setListWidth(Integer listWidth) {
+++        this.listWidth = listWidth;
+++    }
+++
+++    public Integer getListSorting() {
+++        return listSorting;
+++    }
+++
+++    public void setListSorting(Integer listSorting) {
+++        this.listSorting = listSorting;
+++    }
+++
+++    public Integer getQuerySorting() {
+++        return querySorting;
+++    }
+++
+++    public void setQuerySorting(Integer querySorting) {
+++        this.querySorting = querySorting;
+++    }
+++
+++    public Boolean getQuery() {
+++        return isQuery;
+++    }
+++
+++    public void setQuery(Boolean query) {
+++        isQuery = query;
+++    }
+++
+++    public Integer getQueryOccupy() {
+++        return queryOccupy;
+++    }
+++
+++    public void setQueryOccupy(Integer queryOccupy) {
+++        this.queryOccupy = queryOccupy;
+++    }
+++
+++    public Boolean getShowSlave() {
+++        return isShowSlave;
+++    }
+++
+++    public void setShowSlave(Boolean showSlave) {
+++        isShowSlave = showSlave;
+++    }
+++
+++    public Integer getSlaveWidth() {
+++        return slaveWidth;
+++    }
+++
+++    public void setSlaveWidth(Integer slaveWidth) {
+++        this.slaveWidth = slaveWidth;
+++    }
+++
+++    public Integer getSlaveSorting() {
+++        return slaveSorting;
+++    }
+++
+++    public void setSlaveSorting(Integer slaveSorting) {
+++        this.slaveSorting = slaveSorting;
+++    }
+++
+++    @Override
+++    public String toString() {
+++        return "Field{" +
+++                "coding='" + coding + '\'' +
+++                ", name='" + name + '\'' +
+++                ", configurationPageCoding='" + configurationPageCoding + '\'' +
+++                ", field='" + field + '\'' +
+++                ", annotation='" + annotation + '\'' +
+++                ", type='" + type + '\'' +
+++                ", size=" + size +
+++                ", inputType='" + inputType + '\'' +
+++                ", isEdit=" + isEdit +
+++                ", isMust=" + isMust +
+++                ", editAnnotation='" + editAnnotation + '\'' +
+++                ", editSorting=" + editSorting +
+++                ", isShowList=" + isShowList +
+++                ", listWidth=" + listWidth +
+++                ", listSorting=" + listSorting +
+++                ", querySorting=" + querySorting +
+++                ", isQuery=" + isQuery +
+++                ", queryOccupy=" + queryOccupy +
+++                ", isShowSlave=" + isShowSlave +
+++                ", slaveWidth=" + slaveWidth +
+++                ", slaveSorting=" + slaveSorting +
+++                '}';
+++    }
+++}
+++
++Index: target/classes/log4j-1.properties
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>GBK
++===================================================================
++--- target/classes/log4j-1.properties	(revision )
+++++ target/classes/log4j-1.properties	(revision )
++@@ -0,0 +1,44 @@
+++# priority  :debug<info<warn<error
+++#you cannot specify every priority with different file for log4j
+++log4j.rootLogger=debug,stdout,info,debug,warn,error 
+++
+++#console
+++log4j.appender.stdout=org.apache.log4j.ConsoleAppender 
+++log4j.appender.stdout.layout=org.apache.log4j.PatternLayout 
+++log4j.appender.stdout.layout.ConversionPattern= [%d{yyyy-MM-dd HH:mm:ss a}]:%p %l%m%n
+++#info log
+++log4j.logger.info=info
+++log4j.appender.info=org.apache.log4j.DailyRollingFileAppender 
+++log4j.appender.info.DatePattern='_'yyyy-MM-dd'.log'
+++log4j.appender.info.File=./src/com/hp/log/info.log
+++log4j.appender.info.Append=true
+++log4j.appender.info.Threshold=INFO
+++log4j.appender.info.layout=org.apache.log4j.PatternLayout 
+++log4j.appender.info.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss a} [Thread: %t][ Class:%c >> Method: %l ]%n%p:%m%n
+++#debug log
+++log4j.logger.debug=debug
+++log4j.appender.debug=org.apache.log4j.DailyRollingFileAppender 
+++log4j.appender.debug.DatePattern='_'yyyy-MM-dd'.log'
+++log4j.appender.debug.File=./src/com/hp/log/debug.log
+++log4j.appender.debug.Append=true
+++log4j.appender.debug.Threshold=DEBUG
+++log4j.appender.debug.layout=org.apache.log4j.PatternLayout 
+++log4j.appender.debug.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss a} [Thread: %t][ Class:%c >> Method: %l ]%n%p:%m%n
+++#warn log
+++log4j.logger.warn=warn
+++log4j.appender.warn=org.apache.log4j.DailyRollingFileAppender 
+++log4j.appender.warn.DatePattern='_'yyyy-MM-dd'.log'
+++log4j.appender.warn.File=./src/com/hp/log/warn.log
+++log4j.appender.warn.Append=true
+++log4j.appender.warn.Threshold=WARN
+++log4j.appender.warn.layout=org.apache.log4j.PatternLayout 
+++log4j.appender.warn.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss a} [Thread: %t][ Class:%c >> Method: %l ]%n%p:%m%n
+++#error
+++log4j.logger.error=error
+++log4j.appender.error = org.apache.log4j.DailyRollingFileAppender
+++log4j.appender.error.DatePattern='_'yyyy-MM-dd'.log'
+++log4j.appender.error.File = ./src/com/hp/log/error.log 
+++log4j.appender.error.Append = true
+++log4j.appender.error.Threshold = ERROR 
+++log4j.appender.error.layout = org.apache.log4j.PatternLayout
+++log4j.appender.error.layout.ConversionPattern = %d{yyyy-MM-dd HH:mm:ss a} [Thread: %t][ Class:%c >> Method: %l ]%n%p:%m%n
++\ No newline at end of file
++Index: src/main/test/sys/dao/ConfigurationPageDao.java
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++--- src/main/test/sys/dao/ConfigurationPageDao.java	(revision )
+++++ src/main/test/sys/dao/ConfigurationPageDao.java	(revision )
++@@ -0,0 +1,10 @@
+++package sys.dao;
+++
+++import com.starrysky.sys.dao.BaseDao;
+++import sys.po.ConfigurationPage;
+++
+++/**
+++ * Created by Administrator on 2017/12/17.
+++ */
+++public interface ConfigurationPageDao extends BaseDao<String, ConfigurationPage> {
+++}
++Index: target/classes/mybatis/mybatis-config.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++--- target/classes/mybatis/mybatis-config.xml	(revision )
+++++ target/classes/mybatis/mybatis-config.xml	(revision )
++@@ -0,0 +1,13 @@
+++<?xml version="1.0" encoding="UTF-8"?>
+++<!DOCTYPE configuration PUBLIC
+++        "-//mybatis.org//DTD Config 3.0//EN"
+++        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+++<configuration>
+++    <!-- 配置分页插件 -->
+++    <plugins>
+++        <plugin interceptor="com.github.pagehelper.PageHelper">
+++            <!-- 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库-->
+++            <property name="dialect" value="mysql"/>
+++        </plugin>
+++    </plugins>
+++</configuration>
++\ No newline at end of file
++Index: target/classes/com/starrysky/sys/dao/mapper/ManMapper.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++--- target/classes/com/starrysky/sys/dao/mapper/ManMapper.xml	(revision )
+++++ target/classes/com/starrysky/sys/dao/mapper/ManMapper.xml	(revision )
++@@ -0,0 +1,102 @@
+++<?xml version="1.0" encoding="UTF-8"?>
+++<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+++        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+++<mapper namespace="com.starrysky.sys.dao.ManDao">
+++    <!--映射实体类-->
+++    <sql id="select_from" >SELECT id, name, sex, age,phone,address FROM t_man</sql>
+++    <resultMap id="classesResultMap" type="com.starrysky.sys.po.Man">
+++        <id property="id" column="id"/>
+++        <result property="name" column="name"/>
+++        <result property="sex" column="sex"/>
+++        <result property="age" column="age"/>
+++        <result property="phone" column="phone"/>
+++        <result property="address" column="address"/>
+++        <!--<association property="creationMan" column="creation_man_id" select="findCreationById"/>-->
+++    </resultMap>
+++    <!--映射 创建人 实体类
+++    <resultMap id="creationManMap" type="com.starrysky.sys.vo.Man">
+++        <id property="id" column="id"/>
+++        <result property="name" column="name"/>
+++    </resultMap>-->
+++    <!--查询创建人
+++    <select id="findCreationById" parameterType="int" resultMap="creationManMap">
+++        SELECT * FROM t_man WHERE id=#{creation_man_id}
+++    </select>-->
+++
+++    <!--查询全部数据-->
+++    <select id="findAll" parameterType="java.util.List"  resultMap="classesResultMap">
+++        <include refid="select_from" />
+++    </select>
+++    <!--查询-->
+++    <select id="findById" parameterType="int" resultMap="classesResultMap">
+++        <include refid="select_from" />  WHERE id=#{id}
+++    </select>
+++    <!--按条件查询-->
+++    <select id="findByCondition" parameterType="com.starrysky.sys.po.Man" resultMap="classesResultMap">
+++        <include refid="select_from" />
+++        <trim prefix="WHERE" prefixOverrides="AND | OR">
+++            <if test="name != null">
+++                AND name LIKE CONCAT(CONCAT('%', #{name}),'%')
+++            </if>
+++            <if test="sex != null">
+++                AND sex = #{sex}
+++            </if>
+++            <if test="age != null">
+++                AND age = #{age}
+++            </if>
+++            <if test="phone != null">
+++                AND phone LIKE CONCAT(CONCAT('%', #{phone}),'%')
+++            </if>
+++            <if test="address != null">
+++                AND address LIKE CONCAT(CONCAT('%', #{address}),'%')
+++            </if>
+++        </trim>
+++    </select>
+++    <!--增加-->
+++    <insert id="doCreate" parameterType="com.starrysky.sys.po.Man">
+++        INSERT INTO t_man
+++        <trim prefix="(" suffix=")" suffixOverrides=",">
+++            <if test="name != null">name,</if>
+++            <if test="sex != null">sex,</if>
+++            <if test="age != null">age,</if>
+++            <if test="phone != null">phone,</if>
+++            <if test="address != null">address,</if>
+++        </trim>
+++        VALUES
+++        <trim prefix="(" suffix=")" suffixOverrides=",">
+++            <if test="name != null">#{name},</if>
+++            <if test="sex != null">#{sex},</if>
+++            <if test="age != null">#{age},</if>
+++            <if test="phone != null">#{phone},</if>
+++            <if test="address != null">#{address},</if>
+++        </trim>
+++    </insert>
+++    <!--更新-->
+++    <update id="doUpdate" parameterType="com.starrysky.sys.po.Man">
+++        UPDATE t_man
+++        <trim prefix="SET" suffixOverrides=",">
+++            <if test="name != null">name=#{name},</if>
+++            <if test="sex != null">sex=#{sex},</if>
+++            <if test="age != null">age=#{age},</if>
+++            <if test="phone != null">phone=#{phone},</if>
+++            <if test="address != null">address=#{address},</if>
+++        </trim>
+++        WHERE id=#{id}
+++    </update>
+++    <!--批量删除-->
+++    <delete id="doRemoveBatch" parameterType="java.util.List">
+++        DELETE FROM t_man
+++        <where>
+++            id IN
+++            <foreach collection="list" item="ele" open="(" separator="," close=")">
+++                '${ele}'
+++            </foreach>
+++        </where>
+++    </delete>
+++    <!--删除-->
+++    <delete id="doRemove" parameterType="int">
+++        DELETE FROM t_man  WHERE id = #{id}
+++    </delete>
+++
+++
+++</mapper>
++\ No newline at end of file
++Index: src/main/test/sys/po/ConfigurationPage.java
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++--- src/main/test/sys/po/ConfigurationPage.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
+++++ src/main/test/sys/po/ConfigurationPage.java	(revision )
++@@ -5,4 +5,127 @@
++  * 配置页面设置
++  */
++ public class ConfigurationPage {
+++    /**
+++     * 编码
+++     */
+++    private String coding;
+++    /**
+++     * 名称
+++     */
+++    private String name;
+++    /**
+++     * 表
+++     */
+++    private String table;
+++    /**
+++     * 从表高度
+++     */
+++    private Integer slaveHeight;
+++    /**
+++     * 列表高度
+++     */
+++    private Integer listHeight;
+++    /**
+++     *从表行数
+++     */
+++     private Integer slaveRows;
+++    /**
+++     *列表行数
+++     */
+++     private Integer listRows;
+++    /**
+++     *是否显示查询
+++     */
+++     private Boolean isShownQuerys;
+++    /**
+++     *查询窗口样式
+++     */
+++     private String querysStyle;
+++
+++    public String getCoding() {
+++        return coding;
+++    }
+++
+++    public void setCoding(String coding) {
+++        this.coding = coding;
+++    }
+++
+++    public String getName() {
+++        return name;
+++    }
+++
+++    public void setName(String name) {
+++        this.name = name;
+++    }
+++
+++    public String getTable() {
+++        return table;
+++    }
+++
+++    public void setTable(String table) {
+++        this.table = table;
+++    }
+++
+++    public Integer getSlaveHeight() {
+++        return slaveHeight;
+++    }
+++
+++    public void setSlaveHeight(Integer slaveHeight) {
+++        this.slaveHeight = slaveHeight;
+++    }
+++
+++    public Integer getListHeight() {
+++        return listHeight;
+++    }
+++
+++    public void setListHeight(Integer listHeight) {
+++        this.listHeight = listHeight;
+++    }
+++
+++    public Integer getSlaveRows() {
+++        return slaveRows;
+++    }
+++
+++    public void setSlaveRows(Integer slaveRows) {
+++        this.slaveRows = slaveRows;
+++    }
+++
+++    public Integer getListRows() {
+++        return listRows;
+++    }
+++
+++    public void setListRows(Integer listRows) {
+++        this.listRows = listRows;
+++    }
+++
+++    public Boolean getShownQuerys() {
+++        return isShownQuerys;
+++    }
+++
+++    public void setShownQuerys(Boolean shownQuerys) {
+++        isShownQuerys = shownQuerys;
+++    }
+++
+++    public String getQuerysStyle() {
+++        return querysStyle;
+++    }
+++
+++    public void setQuerysStyle(String querysStyle) {
+++        this.querysStyle = querysStyle;
+++    }
+++
+++    @Override
+++    public String toString() {
+++        return "ConfigurationPage{" +
+++                "coding='" + coding + '\'' +
+++                ", name='" + name + '\'' +
+++                ", table='" + table + '\'' +
+++                ", slaveHeight=" + slaveHeight +
+++                ", listHeight=" + listHeight +
+++                ", slaveRows=" + slaveRows +
+++                ", listRows=" + listRows +
+++                ", isShownQuerys=" + isShownQuerys +
+++                ", querysStyle='" + querysStyle + '\'' +
+++                '}';
+++    }
++ }
++Index: src/main/test/sys/po/ListTable.java
++===================================================================
++--- src/main/test/sys/po/ListTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
+++++ src/main/test/sys/po/ListTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
++@@ -1,8 +0,0 @@
++-package sys.po;
++-
++-/**
++- * Created by wz on 2017/12/15.
++- * 列表设置
++- */
++-public class ListTable {
++-}
++Index: src/main/test/sys/po/Menu.java
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++--- src/main/test/sys/po/Menu.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
+++++ src/main/test/sys/po/Menu.java	(revision )
++@@ -5,4 +5,127 @@
++  * 菜单栏
++  */
++ public class Menu {
++-}
+++    /**
+++     *编码
+++     */
+++    private String coding;
+++    /**
+++     *名称
+++     */
+++    private String name;
+++    /**
+++     *图标
+++     */
+++    private String icon;
+++    /**
+++     *排序号
+++     */
+++    private Integer sorting;
+++    /**
+++     *是否启用
+++     */
+++    private Boolean isEnablement;
+++    /**
+++     *上级编码
+++     */
+++    private String superiorCoding;
+++    /**
+++     *配置页面编码
+++     */
+++    private String configurationPageCoding;
+++    /**
+++     *显示样式
+++     */
+++    private String displayStyle;
+++    /**
+++     *链接
+++     */
+++    private String url;
+++
+++    public String getCoding() {
+++        return coding;
+++    }
+++
+++    public void setCoding(String coding) {
+++        this.coding = coding;
+++    }
+++
+++    public String getName() {
+++        return name;
+++    }
+++
+++    public void setName(String name) {
+++        this.name = name;
+++    }
+++
+++    public String getIcon() {
+++        return icon;
+++    }
+++
+++    public void setIcon(String icon) {
+++        this.icon = icon;
+++    }
+++
+++    public Integer getSorting() {
+++        return sorting;
+++    }
+++
+++    public void setSorting(Integer sorting) {
+++        this.sorting = sorting;
+++    }
+++
+++    public Boolean getEnablement() {
+++        return isEnablement;
+++    }
+++
+++    public void setEnablement(Boolean enablement) {
+++        isEnablement = enablement;
+++    }
+++
+++    public String getSuperiorCoding() {
+++        return superiorCoding;
+++    }
+++
+++    public void setSuperiorCoding(String superiorCoding) {
+++        this.superiorCoding = superiorCoding;
+++    }
+++
+++    public String getConfigurationPageCoding() {
+++        return configurationPageCoding;
+++    }
+++
+++    public void setConfigurationPageCoding(String configurationPageCoding) {
+++        this.configurationPageCoding = configurationPageCoding;
+++    }
+++
+++    public String getDisplayStyle() {
+++        return displayStyle;
+++    }
+++
+++    public void setDisplayStyle(String displayStyle) {
+++        this.displayStyle = displayStyle;
+++    }
+++
+++    public String getUrl() {
+++        return url;
+++    }
+++
+++    public void setUrl(String url) {
+++        this.url = url;
+++    }
+++
+++    @Override
+++    public String toString() {
+++        return "Menu{" +
+++                "coding='" + coding + '\'' +
+++                ", name='" + name + '\'' +
+++                ", icon='" + icon + '\'' +
+++                ", sorting=" + sorting +
+++                ", isEnablement=" + isEnablement +
+++                ", superiorCoding='" + superiorCoding + '\'' +
+++                ", configurationPageCoding='" + configurationPageCoding + '\'' +
+++                ", displayStyle='" + displayStyle + '\'' +
+++                ", url='" + url + '\'' +
+++                '}';
+++    }
+++}
++\ No newline at end of file
++Index: src/main/test/sys/po/MasterTable.java
++===================================================================
++--- src/main/test/sys/po/MasterTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
+++++ src/main/test/sys/po/MasterTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
++@@ -1,8 +0,0 @@
++-package sys.po;
++-
++-/**
++- * Created by wz on 2017/12/15.
++- * 主表设置
++- */
++-public class MasterTable {
++-}
++Index: src/main/test/sys/po/Table.java
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++--- src/main/test/sys/po/Table.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
+++++ src/main/test/sys/po/Table.java	(revision )
++@@ -5,4 +5,140 @@
++  * 表
++  */
++ public class Table {
+++    /**
+++     *编码
+++     */
+++    private String coding;
+++    /**
+++     *名称
+++     */
+++    private String name;
+++    /**
+++     *配置页面编码
+++     */
+++    private String configurationPageCoding;
+++    /**
+++     *表
+++     */
+++    private String table;
+++    /**
+++     *注释
+++     */
+++    private String annotation;
+++    /**
+++     *类型
+++     */
+++    private String type;
+++    /**
+++     *从表排序
+++     */
+++    private Integer slaveSorting;
+++    /**
+++     *上级编码
+++     */
+++    private String superiorCoding;
+++    /**
+++     *上级表关联字段
+++     */
+++    private String superiorCorrelateField;
+++    /**
+++     *关联字段
+++     */
+++    private String correlateField;
+++
+++    public String getCoding() {
+++        return coding;
+++    }
+++
+++    public void setCoding(String coding) {
+++        this.coding = coding;
+++    }
+++
+++    public String getName() {
+++        return name;
+++    }
+++
+++    public void setName(String name) {
+++        this.name = name;
+++    }
+++
+++    public String getConfigurationPageCoding() {
+++        return configurationPageCoding;
+++    }
+++
+++    public void setConfigurationPageCoding(String configurationPageCoding) {
+++        this.configurationPageCoding = configurationPageCoding;
+++    }
+++
+++    public String getTable() {
+++        return table;
+++    }
+++
+++    public void setTable(String table) {
+++        this.table = table;
+++    }
+++
+++    public String getAnnotation() {
+++        return annotation;
+++    }
+++
+++    public void setAnnotation(String annotation) {
+++        this.annotation = annotation;
+++    }
+++
+++    public String getType() {
+++        return type;
+++    }
+++
+++    public void setType(String type) {
+++        this.type = type;
+++    }
+++
+++    public Integer getSlaveSorting() {
+++        return slaveSorting;
+++    }
+++
+++    public void setSlaveSorting(Integer slaveSorting) {
+++        this.slaveSorting = slaveSorting;
+++    }
+++
+++    public String getSuperiorCoding() {
+++        return superiorCoding;
+++    }
+++
+++    public void setSuperiorCoding(String superiorCoding) {
+++        this.superiorCoding = superiorCoding;
+++    }
+++
+++    public String getSuperiorCorrelateField() {
+++        return superiorCorrelateField;
+++    }
+++
+++    public void setSuperiorCorrelateField(String superiorCorrelateField) {
+++        this.superiorCorrelateField = superiorCorrelateField;
+++    }
+++
+++    public String getCorrelateField() {
+++        return correlateField;
+++    }
+++
+++    public void setCorrelateField(String correlateField) {
+++        this.correlateField = correlateField;
+++    }
+++
+++    @Override
+++    public String toString() {
+++        return "Table{" +
+++                "coding='" + coding + '\'' +
+++                ", name='" + name + '\'' +
+++                ", configurationPageCoding='" + configurationPageCoding + '\'' +
+++                ", table='" + table + '\'' +
+++                ", annotation='" + annotation + '\'' +
+++                ", type='" + type + '\'' +
+++                ", slaveSorting=" + slaveSorting +
+++                ", superiorCoding='" + superiorCoding + '\'' +
+++                ", superiorCorrelateField='" + superiorCorrelateField + '\'' +
+++                ", correlateField='" + correlateField + '\'' +
+++                '}';
+++    }
++ }
++Index: target/classes/com/starrysky/base/dao/mapper/GeneralPurposeMapper.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++--- target/classes/com/starrysky/base/dao/mapper/GeneralPurposeMapper.xml	(revision )
+++++ target/classes/com/starrysky/base/dao/mapper/GeneralPurposeMapper.xml	(revision )
++@@ -0,0 +1,142 @@
+++<?xml version="1.0" encoding="UTF-8"?>
+++<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+++        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+++<mapper namespace="com.starrysky.base.dao.GeneralPurposeDao">
+++    <sql id="table_name_en" >${tableNameEN}</sql>
+++    <sql id="select_from" >
+++        SELECT <foreach collection="fieldList" index="index" item="item" separator="," >${item}</foreach> FROM <include refid="table_name_en" />
+++    </sql>
+++    <!--增加-->
+++    <insert id="doCreate" parameterType="com.starrysky.base.po.GeneralPurpose">
+++        INSERT INTO <include refid="table_name_en" />
+++        <trim prefix="(" suffix=")" >
+++            <foreach collection="createMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')"> ${index}</if></foreach>
+++        </trim>
+++        VALUES
+++        <trim prefix="(" suffix=")" suffixOverrides=",">
+++            <foreach collection="createMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">#{item}</if></foreach>
+++        </trim>
+++    </insert>
+++    <!--批量删除-->
+++    <delete id="doRemoveBatch" parameterType="com.starrysky.base.po.GeneralPurpose">
+++        DELETE FROM <include refid="table_name_en" />
+++        <where>
+++            <choose>
+++                <when test="removeList != null and removeList.size()!=0">
+++                    <foreach collection="removeList" item="remove" separator=" OR ">
+++                        <foreach collection="remove" index="index" item="item"  open="("  separator=" AND "  close=")">
+++                            <if test="item != null"> ${index}=#{item} </if>
+++                        </foreach>
+++                    </foreach>
+++                </when >
+++                <otherwise>
+++                    1=2
+++                </otherwise>
+++            </choose>
+++        </where>
+++    </delete>
+++    <!--删除-->
+++    <delete id="doRemove" parameterType="com.starrysky.base.po.GeneralPurpose">
+++        DELETE FROM <include refid="table_name_en" />
+++        <where>
+++            <choose>
+++                <when test="removeMap != null">
+++                    <foreach collection="removeMap" index="index" item="item" separator=" AND " >
+++                        <if test="item != null"> ${index}=#{item} </if>
+++                    </foreach>
+++                </when >
+++                <otherwise>
+++                    1=2
+++                </otherwise>
+++            </choose>
+++        </where>
+++    </delete>
+++    <!--更新-->
+++    <update id="doUpdate" parameterType="com.starrysky.base.po.GeneralPurpose">
+++        UPDATE <include refid="table_name_en" />
+++        <trim prefix="SET" suffixOverrides=",">
+++            <foreach collection="updateMap" index="index" item="item" separator="," ><if test="item != null and !index.equals('id')">${index}=#{item}</if></foreach>
+++        </trim>
+++        WHERE
+++        <foreach collection="findMap" index="index" item="item" separator=" AND " >
+++            <choose>
+++                <when test="item != null"> ${index}=#{item} </when><otherwise>1=2</otherwise>
+++            </choose>
+++        </foreach>
+++    </update>
+++    <!--查询全部数据-->
+++    <select id="findAll" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
+++        <include refid="select_from" />
+++    </select>
+++    <!--按id查询数据-->
+++    <select id="findById" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
+++        <include refid="select_from" />
+++        <where>
+++            <foreach collection="findMap" index="index" item="item" separator=" AND " >
+++                <choose>
+++                    <when test="item != null"> ${index}=#{item} </when><otherwise>1=2</otherwise>
+++                </choose>
+++            </foreach>
+++        </where>
+++    </select>
+++    <!--按条件查询-->
+++    <select id="findByCondition" parameterType="java.util.Map" resultType="java.util.Map">
+++        <include refid="select_from" />
+++        <where>
+++            <foreach collection="findMap" index="index" item="item" separator="AND " >
+++                <if test="item != null">${index}=#{item}</if>
+++            </foreach>
+++        </where>
+++    </select>
+++    <!--根据表名称查找 该表字段信息-->
+++    <select id="findByTableName" parameterType="com.starrysky.base.po.GeneralPurpose" resultType="java.util.Map">
+++        SELECT * FROM ${TABLE_NAME_EN}
+++        WHERE
+++        <choose>
+++            <when test="tableNameEN !=null ">
+++                table_name=#{tableNameEN}
+++            </when >
+++            <otherwise>
+++                1=2
+++            </otherwise>
+++        </choose>
+++    </select>
+++    <!--获得数据库字段信息 autoMapping：设置是否启动自动映射功能-->
+++    <resultMap id="databaseFieldMap" type="java.util.Map" autoMapping="false">
+++        <id property="id" column="id"/>
+++        <result property="table_name" column="table_name"/>
+++        <result property="name_ch" column="column_comment"/>
+++        <result property="name_en" column="column_name"/>
+++        <result property="type" column="data_type"/>
+++        <!--<result property="size" column="size"/>-->
+++        <result property="type_size" column="column_type"/>
+++        <result property="is_null" column="is_nullable"/>
+++        <result property="category" column="column_key"/>
+++    </resultMap>
+++    <select id="getDatabaseField" resultMap="databaseFieldMap">
+++        CALL get_database_field()
+++    </select>
+++    <!--获得数据库表信息 autoMapping：设置是否启动自动映射功能-->
+++    <resultMap id="databaseTableMap" type="java.util.Map" autoMapping="false">
+++        <id property="id" column="id"/>
+++        <result property="name_ch" column="table_comment"/>
+++        <result property="name_en" column="table_name"/>
+++    </resultMap>
+++    <select id="getDatabaseTable" resultMap="databaseTableMap">
+++        CALL get_database_table()
+++    </select>
+++
+++    <!--获得数据库表信息 autoMapping：设置是否启动自动映射功能-->
+++    <resultMap id="databaseFkFieldMap" type="java.util.Map" autoMapping="false">
+++        <id property="id" column="id"/>
+++        <result property="table_name" column="table_name"/>
+++        <result property="field_name" column="column_name"/>
+++        <result property="referenced_table_name" column="referenced_table_name"/>
+++        <result property="referenced_field_name" column="referenced_column_name"/>
+++    </resultMap>
+++    <select id="getDatabaseFkField" resultMap="databaseFkFieldMap">
+++        CALL get_database_fk_field()
+++    </select>
+++
+++
+++</mapper>
++\ No newline at end of file
++Index: src/main/test/sys/po/SlaveTable.java
++===================================================================
++--- src/main/test/sys/po/SlaveTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
+++++ src/main/test/sys/po/SlaveTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
++@@ -1,8 +0,0 @@
++-package sys.po;
++-
++-/**
++- * Created by wz on 2017/12/15.
++- * 从表设置
++- */
++-public class SlaveTable {
++-}
++Index: target/classes/spring/spring-context.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++--- target/classes/spring/spring-context.xml	(revision )
+++++ target/classes/spring/spring-context.xml	(revision )
++@@ -0,0 +1,42 @@
+++<?xml version="1.0" encoding="UTF-8"?>
+++<beans xmlns="http://www.springframework.org/schema/beans"
+++       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+++       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+++       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+++       default-lazy-init="true">
+++
+++    <!-- 配置自动扫描的包 -->
+++    <context:component-scan base-package="com.starrysky.*" />
+++    <!-- 配置数据源 -->
+++    <context:property-placeholder location="classpath:properties/db.properties"/>
+++    <!-- 第二种方式是使用注解的方式注入，主要用在java代码中使用注解注入properties文件中相应的value值 -->
+++    <!--<bean id="db" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+++        <property name="locations">
+++            <array>
+++                <value>classpath:properties/db.properties</value>
+++            </array>
+++        </property>
+++    </bean>-->
+++    <context:annotation-config />
+++
+++    <!-- 自动扫描了所有的XxxxMapper.xml对应的mapper接口文件，这样就不用一个一个手动配置Mpper的映射了，只要Mapper接口类和Mapper映射文件对应起来就可以了。 -->
+++    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+++        <property name="basePackage" value="com.starrysky.**.dao" />
+++    </bean>
+++    <!-- 配置DataSource -->
+++    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+++        <property name="user" value="${jdbc.user}"></property>
+++        <property name="password" value="${jdbc.password}"></property>
+++        <property name="driverClass" value="${jdbc.driverClass}"></property>
+++        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+++    </bean>
+++    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+++        <property name="dataSource" ref="dataSource" />
+++        <property name="mapperLocations" value="classpath*:com/starrysky/**/dao/mapper/*Mapper.xml"/>
+++        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
+++    </bean>
+++    <!--<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+++        <constructor-arg index= "0" ref= "sqlSessionFactory" />
+++    </bean>
+++-->
+++</beans>
++\ No newline at end of file
++Index: target/classes/log4j.properties
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>GBK
++===================================================================
++--- target/classes/log4j.properties	(revision )
+++++ target/classes/log4j.properties	(revision )
++@@ -0,0 +1,5 @@
+++log4j.rootLogger=INFO, Console  //表示INFO级别 输出到控制台
+++#Console
+++log4j.appender.Console=org.apache.log4j.ConsoleAppender
+++log4j.appender.Console.layout=org.apache.log4j.PatternLayout
+++log4j.appender.Console.layout.ConversionPattern=%-5p - %m%n
++\ No newline at end of file
++Index: src/main/test/sys/po/FindTable.java
++===================================================================
++--- src/main/test/sys/po/FindTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
+++++ src/main/test/sys/po/FindTable.java	(revision 1eed2840732fca53fa5092f34af4ebcc4eb1c141)
++@@ -1,8 +0,0 @@
++-package sys.po;
++-
++-/**
++- * Created by wz on 2017/12/15.
++- * 查询设置
++- */
++-public class FindTable {
++-}
++Index: target/classes/spring/spring-mvc.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++--- target/classes/spring/spring-mvc.xml	(revision )
+++++ target/classes/spring/spring-mvc.xml	(revision )
++@@ -0,0 +1,59 @@
+++<?xml version="1.0" encoding="UTF-8"?>
+++<beans xmlns="http://www.springframework.org/schema/beans"
+++       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+++       xmlns:context="http://www.springframework.org/schema/context"
+++       xmlns:mvc="http://www.springframework.org/schema/mvc"
+++       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+++		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+++		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+++
+++    <!-- 配置自定义扫描的包 -->
+++    <context:component-scan base-package="com"/>
+++
+++    <!-- 静态资源(js/image)的访问 -->
+++    <mvc:resources mapping="/UI/**" location="/UI/" />
+++
+++    <!-- 配置视图解析器:如何把handler方法返回值解析为时间的物理视图 -->
+++    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+++        <property name="prefix" value="/WEB-INF/views/"></property>
+++        <property name="suffix" value=".jsp"></property>
+++    </bean>
+++
+++    <!-- 配置静态资源：default-servlet-handler将在SpringMVC上下文中定义DefaultServletHttpRequestHandler,
+++        它会对进入DispatcherServlet的请求进行帅选，如果发现是没有经过映射的请求，就将该请求交由WEB应用服务器默认的 Servlet处理。如果不是静态资源的请求，才由DispatcherServlet继续处理。 -->
+++    <mvc:default-servlet-handler />
+++
+++    <!-- 配置开启注解 -->
+++    <!--<mvc:annotation-driven/>-->
+++    <mvc:annotation-driven>
+++        <mvc:message-converters>
+++            <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+++                <property name="supportedMediaTypes">
+++                    <list>
+++                        <value>text/plain;charset=utf-8</value>
+++                        <value>text/html;charset=UTF-8</value>
+++                        <value>text/json;charset=UTF-8</value>
+++                        <value>application/json;charset=utf-8</value>
+++                    </list>
+++                </property>
+++               <!-- <property name="objectMapper">
+++                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+++                        <property name="dateFormat">
+++                            <bean class="java.text.SimpleDateFormat">
+++                                <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss"/>
+++                            </bean>
+++                        </property>
+++                    </bean>
+++                </property>-->
+++            </bean>
+++        </mvc:message-converters>
+++    </mvc:annotation-driven>
+++    <!-- 上传文件 -->
+++    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+++        <property name="defaultEncoding" value="utf-8"/>
+++        <!-- 最大内存大小 -->
+++        <property name="maxInMemorySize" value="10240"/>
+++        <!-- 最大文件大小，-1为不限制大小 -->
+++        <property name="maxUploadSize" value="-1"/>
+++    </bean>
+++</beans>
++diff --git target/classes/com/starrysky/base/service/DatabasePperationService.class target/classes/com/starrysky/base/service/DatabasePperationService.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..83100f73f03a285f148813f77d4ab471943433e5
++GIT binary patch
++literal 297
++zc${^O&1wQc5QMA!TYnHF_uP|<gLvGKlL&$#!ahMe4D0ARD>Jjg`e+_}03S-6RSyzL
++z_ocq3s``96o&b!{i_nSCCG=fs<jUqoAGApcZy%rYHSbvzUT0#iosS8fM5l&*VHIKa
++zV)%OEAKpDMW0Q)++t3<6U4EBqC4KxIme5V|!b&yOStx#=u;(Q^wb&`kUgsuJcCV!x
++wR%yam=3C)BTU)wKDJrLMcZc{dN*Mfo-69ZbsD>JZIvRnSfof<472Q<(3MQ~uM*si-
++
++diff --git target/classes/com/starrysky/base/web/LoginController.class target/classes/com/starrysky/base/web/LoginController.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..73caaf426286acc8e55479572813c1a9917748aa
++GIT binary patch
++literal 1508
++zc$}S7TTc@~6#k}nN)fEwy>L_90<wrAD3yc|B_>4;CHUZjnYKe2*zVNXS+M`WpQDM1
++z!3TeUKgxJ^i=?G}5MSo(xy*OIbD911`^QfJ53!L(8go79!F&n}y?B7d;ILCz>LvGb
++z3XhU_oWu&lP*u1>bLXwE>&g>Fp-*I4Ff13!s%CqJYu)gU8+M6%!uFb8d%N46b%wEB
++z-!-x(_N6CFj@WcvWw?>b^%&L)N>^>KuBBT&(7Yy2l|Hshg1er5z{^JIhRrW7*qgpl
++zr&5aw!6x$3m1ct>YUTDBVq2<04Eqbx6|enTN$5RJ*%-0~Rp!n<*D}!0jWKg5DZSOL
++zo>Nh>3#uyJE#(@m97kwMm#nJL$S`9Sj`#_;eIp%vhu7D0P2J&c)h?Q#6pD}5cs-!g
++z9!i-V=^2KB7Ds_B<QZ-!+Nl2}yV4Gl?@ZTXc~d$PWwX9PfZLaH<o^pNK<X*Vs>_Y9
++ziOnnPzhJsHsr&eY0hFX$X`TG8_~;AIP`-NeYW##dKGBIg&8Z}6!W^m!!|IhW!;8Vl
++zwqNWqq>IYeW${u5tslI!2#Y}x4D(%cct&WU3=Ph1S)B~}F_1woGDOn*P!q17#FGqG
++zv6jJ8JfoFp+9)!Q=Ts5V6rUJo|7|yEmoB%PVd<*xlvo7MiJrdIIjG=$B@c+!rsL3q
++zvT~iv+t;=e)XTb0U~5+ADs)<MohD4tZz@f{Erv+YI+A^)B}iT)86insrSm#zHc3V@
++zKKC8$Yv|6N2ZI7`(3xolU=Twg=rBeQ4KIHt86`PA_YIM3^bD~Gg3mL=8FuEgiG?#H
++zqj;B1eW9pmh@3@?&JiLuN_b<Kz<8KtvWaw_CHNX8FZGnjkK-osx<%Gul1<<33*Q~G
++kO@z!R!$L>NGez3;doT|(xJy#t9%jjQKa8_38j=J403<z?*Z=?k
++
++diff --git target/classes/com/starrysky/base/dao/GeneralPurposeDao.class target/classes/com/starrysky/base/dao/GeneralPurposeDao.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..98d630cb5a2ebf20a188a57c0fd9392fa8a58ad7
++GIT binary patch
++literal 989
++zc$}S3+fKqj5S>M&TtpBRZ$AJpHa=-mVj>U?30@-lV&cQluC-9QO}i!G*L?5;{3zqJ
++z5K=1-*xiSjGdnxy%=!BM_ymA6I8oq8fnx@FLv%cjk~7d6eO*jcU!v#D{P9d3qR&-V
++zs5ji<9@-Cq=L(-|&Hf0dsM_e5YFh}KqoXk>8{&~q#FV#D>hBDi>rQ)#M9lw2>9cD@
++zdXzWIF|KTz!NvcS1=6zBzU51jRTx;NgEH`Fph!8U6~njawqpAaq-Qy%7OUJ3M_iZM
++zC0*JkT%kSd84S)-kP{gVc}@3oO_>ZTbCDh47?!kzv#dPf(B^kIA?vCpmtB+?QeRu#
++zriE&a6?XUj6w{j*=ZvHfXI#d3A*47Efv1zKu%rIllrD<Xa6E&?3J(oTnn?XboD`H}
++zz#s$RDP<XKKo)@FCgh^1EMk5U3s9u~5_M-_i*OmXm$*W>nt0zy;2P{M@gCv*1g^(1
++JWd~7q_yd#-8vFnN
++
++diff --git target/test-classes/base/SpringTestCase.class target/test-classes/base/SpringTestCase.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..e9c40c3097d6708f1c4ae53cb50ff219c7c49a05
++GIT binary patch
++literal 822
++zc$|$=TWb?R6#gbnv(38N*xJU{Ywaxw*hMG^trS9_h%5?ijSoJ}ZYP_Go7pluTkFsA
++z!3#e41N>3Nv$G4L74&7!WzP4Vb3V?G%WvNSJi)e$23B0G;*N{ExYxui?mKwk;2}dJ
++zN#j^(hJ_&2v7aTQ-H9LA+&=w2lS-NchM7)x$WR}or-ETVkV?GFr=id%JWPZIM?4vF
++zEsMBH*3DRE3`;@CGvObfX{q89k(mL7#O)rZxsJr4ENT~j|K6GKbI!1Glq(~rVkk37
++zlzpXA!;MT8(LOEbwXl)qQ}I64?|ef9ev~RBE{s1YEt!#wb8V5-xS7zf70Y^*@GLvy
++zX1rHYRg8}-j-88X!mw(4O>)x0*SS(c`!v}bX~sl1d(M-bR_OnGAj_~@N%7)!5e$m{
++zN0xKnLldrpH4l%l?qI{iCbm2{m?MGyA|k`{|83b1GoyKA%BCevB~QUdO0){e{e+VQ
++zufmCl48vS3jGd3#ce=r^0-L1O+kc+SA+<>L2hy0JL3LT1oh#7p)nlu#(OEX=VCis*
++zm957LMd-ao(E)1Y0j=H_uwL&oYF{z)3H6VZtHGn!B?~MOei_%v^U8YMz`U(#+4m+E
++V$hOH_r2kuQ!7{=uli!YT`zL{L;(h=C
++
++diff --git target/classes/com/starrysky/tool/MD5.class target/classes/com/starrysky/tool/MD5.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..92c572ac187e37b65cb07661a35e7e33456ceaa3
++GIT binary patch
++literal 1390
++zc$|$?+fvg|6kVqcZ3)3*RlxfVkXwmdy<aHcWo+w1)fx3Eq{k9ylbWPrKgBQLg$I2p
++zj?VZ2`cIDQq*WQLj(y0!Wbd`tUgxA=zkm7yU=|N`9L7`%(>k)4Ny5~jsra(amvbsP
++zuQCfsEb7p)l*APs29|UT;Hs**mc;cWZU`i9I<6Dm7Ko2eJQL7Xys{KX=N(rT8?|-m
++zKe5)U%w+POZB?IHzN6w!QVTbnKwvm;do?o%E#GejTTL_cysBAPT_n7*=GsK`bIn3|
++zQDAI5ziGX(%&O&9%u?t(Zso?rpDBUVx)sQ!1?ejEpy8S|C$P=ja%pX8p##Y(K@J_n
++zK-vx837cloD>dwm<!Z%axKUesYs-4*crMGw+NF+XK6Qgez3%y;EJtV@y1y_UguYt2
++z3$b`j?Q#0R(1HvCt0GsOiVQ-fsw=l6jDCAV+FNxi2(~@HEO4od09_<`A<#>RsE=K}
++zUbXzw*Gpc*x8*%Y9YBgI&!~0-85|)y#!1{Xa0@)r!S2Ed^fba(*{ez1F>n{l269+2
++zu!=QG^nYR+xTnUA{Ewanj^l)Z`*=V`-7kv3z;6v6uWw2_6gc@0i3R#9GJNO~%C)J(
++z?BDOzU(aaZU<c(SXs#Jb-s!<^h%a+I+H!|MV*F*Uosp5Qs)w0wmnL1O6P7~D-g@F&
++zif}@{Zdg^$IktaJdvzW^&htY(4E2jcsI%qsC?k_r(DqF3L42SS!!bS+QPRL*^o$BH
++zgkjoVrGBUR8~+kC+If)|g-q-t;`z_ep6{Wjn4Ox;Bw9$ekZPf~u!DhOwuQbOq?GNS
++ze$PP~S&cxC>@>%;N6*m%*~Z9MBTt>9G9+>yCs{p&QPP;8KTRT8Qkli6h~{mQ&LGV<
++zr?}%Ndr#vGy=>&2rAMMTM;x`}EH2<8*U+fI2y-zmHj1&%VviWdXw#D)acHWA^gHxu
++kyYby$`W%YjE~1ak{cKYN2HP#T6pc{cI6WorMASF=1Mwn4NdN!<
++
++diff --git target/classes/com/starrysky/sys/service/impl/ManServiceImpl.class target/classes/com/starrysky/sys/service/impl/ManServiceImpl.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..536e1528a51538e7c8bf428de86ff51f0f7655e6
++GIT binary patch
++literal 1881
++zc$}4#-%k@k5XZk;poR7n<d=Y;pnxqDRumO2g0#d)QZ)hP!MCMd%EI-oxw}I8Klz}E
++ziNOcsvwxIv_ImuV?UnG*nccgY&(3^zdVl`@`~_eMn{gO;+=B$3B(RL9F+9`$xi%}>
++zywK*QHW_VJV|W$AS`6z9(Xy~Mh0Sm`U$D#E^@QWp+@l(IYc4Meo4@nlXBbAetCpwA
++za#y)(&y*XMWqZO?w&gOc<ZY+K-HM~E(!L|g^2BzI_?{G&%lAdWvz;0j=LvkH>e(mC
++zkwwBrSCyr_HHMC4YL}riXBQ<yZ(dpQeYLzNosWV}W9ZM@1!3+AN9ld=u+uwGbUbfS
++zyDObzRghejE2eH@r@r5!EuGrEudHIWwpFC$Wd2Yb3vLRl#J4O@mZXzOwIEh}F(^5r
++zC~crc7DG&PH%yc2O{VG*RZp2buUwB__w1;WCA_LbwJ$aWtcD-DrfV+RIY$bQawn4E
++zp{dWLCEY5+Si2^O_Nh|zX|&vyW&4<x!!5-i;*GPItndm4)PAzDI~~<&(u$$4x%1w-
++z;5pkWDm?=X>2^Id1KwUE{0brCJ9gD6$Tv!l(7^w*v8YK5$(94{deV`$SF1=Kq+|^A
++zW5B>o^v3Yoz$i8tM#4@vFoC-UrjRu-qs^=~Nu&&<kz-i6))<q{7kBkx?@$&<`sr}Q
++zMK;5DyFWX_?By}2qt8UX{D@(wRUi$*bU5JRQb~veeYt43=oir%lJBEWT9o`P^4;V~
++zUb2I<<K!9nuDKsz-)IrRP!J4C9wuwl18^H7<msD*u^>51(GeXt_Z^Y>Q*=b|8=YSp
++zD1$y_xE>i$^y&`A{ln?{=$+;*2gSrS?-X4OjjWMN6~zPAJwIlWo=xF?P}zD=St6(`
++z8o`$a)cB>c66a+l@Bq_(88e}<STk($3fL?jhQPX;VbdY7Gr?%KLts74uw)2q4)Z=N
++ejfFt{Mp!)3B!9YXoArxWq#yTJkIv_A3HS$-YMvVa
++
++diff --git target/test-classes/ManTest.class target/test-classes/ManTest.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..03519895b8cca74cec6af4925c6e2e08dead1fd5
++GIT binary patch
++literal 2845
++zc$|%u`*Raj6vw}twB2pGKpP}L0R_d9CdgU@iWG`zE7B6$(v%|Q<u<uVw<NoDcT-3e
++zL3}_J#V6wUKpFkn$1s7yjQ;N50Uh`!9M9cs^C&6fOuP5qv*(=e=bn4+=AVD>{so{7
++z-}n$lUp)>WD&e3H{TL82=tC{~d^m(5K8w{Ogy9Ap#t3&fBH?wuI4WV3kH;h&mvDl6
++zp7h}q-rzG;!WbXp5)yo5+%w6;Qxe7{Xc8tQoaWZFgp3H?hYjd!fPqPFd{crc!t$Yo
++z8|{KID`HB-83DeGs>hf)rNx<mmT26_D3-07X3jdDQ>>h&ScR9$!J=P>fYn1;-PST}
++zM6<N9G>hoEVXL-g=$3$;QNv6r)}*QFsidi9*crn-t&A~Mx0IwBw+%C=sKo#!lC_O9
++zn#mHBwr;nkYj&pqZ?JVlKux!iAgX0iO=tbt%osC=RZ<h+j~a0`J))W#U%SQ{dt4*=
++z`Y4eOGs~uY%aWR&=*o2)dP3u3l$f?Fpt;IECk?(u3TkxtC$dDMxOt>Pp5BB2kxwJ(
++zG#L{{x5-qSIn%?FiTUXe%NSEM^|G`>KcP;kO4ioWN{sPrOXgj=R69OS;AzdWxo*iZ
++zsyVv8n2|N(Y@fyx$?m?ka5n*=s%5rpW-`OhO){n1$V?hK(|MxWDK(v?9KN`rC$&_s
++zo-|~<h&B;tW#lkTC7ru6Gxx*K_wVKBZv6W2x10Cx-WBndjJI)4z^cW{CE^_!=W#*C
++zySON0GhPt!o{V<9&m%ve(<o+>(SZ-C90kMN%!Rq{XB_ixT;hJ$et&TDM=}Tyre$2l
++zIT15F_eU~5#uch&+t%$eKH)gtN7w(B@hQ&9*n_KF=`)_;yIYjR$>5!y-b$OL2-Ql^
++zUmGnbMon0JA)^ylDd557pB{btixbdPD*b-d8mDs-@wtpI@TH8s_=;oC%s#qwwJc<L
++zDI{W=YK|Y7h_7XI;TpAxdsyT*rdmviIp@SJ-L#~`cB0d&o>F2tI<yQy8(DH+QRo8A
++zPzEW&j@i^=nT~n6N;Apuw04?WdPOi=meS^G9sCY8m8`wG%~H&yD5o0+k^%z3-qz@2
++z9{eU+%#NfO_o(uoC*JsfJ{1Bs2N%C<t&ewn#Wn`UCRp5d)Rd|iPrAnbV3qVDZL6Q|
++zN=03|3?t3>XCV+AEw6@acdHR&XBSjs{ypcD$YXGvt{Zh4FI^&GGK;=O>z=gzQM&si
++zN#RQ>z7f<5Y9g^nF-8|V6MC_<a>LX$!G$$w9i<<K5dBgC0zCZ2(zu0Ibu=n8N;J}!
++zfu37wrO+tQSR1+x;SZX4@RI8c1h9>sa=`)HvBOE)PQe~0ScjKpK<H0+{N6lj?xFVR
++zZPZ1>jlMe&^N{F8=oae3v+#M4M?*;=KpBDcgtGyS*of8GgjNI{#XupetJsKU?8M7u
++z+t}rBbQC%IiGwq)<s33`xU#hbF^eS&l$Vk>D3?T=UqhuR?QyNESgEtSsMALy_glqv
++zmX>s8u}r9@v4b?)v6ARZ8mp>m>?vwocWc_iH5$un>Tk-!AFjEB<#{|+tZ>-BB9B1W
++zzcTM&xz%3H_uO3KX+b?bJBep6)$<jqa0E}&muwTdsX=<k=T(~RE31A_vHIJpR==}I
++ze8VL^z=_uoF=wcoFFkRuE$43XKAZ<%=YT(50sc%?@F;;FB(Q!uq5*1_L4r9%U_%5G
++zqhlE^13%z`2WYGYzPAW|(FNbd!Ph&b-aw^(HX1I_Kj*=buvnbBkcD>}7jQO{0x(LP
++z$Eak-sj*HF`$^J2RmQffSkw?5LgX>Ft|Hrcm#v+%J@2r!5Zk6`SaS4(CAMIRjSARW
++t6^s#Bl4Mf^Hcns~VN8^PwHLv7NAxTJ^H6v2=RU{UK-Smjf4_y^{{T_~h;{$~
++
++diff --git target/classes/com/starrysky/base/web/CreateController.class target/classes/com/starrysky/base/web/CreateController.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..a3bbc2123d89d876b31a84938e9c4df211d1a80f
++GIT binary patch
++literal 2992
++zc$}S9+jA3D82_Cl&8Eo$C8a=6<f1~-3kxVv+X_O30){ryTI8a2lbogto87Q`wk0Cs
++z1@AMyISxMf>Wed8hA9)6adgHRXZ)ko@9d@_Y2r-bp?l8x&UgKt-}j|||MTEC00;0@
++z96NEg8$0k?4A}(EVN$_V99=jYLoR_0cwGw5cVikealC=q1TNss1TNx|{9IOWC5E@8
++z;@b-5Vt7Y7)MLoUP>A7R3`J?r70k!6O*$>fbwPd%1y>bZW9Tb!i#xiR^PGz9@@eiY
++z8U@a9Fk7(8nk#h2sk+yyT3&a#<_5RgL?@e3hSYh_5=NQN8m^Hy`Ekp#g)R)+av6rR
++zwo}sFiep%%c}FkvCEK~C<+*OT+Pq#6wo}#ghJkk66ZVqf@FKa5jv1CAjxvPPnOTO&
++zxLu?SH)IWqPkQA%cV={o#*oa~1>Kz09Ydb$!iZQfD14?<Jxe^VjXPWyeB8E#W1A*-
++zWW17{HC(}PD4o5kFY1~n3{yL&S4M-Qsaqv&TF6R9GwmV<MeuTk^ktH*4j5RO>L|;*
++zgpe6d5)>yVW%8XI%^OzHcN8)GjCz{<$s9>%b8FSr%1Y&jT4Rs32WXN^<*)LB7(Gf3
++zCsxH6dm=y5Q}?t{vUK4&l+ESz6S-L<;+@$g-#1SPHWTYSzwU8YPzII2v};i}JxXv>
++z!DoVYv*}rG5gE!{EZ9YcBaa=zH>3#RiIX!7yIY$hr%NA#J1t#uc+Ej_x>#6wbXkRI
++zmkf(|lAD^Ic^p6WWc_r=Pkh?;oB}^(NCx$-ZjOBtdWM0H-d!q&+kyzFHMNt9=dnk{
++zF6<^cyL0mfH;W2P6=hJm8y|7vwC*nWRFC@)FlUip6*ej=uESB_su1uLEUH+-4Fy#d
++z@8YI{_f*`%`zmhZ1BP`i9Ai*jZW58^N{;Q3qYv>B_0VemFhIq}xWf>0=K=!))UYZZ
++zt<iuMDn7xd3|m&)p70E_$Q|N3%_^E#1u>%HGkmV%3w+72ca2l0C98n^4ErB<1k>}&
++zNl6cv?$9?hI>UZR!|C=;YnNo&MKsUkKsr&S#EXWc55un2GcwaYqM8w}5>4a?v}GoJ
++zfv#a|Im%H`rrc*?ZwE2aM-on$)~fne@}>ILw}z$%HHeft{kYJaOgCqCrY@&o$#yBl
++zTF~7|ena>_I+qAo%Rg*NcZ4Ne;&i#EQ&yeSqttV{>Hbe06fIV?1BOs`ZTQlCl%^NA
++zXebSJdgwM$oum{wChQf?x0X`3r9Rz3|3m-`A=$IEK1-)4t<TXKrj^>6zI*AU(Mr98
++zuKxRAztARxbX^(fMFz63d<FDlz;`-`Aw;Ax`-avS$^PoUhfp$HLnMTU=(>0x(aE8t
++zGFU?_j0^H|sD|zkMk2o=o{B6Zk&4uyGK_Skx@uU*a2J-`t!MZh8%Cn3XtJk<jUoJj
++z<Xz+%$7Js^HhqU<e!RZscq2+mN%k}pgUIqIRa1%|J`n!!@7Dv#%`yRb8c1%br<vUP
++zvyYA}|0w-G20}4GIQ9~T+X=-Cp?H80%n^DO!tW+QaEG+NrJElKnx6=m2L#QZ*yqD`
++z8j63vk1$rq>I(MLE-K-wLn(I${1=eBgLr|!@5Md5NU|{b_#TIFm>@nv_x-d6-iFCr
++zU^z^df&Oqq|0U8J@t<+jfAy`TGe)PEFN3*M*D+c-Ucqskpj!e(zUa9BeRbtsX~c%e
++zA&`;a4f-(4-9Qbg5H38#HbVTV<kQR8K1hGdc;*pu>wUvv#3_?L%0wcuGjP_ZI@72+
++jQ?L3+gJzj}U2Cb~q+i3j5M7^Y)Dgmj|2^Fx{Tbjt_G1m8
++
++diff --git target/classes/com/starrysky/base/dao/BaseDao.class target/classes/com/starrysky/base/dao/BaseDao.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..2006adcbd4b3ae9655f2786836aa5154d1bc96c2
++GIT binary patch
++literal 657
++zc${^R!A`<J5Qb+EDIf@ffMVjw81Uf6t2QKpF)@&sh;s0@bSo~Fu4xw%Ud@9K;6oXQ
++z78_Ea$)@}LGylJ{`}6zt4FFegV!*Khb%eA~9na?4MyND;V?N`|;qHh%4#&2oZ<?<N
++znZ6vkTu(jfNj07afk?iWPZ9X?LOt0NHM84XTki<vWzJMfhxMc%rc~pqdC~e$3hhC9
++zH`LywE86o1fpETQs&$DxftkibFc$V($3ZAHn(<)}YHOlNwiZ<i;kg~<3aO=X5ze+B
++zzZzK&-epUwX?CyIQwAHf)~1VP`)cZ0_PuoIiE?f3+jm@DE*cR|Ej3}j=AJkAKjv&m
++zMJBjn%PxdsJTQfTkbuQ!BoTHXNxVyxfE2M2<1}O<&Jypf)N{mn*pIkCT!e#&OT=Y3
++PjJQH8+*P3#{Ez+sB1E2O
++
++diff --git target/classes/com/starrysky/sys/dao/ManDao.class target/classes/com/starrysky/sys/dao/ManDao.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..f594d2a89c39c6e574ca74fa95879d8f47510aba
++GIT binary patch
++literal 273
++zc$|Gs%?g4*5dPN6O}+F0(Id2UHabKEfziPy7;O>F+}PE?SL@IN^ia`imndjp<{O6j
++zejd-;9l!zs$C$(8@EN=~&nl`LEg2{(=t`obDiepKkZB!8sX7Z&lh&;{wIU%S#gUX)
++z+hs#)`N7y#waldcrkK`<ixPXP!d1xN$Ewk(+~%b<4D8ja%sUZ==`XRfdjBv?zQZxh
++V{-<*p7#!OJbmd^!&k@`n`3sdpPxk--
++
++diff --git target/classes/com/starrysky/tool/Transformation.class target/classes/com/starrysky/tool/Transformation.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..c5ba3f925ec325b2ffd4564fc17cc6d6a0238a7a
++GIT binary patch
++literal 2443
++zc$}S9TUQfT6#fngnPeC)5~Id~2B9_(a1<+*gxZ#iEke*5gi`Efk_=%WnKPZ7(DG7V
++z`X{<ppM3F|K1A)s$9Ap$sJ8ngA?BuZm4|)K?8|rd{`Nj6{Pp)QF9F=Zw<?0Ttzs5&
++z1&ILW@V<gOD!Osoj}PSfp%foUF|T3)i!xwI#a(>dgHN!m;vQCdu!^J<Yx48Hf(I%-
++z#X~<*3f38XbCzw1I}D!a_y&V_foDyI{#DC1*Gh%7>8=~;JZT13dB(_Z7_KG1Yf7)!
++zwTcX*s~KL<i^6c-!{Yv-E;!HY>#kuJceq<HgvIRyL!e+d>wMlcY=*Ju>Yj06=p|w0
++z^`zk>s-Jno&gu8lduB!?WHyY>2sN0NzRQ?S4bDSwGSOxn()0A5Ot%e?;aqbKht5eI
++zx0+Gr8iG^8wd`Dn{O-t-QdZ73M9C$Ld(r;|(z)<JnrK?*Nm*j|fsrrK0luOsgy}L|
++zY>08qoje8UNmK0dtSo=uJZvt%b~uCIak*o<g6x;8c6mxse^65|n#GK3IfA>=S=yHE
++z9bWH1)p@?ACYPYo7D&So**+CpP4SYOG4EQE`(X2+T$8~X&f|iDM;bP;NiH2GK*47k
++zw(vQ_`PNeBOIAKBi5jR+Tx7|0xf{{2jmJ`aq2Wt>rQmA~2GSZb$SN>3>>#ILSA&H;
++z1^XKE(y5@q2G`)=8x1a~#(~zRDG(Y;IAAy{WI5Eh>4tL|MozsU3|G0E(+$VS?3y~c
++z7dY`JS(Fo1CH|4z$wqRglsAO=>LN7`P|KB&^VE=V>aZxxg1jdsQSYtAsZ*9Mh(OaQ
++zP>Xzq<Cu1qVJg}_O5<&+8s&)=|C5P+gTG(!s*0$KwmT+Hy5F23gW|}qJkb{Flp)pZ
++z&zWK&Zxo5JU=wmhnK&7o>YOgy!sSJWvgI^5Jrp`$pZ{pIEqMHOSE7TO-W`H#zX+7q
++zmFW2Cw`KT^4#WhZuNegzhTf*eQyCd<3&XODEAmYUb?OY=9}mUT@SW1P`Xky$?whV9
++z%<7ZFFw{hD+k<rBbv7C@%Rb=yl=y6i!?*uaJ{Z9{`q7hr9x(ZAkPOq8PAj9ed*T_`
++zF>ShVk)*Gp4B{=4TGatV7^XFVOSnv4GWaI~^Uyju@duRHpYR^XCZ40~DTb3j!}}|`
++zx1PZ_sFdNKEF(~cT1L+?p#{)~GnH6*)+Hz;hu|mt03u`?CF=+VaRo7qRdR@s?;xES
++zA$^xTk!+)tawf^+ZNj`-&s5spp*32mW}Gl5PBLZ-R9O${k78wL&(WKle1SfOwW+u_
++z?0q@Y?V0g~e4*|qSO|MVzUjCUrtJIU{)w>v1qQnCBgQJ*GhK)Wq-`*+hSiw&cLcXQ
++z;Xta4vztHo*wcT0Yat=jMgr(b&DKenK`+T`M1qcfT&Lu3&~6%W+{7YoVTC-lNpB!Q
++zQL`|~@;&{lBguJ8B`#7=V?;!NJO_w^DX0`bNr*aOMhWFQAu6=rBGj8iM?W6oT|)K{
++X)+=I<>ck$k5qs1^ETf#{?!A8j=wfpX
++
++diff --git target/classes/com/starrysky/base/web/FindController.class target/classes/com/starrysky/base/web/FindController.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..23ed143e8b1f9b99c117af2dfd15f33d77ca8d54
++GIT binary patch
++literal 2857
++zc$~FXZBrXn6n-{@CWK&VD7Dm<Qc5Mfbqfl`22h|ttAQdQwPMAa%}rR??5?{vV08Qm
++z`mN)?aH`{!L1+2{{11M#<F9Z$_a=lSqz*9SmwR{5JulC5&bepzkAHr931ApI5nROm
++zCbVHLjQM6P;6VrvBWT3^Fg|R?M@UNHViT6|D1v2t9L7o*Jz=bdu_gtd$n*6u9*6L0
++z2v0P$XSvNiW-aGE*YWu(_jXN#YZyryPEPj)^Spw;Q_xe)=el1!)fej7Bs6ra<ZWT*
++z_`2zvDT`0rwj-D@9oyG1o^-sd?z^68XEPql@jb`e(Nmn+zMf%*aJ+)f$_Dy$UO0QE
++z$J6BY+=OYHVoF0pyl-7YaMno^!t+Vf=1cipihFB}qG^aF9fMix%roVCNf;DcCWY^<
++z$7heH^m)@x&pNj79LwUKjFxqzOv7kAxy^Q&o)@O2FETe#e6^UJ)mMe&k?1=vB9uAi
++zN_f@A8k&Vfv_#bBmL%9ZrlAZ)UX<oR%k+hY)(S64l90}&YL*4}km+c3#EIhpDkP6m
++z+uRU|DRQ__6Jz2`ex#?SRWoZdk@pDAM*K`}PMG8R-6ZRoq6}6x(hC17&wW7%+@fjY
++zF0=BoTV$^FZ!3!O9Th*v#g;?GzkBKc%21YnVQx)BclA|RX3~e?Ue%o#J8_U@CbkYs
++zPBB^uJF^Ww?YdSW>14@QPyDs1tL&c0+}8$oRs0Y>J1WzEnVr2M+R{w0;o2mJUC&A9
++z4Nj=9Q&}w2D3aXv9XruwY%$O0Vlpo>L*u8((F*rnqQz&Nbb(@DsLjzx3C~C^p2(_`
++z_Y6L7%3IV{JrHh7W*P?SqVTDp+!1sI^@<S^MF*}#(T+=Wq5aK_$*pt<8&Q0Yrv&RL
++zmk*e~r7n9!;n}pwZwOyRv57CEU`T~vM3DvwGf`x*Ma`?c(Rj$H5!Led5Bq<;{PESZ
++z=dZs1X;|t!jl#rs%?UBTb)xY{omE>&8lB2CZ5otZRU@4SoXb7g3$&FRO2eJgelv)O
++z9PRWOs@H}z>szWik1m&+C++e0@rFAt={qi>u`CleQy|J|vk3Y|?U=7~Ybvs`TA-@u
++z2#F(+v=?<vM_(q)f{=5TlZ{_TOx+;+M_6_Z-$T6Xr4PWgWzl$wAH#tg^yR-ue*zi;
++zvb|`3litqJewp?l?bLa+zC~|3?HcWk{rk{<riTEomXtxp*JzCv70`+6%4rt`2rA=0
++z(Li$GVgIiP#2O9|4B&S(KH0~)rJ-18@BrZkJeG$;2WSf5Uho%0I)X3IJP?a^1dGQ5
++zv6hlz?2YH-tU&?jMwr$vG%GgU1mq_A&_jPWw=jXXF^^sa?%g7Q5;*zPO`4i|>LJ|#
++zS&xzaP4e4E{(2E7@O{d6LrK4%^ov^kWvv0y8dT{RQrWvqI=AUf-+<=h4u)yx7{NP)
++z0Fs-`%&1z&aF;;I{Cq<OGDs)Uj-7vjR+)+cl_vRgfD0NH2aia{C@9Ezm}thx`Bid%
++ztqirZOtMo^)95^)2n7_OXjw8q>v*Zu@0DoWQ#7v7(-DmXCe%KODV0hfq?KvBU!O+o
++fq%;ylV}hP1NjCMr()i%@Gy<4b>rD9y%mV)cA?4t@
++
++diff --git target/classes/com/starrysky/base/service/impl/DatabasePperationServiceImpl.class target/classes/com/starrysky/base/service/impl/DatabasePperationServiceImpl.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..51d8aa80fdb32f6598934dda69c2ea9c3d55629f
++GIT binary patch
++literal 4063
++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
++
++diff --git target/test-classes/GeneralPurposeTest2.class target/test-classes/GeneralPurposeTest2.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..f34c753ca89e8060c9b018881bd05f0f42136e4a
++GIT binary patch
++literal 3819
++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
++
++diff --git target/classes/com/starrysky/base/service/GeneralPurposeService.class target/classes/com/starrysky/base/service/GeneralPurposeService.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..04dcf4168f55b8cb878e547a10ac5765a517d203
++GIT binary patch
++literal 1059
++zc$}q?%TB^T7=_P|$W8H%7t};|vaz}|ftU!127}Q^bm4AjM;t6InNCUA_+T!403XUY
++z1#F-Y7tl@TJM&-9eE)oY0XWBD68lLU5aPlSijX_0wOE%KHglRrT}k0Ii-l)G%5p1`
++zGsOuT!w_Ey+qh$$V&R35u8XF_lrMF_MI@j!S#m_VZ?w3nikJN|y3HeRyIox+`*$oe
++zWxf$MN2}I^r}_!EQMEKv@38w*$LcScdKHdU?o}<q(Zs$HCfGA>JX01S84P!2+re8D
++zqOK6C6XL9<5LO31R9wdrO1KW;_&+;_6MW3?$9!Y2H@Uju4wuY+@MXvK^pl=wTTHiY
++zc#28c^WJ+#gL&NOxW;&-PS4a`Uz+?{*g7vieqHCXD@=YGbS9ilspt(NjH!8qwdl+V
++z0wIRrOUDTdhy(h+h=kUYT8$y4IUV5)mO@_EoQ>SCU^V15&Fk0*c~kQiav^VP-odUu
++J6ZZN_{ucrbF)siB
++
++diff --git target/test-classes/MD5Test.class target/test-classes/MD5Test.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..feeb278d455fe41d843bd4624e43780042d7528d
++GIT binary patch
++literal 618
++zc${sK%TC)s6o&r^Ax?}b5DFAZ%l*1wlt|r_3aO>-%Cr?h*-y+UOt5Frc#M?CDhog?
++zcmN)%>anpzEAZl+IhX%C$1@Lq?(PA!u;s(U>jq{pTgRM_H<<UafVUnNJ-lP6eNtMv
++z1BQ|9oi0Q5(40z!iBM_zBTIVHo`_ydnPzAr5qE`Ed0Zx|?o6c&jqvE}hZC8)eFo+j
++z=8rS&R3f`7Rn+%cYvY7dMpN%(Xl$PkG8)QDiQh4qjpTQgBZCsPHxQR1KphPa?*lAh
++znRacpTJ3h*!%Bcvta(@uuz^hmuM`nJm+@HWKL6Pp$msu6XP7#f(7&3D3Nv9*QHKAr
++zO1qA;QY5s`Y-AFiI$`ZFJs)ysOw4Hj?e<MabUpUV@aUAn&F%0Xv?E4;f9H9MVfuwR
++zwDd(D#hMm*3Dm_3YV>ybR{_g!f~-#wC(p=_?%sg?F3MwMYelk-fNb#CfN{JcPwz?M
++pN+JGOz^LO2mFCDTs@E8OV)*1ir!gWtae|UFSx%WMn9V{p{TJQ=fs+6L
++
++diff --git target/test-classes/CrUser.class target/test-classes/CrUser.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..0301edf349b90404b556a8085477cf0822fd1a82
++GIT binary patch
++literal 871
++zc${^S%}&Bl5QWbzrBJL2_>2FdCZLJLwT2Cei3!L;WnZx9HHDJ4_*5=5(U`dK0emRq
++zOxs9O%4X)?={aY<wm-jL-vG{Vl!Jy{9ck=w+2>Nu;2?uTfwV0L(iad{0-DqBdlp?%
++z19K#>*nBdd&Dz+PcCBTO&Pi|~htjW;pi=D!s14`dVx1gX*W*Fga&OJ9O_O5N>6v!N
++zbS2-Tq3S<MPaxZDxOblAQe5`I@|)p$3M7E6_dif8SG+<eNjsv_y~$ald5a+nmFhI6
++z7d<RiV$V1-cjJuRo^>f1YA%F1Wtjm3^9C}=8qm4qFh^mbLLeVR+2-(}*6u!8Js<n@
++zAvOBMDJblslfuTJlb3o1f<vh;(5*&YP){F!Lc9gCMXFjb)R3oYgaQ;$q%N?8<tg(!
++zl$V%!KGD2_)yP~YwZiJ-%?~J()wy6=AWtz!SPfNC0-yN3c=1{yNGcApk_fV%43dh2
++tl*qF&14NHNN~D+uQD0*q+le5X*qQ=4`G6V+;XhlR0m6Tl7jFlioj=_4YXATM
++
++diff --git target/classes/com/starrysky/base/service/impl/GeneralPurposeServiceImpl.class target/classes/com/starrysky/base/service/impl/GeneralPurposeServiceImpl.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..8a3653984af14f74f11a1908bcbd4ceb2270d80e
++GIT binary patch
++literal 5299
++zc$~FY`+pSG75~m=$!<17fCQ-<Oa!4}^I}1?VnUJ416bH>ViJOAHJR*AHbZu2mYG=~
++zwxU(r(rO>J_7Q8}RkT`*6gLf6tF3)$rS0$ieEOf%o-;E$`wBFTAAi`n=bn4+d4BJ?
++zci;QZmA3%w#y<nN1BMS~03H~1*n=EXr<poakF%Kf;o$)MFzWGHe6Ajk;2eJ*_2Dr;
++zK3|Wuc$`%{!OKtj@dY2g=*O3sb)H#Y_Twu7G~s+5X?@C%r+NG;oA?@kz8)Yu-(cz)
++zHulW`zJ+I*_ig5Vhk4&+>U&HrF!daNzR%O=`SSz*{E$CC^5Mq;bi-hQpZM`p_U&gp
++z`MD1-`0%0+7X)lb$*QbN>5-hC)eLz+(gbwG5?Ur~n3Ar~8*}sFX~~eoNl6PIs+8>&
++z5FE{^rjn5-6hoO#%Mn%8OvzL<)ex{Zrs=7$k<}G7HKR)z`HZH|g{NgnHNrDe!qoKn
++zu;gwCM{=fiM$zRYsck6tOF-LlPGu{7qMfz-6jd?z3#bXTPYCe#Yf0L^E~cn*JeQf4
++z^>K;(6wnyc5>k3X(iNUNOs_eskmJ3}88c-4w33j+N+z4GFgs>1MQMdR@UjB}ZVJUt
++zN~fi8T2fQtF_V+fYk6eKnJn9{S|y(|QkI>ymU5<&4i8CL;@6w(Uz}1ns0vtb&4y&d
++zkWz9?G052Zk}b^PL}cgewYnKaPA6@8Q+d?$*+S%ZmfPG{?Oh3Hc>1KAFnjltl|vPV
++z_pM3~YudiNrqZn}Mu;^JRe&QDYF{Zl{7J1}mnD-C5UR*?`~8%xgta=vb*LLtQmSO;
++zbQ0bhT2)}Il1z@u8SOM_snadO(!RF9?vu>KtbnFaWes`rT6c$CKwqXn9jTOGZR#B#
++zk7biqTIzBZVfpBvQPgDLd^9OwOI5b2Q0il8YhQYm*;*wCEyIy?nrqr#eG;No%+;fG
++zot=?>O-(A?wFGRvQDPhq&VBTJd^ES4<g<x%E-6Q*RZY)G=>f@<1PIjYd{k`7D%$1>
++znTVQ<Yv#zDEgKlqa(Y5OsBpJvy>9>8$qvwoT(<QarmV}FNnI!GZ0QxT51*#PzmnrC
++zq6f6$B@Br86z=ljWf8x?D->NZEfHOp<~dhByei_Cc+H1jiMWW@MO?zK={%KXkiu8V
++zxk*_SaT#xj$YW8&Z?HtrPtYMq(G^9_wKC1rs7FSlBCcRb#8tdWYK%#%DU0|mj#^Wz
++z>56y@M@9S&Z;N<`KWQXH{2qT0F^+eA_@jtFv1=N$|IF+Y_=||YvgiX$y~n)w`7_1S
++zY5YyZ3|<kTaNHY;!5o&1SqezR2O#$#;u`)g;vYP@d)1d&S?D&N1njzjx@9%dZEncs
++zxO;=e2_7qbVYmm*-EOtw6*c>1&S672hpMa)Bqe%@(A8MhC87?WHZ@jrslv085tq-J
++z);oh5s8_Wn8w*NGk08m=rA2R;Q1#lf;(k*r0IghM@u46klNC>lf<khpRz8)J(sa1J
++zhVrm%xfrEdjz{`pgOdlNgRz0hSafWhl50=mk)c6{Q%9v5aUKrK+(`6(5lP};@kPPY
++z{^FfkeW}ux-v6&+Ryci{mZq0tZvo|{OtLy{Qxj4;C)-Yp7O&R!mD=MA*4=8y6R^T_
++z?lIPTtau&XwF>0fSEHCJOIl4fXBOWSrR7^8Lh4e5GGQzIJ-7q(f}^Lshx;PYd+E<i
++zEsb~6=;5vjZV3YSTKev%S(rxZ6Ij!+2;p^0>>g(m=>N$9X9Ec!f<77r^kcx@EWCso
++z`U?bH>$nQfiAB`B0dL1;csui??=otcUV_hqp{wxIdR^QZd%Rss2ngs|6I`=|dI1X<
++zV@ee8HrDpk25TD|maxu4eRzG3FX#>WmaxHt<HT>Y`0t=;0WI#dabq4gEkNup2wwQ`
++zWwNkIz;oEx+4zY(ZeBqBB?NoC7qFqTvDsqyFJW_!<#2Z%x9}MB=F!4gsIjte1da6F
++zjC$NcxoDvjx1t@l;&yDo2+bbCZJ5P2oX2)NgEl;i9e5ETyhc)s=)jxk!n^d}>jUhx
++zGI<z2+Or3PI7rk8W%Lm7YB_^WcA1LODm^FY(mH~pRF8JNfEZCVWcPUt5#>dkBs*xd
++zbqtdZTYkiqzt@$&m*fPDVyvp<6!FE1lJ8!&<l{I-QoK1uYCSZz@aB%rMYQH|Yq8c_
++zxMW*jbu$>Sgzp4j)U0@uz1fYn1rwA3!HUN=%A8@Mj$4l1N7M<|c+xT6TrhrH9@~n>
++zw|h`&xrem&mRN3fEjQ!-3d_tXxBLJ;<5+&5w638s>Hv7C)534O+d*$@w+mixS4YrG
++zt`&gzZ+5OLk53jIZ7X%O*#f{lbdU}Zlp@$g4(_2t)=S6ifK%pe^q-xf;$;`y5TbaH
++zz(CgoaUQau!oh4Iy|(<YBmW@5q9DZpu>+hW-jthK(@AYxNoseL)Hqc1zP;4@1{xXI
++zBH6i_09Z_Qo9kyAq>5BCr##iuNZg>vJBrpjJh)g<<Tz;^zD|*oRYgvgSeA*JAxztr
++z_tMBR4Ml66wzbj|GFEaz8XQZuwprpSIC;G|TFc_-s*dA0X_Z$M#~l6AZU+BFb!V_n
++zT}3y6b>|RU%p+V5+5Q4#n|i#RL2t3GZYs<gcUfJv_QHqPx`M9E5_Z=xuCH_z{cojq
++z2B?HFjoMF^uy=~EV9)_F33E9Y$L-XTGSuD}ms4(ZQ?&E2h0yyfl-oGAbHHoE?%J@6
++tUYUN{|BCqbk2~T=$ggu0)uZIwV-)e@6!8-j@sl4@#950v<=*Q$@LxKV1~&iz
++
++diff --git target/classes/com/starrysky/WebContextListener.class target/classes/com/starrysky/WebContextListener.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..15aafaa214555a64e8ae8f1dd7ac278ecaa1c851
++GIT binary patch
++literal 784
++zc$|$=OHUI~6#i~oI&>VR6bks}B>@&(S-66j7}UgMq9!%Cz8!Arh3SmBbK6jMEFmo1
++zvyr&al|&X8HQ@*FJ4EzP7|%RXO(5##oO{0c&UYSjj(>hW0x*wTHi{T3VHhL5xNPGJ
++zu3ETe;ktzz48=tiD07z~KRvU|P*@6ABtxI80{OVrtV{h&)O|uKZs-YrS!fl<8CWnc
++zRKzgudSR1CMrhrM);j#TtS^Ouk?Y1)k&%Ja3nbvB&?73Rgs(Q_3d7X2yDHjZokvo)
++zeQ9_t^;!CZwhYWd(wESU+YA%`L1!purS8kf=&%zPvTI>Wd-9=*+a5mK;9RWhpcf?z
++zHyw;(jA7)*-lx;u_b0FRPqyEE+j{$bZ|CcmH>a;REsQ&uz$C-yzXqpfVrA}&puwNi
++zSEXkdCjU0XxtX;Nflc~JVT<ys$riW@`BSX|Q!`qMCe1x?4$NS^j3YmwymZ@{q#?LL
++z%f%Ra=t77{=aMH+OCW1g#K|-AJ+mLdKF}kF3uKE4Sb{^=NeQ@!OXTTtP|lL?5jz+2
++z4v?$l4^j9nU?(5?s8Tr*8A^$nNc`$YC8<5omAjK<<7^+*KO|UJf^{VZ6Mpp<;L5w@
++
++diff --git target/classes/com/starrysky/sys/service/ManService.class target/classes/com/starrysky/sys/service/ManService.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..77e6daf715d140476763d651eb972487662266b0
++GIT binary patch
++literal 620
++zc$}4xK~DlP5QSe6SwIm4#gjJ=OJZm|V@!m^NP;nuc=1+uD;AfQbPLJ;H4pv(f0S`{
++zQAtEJ_VT8$-<x#i_3iluzzGgK?0aZ36d#lhyGcJ};QnAN=7L8;k9c1@Ig+;18U$v-
++zV<)Ul;-`eiNzA8)UkTk|@Y3*k6fxBO)*?J}D&hkbJ9;h+)kq6Bvy!2`0-Ubzd`977
++zXnIx(N7+MvJ=(g<(A#O4p;X?;iJ4Q`{Baz@E1yhPxZshY;eY>nN>vw&=@}g=r;KJe
++z{_Pv9(_j7r|6>>Bp_$o0UZ{xXs**dDcCG^1PP;H1t%l<Tz?UpTZMlx?`>_mMfq@~1
++s^muuO4demRO%%xY$jzZh_Y%sPzxAQpsARf>YNj>pe(`mx8d<gX4l}Q<wg3PC
++
++diff --git target/classes/com/starrysky/base/vo/Params.class target/classes/com/starrysky/base/vo/Params.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..682f1f7b7af719cc491db89dcf23b292254562e9
++GIT binary patch
++literal 1602
++zc$}S6YfsZ)6n@@ayHQ{a1O-GcDjm0if}jIbFeW5ZNH8RRG3mB4i`%-i-4bH_M}Ck*
++zMxu#7z#nBir!51zL5yF{d-}ZR@;vAC{r%_1F91t;l|%}Q3G`x#%_BCC<5*52ibV-4
++zd_G~bDq&5+Q+A)R$+B6GV<V1DfoR#N7><D05r~<Ghqg{1p@u2Yn>*4Pnp$^^vie4=
++zWd#!ZMyaYfbxRjmxq7?qeU`OqN!@oWqgu*dLU!{<dcnzVQjOTUQ8gTD99A+10+DUA
++zsB<r)s=uvQ^1Ag-%a;jB=gfjuKF}<KzkM*`d^Bu<v0TBdsJ5e7*0KHRSj}s;t~N|{
++zPqVa&O--bd?&LgO)P|Hvb_<9oJKQ)yA-lfZgni*h2|pn9eM+WH|7sBXXVp>LtD05<
++zMVZRrRjJ3dbGd8Ef3@S9l4E)i0t4r)FXss)_szOh&|e$esmmMP0>{a?jXN^>ke1QU
++zW&pPYhJq!w>PES!TLRr)?q~N$+K}-aFW9`Kxz3Gyf7Av|U~ar&y0=?wwq?v=USRa5
++zO$wxf^5_TBYBjxD6qr}qWwk5yX_DYkTKo;ySIYUbyt&-=_1Bo7*O;Pr8b*jGNnVJD
++z>7F!C(AHgl2om`;aI(XMsB{WCqcdj^CvM0H*_aDT7$qxv0l14XItA`wye;`VLSF;P
++zJsp!LFzF|6Qgn!;XGTsDx@etr(KO}syA=k#D8B-GtdAQ{btDoF5*h4B<bG!&;UJM=
++z${D$aNWV|y0Upv_kVxcPfXG+}BHmV}2~&{qi|n-s&7LB1;%@bV&?MzfT|>y*^h~P@
++zBSWp-&yq)vz?c1j5RO^?iRk+?#M1F5Bwl0_iFDHQ!|Zo?exwOG^`(jKCVGO(rY|X5
++LZjE@sjZ*&tZ)`82
++
++diff --git target/classes/com/starrysky/base/po/GeneralPurpose.class target/classes/com/starrysky/base/po/GeneralPurpose.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..c147ebc1d2061700410e9520548aec4d88883581
++GIT binary patch
++literal 3916
++zc$}S;dvn`F5WrW7W6O$?rb-(Kw6vvpIBr_UNlOC_p=sX5Nz>X5H3eM7Rvaa=Y$Q40
++z@*chr3@|Xvzz5(%G3-imES*o8l0UrK$L-$l?)J|A{QKwM0FZ?rB)ANvBwT_QBvcZ6
++zB+4WzBs3EHB&sA1NazVT6yZn&Lxh?HCe+E>5aDwXED>xG91)r#9E<RU2w#fOqWH@M
++ze3gK&1sEtSJ;<$=wwJb6ORL)gD7i!RSj`x!S<U1fOE;_caL{tyv>nxSc2%RPiSUg8
++zLtft6=4x)Gl-tY~(B-8z9o@*}blbtiWL~eDs?)SI0mhi{LibFIm~zf5=>mCm`yF-9
++z(6-f@w!9Iv2shq1qFSiz`^q|h8rR-Z8=P4Ko=1C!TG>GkB1!J+no;qpCiZo+g6YT?
++zu7~69oM{HEU$!*W(cG%ZW}|YVTUxDt?CFxH`)gd#P2E`(pf@$OD?n_yUeO3hH?{3%
++zZBMfbv^8{w^|EU0s+LZ+?~FMIx-Gy&u3WEW@Gvc_WgoRNd#bHv8uiS&W@?sd>@=-L
++z-PVw9u&OzQ;KpA_P4RkT&}PP6Omz<<+)zO}yHF-Mk~m_=KSrfJTd<ubx||VBl(ajQ
++zhEr@Iq8SPAQLEA3r%84=cM2*&xNH6-n^9zE={vhq_hAIh|1L|wG68pbTDC)`<VO82
++zKOb6;*XMUx-z#^zWCuzsDW)=^&8N;(y1lC9&P}3K1x<`T?c6Pj22G4U>D)Go2F!tz
++zsJBA{cGwmd%7%X<rF^|<m9;gUT4*?YnQjrd47cHq43lt0h7^e@xGqDQ#59SUa7%_6
++z5?K<nB<A2czN+j-2+*Tf@I^B5)|AQzZA~*1@U0Br!S^z}O^K5GP?ji2w;wwkKeql7
++zKS{Dmo}SR{lG!v2TuvFcrCPUIIL^yTl<P*bX5zCU>1LzplqgSz2`WGKD(^@L-#ay|
++zYM0!XwH<WNe95xZ7ETmbZEthOQ_s6kyz5PXYxrk&8UH^AU=-ehD<HsCw0h7#O51?;
++zm}`%tJrS~d=rCM8<$tG`csgL;z~3|z$1^*zGx(cf>?~u?GWJ}k{s`*WBPicNPX@mN
++ze*4nDgYdIE<Sxp%>+FYll(IJf-i7z@E5JQi=t}+-dVXS(FL9IKhebbm5l8pX==6=>
++zpr<pn<a)1S&Na8fh&RfwK-#3c{{no#1?go$#<(E&`5?V4ND6bNB0y3;$Pzrj7z+|(
++zL8dt%-l;63Zv|HUB0E8#7y<PLfMzf^8v*2X*4oJ|<QYFX`*qYdxTt+B>g`C>P4qqF
++zqxP|=^KLF5HQj}p#^!9Jeu!F*iyCK97f#*PEk0_TMZJ%?OA)BkU8vK{u5QC44r+o$
++zU5P~9LEmF|!b454s2iBO8G-6O6+zUSE|ND(9<>4&Rb)|fr=mXPqlzr*4(2|NK%MDA
++zoncUSxu{7NwQwrxM|{*Ii~0<6ixH^VF4Qc8`izSzv8bP%idy8ON-XLN%vB>$XS+~m
++z8Pt!t*Q%dIt(^J-Jm+7leirorbM*++xvpz97kU9i+^+WD)Q=Ezv#RmGKrZ$w1NmZ1
++z8O#^^lymt%VCWY(KO_et3Pms+$8a&B4CjlYav@(FiYpgUCX^ABqVgKbr1CmSNf|}i
++Yue{+Edy|$S1eQVn`h)2C)J6O3KY$>uEC2ui
++
++diff --git target/classes/com/starrysky/tool/UploadFile.class target/classes/com/starrysky/tool/UploadFile.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..98ca59e55bfd3fa6901dd78a778006c8cd3c6a93
++GIT binary patch
++literal 1949
++zc$}40ZC4vr5PojnHY_WFg@Du|zBfQ&h1yy}triM28eVLmNU4@hauXIdyX)?ag-@R2
++z=@-B0@tc3ZudN?~wdeQ){81j~?xr>^(Q`;n=FXjaXZD$AW;TEQ{l}jGX5p(C!-r{H
++z?ZHRLr!lYM8b0pDb$pV>rz&n>L5jsRZmL+qvOHNy<CfeMr1(t1=PLSTjG|mu(^!-1
++zqJni5!`P4>Unsb(Vict`HWh3sxWkaTW;vF)&JfQ{&^EE?RyjkaXgPeX*(h^=(=6L$
++z(Ti@ywC|X{CHHM(LhM@s!+5dcHjF@+zJDAX9vi}SZDY%`U9-Au*?gX1Fxr(Yr*88N
++zt0I~{xo_u+2j;h?VVh3fC<&iV=ZmgiHv&)UHQ#LT2d;l;Jm6)c(X@r-nZ7VqpJ`$6
++ziPJF{7)8%U2bOCT)|ZYd+!L1T&{?9{w5l?pE`Gfg*Ad(io5vnS=&>4Rov#rJ1}zY-
++zzhR2~+pa4pNX?Q2%$^x8xq1|Z;6;=~ryZoM<aW=_!EU!?k`g18XYT9)8Pt;7^ecQh
++zOf&Pmm^1Q08eYdZ0~Bm)_!2ur_^g7v8g_9{!B-l-#(lEQDcI9sqO73;qMS`D;2LVE
++zYuFDBh6W1<8V+GIjJ%w~LesLV+-FD|VI=~(-he}XGgOdg)s?6upnDozc+_iM%C6xX
++z37B1C82jH|W$1s7V!eF8E8+!H={OL)LDS+kMQ4j`5MDv3x!IWSfY4!PP-FpwP5852
++z8edMIamG4POe<Jwc;Yym-@6QbVce#$D5<T&O{$}BI#st3ZS-7wTK>I2VAH~lATSK&
++zx=vI7%QhL7d$w8OH*6~0)oycqI>BzC`|4aQcFvq)IaPkNUi%M{3N)2LvmCTxWOIeC
++zVN<5(afdo=x?7M_rgo#rwim=#P@~tL%P^2Db~ag9qKp@n)T|tC`a}TU#Cdvm%TF9k
++z&IQRgXlKw$BZB1Q3D{#&VssTqg+>i;g)+Q=xA6|GJ$M)IMb7LpSrxMVtjAV=LtIa^
++zkeqsg6vHn#k_Lqgza!m3kFM&m7JAp{SYya1M(L}+(n4QiuZ2uL`4s&-Cm7K676zy3
++zrw@@BO_FFKyE^q0!#nLOlVrOX*-tR?1h2;ME7W{yG}Xd6`Ow$sq3jVs+{1VHp8iOp
++zl=A2!nW6j#&<h<y7$i=zn8XO?=+*+xk;i%R87HqXJS3KWAkUwO1WCg!O7$Tnd;vM4
++zXA<`@K{8Ih+n6FPK@nDPk+h_w1k<D;)Mi4K<M<KplPyO2EO|xzU!gT7X(z-ll7At5
++U>Tq=0CSPio@IhF!%i-?IKUG@jmjD0&
++
++diff --git target/classes/com/starrysky/sys/po/Man.class target/classes/com/starrysky/sys/po/Man.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..067ec22c51bbc14712ecb0f9dfdba46fe40c5cdd
++GIT binary patch
++literal 2069
++zc$|Hc>r&HD5P&zmB%ws8g#sd%f=Wv%M7)4pTBIllmVy?U@n>i=C0LS95**R-A$${^
++z(K4emK7bG9xSOPfhExCSp0l^}?QZht@6X==Fb{7c5Qo(+=!Yzc9Emj&Pf4tk$P2I$
++z0TEV3ct-j;iA@o<NWTzaTZA1EUW!m4!>#~D0rmvg=OCa}IOr>!DDM@yrs!39TesD!
++zYOZh)(v?${gV+^k$u>2;ioT$werV6j8%9l4bn+=xObgeK4IQ<hR4S%wSsd`Iny%S7
++z3`k8MV)+fDg8trurmMxX(<9Y9P>yQOgGO1Y9V(_qch4BIk2S0@Tqql-vSll#d2YQs
++zm#uS4t{d{M^KiJT+S}MpJT=X1C~Ud@ffU0{NCFlpI!*Vtm1wmsSj~WV>bjpw@K~Zm
++zvuTI8oDOe!0c{jbf3w6ojgUf}gNT-WcbuZtIz}k2IoybK<s#aKi-h))ab}j)O^t>q
++z;+*E_Q3(<-A;BOFNpK5>CAbYE5{%MyjIQG_%)y|)!Tgz4tEeW90qcCyDp?6$!D|vF
++zter{F_mWN0{Q%)J3H(N~&H+CNJalCe&Nq=wa?p)NmzENiAj82>r_FK@y(HN?I#J6u
++zF32%yhFntdJE>_O-Oq$q>UCAe9nZ4%bIs&+wBn0*ANg<mNNS_A8z%6dj05f%cnHv#
++z@kb8Oq#cdJcJ!!cAM@<vj_$!c+z!e~yve9J)Zz36aNnG;J1BX_7=gPeB{u->!4zr^
++zl90NV{2c;ceaVx|<Y`EI$vKP;P;`3c2LvvkjyTpS%t<;G2HYsG0-dN|dUysh43MB7
++zB+Uewg*g^T&<`?)IdTUO8aO>H!+i!w$Pe;>2{Mm%21v*cvVb{@9YAQ~^zcLGYQlby
++zWhTfY_G-d@kR0Z$bpRRlR`Zy-8r~0*XM!xSSHt^3HZf<b1IU=Snnfmv;0M`Zf;?e^
++z2!4<v=InI<8TUYzS|DFAhTf_E0`ctybj2bK=%zoY0aEOSdk&(CCL7Qb>vatwaz@>A
++jn9eudGv5k~xdx$Wh<--VfIfe#r7NvgTdgiTQ7iud$gfJC
++
++diff --git target/test-classes/DatabasePperationTest.class target/test-classes/DatabasePperationTest.class
++new file mode 100644
++index 0000000000000000000000000000000000000000..25f0ea229fb0e77808a4aaaca994f31571870477
++GIT binary patch
++literal 986
++zc$}S5T~8B16g^WumX_s1uu||7KTB0cVoXdhCIn-m*&wlm_vtb%1KpWsb{10qgHJ|d
++z;&0HPAsBh^2lzke&oJIys$#4!KJ47Rcg{KY+?o0I{qQS*1uPVh$GJSt<H8Uw7H|o(
++zc?{w5Fs|TgnqKp8-NOxr(uQ!NCStkTl2$lnbXD3N6-tJCL1-c#J7H}*-fr_0#pB~$
++z{^%dHMTY6;iFPWI>nc{Yrd-n6xC|0A+z*Ux@VI4_Zq%)a<gT&Xye5T?d0m9g*ftlx
++z2z)7VW>;CcL9&AnlveH`LtlArouPl(Y>>&ZKxw&>L^WyG1a)JW2uvuN>%yuu?-u*r
++zrlR&!!C$`DWb8<NByQ_)(;BT_kTr(!%;;7^EqNDGsG7uv^07(<XL<_FZ;2hjQ0X~k
++z?4*^(wOf)eo2X^9)T!*ij%X&NSO|@-tHu*uH$Fx&=ArCk4i%cH^KQTMX0P*luk-T5
++z(c!D3_isJi^l=NfeH1Y4Vctg(JgwYeDE73*FqvIoHFK3#mMNt{Q_H+5bc0vhWHF)x
++zHVMItLAIj|UnPdCIx9s)ekXgB8N5{1H8t_d!3jy1c3Vs@?CyWOCYrrGcPy7U)#QQ7
++zZsLy?&uUvTbkqW~^u+V@{uy%Vu~76W8>BcwF-MV(mDX{}I7LQrpz;~)W43*&3kLm7
++z(CQxpFp1NdXpzXdjQlhc14^Heo9H`0KgG&E2EJgB;Q-!my;1a~I5IYkDa@SEEp>H&
++VT0E0+rn0q^Rnq~c>6?jh_6KB@|CIm$
++
+Index: target/classes/spring/spring-mvc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- target/classes/spring/spring-mvc.xml	(revision )
++++ target/classes/spring/spring-mvc.xml	(revision )
+@@ -0,0 +1,59 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<beans xmlns="http://www.springframework.org/schema/beans"
++       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++       xmlns:context="http://www.springframework.org/schema/context"
++       xmlns:mvc="http://www.springframework.org/schema/mvc"
++       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
++		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
++		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
++
++    <!-- 配置自定义扫描的包 -->
++    <context:component-scan base-package="com"/>
++
++    <!-- 静态资源(js/image)的访问 -->
++    <mvc:resources mapping="/UI/**" location="/UI/" />
++
++    <!-- 配置视图解析器:如何把handler方法返回值解析为时间的物理视图 -->
++    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
++        <property name="prefix" value="/WEB-INF/views/"></property>
++        <property name="suffix" value=".jsp"></property>
++    </bean>
++
++    <!-- 配置静态资源：default-servlet-handler将在SpringMVC上下文中定义DefaultServletHttpRequestHandler,
++        它会对进入DispatcherServlet的请求进行帅选，如果发现是没有经过映射的请求，就将该请求交由WEB应用服务器默认的 Servlet处理。如果不是静态资源的请求，才由DispatcherServlet继续处理。 -->
++    <mvc:default-servlet-handler />
++
++    <!-- 配置开启注解 -->
++    <!--<mvc:annotation-driven/>-->
++    <mvc:annotation-driven>
++        <mvc:message-converters>
++            <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
++                <property name="supportedMediaTypes">
++                    <list>
++                        <value>text/plain;charset=utf-8</value>
++                        <value>text/html;charset=UTF-8</value>
++                        <value>text/json;charset=UTF-8</value>
++                        <value>application/json;charset=utf-8</value>
++                    </list>
++                </property>
++               <!-- <property name="objectMapper">
++                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">
++                        <property name="dateFormat">
++                            <bean class="java.text.SimpleDateFormat">
++                                <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss"/>
++                            </bean>
++                        </property>
++                    </bean>
++                </property>-->
++            </bean>
++        </mvc:message-converters>
++    </mvc:annotation-driven>
++    <!-- 上传文件 -->
++    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
++        <property name="defaultEncoding" value="utf-8"/>
++        <!-- 最大内存大小 -->
++        <property name="maxInMemorySize" value="10240"/>
++        <!-- 最大文件大小，-1为不限制大小 -->
++        <property name="maxUploadSize" value="-1"/>
++    </bean>
++</beans>
+diff --git target/classes/com/starrysky/base/service/DatabasePperationService.class target/classes/com/starrysky/base/service/DatabasePperationService.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..83100f73f03a285f148813f77d4ab471943433e5
+GIT binary patch
+literal 297
+zc${^O&1wQc5QMA!TYnHF_uP|<gLvGKlL&$#!ahMe4D0ARD>Jjg`e+_}03S-6RSyzL
+z_ocq3s``96o&b!{i_nSCCG=fs<jUqoAGApcZy%rYHSbvzUT0#iosS8fM5l&*VHIKa
+zV)%OEAKpDMW0Q)++t3<6U4EBqC4KxIme5V|!b&yOStx#=u;(Q^wb&`kUgsuJcCV!x
+wR%yam=3C)BTU)wKDJrLMcZc{dN*Mfo-69ZbsD>JZIvRnSfof<472Q<(3MQ~uM*si-
+
+diff --git target/classes/com/starrysky/base/web/LoginController.class target/classes/com/starrysky/base/web/LoginController.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..73caaf426286acc8e55479572813c1a9917748aa
+GIT binary patch
+literal 1508
+zc$}S7TTc@~6#k}nN)fEwy>L_90<wrAD3yc|B_>4;CHUZjnYKe2*zVNXS+M`WpQDM1
+z!3TeUKgxJ^i=?G}5MSo(xy*OIbD911`^QfJ53!L(8go79!F&n}y?B7d;ILCz>LvGb
+z3XhU_oWu&lP*u1>bLXwE>&g>Fp-*I4Ff13!s%CqJYu)gU8+M6%!uFb8d%N46b%wEB
+z-!-x(_N6CFj@WcvWw?>b^%&L)N>^>KuBBT&(7Yy2l|Hshg1er5z{^JIhRrW7*qgpl
+zr&5aw!6x$3m1ct>YUTDBVq2<04Eqbx6|enTN$5RJ*%-0~Rp!n<*D}!0jWKg5DZSOL
+zo>Nh>3#uyJE#(@m97kwMm#nJL$S`9Sj`#_;eIp%vhu7D0P2J&c)h?Q#6pD}5cs-!g
+z9!i-V=^2KB7Ds_B<QZ-!+Nl2}yV4Gl?@ZTXc~d$PWwX9PfZLaH<o^pNK<X*Vs>_Y9
+ziOnnPzhJsHsr&eY0hFX$X`TG8_~;AIP`-NeYW##dKGBIg&8Z}6!W^m!!|IhW!;8Vl
+zwqNWqq>IYeW${u5tslI!2#Y}x4D(%cct&WU3=Ph1S)B~}F_1woGDOn*P!q17#FGqG
+zv6jJ8JfoFp+9)!Q=Ts5V6rUJo|7|yEmoB%PVd<*xlvo7MiJrdIIjG=$B@c+!rsL3q
+zvT~iv+t;=e)XTb0U~5+ADs)<MohD4tZz@f{Erv+YI+A^)B}iT)86insrSm#zHc3V@
+zKKC8$Yv|6N2ZI7`(3xolU=Twg=rBeQ4KIHt86`PA_YIM3^bD~Gg3mL=8FuEgiG?#H
+zqj;B1eW9pmh@3@?&JiLuN_b<Kz<8KtvWaw_CHNX8FZGnjkK-osx<%Gul1<<33*Q~G
+kO@z!R!$L>NGez3;doT|(xJy#t9%jjQKa8_38j=J403<z?*Z=?k
+
+diff --git target/classes/com/starrysky/base/dao/GeneralPurposeDao.class target/classes/com/starrysky/base/dao/GeneralPurposeDao.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..98d630cb5a2ebf20a188a57c0fd9392fa8a58ad7
+GIT binary patch
+literal 989
+zc$}S3+fKqj5S>M&TtpBRZ$AJpHa=-mVj>U?30@-lV&cQluC-9QO}i!G*L?5;{3zqJ
+z5K=1-*xiSjGdnxy%=!BM_ymA6I8oq8fnx@FLv%cjk~7d6eO*jcU!v#D{P9d3qR&-V
+zs5ji<9@-Cq=L(-|&Hf0dsM_e5YFh}KqoXk>8{&~q#FV#D>hBDi>rQ)#M9lw2>9cD@
+zdXzWIF|KTz!NvcS1=6zBzU51jRTx;NgEH`Fph!8U6~njawqpAaq-Qy%7OUJ3M_iZM
+zC0*JkT%kSd84S)-kP{gVc}@3oO_>ZTbCDh47?!kzv#dPf(B^kIA?vCpmtB+?QeRu#
+zriE&a6?XUj6w{j*=ZvHfXI#d3A*47Efv1zKu%rIllrD<Xa6E&?3J(oTnn?XboD`H}
+zz#s$RDP<XKKo)@FCgh^1EMk5U3s9u~5_M-_i*OmXm$*W>nt0zy;2P{M@gCv*1g^(1
+JWd~7q_yd#-8vFnN
+
+diff --git target/test-classes/base/SpringTestCase.class target/test-classes/base/SpringTestCase.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..e9c40c3097d6708f1c4ae53cb50ff219c7c49a05
+GIT binary patch
+literal 822
+zc$|$=TWb?R6#gbnv(38N*xJU{Ywaxw*hMG^trS9_h%5?ijSoJ}ZYP_Go7pluTkFsA
+z!3#e41N>3Nv$G4L74&7!WzP4Vb3V?G%WvNSJi)e$23B0G;*N{ExYxui?mKwk;2}dJ
+zN#j^(hJ_&2v7aTQ-H9LA+&=w2lS-NchM7)x$WR}or-ETVkV?GFr=id%JWPZIM?4vF
+zEsMBH*3DRE3`;@CGvObfX{q89k(mL7#O)rZxsJr4ENT~j|K6GKbI!1Glq(~rVkk37
+zlzpXA!;MT8(LOEbwXl)qQ}I64?|ef9ev~RBE{s1YEt!#wb8V5-xS7zf70Y^*@GLvy
+zX1rHYRg8}-j-88X!mw(4O>)x0*SS(c`!v}bX~sl1d(M-bR_OnGAj_~@N%7)!5e$m{
+zN0xKnLldrpH4l%l?qI{iCbm2{m?MGyA|k`{|83b1GoyKA%BCevB~QUdO0){e{e+VQ
+zufmCl48vS3jGd3#ce=r^0-L1O+kc+SA+<>L2hy0JL3LT1oh#7p)nlu#(OEX=VCis*
+zm957LMd-ao(E)1Y0j=H_uwL&oYF{z)3H6VZtHGn!B?~MOei_%v^U8YMz`U(#+4m+E
+V$hOH_r2kuQ!7{=uli!YT`zL{L;(h=C
+
+diff --git target/classes/com/starrysky/tool/MD5.class target/classes/com/starrysky/tool/MD5.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..92c572ac187e37b65cb07661a35e7e33456ceaa3
+GIT binary patch
+literal 1390
+zc$|$?+fvg|6kVqcZ3)3*RlxfVkXwmdy<aHcWo+w1)fx3Eq{k9ylbWPrKgBQLg$I2p
+zj?VZ2`cIDQq*WQLj(y0!Wbd`tUgxA=zkm7yU=|N`9L7`%(>k)4Ny5~jsra(amvbsP
+zuQCfsEb7p)l*APs29|UT;Hs**mc;cWZU`i9I<6Dm7Ko2eJQL7Xys{KX=N(rT8?|-m
+zKe5)U%w+POZB?IHzN6w!QVTbnKwvm;do?o%E#GejTTL_cysBAPT_n7*=GsK`bIn3|
+zQDAI5ziGX(%&O&9%u?t(Zso?rpDBUVx)sQ!1?ejEpy8S|C$P=ja%pX8p##Y(K@J_n
+zK-vx837cloD>dwm<!Z%axKUesYs-4*crMGw+NF+XK6Qgez3%y;EJtV@y1y_UguYt2
+z3$b`j?Q#0R(1HvCt0GsOiVQ-fsw=l6jDCAV+FNxi2(~@HEO4od09_<`A<#>RsE=K}
+zUbXzw*Gpc*x8*%Y9YBgI&!~0-85|)y#!1{Xa0@)r!S2Ed^fba(*{ez1F>n{l269+2
+zu!=QG^nYR+xTnUA{Ewanj^l)Z`*=V`-7kv3z;6v6uWw2_6gc@0i3R#9GJNO~%C)J(
+z?BDOzU(aaZU<c(SXs#Jb-s!<^h%a+I+H!|MV*F*Uosp5Qs)w0wmnL1O6P7~D-g@F&
+zif}@{Zdg^$IktaJdvzW^&htY(4E2jcsI%qsC?k_r(DqF3L42SS!!bS+QPRL*^o$BH
+zgkjoVrGBUR8~+kC+If)|g-q-t;`z_ep6{Wjn4Ox;Bw9$ekZPf~u!DhOwuQbOq?GNS
+ze$PP~S&cxC>@>%;N6*m%*~Z9MBTt>9G9+>yCs{p&QPP;8KTRT8Qkli6h~{mQ&LGV<
+zr?}%Ndr#vGy=>&2rAMMTM;x`}EH2<8*U+fI2y-zmHj1&%VviWdXw#D)acHWA^gHxu
+kyYby$`W%YjE~1ak{cKYN2HP#T6pc{cI6WorMASF=1Mwn4NdN!<
+
+diff --git target/classes/com/starrysky/sys/service/impl/ManServiceImpl.class target/classes/com/starrysky/sys/service/impl/ManServiceImpl.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..536e1528a51538e7c8bf428de86ff51f0f7655e6
+GIT binary patch
+literal 1881
+zc$}4#-%k@k5XZk;poR7n<d=Y;pnxqDRumO2g0#d)QZ)hP!MCMd%EI-oxw}I8Klz}E
+ziNOcsvwxIv_ImuV?UnG*nccgY&(3^zdVl`@`~_eMn{gO;+=B$3B(RL9F+9`$xi%}>
+zywK*QHW_VJV|W$AS`6z9(Xy~Mh0Sm`U$D#E^@QWp+@l(IYc4Meo4@nlXBbAetCpwA
+za#y)(&y*XMWqZO?w&gOc<ZY+K-HM~E(!L|g^2BzI_?{G&%lAdWvz;0j=LvkH>e(mC
+zkwwBrSCyr_HHMC4YL}riXBQ<yZ(dpQeYLzNosWV}W9ZM@1!3+AN9ld=u+uwGbUbfS
+zyDObzRghejE2eH@r@r5!EuGrEudHIWwpFC$Wd2Yb3vLRl#J4O@mZXzOwIEh}F(^5r
+zC~crc7DG&PH%yc2O{VG*RZp2buUwB__w1;WCA_LbwJ$aWtcD-DrfV+RIY$bQawn4E
+zp{dWLCEY5+Si2^O_Nh|zX|&vyW&4<x!!5-i;*GPItndm4)PAzDI~~<&(u$$4x%1w-
+z;5pkWDm?=X>2^Id1KwUE{0brCJ9gD6$Tv!l(7^w*v8YK5$(94{deV`$SF1=Kq+|^A
+zW5B>o^v3Yoz$i8tM#4@vFoC-UrjRu-qs^=~Nu&&<kz-i6))<q{7kBkx?@$&<`sr}Q
+zMK;5DyFWX_?By}2qt8UX{D@(wRUi$*bU5JRQb~veeYt43=oir%lJBEWT9o`P^4;V~
+zUb2I<<K!9nuDKsz-)IrRP!J4C9wuwl18^H7<msD*u^>51(GeXt_Z^Y>Q*=b|8=YSp
+zD1$y_xE>i$^y&`A{ln?{=$+;*2gSrS?-X4OjjWMN6~zPAJwIlWo=xF?P}zD=St6(`
+z8o`$a)cB>c66a+l@Bq_(88e}<STk($3fL?jhQPX;VbdY7Gr?%KLts74uw)2q4)Z=N
+ejfFt{Mp!)3B!9YXoArxWq#yTJkIv_A3HS$-YMvVa
+
+diff --git target/test-classes/ManTest.class target/test-classes/ManTest.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..03519895b8cca74cec6af4925c6e2e08dead1fd5
+GIT binary patch
+literal 2845
+zc$|%u`*Raj6vw}twB2pGKpP}L0R_d9CdgU@iWG`zE7B6$(v%|Q<u<uVw<NoDcT-3e
+zL3}_J#V6wUKpFkn$1s7yjQ;N50Uh`!9M9cs^C&6fOuP5qv*(=e=bn4+=AVD>{so{7
+z-}n$lUp)>WD&e3H{TL82=tC{~d^m(5K8w{Ogy9Ap#t3&fBH?wuI4WV3kH;h&mvDl6
+zp7h}q-rzG;!WbXp5)yo5+%w6;Qxe7{Xc8tQoaWZFgp3H?hYjd!fPqPFd{crc!t$Yo
+z8|{KID`HB-83DeGs>hf)rNx<mmT26_D3-07X3jdDQ>>h&ScR9$!J=P>fYn1;-PST}
+zM6<N9G>hoEVXL-g=$3$;QNv6r)}*QFsidi9*crn-t&A~Mx0IwBw+%C=sKo#!lC_O9
+zn#mHBwr;nkYj&pqZ?JVlKux!iAgX0iO=tbt%osC=RZ<h+j~a0`J))W#U%SQ{dt4*=
+z`Y4eOGs~uY%aWR&=*o2)dP3u3l$f?Fpt;IECk?(u3TkxtC$dDMxOt>Pp5BB2kxwJ(
+zG#L{{x5-qSIn%?FiTUXe%NSEM^|G`>KcP;kO4ioWN{sPrOXgj=R69OS;AzdWxo*iZ
+zsyVv8n2|N(Y@fyx$?m?ka5n*=s%5rpW-`OhO){n1$V?hK(|MxWDK(v?9KN`rC$&_s
+zo-|~<h&B;tW#lkTC7ru6Gxx*K_wVKBZv6W2x10Cx-WBndjJI)4z^cW{CE^_!=W#*C
+zySON0GhPt!o{V<9&m%ve(<o+>(SZ-C90kMN%!Rq{XB_ixT;hJ$et&TDM=}Tyre$2l
+zIT15F_eU~5#uch&+t%$eKH)gtN7w(B@hQ&9*n_KF=`)_;yIYjR$>5!y-b$OL2-Ql^
+zUmGnbMon0JA)^ylDd557pB{btixbdPD*b-d8mDs-@wtpI@TH8s_=;oC%s#qwwJc<L
+zDI{W=YK|Y7h_7XI;TpAxdsyT*rdmviIp@SJ-L#~`cB0d&o>F2tI<yQy8(DH+QRo8A
+zPzEW&j@i^=nT~n6N;Apuw04?WdPOi=meS^G9sCY8m8`wG%~H&yD5o0+k^%z3-qz@2
+z9{eU+%#NfO_o(uoC*JsfJ{1Bs2N%C<t&ewn#Wn`UCRp5d)Rd|iPrAnbV3qVDZL6Q|
+zN=03|3?t3>XCV+AEw6@acdHR&XBSjs{ypcD$YXGvt{Zh4FI^&GGK;=O>z=gzQM&si
+zN#RQ>z7f<5Y9g^nF-8|V6MC_<a>LX$!G$$w9i<<K5dBgC0zCZ2(zu0Ibu=n8N;J}!
+zfu37wrO+tQSR1+x;SZX4@RI8c1h9>sa=`)HvBOE)PQe~0ScjKpK<H0+{N6lj?xFVR
+zZPZ1>jlMe&^N{F8=oae3v+#M4M?*;=KpBDcgtGyS*of8GgjNI{#XupetJsKU?8M7u
+z+t}rBbQC%IiGwq)<s33`xU#hbF^eS&l$Vk>D3?T=UqhuR?QyNESgEtSsMALy_glqv
+zmX>s8u}r9@v4b?)v6ARZ8mp>m>?vwocWc_iH5$un>Tk-!AFjEB<#{|+tZ>-BB9B1W
+zzcTM&xz%3H_uO3KX+b?bJBep6)$<jqa0E}&muwTdsX=<k=T(~RE31A_vHIJpR==}I
+ze8VL^z=_uoF=wcoFFkRuE$43XKAZ<%=YT(50sc%?@F;;FB(Q!uq5*1_L4r9%U_%5G
+zqhlE^13%z`2WYGYzPAW|(FNbd!Ph&b-aw^(HX1I_Kj*=buvnbBkcD>}7jQO{0x(LP
+z$Eak-sj*HF`$^J2RmQffSkw?5LgX>Ft|Hrcm#v+%J@2r!5Zk6`SaS4(CAMIRjSARW
+t6^s#Bl4Mf^Hcns~VN8^PwHLv7NAxTJ^H6v2=RU{UK-Smjf4_y^{{T_~h;{$~
+
+diff --git target/classes/com/starrysky/base/web/CreateController.class target/classes/com/starrysky/base/web/CreateController.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..a3bbc2123d89d876b31a84938e9c4df211d1a80f
+GIT binary patch
+literal 2992
+zc$}S9+jA3D82_Cl&8Eo$C8a=6<f1~-3kxVv+X_O30){ryTI8a2lbogto87Q`wk0Cs
+z1@AMyISxMf>Wed8hA9)6adgHRXZ)ko@9d@_Y2r-bp?l8x&UgKt-}j|||MTEC00;0@
+z96NEg8$0k?4A}(EVN$_V99=jYLoR_0cwGw5cVikealC=q1TNss1TNx|{9IOWC5E@8
+z;@b-5Vt7Y7)MLoUP>A7R3`J?r70k!6O*$>fbwPd%1y>bZW9Tb!i#xiR^PGz9@@eiY
+z8U@a9Fk7(8nk#h2sk+yyT3&a#<_5RgL?@e3hSYh_5=NQN8m^Hy`Ekp#g)R)+av6rR
+zwo}sFiep%%c}FkvCEK~C<+*OT+Pq#6wo}#ghJkk66ZVqf@FKa5jv1CAjxvPPnOTO&
+zxLu?SH)IWqPkQA%cV={o#*oa~1>Kz09Ydb$!iZQfD14?<Jxe^VjXPWyeB8E#W1A*-
+zWW17{HC(}PD4o5kFY1~n3{yL&S4M-Qsaqv&TF6R9GwmV<MeuTk^ktH*4j5RO>L|;*
+zgpe6d5)>yVW%8XI%^OzHcN8)GjCz{<$s9>%b8FSr%1Y&jT4Rs32WXN^<*)LB7(Gf3
+zCsxH6dm=y5Q}?t{vUK4&l+ESz6S-L<;+@$g-#1SPHWTYSzwU8YPzII2v};i}JxXv>
+z!DoVYv*}rG5gE!{EZ9YcBaa=zH>3#RiIX!7yIY$hr%NA#J1t#uc+Ej_x>#6wbXkRI
+zmkf(|lAD^Ic^p6WWc_r=Pkh?;oB}^(NCx$-ZjOBtdWM0H-d!q&+kyzFHMNt9=dnk{
+zF6<^cyL0mfH;W2P6=hJm8y|7vwC*nWRFC@)FlUip6*ej=uESB_su1uLEUH+-4Fy#d
+z@8YI{_f*`%`zmhZ1BP`i9Ai*jZW58^N{;Q3qYv>B_0VemFhIq}xWf>0=K=!))UYZZ
+zt<iuMDn7xd3|m&)p70E_$Q|N3%_^E#1u>%HGkmV%3w+72ca2l0C98n^4ErB<1k>}&
+zNl6cv?$9?hI>UZR!|C=;YnNo&MKsUkKsr&S#EXWc55un2GcwaYqM8w}5>4a?v}GoJ
+zfv#a|Im%H`rrc*?ZwE2aM-on$)~fne@}>ILw}z$%HHeft{kYJaOgCqCrY@&o$#yBl
+zTF~7|ena>_I+qAo%Rg*NcZ4Ne;&i#EQ&yeSqttV{>Hbe06fIV?1BOs`ZTQlCl%^NA
+zXebSJdgwM$oum{wChQf?x0X`3r9Rz3|3m-`A=$IEK1-)4t<TXKrj^>6zI*AU(Mr98
+zuKxRAztARxbX^(fMFz63d<FDlz;`-`Aw;Ax`-avS$^PoUhfp$HLnMTU=(>0x(aE8t
+zGFU?_j0^H|sD|zkMk2o=o{B6Zk&4uyGK_Skx@uU*a2J-`t!MZh8%Cn3XtJk<jUoJj
+z<Xz+%$7Js^HhqU<e!RZscq2+mN%k}pgUIqIRa1%|J`n!!@7Dv#%`yRb8c1%br<vUP
+zvyYA}|0w-G20}4GIQ9~T+X=-Cp?H80%n^DO!tW+QaEG+NrJElKnx6=m2L#QZ*yqD`
+z8j63vk1$rq>I(MLE-K-wLn(I${1=eBgLr|!@5Md5NU|{b_#TIFm>@nv_x-d6-iFCr
+zU^z^df&Oqq|0U8J@t<+jfAy`TGe)PEFN3*M*D+c-Ucqskpj!e(zUa9BeRbtsX~c%e
+zA&`;a4f-(4-9Qbg5H38#HbVTV<kQR8K1hGdc;*pu>wUvv#3_?L%0wcuGjP_ZI@72+
+jQ?L3+gJzj}U2Cb~q+i3j5M7^Y)Dgmj|2^Fx{Tbjt_G1m8
+
+diff --git target/classes/com/starrysky/base/dao/BaseDao.class target/classes/com/starrysky/base/dao/BaseDao.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..2006adcbd4b3ae9655f2786836aa5154d1bc96c2
+GIT binary patch
+literal 657
+zc${^R!A`<J5Qb+EDIf@ffMVjw81Uf6t2QKpF)@&sh;s0@bSo~Fu4xw%Ud@9K;6oXQ
+z78_Ea$)@}LGylJ{`}6zt4FFegV!*Khb%eA~9na?4MyND;V?N`|;qHh%4#&2oZ<?<N
+znZ6vkTu(jfNj07afk?iWPZ9X?LOt0NHM84XTki<vWzJMfhxMc%rc~pqdC~e$3hhC9
+zH`LywE86o1fpETQs&$DxftkibFc$V($3ZAHn(<)}YHOlNwiZ<i;kg~<3aO=X5ze+B
+zzZzK&-epUwX?CyIQwAHf)~1VP`)cZ0_PuoIiE?f3+jm@DE*cR|Ej3}j=AJkAKjv&m
+zMJBjn%PxdsJTQfTkbuQ!BoTHXNxVyxfE2M2<1}O<&Jypf)N{mn*pIkCT!e#&OT=Y3
+PjJQH8+*P3#{Ez+sB1E2O
+
+diff --git target/classes/com/starrysky/sys/dao/ManDao.class target/classes/com/starrysky/sys/dao/ManDao.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..f594d2a89c39c6e574ca74fa95879d8f47510aba
+GIT binary patch
+literal 273
+zc$|Gs%?g4*5dPN6O}+F0(Id2UHabKEfziPy7;O>F+}PE?SL@IN^ia`imndjp<{O6j
+zejd-;9l!zs$C$(8@EN=~&nl`LEg2{(=t`obDiepKkZB!8sX7Z&lh&;{wIU%S#gUX)
+z+hs#)`N7y#waldcrkK`<ixPXP!d1xN$Ewk(+~%b<4D8ja%sUZ==`XRfdjBv?zQZxh
+V{-<*p7#!OJbmd^!&k@`n`3sdpPxk--
+
+diff --git target/classes/com/starrysky/tool/Transformation.class target/classes/com/starrysky/tool/Transformation.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..c5ba3f925ec325b2ffd4564fc17cc6d6a0238a7a
+GIT binary patch
+literal 2443
+zc$}S9TUQfT6#fngnPeC)5~Id~2B9_(a1<+*gxZ#iEke*5gi`Efk_=%WnKPZ7(DG7V
+z`X{<ppM3F|K1A)s$9Ap$sJ8ngA?BuZm4|)K?8|rd{`Nj6{Pp)QF9F=Zw<?0Ttzs5&
+z1&ILW@V<gOD!Osoj}PSfp%foUF|T3)i!xwI#a(>dgHN!m;vQCdu!^J<Yx48Hf(I%-
+z#X~<*3f38XbCzw1I}D!a_y&V_foDyI{#DC1*Gh%7>8=~;JZT13dB(_Z7_KG1Yf7)!
+zwTcX*s~KL<i^6c-!{Yv-E;!HY>#kuJceq<HgvIRyL!e+d>wMlcY=*Ju>Yj06=p|w0
+z^`zk>s-Jno&gu8lduB!?WHyY>2sN0NzRQ?S4bDSwGSOxn()0A5Ot%e?;aqbKht5eI
+zx0+Gr8iG^8wd`Dn{O-t-QdZ73M9C$Ld(r;|(z)<JnrK?*Nm*j|fsrrK0luOsgy}L|
+zY>08qoje8UNmK0dtSo=uJZvt%b~uCIak*o<g6x;8c6mxse^65|n#GK3IfA>=S=yHE
+z9bWH1)p@?ACYPYo7D&So**+CpP4SYOG4EQE`(X2+T$8~X&f|iDM;bP;NiH2GK*47k
+zw(vQ_`PNeBOIAKBi5jR+Tx7|0xf{{2jmJ`aq2Wt>rQmA~2GSZb$SN>3>>#ILSA&H;
+z1^XKE(y5@q2G`)=8x1a~#(~zRDG(Y;IAAy{WI5Eh>4tL|MozsU3|G0E(+$VS?3y~c
+z7dY`JS(Fo1CH|4z$wqRglsAO=>LN7`P|KB&^VE=V>aZxxg1jdsQSYtAsZ*9Mh(OaQ
+zP>Xzq<Cu1qVJg}_O5<&+8s&)=|C5P+gTG(!s*0$KwmT+Hy5F23gW|}qJkb{Flp)pZ
+z&zWK&Zxo5JU=wmhnK&7o>YOgy!sSJWvgI^5Jrp`$pZ{pIEqMHOSE7TO-W`H#zX+7q
+zmFW2Cw`KT^4#WhZuNegzhTf*eQyCd<3&XODEAmYUb?OY=9}mUT@SW1P`Xky$?whV9
+z%<7ZFFw{hD+k<rBbv7C@%Rb=yl=y6i!?*uaJ{Z9{`q7hr9x(ZAkPOq8PAj9ed*T_`
+zF>ShVk)*Gp4B{=4TGatV7^XFVOSnv4GWaI~^Uyju@duRHpYR^XCZ40~DTb3j!}}|`
+zx1PZ_sFdNKEF(~cT1L+?p#{)~GnH6*)+Hz;hu|mt03u`?CF=+VaRo7qRdR@s?;xES
+zA$^xTk!+)tawf^+ZNj`-&s5spp*32mW}Gl5PBLZ-R9O${k78wL&(WKle1SfOwW+u_
+z?0q@Y?V0g~e4*|qSO|MVzUjCUrtJIU{)w>v1qQnCBgQJ*GhK)Wq-`*+hSiw&cLcXQ
+z;Xta4vztHo*wcT0Yat=jMgr(b&DKenK`+T`M1qcfT&Lu3&~6%W+{7YoVTC-lNpB!Q
+zQL`|~@;&{lBguJ8B`#7=V?;!NJO_w^DX0`bNr*aOMhWFQAu6=rBGj8iM?W6oT|)K{
+X)+=I<>ck$k5qs1^ETf#{?!A8j=wfpX
+
+diff --git target/classes/com/starrysky/base/web/FindController.class target/classes/com/starrysky/base/web/FindController.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..23ed143e8b1f9b99c117af2dfd15f33d77ca8d54
+GIT binary patch
+literal 2857
+zc$~FXZBrXn6n-{@CWK&VD7Dm<Qc5Mfbqfl`22h|ttAQdQwPMAa%}rR??5?{vV08Qm
+z`mN)?aH`{!L1+2{{11M#<F9Z$_a=lSqz*9SmwR{5JulC5&bepzkAHr931ApI5nROm
+zCbVHLjQM6P;6VrvBWT3^Fg|R?M@UNHViT6|D1v2t9L7o*Jz=bdu_gtd$n*6u9*6L0
+z2v0P$XSvNiW-aGE*YWu(_jXN#YZyryPEPj)^Spw;Q_xe)=el1!)fej7Bs6ra<ZWT*
+z_`2zvDT`0rwj-D@9oyG1o^-sd?z^68XEPql@jb`e(Nmn+zMf%*aJ+)f$_Dy$UO0QE
+z$J6BY+=OYHVoF0pyl-7YaMno^!t+Vf=1cipihFB}qG^aF9fMix%roVCNf;DcCWY^<
+z$7heH^m)@x&pNj79LwUKjFxqzOv7kAxy^Q&o)@O2FETe#e6^UJ)mMe&k?1=vB9uAi
+zN_f@A8k&Vfv_#bBmL%9ZrlAZ)UX<oR%k+hY)(S64l90}&YL*4}km+c3#EIhpDkP6m
+z+uRU|DRQ__6Jz2`ex#?SRWoZdk@pDAM*K`}PMG8R-6ZRoq6}6x(hC17&wW7%+@fjY
+zF0=BoTV$^FZ!3!O9Th*v#g;?GzkBKc%21YnVQx)BclA|RX3~e?Ue%o#J8_U@CbkYs
+zPBB^uJF^Ww?YdSW>14@QPyDs1tL&c0+}8$oRs0Y>J1WzEnVr2M+R{w0;o2mJUC&A9
+z4Nj=9Q&}w2D3aXv9XruwY%$O0Vlpo>L*u8((F*rnqQz&Nbb(@DsLjzx3C~C^p2(_`
+z_Y6L7%3IV{JrHh7W*P?SqVTDp+!1sI^@<S^MF*}#(T+=Wq5aK_$*pt<8&Q0Yrv&RL
+zmk*e~r7n9!;n}pwZwOyRv57CEU`T~vM3DvwGf`x*Ma`?c(Rj$H5!Led5Bq<;{PESZ
+z=dZs1X;|t!jl#rs%?UBTb)xY{omE>&8lB2CZ5otZRU@4SoXb7g3$&FRO2eJgelv)O
+z9PRWOs@H}z>szWik1m&+C++e0@rFAt={qi>u`CleQy|J|vk3Y|?U=7~Ybvs`TA-@u
+z2#F(+v=?<vM_(q)f{=5TlZ{_TOx+;+M_6_Z-$T6Xr4PWgWzl$wAH#tg^yR-ue*zi;
+zvb|`3litqJewp?l?bLa+zC~|3?HcWk{rk{<riTEomXtxp*JzCv70`+6%4rt`2rA=0
+z(Li$GVgIiP#2O9|4B&S(KH0~)rJ-18@BrZkJeG$;2WSf5Uho%0I)X3IJP?a^1dGQ5
+zv6hlz?2YH-tU&?jMwr$vG%GgU1mq_A&_jPWw=jXXF^^sa?%g7Q5;*zPO`4i|>LJ|#
+zS&xzaP4e4E{(2E7@O{d6LrK4%^ov^kWvv0y8dT{RQrWvqI=AUf-+<=h4u)yx7{NP)
+z0Fs-`%&1z&aF;;I{Cq<OGDs)Uj-7vjR+)+cl_vRgfD0NH2aia{C@9Ezm}thx`Bid%
+ztqirZOtMo^)95^)2n7_OXjw8q>v*Zu@0DoWQ#7v7(-DmXCe%KODV0hfq?KvBU!O+o
+fq%;ylV}hP1NjCMr()i%@Gy<4b>rD9y%mV)cA?4t@
+
+diff --git target/classes/com/starrysky/base/service/impl/DatabasePperationServiceImpl.class target/classes/com/starrysky/base/service/impl/DatabasePperationServiceImpl.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..51d8aa80fdb32f6598934dda69c2ea9c3d55629f
+GIT binary patch
+literal 4063
+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
+
+diff --git target/test-classes/GeneralPurposeTest2.class target/test-classes/GeneralPurposeTest2.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..f34c753ca89e8060c9b018881bd05f0f42136e4a
+GIT binary patch
+literal 3819
+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
+
+diff --git target/classes/com/starrysky/base/service/GeneralPurposeService.class target/classes/com/starrysky/base/service/GeneralPurposeService.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..04dcf4168f55b8cb878e547a10ac5765a517d203
+GIT binary patch
+literal 1059
+zc$}q?%TB^T7=_P|$W8H%7t};|vaz}|ftU!127}Q^bm4AjM;t6InNCUA_+T!403XUY
+z1#F-Y7tl@TJM&-9eE)oY0XWBD68lLU5aPlSijX_0wOE%KHglRrT}k0Ii-l)G%5p1`
+zGsOuT!w_Ey+qh$$V&R35u8XF_lrMF_MI@j!S#m_VZ?w3nikJN|y3HeRyIox+`*$oe
+zWxf$MN2}I^r}_!EQMEKv@38w*$LcScdKHdU?o}<q(Zs$HCfGA>JX01S84P!2+re8D
+zqOK6C6XL9<5LO31R9wdrO1KW;_&+;_6MW3?$9!Y2H@Uju4wuY+@MXvK^pl=wTTHiY
+zc#28c^WJ+#gL&NOxW;&-PS4a`Uz+?{*g7vieqHCXD@=YGbS9ilspt(NjH!8qwdl+V
+z0wIRrOUDTdhy(h+h=kUYT8$y4IUV5)mO@_EoQ>SCU^V15&Fk0*c~kQiav^VP-odUu
+J6ZZN_{ucrbF)siB
+
+diff --git target/test-classes/MD5Test.class target/test-classes/MD5Test.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..feeb278d455fe41d843bd4624e43780042d7528d
+GIT binary patch
+literal 618
+zc${sK%TC)s6o&r^Ax?}b5DFAZ%l*1wlt|r_3aO>-%Cr?h*-y+UOt5Frc#M?CDhog?
+zcmN)%>anpzEAZl+IhX%C$1@Lq?(PA!u;s(U>jq{pTgRM_H<<UafVUnNJ-lP6eNtMv
+z1BQ|9oi0Q5(40z!iBM_zBTIVHo`_ydnPzAr5qE`Ed0Zx|?o6c&jqvE}hZC8)eFo+j
+z=8rS&R3f`7Rn+%cYvY7dMpN%(Xl$PkG8)QDiQh4qjpTQgBZCsPHxQR1KphPa?*lAh
+znRacpTJ3h*!%Bcvta(@uuz^hmuM`nJm+@HWKL6Pp$msu6XP7#f(7&3D3Nv9*QHKAr
+zO1qA;QY5s`Y-AFiI$`ZFJs)ysOw4Hj?e<MabUpUV@aUAn&F%0Xv?E4;f9H9MVfuwR
+zwDd(D#hMm*3Dm_3YV>ybR{_g!f~-#wC(p=_?%sg?F3MwMYelk-fNb#CfN{JcPwz?M
+pN+JGOz^LO2mFCDTs@E8OV)*1ir!gWtae|UFSx%WMn9V{p{TJQ=fs+6L
+
+diff --git target/test-classes/CrUser.class target/test-classes/CrUser.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..0301edf349b90404b556a8085477cf0822fd1a82
+GIT binary patch
+literal 871
+zc${^S%}&Bl5QWbzrBJL2_>2FdCZLJLwT2Cei3!L;WnZx9HHDJ4_*5=5(U`dK0emRq
+zOxs9O%4X)?={aY<wm-jL-vG{Vl!Jy{9ck=w+2>Nu;2?uTfwV0L(iad{0-DqBdlp?%
+z19K#>*nBdd&Dz+PcCBTO&Pi|~htjW;pi=D!s14`dVx1gX*W*Fga&OJ9O_O5N>6v!N
+zbS2-Tq3S<MPaxZDxOblAQe5`I@|)p$3M7E6_dif8SG+<eNjsv_y~$ald5a+nmFhI6
+z7d<RiV$V1-cjJuRo^>f1YA%F1Wtjm3^9C}=8qm4qFh^mbLLeVR+2-(}*6u!8Js<n@
+zAvOBMDJblslfuTJlb3o1f<vh;(5*&YP){F!Lc9gCMXFjb)R3oYgaQ;$q%N?8<tg(!
+zl$V%!KGD2_)yP~YwZiJ-%?~J()wy6=AWtz!SPfNC0-yN3c=1{yNGcApk_fV%43dh2
+tl*qF&14NHNN~D+uQD0*q+le5X*qQ=4`G6V+;XhlR0m6Tl7jFlioj=_4YXATM
+
+diff --git target/classes/com/starrysky/base/service/impl/GeneralPurposeServiceImpl.class target/classes/com/starrysky/base/service/impl/GeneralPurposeServiceImpl.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..8a3653984af14f74f11a1908bcbd4ceb2270d80e
+GIT binary patch
+literal 5299
+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
+
+diff --git target/classes/com/starrysky/WebContextListener.class target/classes/com/starrysky/WebContextListener.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..15aafaa214555a64e8ae8f1dd7ac278ecaa1c851
+GIT binary patch
+literal 784
+zc$|$=OHUI~6#i~oI&>VR6bks}B>@&(S-66j7}UgMq9!%Cz8!Arh3SmBbK6jMEFmo1
+zvyr&al|&X8HQ@*FJ4EzP7|%RXO(5##oO{0c&UYSjj(>hW0x*wTHi{T3VHhL5xNPGJ
+zu3ETe;ktzz48=tiD07z~KRvU|P*@6ABtxI80{OVrtV{h&)O|uKZs-YrS!fl<8CWnc
+zRKzgudSR1CMrhrM);j#TtS^Ouk?Y1)k&%Ja3nbvB&?73Rgs(Q_3d7X2yDHjZokvo)
+zeQ9_t^;!CZwhYWd(wESU+YA%`L1!purS8kf=&%zPvTI>Wd-9=*+a5mK;9RWhpcf?z
+zHyw;(jA7)*-lx;u_b0FRPqyEE+j{$bZ|CcmH>a;REsQ&uz$C-yzXqpfVrA}&puwNi
+zSEXkdCjU0XxtX;Nflc~JVT<ys$riW@`BSX|Q!`qMCe1x?4$NS^j3YmwymZ@{q#?LL
+z%f%Ra=t77{=aMH+OCW1g#K|-AJ+mLdKF}kF3uKE4Sb{^=NeQ@!OXTTtP|lL?5jz+2
+z4v?$l4^j9nU?(5?s8Tr*8A^$nNc`$YC8<5omAjK<<7^+*KO|UJf^{VZ6Mpp<;L5w@
+
+diff --git target/classes/com/starrysky/sys/service/ManService.class target/classes/com/starrysky/sys/service/ManService.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..77e6daf715d140476763d651eb972487662266b0
+GIT binary patch
+literal 620
+zc$}4xK~DlP5QSe6SwIm4#gjJ=OJZm|V@!m^NP;nuc=1+uD;AfQbPLJ;H4pv(f0S`{
+zQAtEJ_VT8$-<x#i_3iluzzGgK?0aZ36d#lhyGcJ};QnAN=7L8;k9c1@Ig+;18U$v-
+zV<)Ul;-`eiNzA8)UkTk|@Y3*k6fxBO)*?J}D&hkbJ9;h+)kq6Bvy!2`0-Ubzd`977
+zXnIx(N7+MvJ=(g<(A#O4p;X?;iJ4Q`{Baz@E1yhPxZshY;eY>nN>vw&=@}g=r;KJe
+z{_Pv9(_j7r|6>>Bp_$o0UZ{xXs**dDcCG^1PP;H1t%l<Tz?UpTZMlx?`>_mMfq@~1
+s^muuO4demRO%%xY$jzZh_Y%sPzxAQpsARf>YNj>pe(`mx8d<gX4l}Q<wg3PC
+
+diff --git target/classes/com/starrysky/base/vo/Params.class target/classes/com/starrysky/base/vo/Params.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..682f1f7b7af719cc491db89dcf23b292254562e9
+GIT binary patch
+literal 1602
+zc$}S6YfsZ)6n@@ayHQ{a1O-GcDjm0if}jIbFeW5ZNH8RRG3mB4i`%-i-4bH_M}Ck*
+zMxu#7z#nBir!51zL5yF{d-}ZR@;vAC{r%_1F91t;l|%}Q3G`x#%_BCC<5*52ibV-4
+zd_G~bDq&5+Q+A)R$+B6GV<V1DfoR#N7><D05r~<Ghqg{1p@u2Yn>*4Pnp$^^vie4=
+zWd#!ZMyaYfbxRjmxq7?qeU`OqN!@oWqgu*dLU!{<dcnzVQjOTUQ8gTD99A+10+DUA
+zsB<r)s=uvQ^1Ag-%a;jB=gfjuKF}<KzkM*`d^Bu<v0TBdsJ5e7*0KHRSj}s;t~N|{
+zPqVa&O--bd?&LgO)P|Hvb_<9oJKQ)yA-lfZgni*h2|pn9eM+WH|7sBXXVp>LtD05<
+zMVZRrRjJ3dbGd8Ef3@S9l4E)i0t4r)FXss)_szOh&|e$esmmMP0>{a?jXN^>ke1QU
+zW&pPYhJq!w>PES!TLRr)?q~N$+K}-aFW9`Kxz3Gyf7Av|U~ar&y0=?wwq?v=USRa5
+zO$wxf^5_TBYBjxD6qr}qWwk5yX_DYkTKo;ySIYUbyt&-=_1Bo7*O;Pr8b*jGNnVJD
+z>7F!C(AHgl2om`;aI(XMsB{WCqcdj^CvM0H*_aDT7$qxv0l14XItA`wye;`VLSF;P
+zJsp!LFzF|6Qgn!;XGTsDx@etr(KO}syA=k#D8B-GtdAQ{btDoF5*h4B<bG!&;UJM=
+z${D$aNWV|y0Upv_kVxcPfXG+}BHmV}2~&{qi|n-s&7LB1;%@bV&?MzfT|>y*^h~P@
+zBSWp-&yq)vz?c1j5RO^?iRk+?#M1F5Bwl0_iFDHQ!|Zo?exwOG^`(jKCVGO(rY|X5
+LZjE@sjZ*&tZ)`82
+
+diff --git target/classes/com/starrysky/base/po/GeneralPurpose.class target/classes/com/starrysky/base/po/GeneralPurpose.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..c147ebc1d2061700410e9520548aec4d88883581
+GIT binary patch
+literal 3916
+zc$}S;dvn`F5WrW7W6O$?rb-(Kw6vvpIBr_UNlOC_p=sX5Nz>X5H3eM7Rvaa=Y$Q40
+z@*chr3@|Xvzz5(%G3-imES*o8l0UrK$L-$l?)J|A{QKwM0FZ?rB)ANvBwT_QBvcZ6
+zB+4WzBs3EHB&sA1NazVT6yZn&Lxh?HCe+E>5aDwXED>xG91)r#9E<RU2w#fOqWH@M
+ze3gK&1sEtSJ;<$=wwJb6ORL)gD7i!RSj`x!S<U1fOE;_caL{tyv>nxSc2%RPiSUg8
+zLtft6=4x)Gl-tY~(B-8z9o@*}blbtiWL~eDs?)SI0mhi{LibFIm~zf5=>mCm`yF-9
+z(6-f@w!9Iv2shq1qFSiz`^q|h8rR-Z8=P4Ko=1C!TG>GkB1!J+no;qpCiZo+g6YT?
+zu7~69oM{HEU$!*W(cG%ZW}|YVTUxDt?CFxH`)gd#P2E`(pf@$OD?n_yUeO3hH?{3%
+zZBMfbv^8{w^|EU0s+LZ+?~FMIx-Gy&u3WEW@Gvc_WgoRNd#bHv8uiS&W@?sd>@=-L
+z-PVw9u&OzQ;KpA_P4RkT&}PP6Omz<<+)zO}yHF-Mk~m_=KSrfJTd<ubx||VBl(ajQ
+zhEr@Iq8SPAQLEA3r%84=cM2*&xNH6-n^9zE={vhq_hAIh|1L|wG68pbTDC)`<VO82
+zKOb6;*XMUx-z#^zWCuzsDW)=^&8N;(y1lC9&P}3K1x<`T?c6Pj22G4U>D)Go2F!tz
+zsJBA{cGwmd%7%X<rF^|<m9;gUT4*?YnQjrd47cHq43lt0h7^e@xGqDQ#59SUa7%_6
+z5?K<nB<A2czN+j-2+*Tf@I^B5)|AQzZA~*1@U0Br!S^z}O^K5GP?ji2w;wwkKeql7
+zKS{Dmo}SR{lG!v2TuvFcrCPUIIL^yTl<P*bX5zCU>1LzplqgSz2`WGKD(^@L-#ay|
+zYM0!XwH<WNe95xZ7ETmbZEthOQ_s6kyz5PXYxrk&8UH^AU=-ehD<HsCw0h7#O51?;
+zm}`%tJrS~d=rCM8<$tG`csgL;z~3|z$1^*zGx(cf>?~u?GWJ}k{s`*WBPicNPX@mN
+ze*4nDgYdIE<Sxp%>+FYll(IJf-i7z@E5JQi=t}+-dVXS(FL9IKhebbm5l8pX==6=>
+zpr<pn<a)1S&Na8fh&RfwK-#3c{{no#1?go$#<(E&`5?V4ND6bNB0y3;$Pzrj7z+|(
+zL8dt%-l;63Zv|HUB0E8#7y<PLfMzf^8v*2X*4oJ|<QYFX`*qYdxTt+B>g`C>P4qqF
+zqxP|=^KLF5HQj}p#^!9Jeu!F*iyCK97f#*PEk0_TMZJ%?OA)BkU8vK{u5QC44r+o$
+zU5P~9LEmF|!b454s2iBO8G-6O6+zUSE|ND(9<>4&Rb)|fr=mXPqlzr*4(2|NK%MDA
+zoncUSxu{7NwQwrxM|{*Ii~0<6ixH^VF4Qc8`izSzv8bP%idy8ON-XLN%vB>$XS+~m
+z8Pt!t*Q%dIt(^J-Jm+7leirorbM*++xvpz97kU9i+^+WD)Q=Ezv#RmGKrZ$w1NmZ1
+z8O#^^lymt%VCWY(KO_et3Pms+$8a&B4CjlYav@(FiYpgUCX^ABqVgKbr1CmSNf|}i
+Yue{+Edy|$S1eQVn`h)2C)J6O3KY$>uEC2ui
+
+diff --git target/classes/com/starrysky/tool/UploadFile.class target/classes/com/starrysky/tool/UploadFile.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..98ca59e55bfd3fa6901dd78a778006c8cd3c6a93
+GIT binary patch
+literal 1949
+zc$}40ZC4vr5PojnHY_WFg@Du|zBfQ&h1yy}triM28eVLmNU4@hauXIdyX)?ag-@R2
+z=@-B0@tc3ZudN?~wdeQ){81j~?xr>^(Q`;n=FXjaXZD$AW;TEQ{l}jGX5p(C!-r{H
+z?ZHRLr!lYM8b0pDb$pV>rz&n>L5jsRZmL+qvOHNy<CfeMr1(t1=PLSTjG|mu(^!-1
+zqJni5!`P4>Unsb(Vict`HWh3sxWkaTW;vF)&JfQ{&^EE?RyjkaXgPeX*(h^=(=6L$
+z(Ti@ywC|X{CHHM(LhM@s!+5dcHjF@+zJDAX9vi}SZDY%`U9-Au*?gX1Fxr(Yr*88N
+zt0I~{xo_u+2j;h?VVh3fC<&iV=ZmgiHv&)UHQ#LT2d;l;Jm6)c(X@r-nZ7VqpJ`$6
+ziPJF{7)8%U2bOCT)|ZYd+!L1T&{?9{w5l?pE`Gfg*Ad(io5vnS=&>4Rov#rJ1}zY-
+zzhR2~+pa4pNX?Q2%$^x8xq1|Z;6;=~ryZoM<aW=_!EU!?k`g18XYT9)8Pt;7^ecQh
+zOf&Pmm^1Q08eYdZ0~Bm)_!2ur_^g7v8g_9{!B-l-#(lEQDcI9sqO73;qMS`D;2LVE
+zYuFDBh6W1<8V+GIjJ%w~LesLV+-FD|VI=~(-he}XGgOdg)s?6upnDozc+_iM%C6xX
+z37B1C82jH|W$1s7V!eF8E8+!H={OL)LDS+kMQ4j`5MDv3x!IWSfY4!PP-FpwP5852
+z8edMIamG4POe<Jwc;Yym-@6QbVce#$D5<T&O{$}BI#st3ZS-7wTK>I2VAH~lATSK&
+zx=vI7%QhL7d$w8OH*6~0)oycqI>BzC`|4aQcFvq)IaPkNUi%M{3N)2LvmCTxWOIeC
+zVN<5(afdo=x?7M_rgo#rwim=#P@~tL%P^2Db~ag9qKp@n)T|tC`a}TU#Cdvm%TF9k
+z&IQRgXlKw$BZB1Q3D{#&VssTqg+>i;g)+Q=xA6|GJ$M)IMb7LpSrxMVtjAV=LtIa^
+zkeqsg6vHn#k_Lqgza!m3kFM&m7JAp{SYya1M(L}+(n4QiuZ2uL`4s&-Cm7K676zy3
+zrw@@BO_FFKyE^q0!#nLOlVrOX*-tR?1h2;ME7W{yG}Xd6`Ow$sq3jVs+{1VHp8iOp
+zl=A2!nW6j#&<h<y7$i=zn8XO?=+*+xk;i%R87HqXJS3KWAkUwO1WCg!O7$Tnd;vM4
+zXA<`@K{8Ih+n6FPK@nDPk+h_w1k<D;)Mi4K<M<KplPyO2EO|xzU!gT7X(z-ll7At5
+U>Tq=0CSPio@IhF!%i-?IKUG@jmjD0&
+
+diff --git target/classes/com/starrysky/sys/po/Man.class target/classes/com/starrysky/sys/po/Man.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..067ec22c51bbc14712ecb0f9dfdba46fe40c5cdd
+GIT binary patch
+literal 2069
+zc$|Hc>r&HD5P&zmB%ws8g#sd%f=Wv%M7)4pTBIllmVy?U@n>i=C0LS95**R-A$${^
+z(K4emK7bG9xSOPfhExCSp0l^}?QZht@6X==Fb{7c5Qo(+=!Yzc9Emj&Pf4tk$P2I$
+z0TEV3ct-j;iA@o<NWTzaTZA1EUW!m4!>#~D0rmvg=OCa}IOr>!DDM@yrs!39TesD!
+zYOZh)(v?${gV+^k$u>2;ioT$werV6j8%9l4bn+=xObgeK4IQ<hR4S%wSsd`Iny%S7
+z3`k8MV)+fDg8trurmMxX(<9Y9P>yQOgGO1Y9V(_qch4BIk2S0@Tqql-vSll#d2YQs
+zm#uS4t{d{M^KiJT+S}MpJT=X1C~Ud@ffU0{NCFlpI!*Vtm1wmsSj~WV>bjpw@K~Zm
+zvuTI8oDOe!0c{jbf3w6ojgUf}gNT-WcbuZtIz}k2IoybK<s#aKi-h))ab}j)O^t>q
+z;+*E_Q3(<-A;BOFNpK5>CAbYE5{%MyjIQG_%)y|)!Tgz4tEeW90qcCyDp?6$!D|vF
+zter{F_mWN0{Q%)J3H(N~&H+CNJalCe&Nq=wa?p)NmzENiAj82>r_FK@y(HN?I#J6u
+zF32%yhFntdJE>_O-Oq$q>UCAe9nZ4%bIs&+wBn0*ANg<mNNS_A8z%6dj05f%cnHv#
+z@kb8Oq#cdJcJ!!cAM@<vj_$!c+z!e~yve9J)Zz36aNnG;J1BX_7=gPeB{u->!4zr^
+zl90NV{2c;ceaVx|<Y`EI$vKP;P;`3c2LvvkjyTpS%t<;G2HYsG0-dN|dUysh43MB7
+zB+Uewg*g^T&<`?)IdTUO8aO>H!+i!w$Pe;>2{Mm%21v*cvVb{@9YAQ~^zcLGYQlby
+zWhTfY_G-d@kR0Z$bpRRlR`Zy-8r~0*XM!xSSHt^3HZf<b1IU=Snnfmv;0M`Zf;?e^
+z2!4<v=InI<8TUYzS|DFAhTf_E0`ctybj2bK=%zoY0aEOSdk&(CCL7Qb>vatwaz@>A
+jn9eudGv5k~xdx$Wh<--VfIfe#r7NvgTdgiTQ7iud$gfJC
+
+diff --git target/test-classes/DatabasePperationTest.class target/test-classes/DatabasePperationTest.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..25f0ea229fb0e77808a4aaaca994f31571870477
+GIT binary patch
+literal 986
+zc$}S5T~8B16g^WumX_s1uu||7KTB0cVoXdhCIn-m*&wlm_vtb%1KpWsb{10qgHJ|d
+z;&0HPAsBh^2lzke&oJIys$#4!KJ47Rcg{KY+?o0I{qQS*1uPVh$GJSt<H8Uw7H|o(
+zc?{w5Fs|TgnqKp8-NOxr(uQ!NCStkTl2$lnbXD3N6-tJCL1-c#J7H}*-fr_0#pB~$
+z{^%dHMTY6;iFPWI>nc{Yrd-n6xC|0A+z*Ux@VI4_Zq%)a<gT&Xye5T?d0m9g*ftlx
+z2z)7VW>;CcL9&AnlveH`LtlArouPl(Y>>&ZKxw&>L^WyG1a)JW2uvuN>%yuu?-u*r
+zrlR&!!C$`DWb8<NByQ_)(;BT_kTr(!%;;7^EqNDGsG7uv^07(<XL<_FZ;2hjQ0X~k
+z?4*^(wOf)eo2X^9)T!*ij%X&NSO|@-tHu*uH$Fx&=ArCk4i%cH^KQTMX0P*luk-T5
+z(c!D3_isJi^l=NfeH1Y4Vctg(JgwYeDE73*FqvIoHFK3#mMNt{Q_H+5bc0vhWHF)x
+zHVMItLAIj|UnPdCIx9s)ekXgB8N5{1H8t_d!3jy1c3Vs@?CyWOCYrrGcPy7U)#QQ7
+zZsLy?&uUvTbkqW~^u+V@{uy%Vu~76W8>BcwF-MV(mDX{}I7LQrpz;~)W43*&3kLm7
+z(CQxpFp1NdXpzXdjQlhc14^Heo9H`0KgG&E2EJgB;Q-!my;1a~I5IYkDa@SEEp>H&
+VT0E0+rn0q^Rnq~c>6?jh_6KB@|CIm$
+

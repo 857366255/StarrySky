@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starrysky.sys.dao.FieldDao">
+    <!--映射实体类-->
+    <resultMap id="classesResultMap" type="com.starrysky.sys.po.Field">
+        <id property="coding" column="coding"/>
+        <result property="name" column="name"/>
+    </resultMap>
+    <sql id="tableName" >s_field</sql>
+    <!--增加-->
+    <insert id="doCreate" parameterType="com.starrysky.sys.po.Field">
+        INSERT INTO <include refid="tableName" />
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="coding != null">coding,</if>
+            <if test="name != null">name,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="coding != null">#{coding},</if>
+            <if test="name != null">#{name},</if>
+        </trim>
+    </insert>
+
+    <!--更新-->
+    <update id="doUpdate" parameterType="com.starrysky.sys.po.Field">
+        UPDATE <include refid="tableName" />
+        <trim prefix="SET" suffixOverrides=",">
+            name=#{name},
+            <!--<if tst="name != null">name=#{name},</if>-->
+        </trim>
+        WHERE coding=#{coding}
+    </update>
+
+    <!--删除-->
+    <delete id="doRemove" parameterType="java.lang.String">
+        DELETE FROM <include refid="tableName" />  WHERE coding=#{coding}
+    </delete>
+
+ </mapper>

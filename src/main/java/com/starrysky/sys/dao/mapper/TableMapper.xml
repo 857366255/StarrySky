@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starrysky.sys.dao.TableDao">
+    <!--映射实体类-->
+    <resultMap id="classesResultMap" type="com.starrysky.sys.po.Table">
+        <id property="coding" column="coding"/>
+        <result property="name" column="name"/>
+        <result property="configurationPageCoding" column="configuration_page_coding"/>
+        <result property="tableEn" column="table_en"/>
+        <result property="annotation" column="annotation"/>
+        <result property="type" column="type"/>
+        <result property="slaveSorting" column="slave_sorting"/>
+        <result property="superiorCoding" column="superior_coding"/>
+        <result property="superiorCorrelateField" column="superior_correlate_field"/>
+        <result property="correlateField" column="correlate_field"/>
+    </resultMap>
+    <sql id="tableName" >s_table</sql>
+    <!--增加-->
+    <insert id="doCreate" parameterType="com.starrysky.sys.po.Table">
+        INSERT INTO <include refid="tableName" />
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="coding != null">coding,</if>
+            <if test="name != null">name,</if>
+            <if test="configurationPageCoding != null">configuration_page_coding,</if>
+            <if test="tableEn != null">table_en,</if>
+            <if test="annotation != null">annotation,</if>
+            <if test="type != null">type,</if>
+            <if test="slaveSorting != null">slave_sorting,</if>
+            <if test="superiorCoding != null">superior_coding,</if>
+            <if test="superiorCorrelateField != null">superior_correlate_field,</if>
+            <if test="correlateField != null">correlate_field,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="coding != null">#{coding},</if>
+            <if test="name != null">#{name},</if>
+            <if test="configurationPageCoding != null">#{configurationPageCoding},</if>
+            <if test="tableEn != null">#{tableEn},</if>
+            <if test="annotation != null">#{annotation},</if>
+            <if test="type != null">#{type},</if>
+            <if test="slaveSorting != null">#{slaveSorting},</if>
+            <if test="superiorCoding != null">#{superiorCoding},</if>
+            <if test="superiorCorrelateField != null">#{superiorCorrelateField},</if>
+            <if test="correlateField != null">#{correlateField},</if>
+        </trim>
+    </insert>
+
+    <!--更新-->
+    <update id="doUpdate" parameterType="com.starrysky.sys.po.Table">
+        UPDATE <include refid="tableName" />
+        <trim prefix="SET" suffixOverrides=",">
+            name=#{name},configuration_page_coding=#{configurationPageCoding},table_en=#{tableEn},annotation=#{annotation}
+            ,type=#{type},slave_sorting=#{slaveSorting},superior_coding=#{superiorCoding},superior_correlate_field=#{superiorCorrelateField}
+            ,correlate_field=#{correlateField},
+            <!--<if tst="name != null">name=#{name},</if>
+            <if test="configurationPageCoding != null">configuration_page_coding=#{configurationPageCoding},</if>
+            <if test="tableEn != null">table_en=#{tableEn},</if>
+            <if test="annotation != null">annotation=#{annotation},</if>
+            <if test="type != null">type=#{type},</if>
+            <if test="slaveSorting != null">slave_sorting=#{slaveSorting},</if>
+            <if test="superiorCoding != null">superior_coding=#{superiorCoding},</if>
+            <if test="superiorCorrelateField != null">superior_correlate_field=#{superiorCorrelateField},</if>
+            <if test="correlateField != null">correlate_field=#{correlateField},</if>-->
+        </trim>
+        WHERE coding=#{coding}
+    </update>
+
+    <!--删除-->
+    <delete id="doRemove" parameterType="java.lang.String">
+        DELETE FROM <include refid="tableName" />  WHERE coding=#{coding}
+    </delete>
+
+ </mapper>

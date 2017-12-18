@@ -16,7 +16,7 @@ public class ConfigurationPage {
     /**
      * 表
      */
-    private String table;
+    private String tableEn;
     /**
      * 从表高度
      */
@@ -58,12 +58,12 @@ public class ConfigurationPage {
         this.name = name;
     }
 
-    public String getTable() {
-        return table;
+    public String getTableEn() {
+        return tableEn;
     }
 
-    public void setTable(String table) {
-        this.table = table;
+    public void setTableEn(String tableEn) {
+        this.tableEn = tableEn;
     }
 
     public Integer getSlaveHeight() {
@@ -119,7 +119,7 @@ public class ConfigurationPage {
         return "ConfigurationPage{" +
                 "coding='" + coding + '\'' +
                 ", name='" + name + '\'' +
-                ", table='" + table + '\'' +
+                ", tableEn='" + tableEn + '\'' +
                 ", slaveHeight=" + slaveHeight +
                 ", listHeight=" + listHeight +
                 ", slaveRows=" + slaveRows +
