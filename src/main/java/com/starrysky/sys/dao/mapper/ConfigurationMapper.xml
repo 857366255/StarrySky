@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starrysky.sys.dao.ConfigurationPageDao">
+    <!--映射实体类-->
+    <resultMap id="classesResultMap" type="com.starrysky.sys.po.ConfigurationPage">
+        <id property="coding" column="coding"/>
+        <result property="name" column="name"/>
+        <result property="table" column="table"/>
+        <result property="slaveHeight" column="slave_height"/>
+        <result property="listHeight" column="list_height"/>
+        <result property="slaveRows" column="slave_rows"/>
+        <result property="listRows" column="list_rows"/>
+        <result property="isShownQuerys" column="is_shown_querys"/>
+        <result property="querysStyle" column="querys_qtyle"/>
+     </resultMap>
+    <!--增加-->
+    <insert id="doCreate" parameterType="com.starrysky.sys.po.ConfigurationPage">
+        INSERT INTO t_man
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test=" != null">,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test=" != null">#{},</if>
+        </trim>
+    </insert>
+ </mapper>

@@ -1,59 +1,133 @@
 package com.starrysky.sys.po;
 
 /**
- * Created by wz on 2017/11/10.
+ * Created by wz on 2017/12/15.
+ * 字段
  */
 public class Field {
-
-    private Integer id;
-
-
-    private String table_name;
-
-    private String name_ch;
-
-    private String name_en;
-
+    /**
+     *编码
+     */
+    private String coding;
+    /**
+     *名称
+     */
+    private String name;
+    /**
+     *配置页面编码
+     */
+    private String configurationPageCoding;
+    /**
+     *字段
+     */
+    private String field;
+    /**
+    *注释
+    */
+    private String annotation;
+    /**
+     *类型
+     */
     private String type;
-
+    /**
+     *大小
+     */
     private Integer size;
+    /**
+     *输入类型
+     */
+    private String inputType;;
+    /**
+     *是否编辑
+     */
+    private Boolean isEdit;
+    /**
+     *是否必填
+     */
+    private Boolean isMust;
+    /**
+     *编辑注释
+     */
+    private String editAnnotation;
+    /**
+     *编辑排序号
+     */
+    private Integer editSorting;
+    /**
+     *是否显示列表
+     */
+    private Boolean isShowList;
+    /**
+     *列表宽度
+     */
+    private Integer listWidth;
+    /**
+     *列表排序号
+     */
+    private Integer listSorting;
+    /**
+     *查询排序号
+     */
+    private Integer querySorting;
+    /**
+     *是否查询
+     */
+    private Boolean isQuery;
+    /**
+     *查询站几列
+     */
+    private Integer queryOccupy;
+    /**
+     *是否显示从表
+     */
+    private Boolean isShowSlave;
+    /**
+     *从表宽度
+     */
+    private Integer slaveWidth;
+    /**
+     *从表排序
+     */
+    private Integer slaveSorting;
 
-    private String type_size;
-
-    private Boolean is_null;
-
-    private String category;
-
-    public Integer getId() {
-        return id;
+    public String getCoding() {
+        return coding;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCoding(String coding) {
+        this.coding = coding;
     }
 
-    public String getTable_name() {
-        return table_name;
+    public String getName() {
+        return name;
     }
 
-    public void setTable_name(String table_name) {
-        this.table_name = table_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getName_ch() {
-        return name_ch;
+    public String getConfigurationPageCoding() {
+        return configurationPageCoding;
     }
 
-    public void setName_ch(String name_ch) {
-        this.name_ch = name_ch;
+    public void setConfigurationPageCoding(String configurationPageCoding) {
+        this.configurationPageCoding = configurationPageCoding;
     }
 
-    public String getName_en() {
-        return name_en;
+    public String getField() {
+        return field;
     }
 
-    public void setName_en(String name_en) {
-        this.name_en = name_en;
+    public void setField(String field) {
+        this.field = field;
+    }
+
+    public String getAnnotation() {
+        return annotation;
+    }
+
+    public void setAnnotation(String annotation) {
+        this.annotation = annotation;
     }
 
     public String getType() {
@@ -72,42 +146,143 @@ public class Field {
         this.size = size;
     }
 
-    public String getType_size() {
-        return type_size;
+    public String getInputType() {
+        return inputType;
     }
 
-    public void setType_size(String type_size) {
-        this.type_size = type_size;
+    public void setInputType(String inputType) {
+        this.inputType = inputType;
     }
 
-    public Boolean getIs_null() {
-        return is_null;
+    public Boolean getEdit() {
+        return isEdit;
     }
 
-    public void setIs_null(Boolean is_null) {
-        this.is_null = is_null;
+    public void setEdit(Boolean edit) {
+        isEdit = edit;
     }
 
-    public String getCategory() {
-        return category;
+    public Boolean getMust() {
+        return isMust;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setMust(Boolean must) {
+        isMust = must;
+    }
+
+    public String getEditAnnotation() {
+        return editAnnotation;
+    }
+
+    public void setEditAnnotation(String editAnnotation) {
+        this.editAnnotation = editAnnotation;
+    }
+
+    public Integer getEditSorting() {
+        return editSorting;
+    }
+
+    public void setEditSorting(Integer editSorting) {
+        this.editSorting = editSorting;
+    }
+
+    public Boolean getShowList() {
+        return isShowList;
+    }
+
+    public void setShowList(Boolean showList) {
+        isShowList = showList;
+    }
+
+    public Integer getListWidth() {
+        return listWidth;
+    }
+
+    public void setListWidth(Integer listWidth) {
+        this.listWidth = listWidth;
+    }
+
+    public Integer getListSorting() {
+        return listSorting;
+    }
+
+    public void setListSorting(Integer listSorting) {
+        this.listSorting = listSorting;
+    }
+
+    public Integer getQuerySorting() {
+        return querySorting;
+    }
+
+    public void setQuerySorting(Integer querySorting) {
+        this.querySorting = querySorting;
+    }
+
+    public Boolean getQuery() {
+        return isQuery;
+    }
+
+    public void setQuery(Boolean query) {
+        isQuery = query;
+    }
+
+    public Integer getQueryOccupy() {
+        return queryOccupy;
+    }
+
+    public void setQueryOccupy(Integer queryOccupy) {
+        this.queryOccupy = queryOccupy;
+    }
+
+    public Boolean getShowSlave() {
+        return isShowSlave;
+    }
+
+    public void setShowSlave(Boolean showSlave) {
+        isShowSlave = showSlave;
+    }
+
+    public Integer getSlaveWidth() {
+        return slaveWidth;
+    }
+
+    public void setSlaveWidth(Integer slaveWidth) {
+        this.slaveWidth = slaveWidth;
+    }
+
+    public Integer getSlaveSorting() {
+        return slaveSorting;
+    }
+
+    public void setSlaveSorting(Integer slaveSorting) {
+        this.slaveSorting = slaveSorting;
     }
 
     @Override
     public String toString() {
         return "Field{" +
-                "id=" + id +
-                ", table_name='" + table_name + '\'' +
-                ", name_ch='" + name_ch + '\'' +
-                ", name_en='" + name_en + '\'' +
+                "coding='" + coding + '\'' +
+                ", name='" + name + '\'' +
+                ", configurationPageCoding='" + configurationPageCoding + '\'' +
+                ", field='" + field + '\'' +
+                ", annotation='" + annotation + '\'' +
                 ", type='" + type + '\'' +
                 ", size=" + size +
-                ", type_size='" + type_size + '\'' +
-                ", is_null=" + is_null +
-                ", category='" + category + '\'' +
+                ", inputType='" + inputType + '\'' +
+                ", isEdit=" + isEdit +
+                ", isMust=" + isMust +
+                ", editAnnotation='" + editAnnotation + '\'' +
+                ", editSorting=" + editSorting +
+                ", isShowList=" + isShowList +
+                ", listWidth=" + listWidth +
+                ", listSorting=" + listSorting +
+                ", querySorting=" + querySorting +
+                ", isQuery=" + isQuery +
+                ", queryOccupy=" + queryOccupy +
+                ", isShowSlave=" + isShowSlave +
+                ", slaveWidth=" + slaveWidth +
+                ", slaveSorting=" + slaveSorting +
                 '}';
     }
 }
+

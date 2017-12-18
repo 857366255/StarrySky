@@ -1,4 +1,4 @@
-package sys.po;
+package com.starrysky.sys.po;
 
 /**
  * Created by wz on 2017/12/15.
