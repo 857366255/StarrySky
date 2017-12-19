@@ -31,9 +31,14 @@ public class Test extends SpringTestCase {
     private FieldDao fieldDao;
 
     @org.junit.Test
+    public void tsstFind(){
+        System.out.println(menuDao.findMenuList());
+    }
+
+    @org.junit.Test
     public void tsstAdd(){
         System.out.println("新增");
-        Field field = new Field();
+       /* Field field = new Field();
         field.setCoding("dd");
         field.setName("asd");
         field.setConfigurationPageCoding(null);
@@ -56,7 +61,7 @@ public class Test extends SpringTestCase {
         field.setShowSlave(false);
         field.setSlaveWidth(5);
         field.setSlaveSorting(6);
-        System.out.println(fieldDao.doCreate(field));
+        System.out.println(fieldDao.doCreate(field));*/
        /* Table table = new Table();
         table.setCoding("cc");
         table.setAnnotation("是");
@@ -80,17 +85,19 @@ public class Test extends SpringTestCase {
         configurationPage.setTableEn("s_asd");
         configurationPage.setSlaveRows(10);
         System.out.println(configurationPageDao.doCreate(configurationPage));*/
-        /*Menu menu = new Menu();
-        menu.setCoding("baa");
-        menu.setConfigurationPageCoding("asa");
-        menu.setDisplayStyle("das");
-        menu.setEnablement(false);
-        menu.setIcon("ad");
-        menu.setName("看");
-        menu.setSorting(12);
-        menu.setSuperiorCoding("b");
-        menu.setUrl("uil");
-        System.out.println(menuDao.doCreate(menu));*/
+        Menu menu = new Menu();
+        for(int i=0;i<2;i++){
+            menu.setCoding("aaa"+i);
+            menu.setConfigurationPageCoding(null);
+            menu.setDisplayStyle("das"+i);
+            menu.setEnablement(false);
+            menu.setIcon("ad"+i);
+            menu.setName("看"+i);
+            menu.setSorting(i);
+            menu.setSuperiorCoding("a0");
+            menu.setUrl("uil");
+            System.out.println(menuDao.doCreate(menu));
+        }/**/
     }
 
     @org.junit.Test

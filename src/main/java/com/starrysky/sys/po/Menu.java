@@ -1,5 +1,7 @@
 package com.starrysky.sys.po;
 
+import java.util.List;
+
 /**
  * Created by wz on 2017/12/15.
  * 菜单栏
@@ -29,6 +31,10 @@ public class Menu {
      *上级编码
      */
     private String superiorCoding;
+    /**
+     * 通过查询上级编码找到下级菜单
+     */
+    private List<Menu> menuList;
     /**
      *配置页面编码
      */
@@ -90,6 +96,14 @@ public class Menu {
         this.superiorCoding = superiorCoding;
     }
 
+    public List<Menu> getMenuList() {
+        return menuList;
+    }
+
+    public void setMenuList(List<Menu> menuList) {
+        this.menuList = menuList;
+    }
+
     public String getConfigurationPageCoding() {
         return configurationPageCoding;
     }
@@ -123,6 +137,7 @@ public class Menu {
                 ", sorting=" + sorting +
                 ", isEnablement=" + isEnablement +
                 ", superiorCoding='" + superiorCoding + '\'' +
+                ", menuList=" + menuList +
                 ", configurationPageCoding='" + configurationPageCoding + '\'' +
                 ", displayStyle='" + displayStyle + '\'' +
                 ", url='" + url + '\'' +
