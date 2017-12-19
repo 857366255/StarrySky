@@ -18,6 +18,10 @@ public class Field {
      */
     private String configurationPageCoding;
     /**
+     *表编码
+     */
+    private String tableCoding;
+    /**
      *字段
      */
     private String field;
@@ -112,6 +116,14 @@ public class Field {
 
     public void setConfigurationPageCoding(String configurationPageCoding) {
         this.configurationPageCoding = configurationPageCoding;
+    }
+
+    public String getTableCoding() {
+        return tableCoding;
+    }
+
+    public void setTableCoding(String tableCoding) {
+        this.tableCoding = tableCoding;
     }
 
     public String getField() {
@@ -264,6 +276,7 @@ public class Field {
                 "coding='" + coding + '\'' +
                 ", name='" + name + '\'' +
                 ", configurationPageCoding='" + configurationPageCoding + '\'' +
+                ", tableCoding='" + tableCoding + '\'' +
                 ", field='" + field + '\'' +
                 ", annotation='" + annotation + '\'' +
                 ", type='" + type + '\'' +

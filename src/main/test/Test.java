@@ -4,9 +4,11 @@
 
 import base.SpringTestCase;
 import com.starrysky.sys.dao.ConfigurationPageDao;
+import com.starrysky.sys.dao.FieldDao;
 import com.starrysky.sys.dao.MenuDao;
 import com.starrysky.sys.dao.TableDao;
 import com.starrysky.sys.po.ConfigurationPage;
+import com.starrysky.sys.po.Field;
 import com.starrysky.sys.po.Menu;
 import com.starrysky.sys.po.Table;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +27,37 @@ public class Test extends SpringTestCase {
     private MenuDao menuDao;
     @Autowired
     private TableDao tableDao;
+    @Autowired
+    private FieldDao fieldDao;
 
     @org.junit.Test
     public void tsstAdd(){
         System.out.println("新增");
-        Table table = new Table();
+        Field field = new Field();
+        field.setCoding("dd");
+        field.setName("asd");
+        field.setConfigurationPageCoding(null);
+        field.setTableCoding(null);
+        field.setField("asd");
+        field.setAnnotation("as");
+        field.setType("ads");
+        field.setSize(0);
+        field.setInputType("ad");
+        field.setEdit(false);
+        field.setMust(false);
+        field.setEditAnnotation("asd");
+        field.setEditSorting(1);
+        field.setShowList(false);
+        field.setListWidth(2);
+        field.setListSorting(3);
+        field.setQuerySorting(4);
+        field.setQuery(false);
+        field.setQueryOccupy(0);
+        field.setShowSlave(false);
+        field.setSlaveWidth(5);
+        field.setSlaveSorting(6);
+        System.out.println(fieldDao.doCreate(field));
+       /* Table table = new Table();
         table.setCoding("cc");
         table.setAnnotation("是");
         table.setConfigurationPageCoding("a");
@@ -39,8 +67,8 @@ public class Test extends SpringTestCase {
         table.setType("dss");
         table.setTableEn("res");
         table.setSuperiorCoding("c");
-        table.setSuperiorCorrelateField("aass");
-        System.out.println(tableDao.doCreate(table));
+        table.setSuperiorCorrelateField("aass")
+        System.out.println(tableDao.doCreate(table));*/
         /*ConfigurationPage configurationPage = new ConfigurationPage();
         configurationPage.setCoding("HWAS21123123");
         configurationPage.setListHeight(1000);
@@ -68,7 +96,31 @@ public class Test extends SpringTestCase {
     @org.junit.Test
     public void tsstUpdate(){
         System.out.println("更新");
-        Table table = new Table();
+        Field field = new Field();
+        field.setCoding("dd");
+        field.setName(null);
+        field.setConfigurationPageCoding(null);
+        field.setTableCoding(null);
+        field.setField(null);
+        field.setAnnotation(null);
+        field.setType(null);
+        field.setSize(null);
+        field.setInputType(null);
+        field.setEdit(null);
+        field.setMust(null);
+        field.setEditAnnotation(null);
+        field.setEditSorting(null);
+        field.setShowList(null);
+        field.setListWidth(null);
+        field.setListSorting(null);
+        field.setQuerySorting(null);
+        field.setQuery(null);
+        field.setQueryOccupy(null);
+        field.setShowSlave(null);
+        field.setSlaveWidth(null);
+        field.setSlaveSorting(null);
+        System.out.println(fieldDao.doUpdate(field));
+        /*Table table = new Table();
         table.setCoding("cc");
         table.setAnnotation(null);
         table.setConfigurationPageCoding(null);
@@ -79,7 +131,7 @@ public class Test extends SpringTestCase {
         table.setTableEn(null);
         table.setSuperiorCoding(null);
         table.setSuperiorCorrelateField(null);
-        System.out.println(tableDao.doUpdate(table));
+        System.out.println(tableDao.doUpdate(table));*/
        /* ConfigurationPage configurationPage = new ConfigurationPage();
         configurationPage.setCoding("HWAS21123123");
         configurationPage.setListHeight(2000);
@@ -106,7 +158,8 @@ public class Test extends SpringTestCase {
     @org.junit.Test
     public void doRemove(){
         System.out.println("删除");
-        System.out.println(tableDao.doRemove("cc"));
+        System.out.println(fieldDao.doRemove("dd"));
+       /* System.out.println(tableDao.doRemove("cc"));*/
        /* System.out.println(configurationPageDao.doRemove("HWAS21123123"));*/
        /* System.out.println(menuDao.doRemove("ba"));*/
     }

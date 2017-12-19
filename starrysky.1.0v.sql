@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MySQL
-Source Server Version : 50158
+Source Server         : 127.0.0.1
+Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : starrysky
 
 Target Server Type    : MYSQL
-Target Server Version : 50158
+Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-12-18 21:15:21
+Date: 2017-12-19 17:24:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -40,6 +40,7 @@ CREATE TABLE `s_field` (
   `coding` varchar(255) NOT NULL COMMENT '编码',
   `name` varchar(255) DEFAULT NULL COMMENT '名称',
   `configuration_page_coding` varchar(255) DEFAULT NULL COMMENT '配置页面编码',
+  `table_coding` varchar(255) DEFAULT NULL COMMENT '表编码',
   `field` varchar(255) DEFAULT NULL COMMENT '字段',
   `annotation` varchar(255) DEFAULT NULL COMMENT '注释',
   `type` varchar(255) DEFAULT NULL COMMENT '类型',
@@ -60,7 +61,9 @@ CREATE TABLE `s_field` (
   `slave_sorting` int(11) DEFAULT NULL COMMENT '从表排序',
   PRIMARY KEY (`coding`),
   KEY `fk_sf_cpc_scp_c` (`configuration_page_coding`),
-  CONSTRAINT `fk_sf_cpc_scp_c` FOREIGN KEY (`configuration_page_coding`) REFERENCES `s_configuration_page` (`coding`)
+  KEY `fk_sf_tc_st_c` (`table_coding`),
+  CONSTRAINT `fk_sf_cpc_scp_c` FOREIGN KEY (`configuration_page_coding`) REFERENCES `s_configuration_page` (`coding`),
+  CONSTRAINT `fk_sf_tc_st_c` FOREIGN KEY (`table_coding`) REFERENCES `s_table` (`coding`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='字段';
 
 -- ----------------------------
